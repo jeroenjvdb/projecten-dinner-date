@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Auth;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -61,5 +62,29 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function login()
+    {
+        return view('Auth.login');
+    }
+
+    public function postLogin()
+    {
+        if(Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
+        {
+            return redirect()->intended('/');
+        }
+        return redirect()->back()->withInput();
+    }
+
+    public function register()
+    {
+        return View('Auth.register');
+    }
+
+    public function postRegister()
+    {
+
     }
 }

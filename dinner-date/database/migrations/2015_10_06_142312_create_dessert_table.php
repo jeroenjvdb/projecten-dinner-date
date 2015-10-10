@@ -17,6 +17,8 @@ class CreateDessertTable extends Migration
 
             $table->boolean('isFood');
             $table->string('name');
+            $table->rememberToken();
+            $table->timestamps();
         
         });
     }

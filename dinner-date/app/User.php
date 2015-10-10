@@ -36,4 +36,48 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    /*
+    * one to many
+    */
+
+    public function dishes()
+    {
+        return $this->hasMany('App\Dish', 'user_id', 'id');
+    }
+
+    public function ratings()
+    {
+        return $this->hasMany('App\Rating', 'user_id', 'id');
+    }
+
+    /*
+    * many to many
+    */
+
+    public function tastes()
+    {
+        return $this->belongsToMany('App\Taste', 'users_tastes', 'user_id', 'taste_id');
+    }
+
+    public function  kitchens()
+    {
+        return $this->belongsToMany('App\Kitchen', 'users_kitchens', 'user_id', 'kitchen_id');
+    }
+
+    public function desserts()
+    {
+        return $this->belongsToMany('App\Dessert', 'users_desserts', 'user_id', 'dessert_id')
+    }
+
+    public function dates()
+    {
+        return $this->belongsToMany('App\Date', 'users_dates', 'user_id', 'id');
+    }
+
+    public function allergies()
+    {
+        return $this->belongsToMany('App\Allergy', 'users_allergies', 'user_id', 'id');
+    }
+
 }
