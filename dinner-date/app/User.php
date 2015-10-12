@@ -67,7 +67,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function desserts()
     {
-        return $this->belongsToMany('App\Dessert', 'users_desserts', 'user_id', 'dessert_id')
+        return $this->belongsToMany('App\Dessert', 'users_desserts', 'user_id', 'dessert_id');
     }
 
     public function dates()

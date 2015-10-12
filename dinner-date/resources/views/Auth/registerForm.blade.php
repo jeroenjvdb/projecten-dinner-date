@@ -1,5 +1,5 @@
 	
-	{!! Form::open(array('url' => '', 'method' => 'post')) !!}
+	{!! Form::open(array('url' => route('register'), 'method' => 'post')) !!}
 
 		{!! Form::label('email', 'Email adress') !!}
 		{!! Form::text('email', '', array('placeholder' => 'example@test.be')) !!}</br>

@@ -4,10 +4,12 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use Auth;
+use Hash;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -83,8 +85,19 @@ class AuthController extends Controller
         return View('Auth.register');
     }
 
-    public function postRegister()
+    public function postRegister(Request $request)
     {
+        $registerData   = $request->all();
 
+        $user           = new User;
+
+        $user->email    = $registerData['email'];
+        $user->password = Hash::make($registerData['password']);
+        $user->name     = $registerData['name'];
+        $user->surname  = $registerData['surname'];
+
+        $user->save();
+
+        return redirect()->route('home');
     }
 }
