@@ -8,6 +8,9 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
+	@if(Auth::user())
+		{{ Auth::user()->email }}
+	@endif
 	@yield('body')
 </body>
 </html>
