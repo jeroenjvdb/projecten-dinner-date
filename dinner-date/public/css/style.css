@@ -11,12 +11,12 @@ html, body {
                 font-family: 'Lato';
             }
 
-            .container {
+           /* .container {
                 text-align: center;
                 display: table-cell;
                 vertical-align: middle;
                 
-            }
+            }*/
 
             .content {
                 text-align: center;
@@ -31,3 +31,46 @@ html, body {
                 font-size: 1.5em;
                 font-weight: bold;
             }
+
+img{
+    width: 100%;
+    /*padding: 5px;*/
+}
+
+.profile-pics  p, .profile-pics .more-pics img{
+    padding-top: 5px;
+    /*margin-left: -5px ;*/
+    /*margin-right: -5px;*/
+    margin-top: 0;
+    /*width: 150%;*/
+}
+
+nav{
+    width: 100%;
+}
+
+h3{
+    margin-top: 1px !important;
+}
+
+.dish{
+    margin: 20px auto;
+    /*height: 70px;*/
+}
+
+span{
+    font-size:1.2em;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+textarea{
+    width: 100%;
+    height: 8em;
+}
+
+.invisible{
+    visibility: hidden;
+}

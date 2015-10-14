@@ -6,13 +6,11 @@
 	<script src="/js/jquery.js"></script>
 	@yield('scripts')
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 </head>
 <body>
-	<nav class="navbar navbar-default">
-	
-
-
+	<div>
 	<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -80,7 +78,8 @@
   </div><!-- /.container-fluid -->
 </nav>
 	<div class="container">
-	@yield('body')
+		@yield('body')
 	</div>
+</div>
 </body>
 </html>

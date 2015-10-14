@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use Auth;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -24,7 +27,19 @@ class MainController extends Controller
      */
     public function index()
     {
-        return View('dashboard');
+        $profile = User::find(Auth::user()->id);
+        $favoriteDish = explode(';', $profile->favoriteDish);
+        
+        foreach ($favoriteDish as $key => $value) {
+
+            if($value == "")
+            {
+                unset($favoriteDish[$key]);
+            }
+        }
+        $profile->favoriteDishArray = $favoriteDish;
+        $data   =   ['profile' => $profile];
+        return View('dashboard')->with($data);
     }
 
     /**
