@@ -24,3 +24,6 @@ Route::get('/register', 	['as' => 'register', 	'uses' => 'Auth\AuthController@re
 Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ]);		
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
+
+Route::get('/dish',			['as' => 'dish',		'uses' => 'mainController@dishes']);
+

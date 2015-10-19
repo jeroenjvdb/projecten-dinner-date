@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+/*
+models
+*/
 use App\User;
+use App\Dish;
+
+
 use Auth;
 
 use Illuminate\Http\Request;
@@ -40,6 +45,15 @@ class MainController extends Controller
         $profile->favoriteDishArray = $favoriteDish;
         $data   =   ['profile' => $profile];
         return View('dashboard')->with($data);
+    }
+
+    public function dishes()
+    {
+        $dish = Dish::all()->first();
+        // var_dump($dish);
+        $data = ['dish' => $dish];
+
+        return View('dish')->withInput($data);
     }
 
     /**
