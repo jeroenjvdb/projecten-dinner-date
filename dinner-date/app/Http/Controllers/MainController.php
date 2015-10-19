@@ -53,7 +53,7 @@ class MainController extends Controller
         // var_dump($dish);
         $data = ['dish' => $dish];
 
-        return View('dish')->withInput($data);
+        return View('dish')->with($data);
     }
 
     /**
