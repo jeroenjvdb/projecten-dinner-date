@@ -14,6 +14,7 @@ class AlterDishesTable extends Migration
     {
         Schema::table('dishes', function($table) {
             $table->string('duration');
+            $table->string('photo_url');
         });
     }
 
@@ -25,7 +26,7 @@ class AlterDishesTable extends Migration
     public function down()
     {
         Schema::table('dishes', function($table) {
-            $table->dropColumn('duration');
+            $table->dropColumn(['duration', 'photo_url']);
         });
     }
 }

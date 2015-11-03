@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document | @yield('title')</title>
-	<script src="/js/jquery.js"></script>
-	@yield('scripts')
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+  <title>Document | @yield('title')</title>
+  <script src="/js/jquery.js"></script>
+@yield('scripts')
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 </head>
 <body>
-	<div>
-	<nav class="navbar navbar-default">
+  <div>
+  <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -50,19 +50,19 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li>
-        	@if(Auth::user())
-        		<a href="#">
-					{{ Auth::user()->email }}
-				</a>
-			@else
-				<a href="{{ route('login') }}">
-					login
-				</a>
-			@endif
-		</li>
-		@if(Auth::user())
-			<li><a href="{{ route('logout') }}">logout</a></li>
-		@endif
+          @if(Auth::user())
+            <a href="#">
+          {{ Auth::user()->email }}
+        </a>
+      @else
+        <a href="{{ route('login') }}">
+          login
+        </a>
+      @endif
+    </li>
+    @if(Auth::user())
+      <li><a href="{{ route('logout') }}">logout</a></li>
+    @endif
         {{-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -77,9 +77,12 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-	<div class="container">
-		@yield('body')
-	</div>
+  @yield('noContainer')
+  <div class="container">
+    @yield('body')
+  </div>
 </div>
+
+
 </body>
 </html>

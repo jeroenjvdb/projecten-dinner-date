@@ -75,7 +75,7 @@ class AuthController extends Controller
     {
         if(Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
         {
-            return redirect()->intended('/');
+            return redirect()->route('dashboard');
         }
         return redirect()->back()->withInput();
     }
@@ -83,7 +83,7 @@ class AuthController extends Controller
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('homepage');
     }
 
     public function register()

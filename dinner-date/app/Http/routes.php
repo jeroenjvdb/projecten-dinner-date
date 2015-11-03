@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'home', function () {
-    return view('welcome');
-}));
+Route::get('/', array('as' => 'homepage', 'uses' => 'mainController@home'));
 
 Route::get('/login', 		['as' => 'login', 		'uses' =>'Auth\AuthController@login']);
 Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
@@ -26,4 +24,5 @@ Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ])
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
 
 Route::get('/dish',			['as' => 'dish',		'uses' => 'mainController@dishes']);
+Route::get('/dish/all', 	['as' => 'dishIndex',	'uses' => 'DishController@index']);
 

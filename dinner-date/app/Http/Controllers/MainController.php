@@ -19,10 +19,16 @@ class MainController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'home']);
     }
 
+    public function home()
+    {
+        $dishes = Dish::all()->take(4);
+        $data = array('dishes' => $dishes);
 
+        return View('welcome')->with($data);
+    }
 
 
     /**
@@ -43,6 +49,7 @@ class MainController extends Controller
             }
         }
         $profile->favoriteDishArray = $favoriteDish;
+        // $dish = Dish::all()->first();
         $data   =   ['profile' => $profile];
         return View('dashboard')->with($data);
     }

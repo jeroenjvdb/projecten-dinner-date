@@ -74,3 +74,18 @@ textarea{
 .invisible{
     visibility: hidden;
 }
+
+.fullWidth{
+    !important width: 100%;
+}
+
+.inPictures{
+    position: absolute;
+    left: 50;
+    top: 150px;
+    background-color: rgba(200,200,200,.9);
+}
+
+.partialDish{
+    margin-top: 10px;
+}
