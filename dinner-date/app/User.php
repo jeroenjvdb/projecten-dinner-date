@@ -80,4 +80,13 @@ class User extends Model implements AuthenticatableContract,
         return $this->belongsToMany('App\Allergy', 'users_allergies', 'user_id', 'id');
     }
 
+    /*
+    * helper functions
+    */
+
+    public function fullName()
+    {
+        return $this->surname . ' ' . $this->name;
+    }
+
 }

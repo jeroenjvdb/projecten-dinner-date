@@ -16,13 +16,13 @@ class CreateDishesTable extends Migration
             $table->increments('id');
 
             $table->string('name');
-            $table->string('sDescription');
-            $table->string('lDescription');
+            $table->mediumText('sDescription');
+            $table->longText('lDescription');
 
             //$table->...('duur');
             $table->integer('difficulty');
-            $table->string('ingredients');
-            $table->string('preparations');
+            $table->longText('ingredients');
+            $table->longText('preparations');
             $table->string('fittingDrinks');
 
             //foreign keys

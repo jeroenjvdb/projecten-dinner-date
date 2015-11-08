@@ -2,20 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Dish;
-
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class DishController extends Controller
+class ChatController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -23,10 +15,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        $dishes = Dish::all();
-        $data = ['dishes' => $dishes];
-
-        return View('dishes.dishes')->with($data);
+        //
     }
 
     /**
@@ -58,11 +47,7 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $dish = Dish::findOrFail($id);
-        // var_dump($dish);
-        $data = ['dish' => $dish];
-
-        return View('dish')->with($data);
+        //
     }
 
     /**

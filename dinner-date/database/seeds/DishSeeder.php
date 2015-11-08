@@ -67,7 +67,7 @@ Afwerken en serveren
         $dish->fittingDrinks = "";
         $dish->duration = "50'";
         $dish->photo_url = "http://daisybrand.com/assets/images/recipes/recipe-images/PANNA%20COTTA%20W%20STRAWBERRY%20SAUCE%20770x628_5314.jpg";
-        $dish->users()->associate(1);
+        $dish->user()->associate(1);
 
         $dish->save();
 
@@ -125,7 +125,7 @@ Afwerken en serveren
         $dish->fittingDrinks = "";
         $dish->duration = "50'";
         $dish->photo_url = "http://daisybrand.com/assets/images/recipes/recipe-images/PANNA%20COTTA%20W%20STRAWBERRY%20SAUCE%20770x628_5314.jpg";
-        $dish->users()->associate(1);
+        $dish->user()->associate(1);
 
         $dish->save();
 
@@ -183,7 +183,7 @@ Afwerken en serveren
         $dish->fittingDrinks = "";
         $dish->duration = "50'";
         $dish->photo_url = "http://daisybrand.com/assets/images/recipes/recipe-images/PANNA%20COTTA%20W%20STRAWBERRY%20SAUCE%20770x628_5314.jpg";
-        $dish->users()->associate(1);
+        $dish->user()->associate(1);
 
         $dish->save();
 
@@ -241,7 +241,7 @@ Afwerken en serveren
         $dish->fittingDrinks = "";
         $dish->duration = "50'";
         $dish->photo_url = "http://daisybrand.com/assets/images/recipes/recipe-images/PANNA%20COTTA%20W%20STRAWBERRY%20SAUCE%20770x628_5314.jpg";
-        $dish->users()->associate(1);
+        $dish->user()->associate(1);
 
         $dish->save();
 

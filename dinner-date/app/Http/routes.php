@@ -25,4 +25,22 @@ Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
 
 Route::get('/dish',			['as' => 'dish',		'uses' => 'mainController@dishes']);
 Route::get('/dish/all', 	['as' => 'dishIndex',	'uses' => 'DishController@index']);
+Route::get('/dish/{id}',	['as' => 'oneDish', 	function($id){
+	$dish = App\Dish::findorfail($id);
+
+	$ingredientArray = explode(';', $dish->ingredients);
+        
+    foreach ($ingredientArray as $key => $value) {
+
+        if($value == "")
+        {
+            unset($favoriteDish[$key]);
+        }
+    }
+
+    $dish->ingredientArray = $ingredientArray;
+
+	$data = ['dish' => $dish];
+	return view('dishes.index')->with($data);
+}]);
 
