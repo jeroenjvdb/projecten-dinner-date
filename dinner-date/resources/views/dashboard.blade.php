@@ -78,36 +78,33 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
 			{!! Form::close() !!}
 		</div>
-		@if(Auth::user())
+		
+		<div>
+
 		<div class="col-sm-8">
-			<h2>gerechten</h2>
-			<div class="row dish">
-				<div class="col-sm-4">
-					<img src="http://www.thickslicepizza.com/img/photo3.jpg" alt="pizza">
-				</div>
-				<div class="col-sm-8">
-					<h3>lekkere pizza</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum feugiat. Maecenas aliquam ligula arcu, tristique accumsan nisi rutrum sed. Nullam nec magna pharetra, fermentum orci vestibulum, ornare quam. Pellentesque consectetur urna eget purus efficitur, in elementum leo euismod. Proin elit libero, luctus at ultrices id, gravida vitae massa. Morbi placerat dui ac est convallis rhoncus.</p>
-				</div>
-			</div>
-			<div class="row dish">
-				<div class="col-sm-4">
-					<img src="http://www.thickslicepizza.com/img/photo3.jpg" alt="pizza">
-				</div>
-				<div class="col-sm-8">
-					<h3>lekkere pizza</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum feugiat. Maecenas aliquam ligula arcu, tristique accumsan nisi rutrum sed. Nullam nec magna pharetra, fermentum orci vestibulum, ornare quam. Pellentesque consectetur urna eget purus efficitur, in elementum leo euismod.</p>
-				</div>
-			</div>
-			<div class="row dish">
-				<div class="col-sm-4">
-					<img src="http://www.thickslicepizza.com/img/photo3.jpg" alt="pizza">
-				</div>
-				<div class="col-sm-8">
-					<h3>lekkere pizza</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum feugiat. Maecenas aliquam ligula arcu, tristique accumsan nisi rutrum sed. Nullam nec magna pharetra, fermentum orci vestibulum, ornare quam. Pellentesque consectetur urna eget purus efficitur, in elementum leo euismod. Proin elit libero, luctus at ultrices id, gravida vitae massa. Morbi placerat dui ac est convallis rhoncus.</p>
-				</div>
-			</div>
+	  <!-- Nav tabs -->
+	  <ul class="nav nav-tabs" role="tablist">
+	    <li role="presentation"><a href="#messages" aria-controls="people" role="tab" data-toggle="tab">people you may like</a></li>
+	    <li role="presentation"><a href="#dishes" aria-controls="profile" role="tab" data-toggle="tab">dishes</a></li>
+	    <li role="presentation"><a href="#chatbox" aria-controls="settings" role="tab" data-toggle="tab">chatbox</a></li>
+	  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+	<div role="tabpanel" class="tab-pane active" id="people">
+		people you may like
+	</div>
+    <div role="tabpanel" class="tab-pane" id="dishes">
+		@include('dashboard.dishes')
+    </div>
+    <div role="tabpanel" class="tab-pane" id="chatbox">chatbox
+		@include('dashboard.chatbox')
+    </div>
+  </div>
+
+		@if(Auth::user())
+			
+			
 		</div>
 		@endif
 	</div>

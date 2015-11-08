@@ -5,8 +5,11 @@
 @stop
 
 @section('body')
+	<div class="row">
 	<h1>register</h1>
+		
 	@include('Auth.registerForm')
+	</div>
 
 @stop
 
