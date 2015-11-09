@@ -51,6 +51,16 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Rating', 'user_id', 'id');
     }
 
+    public function myDates()
+    {
+        return $this->hasMany('App\Date', 'host_id', 'id' );
+    }
+
+    public function pictures()
+    {
+        return $this->hasMany('App\Picture', 'user_id', 'id');
+    }
+
     /*
     * many to many
     */
@@ -79,6 +89,8 @@ class User extends Model implements AuthenticatableContract,
     {
         return $this->belongsToMany('App\Allergy', 'users_allergies', 'user_id', 'id');
     }
+
+
 
     /*
     * helper functions

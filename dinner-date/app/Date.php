@@ -31,4 +31,9 @@ class Date extends Model
     {
     	return $this->belongsToMany('App\User', 'users_dates', 'date_id', 'user_id');
     }
+
+    public function host()
+    {
+        return $this->belongsTo('App\User', 'host_id', 'id');
+    }
 }

@@ -44,3 +44,20 @@ Route::get('/dish/{id}',	['as' => 'oneDish', 	function($id){
 	return view('dishes.index')->with($data);
 }]);
 
+Route::get('/dates/find', ['as' => 'findDates', function(){
+	$dates = App\Date::all();
+	$data = ['dates' => $dates];
+
+	return view('dates.search')->with($data);
+}]);
+
+Route::post('/dates/find', [function(Request $request){
+	$dates = App\Date::all();
+	foreach ($dates as $date) {
+		// $date->host()->id;
+	 $date->host = $date->host()->first();
+	 $date->host->pic = $date->host->pictures()->first();
+	}
+	return response()->json($dates);
+}]);
+
