@@ -18,8 +18,7 @@ class Date extends Model
      *
      * @var array
      */
-    protected $fillable = ['date'];
-
+    protected $fillable = ['date','area','name_dish','description','preference','typeOfDate'];
     /**
      * The attributes excluded from the model's JSON form.
      *
