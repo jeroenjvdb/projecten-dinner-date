@@ -28,5 +28,13 @@ class Chat extends Model
     	return $this->belongsTo('App\User', 'receiver_id', 'id');
     }
 
+    public function users(){
+                return \DB::table('chat')
+                ->distinct()
+                ->join('users', 'chat.sender_id', '=', 'users.id');
+                // ->join('chat', 'receiver_id', '=', $this->id)
+
+    }
+
     
 }

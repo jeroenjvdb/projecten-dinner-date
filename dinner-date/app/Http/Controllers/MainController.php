@@ -6,6 +6,7 @@ models
 */
 use App\User;
 use App\Dish;
+use App\Chat;
 
 
 use Auth;
@@ -25,6 +26,7 @@ class MainController extends Controller
     public function home()
     {
         $dishes = Dish::all()->take(4);
+        
         $data = array('dishes' => $dishes);
 
         return View('welcome')->with($data);
@@ -50,8 +52,11 @@ class MainController extends Controller
         }
         $profile->favoriteDishArray = $favoriteDish;
         // $dish = Dish::all()->first();
+        $user = User::where('id', '=', Auth::user()->id)->first()->friends();
+        echo '<pre>';
+        var_dump($user);
         $data   =   ['profile' => $profile];
-        return View('dashboard')->with($data);
+        // return View('dashboard')->with($data);
     }
 
     public function dishes()
@@ -62,6 +67,7 @@ class MainController extends Controller
 
         return View('dish')->with($data);
     }
+
 
     /**
      * Show the form for creating a new resource.

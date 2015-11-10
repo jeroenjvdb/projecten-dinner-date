@@ -61,6 +61,21 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Picture', 'user_id', 'id');
     }
 
+    public function chatSend()
+    {
+        return $this->hasMany('App\Chat', 'sender_id', 'id');
+    }
+
+    public function chatReceive()
+    {
+        return $this->hasMany('App\Chat', 'receiver_id', 'id');
+    }
+
+    public function relatedChat()
+    {
+        return $this->chatsend()->distinct();
+    }
+
     /*
     * many to many
     */
