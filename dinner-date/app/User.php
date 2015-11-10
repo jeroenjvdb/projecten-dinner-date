@@ -76,6 +76,8 @@ class User extends Model implements AuthenticatableContract,
         return $this->chatsend()->distinct();
     }
 
+
+
     /*
     * many to many
     */
@@ -103,6 +105,13 @@ class User extends Model implements AuthenticatableContract,
     public function allergies()
     {
         return $this->belongsToMany('App\Allergy', 'users_allergies', 'user_id', 'id');
+    }
+
+    /*
+    * has many through
+    */
+    public function friends(){
+        return $this->belongsToMany('App\User', 'friends', 'user_id', 'friend_id');
     }
 
 

@@ -1,8 +1,15 @@
 $(document).ready(function(){
-	var id;
+	var friendid;
+	var timerId;
+
 	$('.chatPerson').click(function(e){
-		id = e.target.id;
-		console.log(id);
+		console.log(timerId);
+		id = e.currentTarget.id;
+		friendid = id;
+		if(timerId)
+		{
+			clearInterval(timerId);
+		}
 		openChatbox(id);
 	});
 
@@ -11,14 +18,14 @@ $(document).ready(function(){
 	
 
 	function openChatbox(id){
-
+		// friendid = id;
 		console.log('openChatbox');
 
 
 		function loadChat(){
 			$.ajax({
 				type: 'get',
-				url: '/home/chat/' + id,
+				url: '/home/chat/' + friendid,
 				success: function(data, status){
 					console.log(status);
 					console.log(data);
@@ -29,14 +36,15 @@ $(document).ready(function(){
 		}
 
 		loadChat();
-		window.setInterval(loadChat, 5000)
+		timerId = setInterval(loadChat, 5000);
+
 
 
 		$(document).on('click', '#btn-chat', postMessage);
 
 		function postMessage(){
 		console.log('post');
-		id = 1;
+		// id = 1;
 		if($('#btn-input').val())
 		{
 			var input = $('#btn-input').val();
@@ -46,11 +54,11 @@ $(document).ready(function(){
                     'X-XSRF-Token': $('meta[name="_token"]').attr('content')
                 }
             });
-
+			console.log('id: ' +friendid);
 			$.ajax({
 				type: 'post',
 				data: {input: input },
-				url: '/home/chat/post/1' ,
+				url: '/home/chat/post/' + friendid ,
 				success: function(data, status){
 					console.log(data);
 				},
@@ -65,17 +73,20 @@ $(document).ready(function(){
 		function makeChat(data, id){
 			// console.log($('#chatbox #' + id).text());
 			var chatbox = $('#chatbox #chatForm');
+			$('#chatPersons').removeClass('col-md-12').addClass('col-md-3');
+			$('#chatForm').addClass('col-md-9');
+			console.log(id);
 			if($('#chatbox #chatForm .chat').text())
 			{
 				console.log('$...');
-				console.log($('#chatbox #chatForm .chat').text());
+				// console.log($('#chatbox #chatForm .chat').text());
 				$('#chatbox #chatForm .chat').text('');
 			} else
 			{
-				console.log($('#chatbox #chatForm .chat').text());
+				// console.log($('#chatbox #chatForm .chat').text());
 
 				chatbox.text('');
-				chatbox.append('<ul class="chat"></ul><div class="panel-footer"><div class="input-group"><input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /><span class="input-group-btn"><button class="btn btn-warning btn-sm" id="btn-chat">Send</button></span></div></div>');
+				chatbox.append('<ul class="chat list-unstyled"></ul><div class="panel-footer"><div class="input-group"><input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /><span class="input-group-btn"><button class="btn btn-warning btn-sm" id="btn-chat">Send</button></span></div></div>');
 			}
 			var chatboxContent = $('#chatbox ul.chat')
 			for(var i = 0; i<data.length; i++)

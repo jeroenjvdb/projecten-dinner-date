@@ -51,8 +51,15 @@ class MainController extends Controller
             }
         }
         $profile->favoriteDishArray = $favoriteDish;
+        $friends = User::where('id', '=', Auth::user()->id)->first()->friends()->get() ;
+        // echo '<pre>';
+        // foreach ($friends as $friend) {
+        //     echo 'new user </br>';
+        //     var_dump($friend);
+        // }
         // $dish = Dish::all()->first();
-        $data   =   ['profile' => $profile];
+        $data   =   ['profile' => $profile,
+                        'friends' => $friends];
         return View('dashboard')->with($data);
     }
 

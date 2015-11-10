@@ -65,6 +65,13 @@ Route::post('/dates/find', [function(Request $request){
 
 Route::get('/home/chat/{id}', [function($id){
 	$messages = App\Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();
+	
+	foreach($messages as $message)
+	{
+		$message->sender = $message->sender()->first();
+		// $message->sender->pic = $message->sender()->pictures()->first()
+	}
+
 	// var_dump($messages);
 	return response()->json($messages);
 }]);

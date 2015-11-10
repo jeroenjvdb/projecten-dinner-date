@@ -100,7 +100,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
     <div role="tabpanel" class="tab-pane" id="dishes">
 		@include('dashboard.dishes')
     </div>
-    <div role="tabpanel" class="tab-pane" id="chatbox">chatbox
+    <div role="tabpanel" class="tab-pane" id="chatbox">
 		@include('dashboard.chatbox')
     </div>
   </div>
