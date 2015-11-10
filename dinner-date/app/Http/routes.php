@@ -20,7 +20,7 @@ Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logo
 
 Route::get('/register', 	['as' => 'register', 	'uses' => 'Auth\AuthController@register']);
 Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ]);		
-Route::post('/registerA',	['as' => 'postRegisterA','uses' => 'Auth\AuthController@test']);		
+Route::post('/registerA',	['as' => 'postRegisterA','uses' => 'Auth\AuthController@postRegisterA']);		
 
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
@@ -76,3 +76,7 @@ Route::get('/home/chat/{id}', [function($id){
 	return response()->json($messages);
 }]);
 Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
+
+
+Route::get('/createDate', 		['as' => 'createDate', 	'uses' => 'DateController@index']);
+Route::post('/createDatePost', 	['as' => 'createDatePost', 	'uses' => 'DateController@create']);

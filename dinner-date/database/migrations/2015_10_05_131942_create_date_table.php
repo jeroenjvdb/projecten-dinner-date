@@ -15,7 +15,12 @@ class CreateDateTable extends Migration
         Schema::create('dates', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-
+            $table->string('area');
+            $table->string('name_dish');
+            $table->string('description');
+            $table->integer('preference');
+            $table->integer('typeOfDate');
+           
             //foreign keys
             $table->integer('host_id')->unsigned();
             $table->foreign('host_id')->references('id')->on('users');

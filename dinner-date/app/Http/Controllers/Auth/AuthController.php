@@ -124,7 +124,7 @@ class AuthController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function test(Request $request)
+    public function postRegisterA(Request $request)
     {
 
          $this->validate($request, [
@@ -143,12 +143,6 @@ class AuthController extends Controller
         $userid                     = Auth::user()->id ;
         $user                       = User::find($userid);
 
-        /*echo Auth::user()->id;
-
-        echo '<pre>';
-        var_dump($registerData);
-        var_dump($user);
-        echo '</pre>';*/
         $user->streetname           = $registerData['streetname'];
         $user->housenumber          = $registerData['housenumber'];
         $user->city                 = $registerData['city'];
