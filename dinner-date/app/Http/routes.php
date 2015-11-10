@@ -63,3 +63,9 @@ Route::post('/dates/find', [function(Request $request){
 	return response()->json($dates);
 }]);
 
+Route::get('/home/chat/{id}', [function($id){
+	$messages = App\Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();
+	// var_dump($messages);
+	return response()->json($messages);
+}]);
+Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);

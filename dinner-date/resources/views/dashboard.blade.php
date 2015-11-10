@@ -118,6 +118,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 
 @stop
 
+@section('header')
+<meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
+@stop
+
 @section('scripts')
 	<script src="js/changeProfile.js"></script>
+	<script src="js/getChat.js"></script>
 @stop
