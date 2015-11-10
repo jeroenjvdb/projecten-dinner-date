@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Chat;
+use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -23,9 +25,21 @@ class ChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id, Request $request)
     {
-        //
+        // return 'jej';
+        $message = new Chat;
+
+        $message->message = $request->input('input');
+        $message->sender_id = Auth::user()->id;
+        $message->receiver_id = $id;
+        // var_dump($message);
+        // return 'jej';
+
+        $message->save();
+        return response()->json($message);
+
+
     }
 
     /**
