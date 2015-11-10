@@ -20,6 +20,8 @@ Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logo
 
 Route::get('/register', 	['as' => 'register', 	'uses' => 'Auth\AuthController@register']);
 Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ]);		
+Route::post('/registerA',	['as' => 'postRegisterA','uses' => 'Auth\AuthController@test']);		
+
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
 
@@ -64,10 +66,6 @@ Route::post('/dates/find', [function(Request $request){
 Route::get('/home/chat/{id}', [function($id){
 	$messages = App\Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();
 	// var_dump($messages);
-	foreach($messages as $message)
-	{
-		$message->sender = $message->sender()->first();
-	}
 	return response()->json($messages);
 }]);
 Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);

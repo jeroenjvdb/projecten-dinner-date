@@ -5,6 +5,9 @@
 @stop
 
 @section('body')
+
+@include('Auth/registerForm2')
+</div>
 	<div class="row">
 		<div class="col-sm-3 profile-pics">
 			<div class="row">
