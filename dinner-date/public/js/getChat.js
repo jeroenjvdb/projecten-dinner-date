@@ -90,18 +90,18 @@ $(document).ready(function(){
 		function makeChatMessage(data, id){
 			html = '';
 			if(data['sender_id'] == id){
-				html += '<li class="left clearfix"><span class="chat-img pull-left">';
+				html += '<li class="right clearfix"><span class="chat-img pull-right"><img src="http://placehold.it/50/55C1E7/fff&text=me" alt="User Avatar" class="img-circle" />';
 			} else
 			{
-				html += '<li class="right clearfix"><span class="chat-img pull-right">';
+				html += '<li class="left clearfix"><span class="chat-img pull-left"><img src="http://placehold.it/50/55C1E7/fff&text=u" alt="User Avatar" class="img-circle" />';
 			}
 			// html +=' clearfix"><span class="chat-img pull-left">';
-        html += '<img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />';
+        html += '';
     html +='</span>';
      html +=   '<div class="chat-body clearfix">';
           html +=  '<div class="header">';
-              html+=  '<strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">';
-                   html += '<span class="glyphicon glyphicon-time"></span>12 mins ago</small>';
+              html+=  '<strong class="primary-font">' + data.sender.surname + ' ' + data.sender.name + '</strong> <small class="pull-right text-muted">';
+                   html += '<span class="glyphicon glyphicon-time"></span>' + data['created_at'] + '</small>';
             html+='</div>';
             html += '<p>' + data.message + '</p>'
         html += '</div>';
