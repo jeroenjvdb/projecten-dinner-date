@@ -7,7 +7,6 @@ models
 use App\User;
 use App\Dish;
 
-use Carbon\Carbon;
 
 use Auth;
 
@@ -20,17 +19,10 @@ class MainController extends Controller
     
     public function __construct()
     {
-        $this->middleware('auth', ['except' => 'home']);
+        $this->middleware('auth');
     }
 
-    public function home()
-    {
-        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
-        $dishes = Dish::all()->take(4);
-        $data = array('dishes' => $dishes, 'before' => $before);
 
-        return View('welcome')->with($data);
-    }
 
 
     /**
@@ -51,7 +43,6 @@ class MainController extends Controller
             }
         }
         $profile->favoriteDishArray = $favoriteDish;
-        // $dish = Dish::all()->first();
         $data   =   ['profile' => $profile];
         return View('dashboard')->with($data);
     }

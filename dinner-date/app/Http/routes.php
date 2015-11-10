@@ -20,6 +20,8 @@ Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logo
 
 Route::get('/register', 	['as' => 'register', 	'uses' => 'Auth\AuthController@register']);
 Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ]);		
+Route::post('/registerA',	['as' => 'postRegisterA','uses' => 'Auth\AuthController@test']);		
+
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -33,7 +34,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => array('logout', 'test')]);
     }
 
     /**
@@ -93,17 +94,71 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
+        
+        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
+        
+        $registerData   = $request->all();
+
+        $this->validate($request, [
+            'email'                 => 'required|unique:users,email',
+            'surname'               => 'required|max:255',
+            'password'              => 'required|confirmed|min:8',
+            'password_confirmation' => 'required|min:8',
+            'dateOfBirth'           => 'required|date|before:' . $before,
+            
+         ]);
+
         $registerData   = $request->all();
 
         $user           = new User;
 
-        $user->email    = $registerData['email'];
-        $user->password = Hash::make($registerData['password']);
-        $user->name     = $registerData['name'];
-        $user->surname  = $registerData['surname'];
+        $user->email                = $registerData['email'];
+        $user->password             = Hash::make($registerData['password']);
+        $user->name                 = $registerData['name'];
+        $user->surname              = $registerData['surname'];
+        $user->dateOfBirth          = $registerData['dateOfBirth'];
+        
 
         $user->save();
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
+    }
+
+    public function test(Request $request)
+    {
+
+         $this->validate($request, [
+            'streetname'            => 'required',
+            'housenumber'           => 'required',
+            'city'                  => 'required',
+            'country'               => 'required',
+            'spicyness'             => 'required',
+            'favoriteDish'          => 'required',
+            'perfectDate'           => 'required|min:20',
+            
+         ]);
+
+        $registerData               = $request->all();
+
+        $userid                     = Auth::user()->id ;
+        $user                       = User::find($userid);
+
+        /*echo Auth::user()->id;
+
+        echo '<pre>';
+        var_dump($registerData);
+        var_dump($user);
+        echo '</pre>';*/
+        $user->streetname           = $registerData['streetname'];
+        $user->housenumber          = $registerData['housenumber'];
+        $user->city                 = $registerData['city'];
+        $user->country              = $registerData['country'];
+        $user->favoriteDish         = $registerData['favoriteDish'];
+        $user->spicyness            = $registerData['spicyness'];
+        $user->perfectDate          = $registerData['perfectDate'];
+        
+        $user->save();
+
+        return redirect()->route('dashboard');
     }
 }

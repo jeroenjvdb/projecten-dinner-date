@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('specialAllergies');
             $table->string('favoriteDish');
             $table->integer('spicyness');
+            $table->boolean('complete')->default(0);
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->rememberToken();

@@ -40,7 +40,7 @@
     <div class="container">
         {{-- <div class="content"> --}}
             <div class="inPictures col-md-4">
-            @include('Auth.registerForm')
+            @include('Auth.registerForm',array('before' => $before))
         	</div>
             <div class="title">dinner date</div>
             <div id="description">

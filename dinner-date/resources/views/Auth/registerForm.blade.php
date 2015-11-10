@@ -19,15 +19,21 @@
 			</div>
 		</div>
 		<div class="form-group">
+			{!! Form::label('dateOfBirth', 'geboortedatum', ['class' => 'col-xs-5 control-label']) !!}
+			<div class="col-xs-7">
+				{!! Form::date('dateOfBirth',$min=$before) !!}</br>
+			</div>
+		</div>
+		<div class="form-group">
 			{!! Form::label('password', 'wachtwoord', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::password('password', '') !!}</br>
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('repeatpw', 'bevestig wachtwoord', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('password_confirmation', 'bevestig wachtwoord', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::password('repeatpw', '') !!}</br>
+				{!! Form::password('password_confirmation', '') !!}</br>
 			</div>
 		</div>
 		{!! Form::submit() !!}
