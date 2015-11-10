@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+  @yield('header')
   <title>Document | @yield('title')</title>
   <script src="/js/jquery.js"></script>
-  @yield('scripts')
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -84,6 +84,7 @@
 </div>
 
   <script src="/js/bootstrap.js"></script>
+    @yield('scripts')
 
 </body>
 </html>
