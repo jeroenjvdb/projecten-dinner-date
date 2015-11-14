@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Dish;
+use Auth;
+use Validator;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -29,14 +31,76 @@ class DishController extends Controller
         return View('dishes.dishes')->with($data);
     }
 
+    public function validator(array $data)
+    {
+        return Validator::make($data, [
+                'name'          => 'required',
+                'sDescription'  => 'required',
+                'lDescription'  => 'required',
+                'difficulty'    => 'required',
+                'ingredients'   => 'required',
+                'preparations'  => 'required',
+                'fittingDrinks' => 'required',
+                'duration'      => 'required',
+                'picture'       => 'required|mimes:jpeg,gif,png',
+            ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(array $data)
     {
-        //
+        return Dish::create([
+            'name'          => $data['name'],
+            'sDescription'  => $data['sDescription'],
+            'lDescription'  => $data['lDescription'],
+            'difficulty'    => $data['difficulty'],
+            'ingredients'   => $data['ingredients'],
+            'preparations'  => $data['preparations'],
+            'fittingDrinks' => $data['fittingDrinks'],
+            'duration'      => $data['duration'],
+            'photo_url'     => $data['photo_url'],
+            'user_id'       => Auth::user()->id,
+        ]);
+    }
+
+    public function getCreate()
+    {
+        return View('dishes.create');
+    }
+
+    public function postCreate(Request $request)
+    {
+        $inputData              = $request->all();
+        //TODO add photo
+        $validate   = $this->validator($inputData);
+        
+        if($validate->fails())
+        {
+            return redirect()->back()->withInput()->withErrors($validate->errors());;
+        } else{
+
+            $destinationPath        = 'img/dishes/' . Auth::user()->id . '/';
+            if(!file_exists($destinationPath))
+            {
+                mkdir($destinationPath, 0700, true);
+            }
+            $pic                = $request->file('picture');
+            $extension          = $pic->getClientOriginalExtension();
+            $fileName           = rand(11111,99999).'.'.$extension; // renameing image random name
+            //fullpath = path to picture + filename + extension
+            $fullPath           = $destinationPath . $fileName;   
+
+            $pic->move($destinationPath , $fileName); 
+
+            $inputData['photo_url'] = '/' . $fullPath;
+
+            $this->create($inputData);
+            return redirect()->route('dishIndex')->withSuccess('succesfully added a dish');
+        }
     }
 
     /**
@@ -58,11 +122,22 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $dish = Dish::findOrFail($id);
-        // var_dump($dish);
-        $data = ['dish' => $dish];
+        $dish = Dish::findorfail($id);
 
-        return View('dish')->with($data);
+        $ingredientArray = explode(';', $dish->ingredients);
+            
+        foreach ($ingredientArray as $key => $value) {
+
+            if($value == "")
+            {
+                unset($favoriteDish[$key]);
+            }
+        }
+
+        $dish->ingredientArray = $ingredientArray;
+
+        $data = ['dish' => $dish];
+        return view('dishes.index')->with($data);
     }
 
     /**
@@ -94,8 +169,5 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

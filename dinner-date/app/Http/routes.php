@@ -29,62 +29,20 @@ Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
 
 Route::get('/dish',			['as' => 'dish',		'uses' => 'mainController@dishes']);
 Route::get('/dish/all', 	['as' => 'dishIndex',	'uses' => 'DishController@index']);
-Route::get('/dish/{id}',	['as' => 'oneDish', 	function($id){
-	$dish = App\Dish::findorfail($id);
+Route::get('/dish/show/{id}',['as' => 'dishShow', 	'uses' => 'DishController@show']);
+Route::get('/dish/create',	['as' => 'dishCreate', 	'uses' => 'DishController@getCreate']);
+Route::post('/dish/create', [						'uses' => 'DishController@postCreate']);
 
-	$ingredientArray = explode(';', $dish->ingredients);
-        
-    foreach ($ingredientArray as $key => $value) {
+Route::get('/dish/show/{dishid}/rate/{rating}', ['as' => 'ratingCreate', 'uses' => 'RatingController@getCreate']);
 
-        if($value == "")
-        {
-            unset($favoriteDish[$key]);
-        }
-    }
-
-    $dish->ingredientArray = $ingredientArray;
-
-	$data = ['dish' => $dish];
-	return view('dishes.index')->with($data);
-}]);
-
-Route::get('/dates/find', ['as' => 'findDates', function(){
-	$dates = App\Date::all();
-	$data = ['dates' => $dates];
-
-	return view('dates.search')->with($data);
-}]);
-
-Route::post('/dates/find', [function(Request $request){
-	$dates = App\Date::all();
-	foreach ($dates as $date) {
-		// $date->host()->id;
-	 $date->host = $date->host()->first();
-	 $date->host->pic = $date->host->pictures()->first();
-	}
-	return response()->json($dates);
-}]);
-
-Route::get('/home/chat/{id}', [function($id){
-	$messages = App\Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();
-	
-	foreach($messages as $message)
-	{
-		$message->sender = $message->sender()->first();
-		// $message->sender->pic = $message->sender()->pictures()->first()
-	}
-
-	// var_dump($messages);
-	return response()->json($messages);
-}]);
-Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
-
-
+Route::get('/dates/find', ['as' => 'findDates', 'uses' => 'DateController@getSearch']);
+Route::post('/dates/find', ['uses' => 'DateController@search']);
 Route::get('/createDate', 		['as' => 'createDate', 	'uses' => 'DateController@index']);
 Route::post('/createDatePost', 	['as' => 'createDatePost', 	'uses' => 'DateController@create']);
 
-
-//test-------------------------------------
+Route::get('/home/chat/{id}', ['uses' => 'ChatController@index']);
+Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
 
 Route::get('/Photo', 			['as' => 'Photo', 		'uses' => 'PhotoController@index']);
 Route::post('/Photo', 			['as' => 'PhotoPost', 	'uses' => 'PhotoController@postPicture']);
+

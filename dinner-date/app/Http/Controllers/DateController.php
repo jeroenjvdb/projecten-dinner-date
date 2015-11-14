@@ -57,4 +57,83 @@ class DateController extends Controller
         $date->save();
         return redirect()->route('dashboard');
     }
+
+    public function getSearch()
+    {
+        $dates = Date::all();
+        $data = ['dates' => $dates];
+
+        return view('dates.search')->with($data);
+    }
+
+    public function search(Request $request){
+        // echo '<pre>';
+        // var_dump($request->all());
+        // return $request->input('date');
+        $dates = Date::all();
+        foreach($dates as $date)
+        {
+            // var_dump($date->typeOfDate);
+        }
+        if($request->input('type'))
+        {
+            $newDates = new \Illuminate\Database\Eloquent\Collection;
+            switch ($request->input('type')) {
+                case 'culinair':
+                    foreach($dates as $date)
+                    {
+                        if($date->typeOfDate == "1")
+                        {
+                            $newDates->push($date);// = $dates->where('typeOfDate', "1");
+                        }
+                     }
+                    break;
+                
+                case 'romantic':
+                    //$dates = $dates->where('typeOfDate', "2");
+                    foreach($dates as $date)
+                    {
+                        // echo $date->id;
+                        if($date->typeOfDate == "2")
+                        {
+                            // var_dump('romantic');
+                            $newDates->push($date);// = $dates->where('typeOfDate', "1");
+                        }
+                     }
+                    break;
+            }
+            // var_dump($newDates);
+            $dates = $newDates;
+        }
+
+        if($request->input('date'))
+        {
+            $newDates = new \Illuminate\Database\Eloquent\Collection;
+            foreach ($dates as $date) {
+                // echo $date->date;
+                if($date->date == $request->input('date'))
+                {
+                    $newDates->push($date);
+                }
+            }
+            $dates = $newDates;
+        }
+
+
+
+        foreach ($dates as $date) {
+            // $date->host()->id;
+         $date->host = $date->host()->first();
+         $date->host->pic = $date->host->pictures()->first();
+        }
+        // var_dump($dates);
+        return response()->json($dates);
+        // $dates = Date::all();
+        // 
+        // $data = ['dates' => $dates];
+        // 
+        // var_dump($request->all());
+        // // var_dump($dates);
+        // return view('dates.search')->with($data);
+    }
 }
