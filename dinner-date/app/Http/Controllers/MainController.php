@@ -72,6 +72,15 @@ class MainController extends Controller
         return View('dish')->with($data);
     }
 
+    public function getProfile($id)
+    {
+        $user = User::findOrFail($id);
+
+        $data = ['profile' => $user];
+
+        return View('profile')->with($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

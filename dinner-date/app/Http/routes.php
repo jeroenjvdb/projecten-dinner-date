@@ -23,9 +23,10 @@ Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ])
 Route::post('/registerA',	['as' => 'postRegisterA','uses' => 'Auth\AuthController@postRegisterA']);		
 
 
-Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
+Route::get('/home',			['as' => 'dashboard', 	'uses' => 'MainController@index']);
+Route::get('/profile/{id}', ['as' => 'getProfile',	'uses' => 'MainController@getProfile']);
 
-Route::get('/dish',			['as' => 'dish',		'uses' => 'mainController@dishes']);
+Route::get('/dish',			['as' => 'dish',		'uses' => 'MainController@dishes']);
 Route::get('/dish/all', 	['as' => 'dishIndex',	'uses' => 'DishController@index']);
 Route::get('/dish/show/{id}',['as' => 'dishShow', 	'uses' => 'DishController@show']);
 Route::get('/dish/create',	['as' => 'dishCreate', 	'uses' => 'DishController@getCreate']);
