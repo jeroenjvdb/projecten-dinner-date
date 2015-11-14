@@ -14,7 +14,7 @@
       <div class="modal-body">
 
       	<div class="form-horizontal">	
-		{!! Form::open(array('url' => route('postRegisterA'), 'method' => 'post')) !!}
+		{!! Form::open(array('url' => route('update'), 'method' => 'post')) !!}
 		<div class="form-group">
 			{!! Form::label('country', 'Land', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
@@ -63,14 +63,13 @@
 			</br>
 			</div>
 		</div>
-
 		<div class="form-group">
 			{!! Form::label('perfectDate', 'omschrijf je perfecte date', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::textarea('perfectDate', '', array('placeholder' => 'kaas en wijn onder de sterren')) !!}</br>
 			</div>
 		</div>
-		
+		{!! Form::hidden('type', 'first') !!}
 		{!! Form::submit() !!}
 	{!! Form::close() !!}
 </div>

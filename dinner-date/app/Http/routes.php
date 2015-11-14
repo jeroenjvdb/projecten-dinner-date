@@ -19,17 +19,15 @@ Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
 Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logout']);
 
 Route::get('/register', 	['as' => 'register', 		'uses' => 'Auth\AuthController@register']);
-Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister' ]);		
-Route::post('/registerA',	['as' => 'postRegisterA',	'uses' => 'Auth\AuthController@postRegisterA']);		
-Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@updateFood']);		
-Route::post('/register',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
+Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);		
+Route::post('/update',		['as' => 'update',			'uses' => 'Auth\AuthController@test']);				
 
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);
 
 Route::get('/dish',			['as' => 'dish',		'uses' => 'mainController@dishes']);
 Route::get('/dish/all', 	['as' => 'dishIndex',	'uses' => 'DishController@index']);
-Route::get('/dish/show/{id}',['as' => 'dishShow', 	'uses' => 'DishController@show']);
+Route::get('/dish/show/{type}',['as' => 'dishShow', 	'uses' => 'DishController@show']);
 Route::get('/dish/create',	['as' => 'dishCreate', 	'uses' => 'DishController@getCreate']);
 Route::post('/dish/create', [						'uses' => 'DishController@postCreate']);
 
