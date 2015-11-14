@@ -84,5 +84,5 @@ Route::post('/createDatePost', 	['as' => 'createDatePost', 	'uses' => 'DateContr
 
 //test-------------------------------------
 
-Route::get('/test', 			['as' => 'test', 	'uses' => 'TestController@index']);
-Route::post('/testpost', 		['as' => 'testpost', 	'uses' => 'TestController@testpost']);
+Route::get('/Photo', 			['as' => 'Photo', 		'uses' => 'PhotoController@index']);
+Route::post('/Photo', 			['as' => 'PhotoPost', 	'uses' => 'PhotoController@postPicture']);
