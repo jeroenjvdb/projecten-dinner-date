@@ -10,7 +10,7 @@
 	    <div class="modal-body">
 
 	     	<div class="form-horizontal">	
-				{!! Form::open(array('url' => route('updateFood'), 'method' => 'post')) !!}
+				{!! Form::open(array('url' => route('update'), 'method' => 'post')) !!}
 				<div class="form-group">
 					{!! Form::label('specialAllergies', 'Allgergien', ['class' => 'col-xs-5 control-label']) !!}
 					<div class="col-xs-7">
@@ -42,7 +42,7 @@
 						{!! Form::textarea('perfectDate', $profile->perfectDate) !!}</br>
 					</div>
 				</div>
-		
+				{!! Form::hidden('type', 'food') !!}
 				{!! Form::submit() !!}
 				{!! Form::close() !!}
 			</div><!-- end horizontalform -->

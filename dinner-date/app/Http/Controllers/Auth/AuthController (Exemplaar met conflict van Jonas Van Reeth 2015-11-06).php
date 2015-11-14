@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -21,7 +22,7 @@ class AuthController extends Controller
     | This controller handles the registration of new users, as well as the
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
-    |
+    | (Exemplaar met conflict van Jonas Van Reeth 2015-11-06)
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
@@ -31,9 +32,9 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct() //alleen op als gast tenzij mdt de loguit link
+    public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => array('logout', 'test')]);
     }
 
     /**
@@ -75,7 +76,7 @@ class AuthController extends Controller
     {
         if(Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
         {
-            return redirect()->intended('/');
+            return redirect()->route('dashboard');
         }
         return redirect()->back()->withInput();
     }
@@ -91,20 +92,128 @@ class AuthController extends Controller
         return View('Auth.register');
     }
 
-    public function postRegister(RegisterRequest $request)
-    //public function postRegister(Request $request)
+    public function postRegister(Request $request)
     {
+        
+        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
+        
+        $registerData   = $request->all();
+
+        $this->validate($request, [
+            'email'                 => 'required|unique:users,email',
+            'surname'               => 'required|max:255',
+            'password'              => 'required|confirmed|min:8',
+            'password_confirmation' => 'required|min:8',
+            'dateOfBirth'           => 'required|date|before:' . $before,
+            
+         ]);
+
         $registerData   = $request->all();
 
         $user           = new User;
 
-        $user->email    = $registerData['email'];
-        $user->password = Hash::make($registerData['password']);
-        $user->name     = $registerData['name'];
-        $user->surname  = $registerData['surname'];
+        $user->email                = $registerData['email'];
+        $user->password             = Hash::make($registerData['password']);
+        $user->name                 = $registerData['name'];
+        $user->surname              = $registerData['surname'];
+        $user->dateOfBirth          = $registerData['dateOfBirth'];
+        
 
         $user->save();
 
-        return redirect()->route('home');
+        return redirect()->route('dashboard');
+    }
+
+    public function postRegisterA(Request $request)
+    {
+
+         $this->validate($request, [
+            'streetname'            => 'required',
+            'housenumber'           => 'required',
+            'city'                  => 'required',
+            'country'               => 'required',
+            'spicyness'             => 'required',
+            'specialAllergies'      => 'required',
+            'favoriteDish'          => 'required',
+            'perfectDate'           => 'required|min:20',
+            
+         ]);
+
+        $registerData               = $request->all();
+        $userid                     = Auth::user()->id;
+
+
+        $user                       = User::find($userid);
+
+        $user->streetname           = $registerData['streetname'];
+        $user->housenumber          = $registerData['housenumber'];
+        $user->city                 = $registerData['city'];
+        $user->country              = $registerData['country'];
+        $user->favoriteDish         = $registerData['favoriteDish'];
+        $user->specialAllergies     = $registerData['specialAllergies'];
+        $user->spicyness            = $registerData['spicyness'];
+        $user->perfectDate          = $registerData['perfectDate'];
+        
+        $user->save();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function updateFood(Request $request)
+    {
+
+         $this->validate($request, [
+            'spicyness'             => 'required',
+            'favoriteDish'          => 'required',
+            'perfectDate'           => 'required|min:20',
+            
+         ]);
+
+        $registerData               = $request->all();
+        $userid                     = Auth::user()->id;
+
+        $user                       = User::find($userid);
+
+        $user->favoriteDish         = $registerData['favoriteDish'];
+        $user->specialAllergies     = $registerData['specialAllergies'];
+        $user->spicyness            = $registerData['spicyness'];
+        $user->perfectDate          = $registerData['perfectDate'];
+        
+        $user->save();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function updateProfile(Request $request)
+    {
+
+        //  $this->validate($request, [
+        //     'name'                  => 'required',
+        //     'surname'               => 'required',
+        //     'streetname'            => 'required',
+        //     'housenumber'           => 'required',
+        //     'city'                  => 'required',
+        //     'country'               => 'required',
+            
+        //  ]);
+
+         $registerData               = $request->all();
+         echo "<pre>";
+         var_dump($registerData);
+         echo "</pre>";
+        // $userid                     = Auth::user()->id;
+
+        // $user                       = User::find($userid);
+
+        // $user->surname              = $registerData['surname'];
+        // $user->name                 = $registerData['name' ;
+        // $user->streetname           = $registerData['streetname'];
+        // $user->housenumber          = $registerData['housenumber'];
+        // $user->city                 = $registerData['city'];
+        // $user->country              = $registerData['country'];
+        
+        // $user->save();
+
+        // return redirect()->route('dashboard');
     }
 }

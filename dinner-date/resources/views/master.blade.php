@@ -24,17 +24,26 @@
         <span class="icon-bar"></span>
       </button>
       @if(Auth::guest())
-      <a class="navbar-brand" href="{{ route('homepage') }}">Brand</a>
+      <a class="navbar-brand" href="{{ route('homepage') }}">home</a>
       @else
-        <a class="navbar-brand" href="{{ route('dashboard') }}">Brand</a>
+        <a class="navbar-brand" href="{{ route('dashboard') }}">home</a>
       @endif
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"> link<span class="sr-only">(current)</span></a></li>
-        <li><a href="#"> Link</a></li>
+        <!-- <li class="active"><a href="#"> link<span class="sr-only">(current)</span></a></li>-->
+         <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dishes <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{ route('dishIndex') }}">Alle dishes</a></li>
+            <li><a href="{{ route('dishCreate') }}">Dish aanmaken</a></li>
+            
+            <li role="separator" class="divider"></li>
+            
+          </ul>
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
           <ul class="dropdown-menu">

@@ -22,7 +22,7 @@ class AuthController extends Controller
     | This controller handles the registration of new users, as well as the
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
-    |
+    | (Exemplaar met conflict van Jonas Van Reeth 2015-11-06)
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
@@ -95,6 +95,7 @@ class AuthController extends Controller
     public function postRegister(Request $request)
     {
         
+        
         $before =  Carbon::today()->subYears(18)->format('Y-m-d');
         
         $registerData   = $request->all();
@@ -124,64 +125,118 @@ class AuthController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function postRegisterA(Request $request)
+    public function test(Request $request)
     {
-
-         $this->validate($request, [
-            'streetname'            => 'required',
-            'housenumber'           => 'required',
-            'city'                  => 'required',
-            'country'               => 'required',
-            'spicyness'             => 'required',
-            'specialAllergies'      => 'required',
-            'favoriteDish'          => 'required',
-            'perfectDate'           => 'required|min:20',
-            
-         ]);
-
         $registerData               = $request->all();
-        $userid                     = Auth::user()->id;
+        $type                       = $registerData["type"];
+                
+        switch($type)
+        {
+            case "first":
+               $this->validate($request, [
+                'streetname'            => 'required',
+                'housenumber'           => 'required',
+                'city'                  => 'required',
+                'country'               => 'required',
+                'spicyness'             => 'required',
+                'favoriteDish'          => 'required',
+                'perfectDate'           => 'required|min:20',
+                
+                 ]);
+
+                $userid                     = Auth::user()->id;
 
 
-        $user                       = User::find($userid);
+                $user                       = User::find($userid);
 
-        $user->streetname           = $registerData['streetname'];
-        $user->housenumber          = $registerData['housenumber'];
-        $user->city                 = $registerData['city'];
-        $user->country              = $registerData['country'];
-        $user->favoriteDish         = $registerData['favoriteDish'];
-        $user->specialAllergies     = $registerData['specialAllergies']
-        $user->spicyness            = $registerData['spicyness'];
-        $user->perfectDate          = $registerData['perfectDate'];
-        
-        $user->save();
+                $user->streetname           = $registerData['streetname'];
+                $user->housenumber          = $registerData['housenumber'];
+                $user->city                 = $registerData['city'];
+                $user->country              = $registerData['country'];
+                $user->favoriteDish         = $registerData['favoriteDish'];
+                $user->specialAllergies     = $registerData['specialAllergies'];
+                $user->spicyness            = $registerData['spicyness'];
+                $user->perfectDate          = $registerData['perfectDate'];
+                
+                $user->save();
+            break;
+
+            case "food":
+
+                 $this->validate($request, [
+                'spicyness'             => 'required',
+                'favoriteDish'          => 'required',
+                'perfectDate'           => 'required|min:20',
+                
+                 ]);
+
+                $userid                     = Auth::user()->id;
+
+                $user                       = User::find($userid);
+
+                $user->favoriteDish         = $registerData['favoriteDish'];
+                $user->specialAllergies     = $registerData['specialAllergies'];
+                $user->spicyness            = $registerData['spicyness'];
+                $user->perfectDate          = $registerData['perfectDate'];
+                
+                $user->save();
+
+            break;
+
+            case "profile":
+
+                    $this->validate($request, [
+                    'name'                  => 'required',
+                    'surname'               => 'required',
+                    'streetname'            => 'required',
+                    'housenumber'           => 'required',
+                    'city'                  => 'required',
+                    'country'               => 'required',
+                    
+                 ]);
+
+                $userid                     = Auth::user()->id;
+
+                $user                       = User::find($userid);
+
+                $user->surname              = $registerData['surname'];
+                $user->name                 = $registerData['name'] ;
+                $user->streetname           = $registerData['streetname'];
+                $user->housenumber          = $registerData['housenumber'];
+                $user->city                 = $registerData['city'];
+                $user->country              = $registerData['country'];
+                
+                $user->save();
+            break;
+        }         
 
         return redirect()->route('dashboard');
     }
 
-    public function updateFood(Request $request)
+    public function test2(Request $request)
     {
+        echo 'test';
 
-         $this->validate($request, [
-            'spicyness'             => 'required',
-            'favoriteDish'          => 'required',
-            'perfectDate'           => 'required|min:20',
+        //  $this->validate($request, [
+        //     'spicyness'             => 'required',
+        //     'favoriteDish'          => 'required',
+        //     'perfectDate'           => 'required|min:20',
             
-         ]);
+        //  ]);
 
-        $registerData               = $request->all();
-        $userid                     = Auth::user()->id;
+        // $registerData               = $request->all();
+        // $userid                     = Auth::user()->id;
 
-        $user                       = User::find($userid);
+        // $user                       = User::find($userid);
 
-        $user->favoriteDish         = $registerData['favoriteDish'];
-        $user->specialAllergies     = $registerData['specialAllergies']
-        $user->spicyness            = $registerData['spicyness'];
-        $user->perfectDate          = $registerData['perfectDate'];
+        // $user->favoriteDish         = $registerData['favoriteDish'];
+        // $user->specialAllergies     = $registerData['specialAllergies'];
+        // $user->spicyness            = $registerData['spicyness'];
+        // $user->perfectDate          = $registerData['perfectDate'];
         
-        $user->save();
+        // $user->save();
 
-        return redirect()->route('dashboard');
+        // return redirect()->route('dashboard');
     }
 
     public function updateProfile(Request $request)

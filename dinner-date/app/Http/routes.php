@@ -19,10 +19,15 @@ Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
 Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logout']);
 
 Route::get('/register', 	['as' => 'register', 		'uses' => 'Auth\AuthController@register']);
+<<<<<<< HEAD
 Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister' ]);		
 Route::post('/registerA',	['as' => 'postRegisterA',	'uses' => 'Auth\AuthController@postRegisterA']);		
 Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@updateFood']);		
 Route::post('/registerP',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
+=======
+Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);		
+Route::post('/update',		['as' => 'update',			'uses' => 'Auth\AuthController@test']);				
+>>>>>>> 2095b70bdf0850328f2d4ed6bb05449b0efca7ba
 
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'MainController@index']);
@@ -34,7 +39,7 @@ Route::get('/profile/delete/{id}', ['as' => 'deleteFriend', 'uses' => 'MainContr
 
 Route::get('/dish',			['as' => 'dish',		'uses' => 'MainController@dishes']);
 Route::get('/dish/all', 	['as' => 'dishIndex',	'uses' => 'DishController@index']);
-Route::get('/dish/show/{id}',['as' => 'dishShow', 	'uses' => 'DishController@show']);
+Route::get('/dish/show/{type}',['as' => 'dishShow', 	'uses' => 'DishController@show']);
 Route::get('/dish/create',	['as' => 'dishCreate', 	'uses' => 'DishController@getCreate']);
 Route::post('/dish/create', [						'uses' => 'DishController@postCreate']);
 
