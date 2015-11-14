@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
@@ -29,4 +31,35 @@ class PasswordController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function validate(array $data) 
+    {
+        return validator::make($data, [
+                'password' => 'required|confirmed'
+            ]);
+    }
+
+    public function editPassword()
+    {
+        return View('Auth.updatePassword');
+    }
+
+    public function postEditPassword(Request $request)
+    {
+        $validate = $this->validate($request->input()->all());
+        if($validate->fails())
+        {
+            return redirect()->back()->withErrors($validate->errors());
+        }
+
+        $user = Auth::user();
+        $user->password = $request->input('password');
+        $user->save();
+
+        return redirect()->back()->withSuccess('succesfully updated the password');
+
+
+        
+    }
+
 }

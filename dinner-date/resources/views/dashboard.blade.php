@@ -91,9 +91,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 		<div class="col-sm-8">
 	  <!-- Nav tabs -->
 	  <ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation"><a href="#messages" aria-controls="people" role="tab" data-toggle="tab">people you may like</a></li>
-	    <li role="presentation"><a href="#dishes" aria-controls="profile" role="tab" data-toggle="tab">dishes</a></li>
-	    <li role="presentation"><a href="#chatbox" aria-controls="settings" role="tab" data-toggle="tab">chatbox</a></li>
+	    <li role="presentation"><a href="#people" aria-controls="people" role="tab" data-toggle="tab">people you may like</a></li>
+	    <li role="presentation"><a href="#dishes" aria-controls="dishes" role="tab" data-toggle="tab">dishes</a></li>
+	    <li role="presentation"><a href="#chatbox" aria-controls="chatbox" role="tab" data-toggle="tab">chatbox</a></li>
+	    <li role="presentation"><a href="#friendRequests" aria-controls="friendRequests" role="tab" data-toggle="tab">friend requests <span>{{ $friendRequests->count() }}</span></a></li>
 	  </ul>
 
   <!-- Tab panes -->
@@ -106,6 +107,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
     </div>
     <div role="tabpanel" class="tab-pane" id="chatbox">
 		@include('dashboard.chatbox')
+    </div>
+    <div role="tabpanel" class="tab-pane" id="friendRequests">
+		@foreach($friendRequests as $friendRequest)
+			<div class="row">
+				<div class="col-md-2">
+					<img src="" alt="">
+				</div>
+				<div class="col-md-6">
+					 {{$friendRequest->user->fullName()}}
+				</div>
+				<div class="col-md-2">
+					<a href="{{ route('acceptFriend', [$friendRequest->user->id]) }}"><button>accept</button></a>
+				</div>
+				<div class="col-md-2">
+					<a href="{{ route('deleteFriendRequest', [$friendRequest->user->id]) }}"><button>delete</button></a>
+				</div>
+			</div>
+		@endForeach
     </div>
   </div>
 

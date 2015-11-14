@@ -36,7 +36,7 @@
 
 			<h2>spicyness</h2>
 			<h2> {{ $profile->spicyness }} </h2>
-			<button>send friendship request</button>
+			<a href="{{ route('addFriend', array( $profile->id )) }}"><button>send friendship request</button></a>
 		</div>
 	</div>
 	<div class="row">

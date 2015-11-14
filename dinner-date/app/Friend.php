@@ -8,7 +8,15 @@ class Friend extends Model
 {
     
 
+	function friend()
+	{
+		return $this->belongsTo('App\User', 'friend_id', 'id');
+	}
 
+	function user()
+	{
+		return $this->belongsTo('App\User', 'user_id', 'id');
+	}
 
 
     // friendship that I started
@@ -22,7 +30,7 @@ class Friend extends Model
 	// friendship that I was invited to 
 	function friendOf()
 	{
-	  return $this->belongsToMany('App\User', 'friends', 'friend_id', 'user_id');
+	  return $this->belongsToMany('App\User', 'friends', 'friend_id', 'user_id')
 	     ->wherePivot('accepted', '=', 1)
 	     ->withPivot('accepted');
 	}
