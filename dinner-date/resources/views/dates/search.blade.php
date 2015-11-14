@@ -8,8 +8,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<p>type:</p>
-					{!! Form::radio('type', 'date', false , ['id' => 'date']) !!}
-					{!! Form::label('date', 'relatiezoekend') !!}</br>
+					{!! Form::radio('type', 'romantic', false , ['id' => 'date']) !!}
+					{!! Form::label('romantic', 'relatiezoekend') !!}</br>
 					{!! Form::radio('type', 'culinair', false, ['id' => 'culinair']) !!}
 					{!! Form::label('culinair', 'puur culinair') !!}
 					
@@ -20,7 +20,7 @@
 							{!! Form::label('datum') !!}
 						</div>
 						<div class="col-md-9">
-							{!! Form::date('datum', null, array('class' => 'form-control')) !!}
+							{!! Form::date('datum', null, array('class' => 'form-control', 'data-date-format' => 'MM-DD-YYYY')) !!}
 						</div>
 					</div>
 					<div class="row form-group">
@@ -49,6 +49,12 @@
 	<link rel="stylesheet" href="/css/slider.css"></link>
 	<script>
 	$(document).ready(function(){
+		// $('#datum').on('change', function(){
+		// 	this.setAttribute(
+		// 		"data-date",
+		// 		moment(this.value, "MM-DD-YYYY")
+		// 		.format( this.getAttribute('data-date-format') )
+		// 	).trigger('change');
 		$('#searchForm').on('submit', findDates);
 		
 		// $('#searchForm').trigger('submit');
@@ -87,6 +93,9 @@
 					{
 						console.log('test');
 					}
+				},
+				error: function(data, status){
+					console.log(data);
 				}
 			});
 
@@ -116,7 +125,9 @@
 		{
 			var html = '<div class="col-md-6">';
 			html += '<div class="row"><div class="col-md-4">';
-			html += '<img src="' + data.host.pic['picture_url'] + '" alt="test" />';
+			if(data.host.pic ){
+				html += '<img src="' + data.host.pic['picture_url'] + '" alt="test" />';
+			}
 			html += '</div>';
 			html += '<div class="col-md-8">';
 			html += '<p>' + data.host.surname + ' ' + data.host.name + '</p>'; 

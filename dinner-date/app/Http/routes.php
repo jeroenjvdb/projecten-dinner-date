@@ -53,15 +53,7 @@ Route::get('/dates/find', ['as' => 'findDates', function(){
 	return view('dates.search')->with($data);
 }]);
 
-Route::post('/dates/find', [function(Request $request){
-	$dates = App\Date::all();
-	foreach ($dates as $date) {
-		// $date->host()->id;
-	 $date->host = $date->host()->first();
-	 $date->host->pic = $date->host->pictures()->first();
-	}
-	return response()->json($dates);
-}]);
+Route::post('/dates/find', ['uses' => 'DateController@search']);
 
 Route::get('/home/chat/{id}', [function($id){
 	$messages = App\Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();

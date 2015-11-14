@@ -23,24 +23,26 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      @if(Auth::guest())
+      <a class="navbar-brand" href="{{ route('homepage') }}">Brand</a>
+      @else
+        <a class="navbar-brand" href="{{ route('dashboard') }}">Brand</a>
+      @endif
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#"> Link<span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="#"> link<span class="sr-only">(current)</span></a></li>
         <li><a href="#"> Link</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="{{ route('createDate') }}">maak een date</a></li>
+            <li><a href="{{ route('findDates') }}">date zoeken</a></li>
+            
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            
           </ul>
         </li>
       </ul>
@@ -58,12 +60,12 @@
 				</a>
 			@else
 				<a href="{{ route('login') }}">
-					login
+					aanmelden
 				</a>
 			@endif
 		</li>
 		@if(Auth::user())
-			<li><a href="{{ route('logout') }}">logout</a></li>
+			<li><a href="{{ route('logout') }}">afmelden</a></li>
 		@endif
         {{-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
