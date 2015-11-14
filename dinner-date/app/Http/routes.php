@@ -18,9 +18,11 @@ Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
 
 Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logout']);
 
-Route::get('/register', 	['as' => 'register', 	'uses' => 'Auth\AuthController@register']);
-Route::post('/register',	[ 						'uses' => 'Auth\AuthController@postRegister' ]);		
-Route::post('/registerA',	['as' => 'postRegisterA','uses' => 'Auth\AuthController@postRegisterA']);		
+Route::get('/register', 	['as' => 'register', 		'uses' => 'Auth\AuthController@register']);
+Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister' ]);		
+Route::post('/registerA',	['as' => 'postRegisterA',	'uses' => 'Auth\AuthController@postRegisterA']);		
+Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@updateFood']);		
+Route::post('/register',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
 
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'mainController@index']);

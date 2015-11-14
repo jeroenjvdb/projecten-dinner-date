@@ -7,6 +7,9 @@
 @section('body')
 
 @include('Auth/registerForm2')
+@include('Auth/updateFood')
+@include('Auth/updateProfile')
+
 
 	<div class="row">
 		<div class="col-sm-3 profile-pics">
@@ -39,7 +42,9 @@
 			<h1>
 				{{ $profile->surname . " " . $profile->name }}
 			</h1>
-
+			@if(Auth::user()->id == $profile->id)
+				<span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
+			@endif 
 			<h2>spicyness</h2>
 			<h2> {{ $profile->spicyness }} </h2>
 			<h3>pizza punten: <span>93</span></h3>
@@ -50,7 +55,7 @@
 		<div class="col-sm-4">
 			<h2>profiel
 			@if(Auth::user()->id == $profile->id)
-				<span class="clickable glyphicon glyphicon-pencil" id="edit"></span>
+				<span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateFood"></span>
 			@endif 
 			</h2>
 			{!! Form::open() !!}

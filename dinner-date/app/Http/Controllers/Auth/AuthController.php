@@ -133,14 +133,16 @@ class AuthController extends Controller
             'city'                  => 'required',
             'country'               => 'required',
             'spicyness'             => 'required',
+            'specialAllergies'      => 'required',
             'favoriteDish'          => 'required',
             'perfectDate'           => 'required|min:20',
             
          ]);
 
         $registerData               = $request->all();
+        $userid                     = Auth::user()->id;
 
-        $userid                     = Auth::user()->id ;
+
         $user                       = User::find($userid);
 
         $user->streetname           = $registerData['streetname'];
@@ -148,11 +150,70 @@ class AuthController extends Controller
         $user->city                 = $registerData['city'];
         $user->country              = $registerData['country'];
         $user->favoriteDish         = $registerData['favoriteDish'];
+        $user->specialAllergies     = $registerData['specialAllergies']
         $user->spicyness            = $registerData['spicyness'];
         $user->perfectDate          = $registerData['perfectDate'];
         
         $user->save();
 
         return redirect()->route('dashboard');
+    }
+
+    public function updateFood(Request $request)
+    {
+
+         $this->validate($request, [
+            'spicyness'             => 'required',
+            'favoriteDish'          => 'required',
+            'perfectDate'           => 'required|min:20',
+            
+         ]);
+
+        $registerData               = $request->all();
+        $userid                     = Auth::user()->id;
+
+        $user                       = User::find($userid);
+
+        $user->favoriteDish         = $registerData['favoriteDish'];
+        $user->specialAllergies     = $registerData['specialAllergies']
+        $user->spicyness            = $registerData['spicyness'];
+        $user->perfectDate          = $registerData['perfectDate'];
+        
+        $user->save();
+
+        return redirect()->route('dashboard');
+    }
+
+    public function updateProfile(Request $request)
+    {
+
+        //  $this->validate($request, [
+        //     'name'                  => 'required',
+        //     'surname'               => 'required',
+        //     'streetname'            => 'required',
+        //     'housenumber'           => 'required',
+        //     'city'                  => 'required',
+        //     'country'               => 'required',
+            
+        //  ]);
+
+         $registerData               = $request->all();
+         echo "<pre>";
+         var_dump($registerData);
+         echo "</pre>";
+        // $userid                     = Auth::user()->id;
+
+        // $user                       = User::find($userid);
+
+        // $user->surname              = $registerData['surname'];
+        // $user->name                 = $registerData['name' ;
+        // $user->streetname           = $registerData['streetname'];
+        // $user->housenumber          = $registerData['housenumber'];
+        // $user->city                 = $registerData['city'];
+        // $user->country              = $registerData['country'];
+        
+        // $user->save();
+
+        // return redirect()->route('dashboard');
     }
 }
