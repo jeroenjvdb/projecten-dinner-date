@@ -18,7 +18,7 @@ class Dish extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'sDescription', 'lDescripion', 'difficulty', 'ingredients', 'preparations', 'fittingDrinks', 'user_id', 'duration'];
+    protected $fillable = ['name', 'sDescription', 'lDescripion', 'difficulty', 'ingredients', 'preparations', 'fittingDrinks', 'user_id', 'duration', 'photo_url'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -34,6 +34,6 @@ class Dish extends Model
 
     public function rating()
     {
-        return 3; //moet nog berekent worden volgens de ratings
+        return $this->hasMany('App\Rating', 'dish_id', 'id')->avg('rating'); //moet nog berekent worden volgens de ratings
     }
 }

@@ -25,8 +25,8 @@
 				// console.log($(this));
 				console.log($(this).attr('dish-id'));
 				id = $(this).attr('dish-id');
-				// window.location.href = eval('{{ route("oneDish", ['+id+']) }}');
-				window.location.href = '/dish/' + id;
+				
+				window.location.href = '/dish/show/' + id;
 			});
 		});
 	</script>

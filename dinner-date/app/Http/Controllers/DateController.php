@@ -58,6 +58,14 @@ class DateController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function getSearch()
+    {
+        $dates = Date::all();
+        $data = ['dates' => $dates];
+
+        return view('dates.search')->with($data);
+    }
+
     public function search(Request $request){
         // echo '<pre>';
         // var_dump($request->all());

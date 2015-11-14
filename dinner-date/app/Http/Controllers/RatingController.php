@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Chat;
+use App\Rating;
 use Auth;
+use App\Dish;
+
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ChatController extends Controller
+class RatingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,16 +19,7 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $messages = Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();
-    
-        foreach($messages as $message)
-        {
-            $message->sender = $message->sender()->first();
-            // $message->sender->pic = $message->sender()->pictures()->first()
-        }
-
-        // var_dump($messages);
-        return response()->json($messages);
+        //
     }
 
     /**
@@ -34,21 +27,32 @@ class ChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id, Request $request)
+    public function getCreate($dishId, $rating)
     {
-        // return 'jej';
-        $message = new Chat;
+        $data = ['dish' => $dishId, 'rating' => $rating];
+        if(Rating::where('dish_id', '=', $dishId)->where('rater_id', '=', Auth::user()->id) || 0 <= $rating || $rating <= 5)
+        {
+            $ratingObject = new Rating;
 
-        $message->message = $request->input('input');
-        $message->sender_id = Auth::user()->id;
-        $message->receiver_id = $id;
-        // var_dump($message);
-        // return 'jej';
+            $ratingObject->rating =  $rating;
+            $ratingObject->dish_id = $dishId;
+            $ratingObject->rater_id = Auth::user()->id;
 
-        $message->save();
-        return response()->json($message);
+            $ratingObject->save();
+            return redirect()->back()->withSuccess('you have rated this dish');
+        } else 
+        {
+            return redirect()->back()->withErrors(['something went wrong with your vote']);
+        }
+    }
 
-
+    public function create(array $data)
+    {
+        // return Rating::create($data, [
+        //         'rating'    => $data['rating'],
+        //         'rater_id'  => Auth::user()->id,
+        //         'dish_id'   => $data['dish'],
+        //     ]);
     }
 
     /**
@@ -62,16 +66,6 @@ class ChatController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
