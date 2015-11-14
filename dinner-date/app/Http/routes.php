@@ -80,3 +80,9 @@ Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
 
 Route::get('/createDate', 		['as' => 'createDate', 	'uses' => 'DateController@index']);
 Route::post('/createDatePost', 	['as' => 'createDatePost', 	'uses' => 'DateController@create']);
+
+
+//test-------------------------------------
+
+Route::get('/test', 			['as' => 'test', 	'uses' => 'TestController@index']);
+Route::post('/testpost', 		['as' => 'testpost', 	'uses' => 'TestController@testpost']);

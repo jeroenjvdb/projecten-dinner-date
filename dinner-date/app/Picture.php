@@ -27,7 +27,7 @@ class Picture extends Model
      */
     protected $hidden = [ 'remember_token'];
 
-    public function users()
+    public function user()
     {
     	return $this->belongsTo('App\User', 'user_id', 'id');
     }
