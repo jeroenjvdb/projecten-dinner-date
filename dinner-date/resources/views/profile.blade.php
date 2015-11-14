@@ -1,12 +1,6 @@
 @extends('master')
 
-@section('title')
-	profile
-@stop
-
 @section('body')
-
-@include('Auth/registerForm2')
 
 	<div class="row">
 		<div class="col-sm-3 profile-pics">
@@ -42,7 +36,7 @@
 
 			<h2>spicyness</h2>
 			<h2> {{ $profile->spicyness }} </h2>
-			<button>send friendship</button>
+			<button>send friendship request</button>
 		</div>
 	</div>
 	<div class="row">
@@ -63,9 +57,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 			<h3>my all time favourites</h3>
 			<input type="hidden" id="favDish" value="{{ $profile->favoriteDish }}" />
 			<ul id="favoriteDish">
-				@foreach($profile->favoriteDishArray as $dish)
+				{{--@foreach($profile->favoriteDishArray as $dish)
 					<li>{{ $dish }}</li>
-				@endforeach
+				@endforeach--}}
 				
 			</ul>
 			<h3>smaken</h3>
@@ -84,44 +78,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 		<div>
 
 		<div class="col-sm-8">
-	  <!-- Nav tabs -->
-	  <ul class="nav nav-tabs" role="tablist">
-	    <li role="presentation"><a href="#messages" aria-controls="people" role="tab" data-toggle="tab">people you may like</a></li>
-	    <li role="presentation"><a href="#dishes" aria-controls="profile" role="tab" data-toggle="tab">dishes</a></li>
-	    <li role="presentation"><a href="#chatbox" aria-controls="settings" role="tab" data-toggle="tab">chatbox</a></li>
-	  </ul>
+	  
 
-  <!-- Tab panes -->
-  <div class="tab-content">
-	<div role="tabpanel" class="tab-pane active" id="people">
-		people you may like
-	</div>
+  
     <div role="tabpanel" class="tab-pane" id="dishes">
 		@include('dashboard.dishes')
     </div>
-    <div role="tabpanel" class="tab-pane" id="chatbox">
-		@include('dashboard.chatbox')
-    </div>
+    	</div>
   </div>
 
-		@if(Auth::user())
-			
-			
-		</div>
-		@endif
+		
 	</div>
 	
 
-
-
-
-@stop
-
-@section('header')
-<meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
-@stop
-
-@section('scripts')
-	<script src="js/changeProfile.js"></script>
-	<script src="js/getChat.js"></script>
 @stop
