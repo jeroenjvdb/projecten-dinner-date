@@ -18,7 +18,7 @@
 		<div class="form-group">
 			{!! Form::label('description', 'naamomschrijving', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('description', 'beschrijving', ['class' => 'form-control']) !!}
+				{!! Form::text('description', '', ['class' => 'form-control', 'placeholder' => 'beschrijving']) !!}
 			</div>
 		</div>
 

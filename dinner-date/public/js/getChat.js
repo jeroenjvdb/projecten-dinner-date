@@ -3,7 +3,7 @@ $(document).ready(function(){
 	var timerId;
 
 	$('.chatPerson').click(function(e){
-		console.log(timerId);
+		// console.log(timerId);
 		id = e.currentTarget.id;
 		friendid = id;
 		if(timerId)
@@ -19,7 +19,7 @@ $(document).ready(function(){
 
 	function openChatbox(id){
 		// friendid = id;
-		console.log('openChatbox');
+		// console.log('openChatbox');
 
 
 		function loadChat(){
@@ -27,8 +27,8 @@ $(document).ready(function(){
 				type: 'get',
 				url: '/home/chat/' + friendid,
 				success: function(data, status){
-					console.log(status);
-					console.log(data);
+					// console.log(status);
+					// console.log(data);
 					makeChat(data, id);
 
 				}
@@ -43,7 +43,7 @@ $(document).ready(function(){
 		$(document).on('click', '#btn-chat', postMessage);
 
 		function postMessage(){
-		console.log('post');
+		// console.log('post');
 		// id = 1;
 		if($('#btn-input').val())
 		{
@@ -54,16 +54,16 @@ $(document).ready(function(){
                     'X-XSRF-Token': $('meta[name="_token"]').attr('content')
                 }
             });
-			console.log('id: ' +friendid);
+			// console.log('id: ' +friendid);
 			$.ajax({
 				type: 'post',
 				data: {input: input },
 				url: '/home/chat/post/' + friendid ,
 				success: function(data, status){
-					console.log(data);
+					// console.log(data);
 				},
 				error: function(status, een){
-					console.log(status);
+					// console.log(status);
 				}
 
 			});
@@ -75,10 +75,10 @@ $(document).ready(function(){
 			var chatbox = $('#chatbox #chatForm');
 			$('#chatPersons').removeClass('col-md-12').addClass('col-md-3');
 			$('#chatForm').addClass('col-md-9');
-			console.log(id);
+			// console.log(id);
 			if($('#chatbox #chatForm .chat').text())
 			{
-				console.log('$...');
+				// console.log('$...');
 				// console.log($('#chatbox #chatForm .chat').text());
 				$('#chatbox #chatForm .chat').text('');
 			} else
@@ -91,7 +91,7 @@ $(document).ready(function(){
 			var chatboxContent = $('#chatbox ul.chat')
 			for(var i = 0; i<data.length; i++)
 			{
-				console.log(data[i]);
+				// console.log(data[i]);
 				chatboxContent.append(makeChatMessage(data[i], id));
 			}
 			// chatbox.append('');
@@ -100,7 +100,7 @@ $(document).ready(function(){
 
 		function makeChatMessage(data, id){
 			html = '';
-			if(data['sender_id'] == id){
+			if(data['receiver_id'] == id){
 				html += '<li class="right clearfix"><span class="chat-img pull-right"><img src="http://placehold.it/50/55C1E7/fff&text=me" alt="User Avatar" class="img-circle" />';
 			} else
 			{
