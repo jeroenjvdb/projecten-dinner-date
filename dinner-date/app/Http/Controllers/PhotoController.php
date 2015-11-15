@@ -43,6 +43,17 @@ class PhotoController extends Controller
         Image::make(Input::file('photo'))
                                 //->resize(300, 200)
                                 ->save('img/users/'.$rand.'-'.$filename);
+
+        $count = Picture::where('user_id',Auth::user()->id)
+                        ->count();
+        
+           if($count == 5)
+           {
+                $count = Picture::where('user_id',Auth::user()->id)
+                            ->orderBy('created_at', 'asc')
+                            ->take(1)
+                            ->delete();
+           }
         $inputData              = $request->all();  
 
         $img                    = new Picture;

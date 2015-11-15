@@ -6,15 +6,28 @@
 
 @section('body')
 
-@include('Auth/registerForm2')
 @include('Auth/updateFood')
 @include('Auth/updateProfile')
+@include('Auth/updateSmaak')
 
 
 	<div class="row">
 		<div class="col-sm-3 profile-pics">
+			
+			@if (count($images) === 0)
+				<div class="row">
+						<div class="col-sm-12">
+							<img src="/img/no-pic.jpg" />
+						</div>
+					</div>
+					<div class="row more-pics">
+						<div class="col-sm-3">
+							<img src="/img/no-pic.jpg" />
+						</div>	
+					</div>
+			@else
 				@foreach($images as $index => $image)
-					@if($index==0)
+				@if($index==0)
 					<div class="row">
 						<div class="col-sm-12">
 							<img src="{{ $image->picture_url}}" />
@@ -22,15 +35,13 @@
 					</div>
 					<div class="row more-pics">
 					@else
-					
 						<div class="col-sm-3">
 							<img src="{{ $image->picture_url}}" />
 						</div>	
-					
 					@endif
-					</div>
 				@endforeach
-		
+				</div>
+			@endif
 			<div class="row">
 				<div class="col-sm-offset-1"><a href="">meer..</a></div>
 			</div>	
@@ -39,10 +50,11 @@
 			
 			<h1>
 				{{ $profile->surname . " " . $profile->name }}
+				@if(Auth::user()->id == $profile->id)
+					<span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
+				@endif 
 			</h1>
-			@if(Auth::user()->id == $profile->id)
-				<span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
-			@endif 
+			<p>leeftijd: {!!$profile->dateOfBirth !!}</p>
 			<h2>spicyness</h2>
 			<h2> {{ $profile->spicyness }} </h2>
 		</div>
@@ -56,10 +68,11 @@
 			</h2>
 			{!! Form::open() !!}
 			<h3>mijn perecte (dinner) date</h3>
-			<p id="perfectDate">@if($profile->perfectDate)
-{{ $profile->perfectDate }}
+			<p id="perfectDate">
+				@if($profile->perfectDate)
+					{{ $profile->perfectDate }}
 				@else
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum feugiat. Maecenas aliquam ligula arcu, tristique accumsan nisi rutrum sed. Nullam nec magna pharetra, fermentum orci vestibulum, ornare quam. Pellentesque consectetur urna eget purus efficitur, in elementum leo euismod. Proin elit libero, luctus at ultrices id, gravida vitae massa. Morbi placerat dui ac est convallis rhoncus. 
+				Kaas en wijn onder een sterrenhemel
 				@endif
 			</p>
 			<h3>my all time favourites</h3>
@@ -68,16 +81,26 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 				@foreach($profile->favoriteDishArray as $dish)
 					<li>{{ $dish }}</li>
 				@endforeach
-				
 			</ul>
-			<h3>smaken</h3>
+			<h2>spicyness</h2>
+			<h2> {{ $profile->spicyness }} </h2>
+			<h3>smaken
+				@if(Auth::user()->id == $profile->id)
+					<span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateSmaak"></span>
+				@endif
+			</h3>
 			<ul>
-				@foreach($profile->tastes as $taste)
-					<li>{{ $taste->name }}  <span class="clickable glypicon glyphicon-remove"></span></li>
-				@endforeach
-				<li>zoet <span class="remove clickable glyphicon glyphicon-remove" id="taste-zoet"></span></li>
+				@if($profile->tastes)
+					@foreach($profile->tastes as $taste)
+						<li>
+							{{ $taste->tastes }}  
+						</li>
+					@endforeach
+				@else
+				<li>zoet</span></li>
+				@endif
 			</ul>
-			<p>leeftijd: {!!$profile->dateOfBirth !!}</p>
+			
 			
 			<p>details details details...</p>
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}

@@ -213,12 +213,22 @@ class AuthController extends Controller
 
             case "smaak":
 
-                // $userid  = Auth::user()->id;
+            $count = Auth::user()
+                        ->tastes()
+                        ->where('user_id',Auth::user()->id)
+                        ->count();
+        //var_dump($count);
+           // if($count == 4)
+           // {
+           //      $count =Auth::user()
+           //                  ->tastes()
+           //                  ->where('user_id',Auth::user()->id)
+           //                  ->take(1)
+           //                  ->get();
+           //                  // ->delete();
+               
+           // }
 
-                // $tastNew = new Taste;
-                // $tastNew->save();
-
-                // $tastNew->users()->attach($userid);
             $taste_id =$registerData['tastes'];
                 Auth::user()->tastes()->attach($taste_id);
 
