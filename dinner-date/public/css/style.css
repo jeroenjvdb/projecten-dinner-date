@@ -1,6 +1,29 @@
+@font-face{
+    font-family: 'mesmerize header';
+    src: url('../fonts/mesmerize-sb.ttf');
+}
+@font-face{
+    font-family:'mesmerize text';
+    src: url('../fonts/mesmerize-sc-el.ttf');
+}
+
+
+h1, h2, h3, li{
+    font-family: 'mesmerize header', sans-serif;
+}
+
+p, h6, h5, h4{
+    font-family:'mesmerize text';
+}
+
+nav.navbar-default .navbar-nav li a, .navbar-header .navbar-brand{
+    color: #DED8D0;
+}
+
+
 html, body {
-                height: 100%;
-            }
+    height: 100%;
+}
 
 body {
     margin: 0;
@@ -8,15 +31,37 @@ body {
     width: 100%;
     display: table;
     font-weight: 100;
-    font-family: 'Lato';
+    background-color: #DED8D0;
+
+    /*font-family: 'Lato';*/
 }
 
-/* .container {
-    text-align: center;
-    display: table-cell;
-    vertical-align: middle;
+.navbar{
+    margin-bottom: 0;
+}
+
+ .container {
+    background-color: #F0F0F0;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    border-radius: 2px; 
     
-}*/
+}
+
+.footer{
+    padding: 0;
+    background-color:  inherit;
+}
+
+.container.footer{
+ margin-top: 5px;
+ margin-bottom: 0;
+}
+
+.container.footer h4{
+    color: #DED8D0;
+}
 
 .content {
     text-align: center;
@@ -50,7 +95,7 @@ img{
 
 }
 .navbar{
-    margin-bottom: 0;
+    background-color: #8F0500;
 }
 
 nav{
