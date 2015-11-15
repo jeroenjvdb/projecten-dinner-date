@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use Auth;
 use Hash;
+use App\Taste;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -118,7 +119,7 @@ class AuthController extends Controller
         $user->name                 = $registerData['name'];
         $user->surname              = $registerData['surname'];
         $user->dateOfBirth          = $registerData['dateOfBirth'];
-        
+       $user->sex                  = $registerData['sex'];
 
         $user->save();
 
@@ -205,8 +206,22 @@ class AuthController extends Controller
                 $user->housenumber          = $registerData['housenumber'];
                 $user->city                 = $registerData['city'];
                 $user->country              = $registerData['country'];
+                $user->sex                  = $registerData['sex'];
                 
                 $user->save();
+            break;
+
+            case "smaak":
+
+                // $userid  = Auth::user()->id;
+
+                // $tastNew = new Taste;
+                // $tastNew->save();
+
+                // $tastNew->users()->attach($userid);
+            $taste_id =$registerData['tastes'];
+                Auth::user()->tastes()->attach($taste_id);
+
             break;
         }         
 
