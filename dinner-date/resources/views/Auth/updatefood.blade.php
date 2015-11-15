@@ -14,13 +14,13 @@
 				<div class="form-group">
 					{!! Form::label('specialAllergies', 'Allgergien', ['class' => 'col-xs-5 control-label']) !!}
 					<div class="col-xs-7">
-						{!! Form::text('specialAllergies', $profile->specialAllergies) !!}</br>
+						{!! Form::text('specialAllergies', $profile->specialAllergies, ['class' => 'form-control']) !!}
 					</div>
 				</div>
 				<div class="form-group">
 					{!! Form::label('favoriteDish', 'favoriete maaltijd', ['class' => 'col-xs-5 control-label']) !!}
 					<div class="col-xs-7">
-						{!! Form::text('favoriteDish',$profile->favoriteDish) !!}</br>
+						{!! Form::text('favoriteDish',$profile->favoriteDish, ['class' => 'form-control']) !!}
 					</div>
 				</div>
 
@@ -39,11 +39,15 @@
 				<div class="form-group">
 					{!! Form::label('perfectDate', 'omschrijf je perfecte date', ['class' => 'col-xs-5 control-label']) !!}
 					<div class="col-xs-7">
-						{!! Form::textarea('perfectDate', $profile->perfectDate) !!}</br>
+						{!! Form::textarea('perfectDate', $profile->perfectDate, ['class' => 'form-control']) !!}</br>
 					</div>
 				</div>
 				{!! Form::hidden('type', 'food') !!}
-				{!! Form::submit() !!}
+				<div class="form-group">
+					<div class="col-xs-offset-5 col-xs-7">
+						{!! Form::submit('submit', ['class' => 'btn btn-default']) !!}
+					</div>
+				</div>
 				{!! Form::close() !!}
 			</div><!-- end horizontalform -->
 		</div><!-- end modal body -->
