@@ -6,6 +6,7 @@ models
 */
 use App\User;
 use App\Dish;
+use App\Picture;
 
 use Carbon\Carbon;
 
@@ -40,6 +41,11 @@ class MainController extends Controller
      */
     public function index()
     {
+        $images = Picture::where('user_id', '=', Auth::user()->id)
+                        ->where('isDish', '=', false)
+                        ->orderBy('id', 'desc')
+                        ->take(5)
+                        ->get();
         $profile = User::find(Auth::user()->id);
         $favoriteDish = explode(';', $profile->favoriteDish);
         
@@ -59,7 +65,9 @@ class MainController extends Controller
         // }
         // $dish = Dish::all()->first();
         $data   =   ['profile' => $profile,
-                        'friends' => $friends];
+                        'friends' => $friends,
+                        'images' => $images,
+                        ];
         return View('dashboard')->with($data);
     }
 
