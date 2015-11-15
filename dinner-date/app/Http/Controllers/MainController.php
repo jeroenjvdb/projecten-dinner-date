@@ -6,14 +6,10 @@ models
 */
 use App\User;
 use App\Dish;
-
 use App\Friend;
-
 use App\Picture;
-
-
 use Carbon\Carbon;
-
+use App\Taste;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -61,20 +57,20 @@ class MainController extends Controller
             }
         }
         $profile->favoriteDishArray = $favoriteDish;
+        $smaken = Taste::select('id', 'tastes')->get();
         $friends = User::where('id', '=', Auth::user()->id)->first()->friends()->get() ;
         $friendRequests = Friend::where('friend_id', '=', Auth::user()->id)->where('accepted', '=', false)->get();
-        // echo '<pre>';
-        // foreach ($friends as $friend) {
-        //     echo 'new user </br>';
-        // var_dump($friendRequests->first()->friend);
-        // }
-        // $dish = Dish::all()->first();
-        $data   =   ['profile' => $profile,
-                        'friends' => $friends,
+       
+        $tasts =array();
+        foreach ($smaken as $smaak) {
+            $tasts[]=array($smaak->id => $smaak->tastes);  
+        }
 
-                        'friendRequests' => $friendRequests,
-
-                        'images' => $images,
+        $data   =   ['profile'              => $profile,
+                        'friends'           => $friends,
+                        'friendRequests'    => $friendRequests,
+                        'images'            => $images,
+                        'tasts'              => $tasts
                         ];
         return View('dashboard')->with($data);
     }

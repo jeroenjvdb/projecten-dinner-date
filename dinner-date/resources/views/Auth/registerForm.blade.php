@@ -25,6 +25,13 @@
 			</div>
 		</div>
 		<div class="form-group">
+			{!! Form::label('sex', 'geslacht:', ['class' => 'col-xs-5 control-label']) !!}
+			<div class="col-xs-7">
+				{!! Form::radio('sex', '0',array('checked' => 'checked')) !!} man</ br>
+				{!! Form::radio('sex', '1') !!} vrouw</ br>
+			</div>
+		</div>
+		<div class="form-group">
 			{!! Form::label('password', 'wachtwoord', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::password('password', '') !!}</br>

@@ -25,6 +25,13 @@
 			</div>
 		</div>
 		<div class="form-group">
+			{!! Form::label('Sex', 'geslacht:', ['class' => 'col-xs-5 control-label']) !!}
+			<div class="col-xs-7">
+				{!! Form::radio('Sex', '0',array('checked' => 'checked')) !!} man</ br>
+				{!! Form::radio('Sex', '1') !!} vrouw</ br>
+			</div>
+		</div>
+		<div class="form-group">
 			{!! Form::label('country', 'Land', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::text('country', $profile->country) !!}</br>
