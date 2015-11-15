@@ -122,7 +122,14 @@
   <!-- Tab panes -->
   <div class="tab-content">
 	<div role="tabpanel" class="tab-pane active" id="people">
-		people you may like
+		@foreach($peoples as $people)
+			{!! $people->name !!}
+			{!! $people->surname !!}
+			{!! $people->country !!}
+			{!! $people->city !!}
+			{!! $people->dateOfBirth !!}
+			<br \>
+		@endforeach
 	</div>
     <div role="tabpanel" class="tab-pane" id="dishes">
 		@include('dashboard.dishes')

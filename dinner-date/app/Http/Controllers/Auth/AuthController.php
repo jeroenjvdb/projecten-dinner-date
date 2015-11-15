@@ -217,17 +217,23 @@ class AuthController extends Controller
                         ->tastes()
                         ->where('user_id',Auth::user()->id)
                         ->count();
-        //var_dump($count);
-           // if($count == 4)
-           // {
-           //      $count =Auth::user()
-           //                  ->tastes()
-           //                  ->where('user_id',Auth::user()->id)
-           //                  ->take(1)
-           //                  ->get();
-           //                  // ->delete();
+
+            $first = Auth::user()
+                        ->tastes()
+                        ->where('user_id',Auth::user()->id)
+                        ->first();
+
+                        $delete= $first['pivot']['taste_id'];
+    
+        var_dump($count);
+           if($count == 4)
+           {
+                $count =Auth::user()
+                            ->tastes()
+                            //->get();
+                            ->detach($delete);
                
-           // }
+           }
 
             $taste_id =$registerData['tastes'];
                 Auth::user()->tastes()->attach($taste_id);

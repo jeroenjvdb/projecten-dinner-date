@@ -9,6 +9,7 @@ use App\Friend;
 use App\Picture;
 use Carbon\Carbon;
 use App\Taste;
+use DB;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -39,6 +40,7 @@ class MainController extends Controller
                         ->orderBy('id', 'desc')
                         ->take(5)
                         ->get();
+
         $profile = User::find(Auth::user()->id);
         $favoriteDish = explode(';', $profile->favoriteDish);
         
@@ -51,38 +53,50 @@ class MainController extends Controller
         $profile->favoriteDishArray = $favoriteDish;
         $friends = User::where('id', '=', Auth::user()->id)->first()->friends()->get() ;
         $friendRequests = Friend::where('friend_id', '=', Auth::user()->id)->where('accepted', '=', false)->get();
-       
-        // $users = Auth::user()
-        //                 ->tastes()
-        //                 ->groupBy('user_id')
-        //                 ->get();
         
+        $mayLike=array();
+        
+        foreach($profile->tastes as $taste)
+        {
+            $othersTaste = $taste->users()
+                                    ->where('user_id','<>', Auth::user()->id)
+                                    ->where('taste_id',$taste->id)
+                                    ->get();
+            foreach($othersTaste as $user)
+            {
+                $mayLike[] = $user->id;
+            }
+        }
+        //count how many times an id apears in array
+        $CountMayLikes = array_count_values($mayLike);
+        //sort from high to low
+        arsort($CountMayLikes);
+        //var_dump($CountMayLikes);
+            $sortedArray = [];
 
-        // foreach($profile->tastes as $taste)
-        // {
-        //     $taste->id;
-        //     $users = Taste::users()
-        //                 //->tastes()
-        //                 ->where('taste_id',$taste->id)
-        //                 //->where('user_id','<>',Auth::user()->id)
-        //                 ->select('user_id')
-        //                 ->get();
-        //     echo '<pre>';
-        // var_dump($users);
-        // echo '</pre>';
-        // }
-
+        foreach ($CountMayLikes as $id => $value) {
+            $sortedArray[]=$id;
+        }
+        //var_dump($sortedArray);
+        //give te first 10
+        $pYML = array_slice($sortedArray, 0, 10);
+        
+        $people = User::whereIn('id',$pYML)
+                    ->select('name','surname','country','city','dateOfBirth')
+                    ->get() ;
+        
 
         $smaken = Taste::select('id', 'tastes')->get(); 
         $tasts =array();
         foreach ($smaken as $smaak) {
-            $tasts[]=array($smaak->id => $smaak->tastes);  
+            $tasts[$smaak->id]=$smaak->tastes;  
         }
         $data   =   ['profile'              => $profile,
                         'friends'           => $friends,
                         'friendRequests'    => $friendRequests,
                         'images'            => $images,
-                        'tasts'             => $tasts
+                        'tasts'             => $tasts,
+                        'peoples'           => $people,
                         ];
 
         return View('dashboard')->with($data);
