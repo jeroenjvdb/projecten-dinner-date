@@ -19,15 +19,17 @@ Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
 Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logout']);
 
 Route::get('/register', 	['as' => 'register', 		'uses' => 'Auth\AuthController@register']);
-<<<<<<< HEAD
+
 Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister' ]);		
 Route::post('/registerA',	['as' => 'postRegisterA',	'uses' => 'Auth\AuthController@postRegisterA']);		
 Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@updateFood']);		
 Route::post('/registerP',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
-=======
+
 Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);		
-Route::post('/update',		['as' => 'update',			'uses' => 'Auth\AuthController@test']);				
->>>>>>> 2095b70bdf0850328f2d4ed6bb05449b0efca7ba
+Route::post('/update',		['as' => 'update',			'uses' => 'Auth\AuthController@test']);	
+Route::get('/update/password', ['as' => 'updatePassword', 'uses' => 'UserController@editPassword']);
+Route::post('/update/password', [						'uses' => 'UserController@postEditPassword']);			
+
 
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'MainController@index']);

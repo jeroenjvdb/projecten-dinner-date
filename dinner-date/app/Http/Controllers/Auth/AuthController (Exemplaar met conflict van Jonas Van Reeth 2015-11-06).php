@@ -67,6 +67,11 @@ class AuthController extends Controller
         ]);
     }
 
+    public function test()
+    {
+        echo 'test';
+    }
+
     public function login()
     {
         return view('Auth.login');
@@ -215,5 +220,28 @@ class AuthController extends Controller
         // $user->save();
 
         // return redirect()->route('dashboard');
+    }
+
+     public function editPassword()
+    {
+        return View('Auth.updatePassword');
+    }
+
+    public function postEditPassword(Request $request)
+    {
+        $validate = $this->validate($request->input()->all());
+        if($validate->fails())
+        {
+            return redirect()->back()->withErrors($validate->errors());
+        }
+
+        $user = Auth::user();
+        $user->password = $request->input('password');
+        $user->save();
+
+        return redirect()->back()->withSuccess('succesfully updated the password');
+
+
+        
     }
 }

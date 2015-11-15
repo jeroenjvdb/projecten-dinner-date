@@ -5,8 +5,8 @@
 		
 		{!! Form::label('password') !!}
 		{!! Form::password('password') !!}
-		{!! Form::label('password_confirmed') !!}
-		{!! Form::password('password_confirmed') !!}
+		{!! Form::label('password_confirmation') !!}
+		{!! Form::password('password_confirmation') !!}
 
 		{!! Form::submit() !!}
 

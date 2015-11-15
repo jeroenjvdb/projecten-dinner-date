@@ -6,6 +6,7 @@ use Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Request;
 
 class PasswordController extends Controller
 {
@@ -32,7 +33,7 @@ class PasswordController extends Controller
         $this->middleware('guest');
     }
 
-    public function validate(array $data) 
+    public function validator(array $data) 
     {
         return validator::make($data, [
                 'password' => 'required|confirmed'

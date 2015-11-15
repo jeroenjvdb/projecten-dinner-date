@@ -136,7 +136,7 @@ class MainController extends Controller
         return redirect()->back();
     }
 
-    public function deleteFriend(id)
+    public function deleteFriend($id)
     {
         $userFriend = Friend::where('user_id', '=', $id)
                                     ->where('friend_id', '=', Auth::user()->id);
