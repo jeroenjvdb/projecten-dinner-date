@@ -12,7 +12,7 @@
 			</div>
 			<div class="col-md-9">
 				
-		{{ $friend->surname }} {{ $friend->name }}
+				{{ $friend->surname }} {{ $friend->name }}
 			</div>
 		</div>
 		
