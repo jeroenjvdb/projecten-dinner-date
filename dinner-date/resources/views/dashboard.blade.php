@@ -56,7 +56,15 @@
 					<span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
 				@endif 
 			</h1>
-			<p>leeftijd: {!!$profile->dateOfBirth !!}</p>
+			<p>leeftijd: {!! $profile->age !!}</p>
+			<p> @if($profile->sex == 0)
+					man
+				@else
+					vrouw
+				@endif
+				</p>
+
+
 			<h3>residence</h3>
 			<h3 class="subheader">{{ $profile->country }} {{ $profile->city }}</h3>
 		</div>

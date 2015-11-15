@@ -35,9 +35,16 @@ class MainController extends Controller
                         ->take(5)
                         ->get();
 
-        $profile = User::find(Auth::user()->id);
-        $favoriteDish = explode(';', $profile->favoriteDish);
+        $profile        = User::find(Auth::user()->id);
+        $favoriteDish   = explode(';', $profile->favoriteDish);
         
+        $time   = explode("-", $profile->dateOfBirth);
+        $dt     = Carbon::createFromDate($time[0],$time[1],$time[2],'Europe/Brussels');
+        $now    = Carbon::today();
+        $age    = $now->diffInYears($dt); 
+        $profile->age =$age;    
+
+
         foreach ($favoriteDish as $key => $value) {
             if($value == "")
             {
