@@ -126,10 +126,11 @@
 	<div role="tabpanel" class="tab-pane active" id="people">
 		<div class="row">
 			@foreach($peoples as $people)
-				<div class="col-md-12">
+				<div class="col-md-12 person" data-link="{{ route('getProfile', $people->id) }}" >
 					<div class="row">
-						<div class="col-md-2" style="height: 60px;">
-							img
+						<div class="col-md-2" >
+							<img src="{{ $people->picture_url }}" alt="">
+							
 						</div>
 						<div class="col-md-3">
 						{!! $people->surname !!}

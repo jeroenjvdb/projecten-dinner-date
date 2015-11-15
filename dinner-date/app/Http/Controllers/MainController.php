@@ -77,8 +77,21 @@ class MainController extends Controller
         
         $people = User::whereIn('id',$pYML)
                     // ->select('name','surname','country','city','dateOfBirth','picture_url')
+                    ->select('id', 'name','surname','country','city','dateOfBirth')
                     ->get() ;
-        
+
+        foreach($people as $person)
+        {
+            // var_dump($person->id);
+            $picture_url = Picture::where('user_id',$person->id)
+                    ->select('picture_url')
+                    ->first();
+
+            // echo '<pre>';
+            // var_dump($picture_url['picture_url']);
+            $person->picture_url = $picture_url['picture_url'];
+
+        }
 
         $smaken = Taste::select('id', 'tastes')->get(); 
         $tasts =array();

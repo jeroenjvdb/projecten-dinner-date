@@ -13,4 +13,9 @@ $( document ).ready(function(){
 		console.log(e.target.id);
 	})
 
+	$('.person').on('click', function(e){
+		console.log(e.currentTarget.dataset.link);
+		window.location.href = e.currentTarget.dataset.link;
+	})
+
 });
