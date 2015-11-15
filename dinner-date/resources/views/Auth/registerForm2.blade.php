@@ -18,37 +18,37 @@
 		<div class="form-group">
 			{!! Form::label('country', 'Land', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('country', '', array('placeholder' => 'Belgium')) !!}</br>
+				{!! Form::text('country', '', array('placeholder' => 'Belgium', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('city', 'Stad', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('city', '', array('placeholder' => 'Antwerpen')) !!}</br>
+				{!! Form::text('city', '', array('placeholder' => 'Antwerpen', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('streetname', 'Straat', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('streetname', '', array('placeholder' => 'groenplaats')) !!}</br>
+				{!! Form::text('streetname', '', array('placeholder' => 'groenplaats', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('housenumber', 'nr', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('housenumber', '', array('placeholder' => '1')) !!}</br>
+				{!! Form::text('housenumber', '', array('placeholder' => '1', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('specialAllergies', 'Allgergien', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('specialAllergies', '', array('placeholder' => 'pinda')) !!}</br>
+				{!! Form::text('specialAllergies', '', array('placeholder' => 'pinda', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('favoriteDish', 'favoriete maaltijd', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('favoriteDish', '', array('placeholder' => 'macaroni')) !!}</br>
+				{!! Form::text('favoriteDish', '', array('placeholder' => 'macaroni', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 
@@ -66,11 +66,16 @@
 		<div class="form-group">
 			{!! Form::label('perfectDate', 'omschrijf je perfecte date', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::textarea('perfectDate', '', array('placeholder' => 'kaas en wijn onder de sterren')) !!}</br>
+				{!! Form::textarea('perfectDate', '', array('placeholder' => 'kaas en wijn onder de sterren', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		{!! Form::hidden('type', 'first') !!}
-		{!! Form::submit() !!}
+		<div class="form-group">
+			
+		<div class="col-xs-offset-5 col-xs-7">
+			{!! Form::submit('submit', array('class' => 'btn btn-default')) !!}
+		</div>
+		</div>
 	{!! Form::close() !!}
 </div>
 

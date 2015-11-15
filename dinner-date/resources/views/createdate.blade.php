@@ -12,29 +12,29 @@
 		<div class="form-group">
 			{!! Form::label('dateOfDate', 'datum voor date', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::date('dateOfDate',$min=$today) !!}</br>
+				{!! Form::date('dateOfDate',$min=$today, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('area', 'Stad', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('area', '', array('placeholder' => 'Antwerpen')) !!}</br>
+				{!! Form::text('area', '', array('placeholder' => 'Antwerpen', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('nameDish', 'Welk gerecht ga je maken', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('nameDish', '', array('placeholder' => 'macaroni')) !!}</br>
+				{!! Form::text('nameDish', '', array('placeholder' => 'macaroni', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('description', 'omschrijf het gerecht', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::textarea('description', '', array('placeholder' => 'paste met kaas en hesp in kaassaus')) !!}</br>
+				{!! Form::textarea('description', '', array('placeholder' => 'pasta met kaas en hesp in kaassaus', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('preference', 'Davoorkeur van gezelschap?', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('preference', 'voorkeur van gezelschap?', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::radio('preference', '1') !!} man</br>
 				{!! Form::radio('preference', '2') !!} vrouw
@@ -49,6 +49,10 @@
 			</br>
 			</div>
 		</div>
-		{!! Form::submit() !!}
+		<div class="form-group">
+			<div class="col-xs-offset-5 col-xs-7">
+				{!! Form::submit('maak date', ['class' => 'btn btn-default']) !!}
+			</div>
+		</div>
 	{!! Form::close() !!}
 @stop

@@ -1,27 +1,27 @@
-<div class="form-horizontal">	
-	{!! Form::open(array('url' => route('register'), 'method' => 'post')) !!}
+<div class="row register">	
+	{!! Form::open(array('url' => route('register'), 'method' => 'post', 'class' => 'form-horizontal')) !!}
 		<div class="form-group">
 			{!! Form::label('email', 'Email adress', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('email', '', array('placeholder' => 'example@test.be')) !!}</br>
+				{!! Form::text('email', '', array('placeholder' => 'example@test.be', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('surname', 'voornaam', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('surname', '', array('placeholder' => 'jan')) !!}</br>
+				{!! Form::text('surname', '', array('placeholder' => 'jan', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('name', 'naam', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('name', '', array('placeholder' => 'janssens')) !!}</br>
+				{!! Form::text('name', '', array('placeholder' => 'janssens', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('dateOfBirth', 'geboortedatum', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::date('dateOfBirth',$min=$before) !!}</br>
+				{!! Form::date('dateOfBirth',$min=$before, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -34,15 +34,19 @@
 		<div class="form-group">
 			{!! Form::label('password', 'wachtwoord', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::password('password', '') !!}</br>
+				{!! Form::password('password',  ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('password_confirmation', 'bevestig wachtwoord', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::password('password_confirmation', '') !!}</br>
+				{!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
 			</div>
 		</div>
-		{!! Form::submit() !!}
+		<div class="form-group">
+			<div class="col-xs-offset-5 col-xs-7">
+				{!! Form::submit('registreren', ['class' => 'btn btn-default']) !!}
+			</div>
+		</div>
 	{!! Form::close() !!}
 </div>

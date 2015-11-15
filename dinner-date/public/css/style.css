@@ -45,6 +45,14 @@ img{
     /*width: 150%;*/
 }
 
+.register{
+    padding: 10px;
+
+}
+.navbar{
+    margin-bottom: 0;
+}
+
 nav{
     width: 100%;
 }
