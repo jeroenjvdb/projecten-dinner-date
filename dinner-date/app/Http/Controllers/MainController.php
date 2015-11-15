@@ -76,9 +76,17 @@ class MainController extends Controller
         $pYML = array_slice($sortedArray, 0, 10);
         
         $people = User::whereIn('id',$pYML)
-                    ->select('name','surname','country','city','dateOfBirth','picture_url')
+                    ->select('name','surname','country','city','dateOfBirth')
                     ->get() ;
-        
+
+        foreach($people as $person)
+        {
+            $picture_url = Picture::where('user_id',$person->id)
+                    ->select('picture_url')
+                    ->first();
+            $person->picture_url = $picture_url;
+
+        }
 
         $smaken = Taste::select('id', 'tastes')->get(); 
         $tasts =array();
