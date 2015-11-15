@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'homepage', 'uses' => 'mainController@home'));
+Route::get('/', array('as' => 'homepage', 'uses' => 'Auth\AuthController@@home'));
 
 Route::get('/login', 		['as' => 'login', 		'uses' =>'Auth\AuthController@login']);
 Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);

@@ -21,13 +21,7 @@ class MainController extends Controller
     {
         $this->middleware('auth', ['except' => 'home']);
     }
-    public function home()
-    {
-        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
-        $dishes = Dish::all()->take(4);
-        $data = array('dishes' => $dishes, 'before' => $before);
-        return View('welcome')->with($data);
-    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -82,7 +76,7 @@ class MainController extends Controller
         $pYML = array_slice($sortedArray, 0, 10);
         
         $people = User::whereIn('id',$pYML)
-                    ->select('name','surname','country','city','dateOfBirth')
+                    ->select('name','surname','country','city','dateOfBirth','picture_url')
                     ->get() ;
         
 
