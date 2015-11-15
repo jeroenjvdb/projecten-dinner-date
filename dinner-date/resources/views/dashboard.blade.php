@@ -124,14 +124,29 @@
   <!-- Tab panes -->
   <div class="tab-content">
 	<div role="tabpanel" class="tab-pane active" id="people">
-		@foreach($peoples as $people)
-			{!! $people->name !!}
-			{!! $people->surname !!}
-			{!! $people->country !!}
-			{!! $people->city !!}
-			{!! $people->dateOfBirth !!}
-			<br \>
-		@endforeach
+		<div class="row">
+			@foreach($peoples as $people)
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-2" style="height: 60px;">
+							img
+						</div>
+						<div class="col-md-3">
+						{!! $people->surname !!}
+						{!! $people->name !!}
+						</div>
+						<div class="col-md-3">
+						{!! $people->country !!}
+						{!! $people->city !!}
+						</div>
+						<div class="col-md-2">
+						{!! $people->dateOfBirth !!}
+						</div>
+					</div>
+				</div>
+				
+			@endforeach
+		</div>
 	</div>
     <div role="tabpanel" class="tab-pane" id="dishes">
 		@include('dashboard.dishes')

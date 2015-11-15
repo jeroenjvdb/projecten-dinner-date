@@ -6,6 +6,7 @@ use App\User;
 use Auth;
 use Hash;
 use App\Taste;
+use App\Dish;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;

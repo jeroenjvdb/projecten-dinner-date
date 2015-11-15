@@ -72,11 +72,11 @@ class MainController extends Controller
             $sortedArray[]=$id;
         }
         //var_dump($sortedArray);
-        //give te first 10
+        //give te first 10z
         $pYML = array_slice($sortedArray, 0, 10);
         
         $people = User::whereIn('id',$pYML)
-                    ->select('name','surname','country','city','dateOfBirth','picture_url')
+                    // ->select('name','surname','country','city','dateOfBirth','picture_url')
                     ->get() ;
         
 
