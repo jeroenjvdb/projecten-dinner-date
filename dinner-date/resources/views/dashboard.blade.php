@@ -28,8 +28,8 @@
 						</div>	
 					
 					@endif
+					</div>
 				@endforeach
-				</div>
 		
 			<div class="row">
 				<div class="col-sm-offset-1"><a href="">meer..</a></div>
@@ -45,9 +45,8 @@
 			@endif 
 			<h2>spicyness</h2>
 			<h2> {{ $profile->spicyness }} </h2>
-			<button>send friendship</button>
 		</div>
-	</div>
+	
 	<div class="row">
 		<div class="col-sm-4">
 			<h2>profiel
@@ -84,8 +83,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
 			{!! Form::close() !!}
 		</div>
+	
+
 		
-		<div>
 
 		<div class="col-sm-8">
 	  <!-- Nav tabs -->
@@ -126,13 +126,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 		@endForeach
     </div>
   </div>
+</div>
 
-		@if(Auth::user())
-			
-			
-		</div>
-		@endif
-	</div>
+
 	
 
 
