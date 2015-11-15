@@ -15,6 +15,7 @@ use DB; //database connectie
 use App\Picture;
 use User;
 use Auth;
+use Carbon\Carbon;
 
 class PhotoController extends Controller
 {
@@ -32,25 +33,26 @@ class PhotoController extends Controller
     {
         $this->validate($request, [
             'description'       => 'required|max:255',
+            'isDish'            => 'required',
             'photo'             => 'required|mimes:jpeg,gif,png',    
          ]);
 
-
+        $date                   = Carbon::now();
         $filename               = Input::file('photo')->getClientOriginalName();
+        $rand                   = rand(11111,99999);
         Image::make(Input::file('photo'))
-                                ->resize(300, 200)
-                                ->save('userImg/'.$filename);
-        
+                                //->resize(300, 200)
+                                ->save('img/users/'.$rand.'-'.$filename);
         $inputData              = $request->all();  
 
         $img                    = new Picture;
-        $img->picture_url       = 'userImg/'.$filename;
+        $img->picture_url       = '/img/users/'.$rand.'-'.$filename;
         $img->description       = $inputData['description'];
         $img->isDish            = $inputData['isDish'];
         $img->user_id           = Auth::user()->id;
 
         $img->save();
 
-
+         return view('photo');
     }
 }

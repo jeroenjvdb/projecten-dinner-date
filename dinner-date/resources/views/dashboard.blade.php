@@ -13,26 +13,24 @@
 
 	<div class="row">
 		<div class="col-sm-3 profile-pics">
-			<div class="row">
-				<div class="col-sm-12">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
+				@foreach($images as $index => $image)
+					@if($index==0)
+					<div class="row">
+						<div class="col-sm-12">
+							<img src="{{ $image->picture_url}}" />
+						</div>
+					</div>
+					<div class="row more-pics">
+					@else
+					
+						<div class="col-sm-3">
+							<img src="{{ $image->picture_url}}" />
+						</div>	
+					
+					@endif
+				@endforeach
 				</div>
-			</div>
-			<div class="row more-pics">
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				
-			</div>
+		
 			<div class="row">
 				<div class="col-sm-offset-1"><a href="">meer..</a></div>
 			</div>	
@@ -80,7 +78,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 				@endforeach
 				<li>zoet <span class="remove clickable glyphicon glyphicon-remove" id="taste-zoet"></span></li>
 			</ul>
-			<p>leeftijd: 20</p>
+			<p>leeftijd: {!!$profile->dateOfBirth !!}</p>
+			
 			<p>details details details...</p>
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
 			{!! Form::close() !!}

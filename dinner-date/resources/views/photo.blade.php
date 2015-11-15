@@ -25,7 +25,7 @@
 		<div class="form-group">
 			{!! Form::label('isDish', 'maaltijd foto?', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::radio('isDish', '0') !!} persoonsfoto</ br>
+				{!! Form::radio('isDish', '0',array('checked' => 'checked')) !!} persoonsfoto</ br>
 				{!! Form::radio('isDish', '1') !!} maaltijd</ br>
 			</div>
 		</div>
