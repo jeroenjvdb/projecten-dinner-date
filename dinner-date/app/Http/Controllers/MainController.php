@@ -72,7 +72,7 @@ class MainController extends Controller
         $data   =   ['profile' => $profile,
                         'friends' => $friends,
 
-                        'friendRequests' => $friendRequests];
+                        'friendRequests' => $friendRequests,
 
                         'images' => $images,
                         ];
