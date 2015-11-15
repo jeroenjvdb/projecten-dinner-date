@@ -105,6 +105,13 @@
               </ul>
           </div>
       @endif
+      @if(Session::get('success'))
+        <div class="model success">
+          <ul>
+            <li>{{ Session::get('success') }}</li>
+          </ul>
+        </div>
+      @endif
 		@yield('body')
 	</div>
 </div>

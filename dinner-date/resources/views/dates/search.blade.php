@@ -31,7 +31,12 @@
 							<input type="text" class="slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="-14" data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="show">
 						</div>
 					</div>
-					{!! Form::submit() !!}
+					<div class="form-group">
+						<div class="col-xs-offset-3 col-xs-9">
+							{!! Form::submit('submit', array('class' => 'btn btn-default')) !!}
+							
+						</div>
+					</div>
 				</div>
 			</div>
 
@@ -39,7 +44,7 @@
 	</div>
 	</div>
 	<div class="row" id="results">
-		test
+		
 	</div>
 @stop
 
