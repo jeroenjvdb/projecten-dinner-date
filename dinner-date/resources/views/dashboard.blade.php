@@ -12,6 +12,8 @@
 
 
 	<div class="row">
+		<div class="col-sm-12">
+			<div class="row">
 		<div class="col-sm-3 profile-pics">
 			
 			@if (count($images) === 0)
@@ -43,7 +45,7 @@
 				</div>
 			@endif
 			<div class="row">
-				<div class="col-sm-offset-1"><a href="">meer..</a></div>
+				<div class="col-sm-offset-1"><a href="{{ route('Photo') }}">upload pic</a></div>
 			</div>	
 		</div>
 		<div class="col-sm-8 col-sm-offset-1">
@@ -55,10 +57,10 @@
 				@endif 
 			</h1>
 			<p>leeftijd: {!!$profile->dateOfBirth !!}</p>
-			<h2>spicyness</h2>
-			<h2> {{ $profile->spicyness }} </h2>
+			<h3>residence</h3>
+			<h3 class="subheader">{{ $profile->country }} {{ $profile->city }}</h3>
 		</div>
-	
+	</div>
 	<div class="row">
 		<div class="col-sm-4">
 			<h2>profiel
@@ -157,7 +159,7 @@
     </div>
   </div>
 </div>
-
+</div>
 
 	
 

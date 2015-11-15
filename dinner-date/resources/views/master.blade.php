@@ -7,9 +7,9 @@
 	<script src="/js/jquery.js"></script>
   <script src="/js/bootstrap.js"></script>
   @yield('scripts')
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
 </head>
 <body>
 	<div>
@@ -55,12 +55,7 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      
       <ul class="nav navbar-nav navbar-right">
         <li>
         	@if(Auth::user())
@@ -115,5 +110,12 @@
 		@yield('body')
 	</div>
 </div>
+
+<div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container footer">
+    <h4>&#9400; Created by Jeroen Van den Broeck &amp; Jonas Van Reeth</h4>
+  </div>
+</div>
+
 </body>
 </html>
