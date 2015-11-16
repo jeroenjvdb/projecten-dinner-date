@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	zoeken
+	dishes
 @stop
 
 @section('body')

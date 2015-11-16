@@ -37,7 +37,7 @@
 				</div>
 
 				<div class="form-group">
-					{!! Form::label('perfectDate', 'omschrijf je perfecte date', ['class' => 'col-xs-5 control-label']) !!}
+					{!! Form::label('perfectDate', 'omschrijf je perfecte date (min 5 woorden)', ['class' => 'col-xs-5 control-label']) !!}
 					<div class="col-xs-7">
 						{!! Form::textarea('perfectDate', $profile->perfectDate, ['class' => 'form-control']) !!}</br>
 					</div>
@@ -45,7 +45,7 @@
 				{!! Form::hidden('type', 'food') !!}
 				<div class="form-group">
 					<div class="col-xs-offset-5 col-xs-7">
-						{!! Form::submit('submit', ['class' => 'btn btn-default']) !!}
+						{!! Form::submit('gegevens toevoegen', ['class' => 'btn btn-default']) !!}
 					</div>
 				</div>
 				{!! Form::close() !!}

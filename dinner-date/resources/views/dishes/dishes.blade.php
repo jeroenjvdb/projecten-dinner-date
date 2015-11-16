@@ -7,11 +7,9 @@
 				<img src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
 				<h2>{{ $dish->name }}</h2>
 				@for($i = 1; $i<6; $i++)
-					@if($dish->rating() >= $i )
-						full
-					@else
-						empty
-					@endif
+					@if($dish->rating() == $i )
+						Moeilijkheid : {{ $i }}
+						@endif
 				@endfor
 			</div>
 		@endforeach

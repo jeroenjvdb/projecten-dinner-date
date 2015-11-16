@@ -36,7 +36,6 @@ class DishController extends Controller
         return Validator::make($data, [
                 'name'          => 'required',
                 'sDescription'  => 'required',
-                'lDescription'  => 'required',
                 'difficulty'    => 'required',
                 'ingredients'   => 'required',
                 'preparations'  => 'required',
@@ -56,7 +55,6 @@ class DishController extends Controller
         return Dish::create([
             'name'          => $data['name'],
             'sDescription'  => $data['sDescription'],
-            'lDescription'  => $data['lDescription'],
             'difficulty'    => $data['difficulty'],
             'ingredients'   => $data['ingredients'],
             'preparations'  => $data['preparations'],

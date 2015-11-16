@@ -76,7 +76,7 @@
 			{!! Form::submit('submit', array('class' => 'btn btn-default')) !!}
 		</div>
 		</div>
-	{!! Form::close() !!}
+	{!! Form::submit('gegevens toevoegen', ['class' => 'btn btn-default']) !!}
 </div>
 
 

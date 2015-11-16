@@ -7,16 +7,22 @@
 			<div class="col-xs-7">{!! Form::text('name','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-		{!! Form::label('sDescription', 'korte beschrijving', ['class' => 'control-label col-xs-5']) !!}
+		{!! Form::label('sDescription', 'beschrijving van het gerecht', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::textarea('sDescription','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('lDescription', 'volledige beschrijving', ['class' => 'control-label col-xs-5']) !!}
-			<div class="col-xs-7">{!! Form::textarea('lDescription','', ['class' => 'form-control']) !!}</div>
+			{!! Form::label('preparations', 'bereiding', ['class' => 'control-label col-xs-5']) !!}
+			<div class="col-xs-7">{!! Form::textarea('preparations','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('difficulty', 'moeilijkheid', ['class' => 'control-label col-xs-5']) !!}
-			<div class="col-xs-7">{!! Form::text('difficulty','', ['class' => 'form-control']) !!}</div>
+			{!! Form::label('difficulty', 'moeilijkheid', ['class' => 'col-xs-5 control-label']) !!}
+			<div class="col-xs-7">
+				{!! Form::radio('difficulty', '1',array('checked' => 'checked')) !!} 1
+				{!! Form::radio('difficulty', '2') !!} 2
+				{!! Form::radio('difficulty', '3') !!} 3
+				{!! Form::radio('difficulty', '1') !!} 4
+				{!! Form::radio('difficulty', '1') !!} 5
+			</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('duration', 'duur' , ['class' => 'control-label col-xs-5']) !!}
@@ -25,10 +31,6 @@
 		<div class="form-group">
 			{!! Form::label('ingredients', 'ingredienten', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::textarea('ingredients','', ['class' => 'form-control']) !!}</div>
-		</div>
-		<div class="form-group">
-			{!! Form::label('preparations', 'bereiding', ['class' => 'control-label col-xs-5']) !!}
-			<div class="col-xs-7">{!! Form::textarea('preparations','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('fittingDrinks','passende drank', ['class' => 'control-label col-xs-5']) !!}

@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-	<h1>createDate</h1>
+	<h1>Date aanmaken</h1>
 
 	<div class="form-horizontal">	
 		{!! Form::open(array('url' => route('createDatePost'), 'method' => 'post')) !!}
@@ -28,7 +28,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('description', 'omschrijf het gerecht', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('description', 'Omschrijf de Date', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::textarea('description', '', array('placeholder' => 'pasta met kaas en hesp in kaassaus', 'class' => 'form-control')) !!}
 			</div>
