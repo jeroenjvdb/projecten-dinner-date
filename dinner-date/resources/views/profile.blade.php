@@ -46,7 +46,7 @@
 			</h1>
 
 			<h2>spicyness</h2>
-			<p>leeftijd: {!! $profile->age !!}</p>
+			<p>leeftijd: {!! $age !!}</p>
 			<p> @if($profile->sex == 0)
 					man
 				@else

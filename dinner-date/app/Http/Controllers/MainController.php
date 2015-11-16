@@ -131,13 +131,14 @@ class MainController extends Controller
                         ->take(5)
                         ->get();
         
-        $time   = explode("-", $user->dateOfBirth);
-        $dt     = Carbon::createFromDate($time[0],$time[1],$time[2],'Europe/Brussels');
-        $now    = Carbon::today();
-        $age    = $now->diffInYears($dt); 
-        $profile->age =$age; 
+         $time   = explode("-", $user->dateOfBirth);
+         $dt     = Carbon::createFromDate($time[0],$time[1],$time[2],'Europe/Brussels');
+         $now    = Carbon::today();
+         $age    = $now->diffInYears($dt); 
+        // echo $age;
+        // $profile->age =$age; 
 
-        $data = ['profile' => $user, 'images' => $images];
+        $data = ['profile' => $user, 'images' => $images, 'age' => $age];
         return View('profile')->with($data);
     }
     public function addFriend($id)

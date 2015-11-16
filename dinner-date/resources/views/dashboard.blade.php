@@ -110,9 +110,6 @@
 				<li>zoet</span></li>
 				@endif
 			</ul>
-			
-			
-			<p>details details details...</p>
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
 			{!! Form::close() !!}
 		</div>
