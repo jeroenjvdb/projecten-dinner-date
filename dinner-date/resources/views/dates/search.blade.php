@@ -25,10 +25,13 @@
 					</div>
 					<div class="row form-group">
 						<div class="col-md-3">
-							{!! Form::label('distance') !!}
+							{!! Form::label('sex', 'geslacht') !!}
 						</div>
 						<div class="col-md-9">
-							<input type="text" class="slider" value="" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="-14" data-slider-orientation="horizontal" data-slider-selection="after"data-slider-tooltip="show">
+							{!! Form::radio('sex', '1', ['id' => '1']) !!}
+							{!! Form::label('1', 'man') !!}</br>
+							{!! Form::radio('sex', '2', ['id' => '2']) !!}
+							{!! Form::label('2', 'vrouw') !!}
 						</div>
 					</div>
 					<div class="form-group">
@@ -62,10 +65,10 @@
 		// 	).trigger('change');
 		$('#searchForm').on('submit', findDates);
 		
-		// $('#searchForm').trigger('submit');
+		$('#searchForm').trigger('submit');
 
 		console.log('ready');
-		$('.slider').slider().on('slideStop', findDates);
+		// $('.slider').slider().on('slideStop', findDates);
 
 		$('#searchForm input').on('change', findDates);
 
@@ -74,8 +77,8 @@
 			e.preventDefault();
 			// console.log(e);
 
-			var distance = $('.slider').sliderValue();
-			console.log('distance: ' + distance);
+			var sex = $('#searchForm input[name="sex"]:checked').val();
+			console.log('gender: ' + sex);
 			var type = $('#searchForm input[name="type"]:checked').val();
 			console.log(type);
 			var date = $('#searchForm input[name="datum"]').val();
@@ -90,7 +93,7 @@
 			$.ajax({
 				type: "POST",
 				url: "/dates/find", 
-				data: {distance: distance, type:type, date:date},
+				data: {sex: sex, type:type, date:date},
 				success: function(data, status){
 					console.log(data);
 					makeSearch(data);
