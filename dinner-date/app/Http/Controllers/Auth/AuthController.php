@@ -38,6 +38,7 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['except' => array('logout', 'test')]);
     }
+    
     public function home()
     {
         $before =  Carbon::today()->subYears(18)->format('Y-m-d');

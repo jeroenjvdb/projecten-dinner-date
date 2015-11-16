@@ -64,6 +64,6 @@ class PhotoController extends Controller
 
         $img->save();
 
-         return view('photo');
+         return redirect()->route('dashboard')->withSuccess('succesfully added a picture');
     }
 }
