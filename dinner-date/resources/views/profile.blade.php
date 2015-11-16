@@ -46,7 +46,16 @@
 			</h1>
 
 			<h2>spicyness</h2>
-			<h2> {{ $profile->spicyness }} </h2>
+			<p>leeftijd: {!! $profile->age !!}</p>
+			<p> @if($profile->sex == 0)
+					man
+				@else
+					vrouw
+				@endif
+				</p>
+			<h3>residence</h3>
+			<h3 class="subheader">{{ $profile->country }} {{ $profile->city }}</h3>
+		
 			<a href="{{ route('addFriend', array( $profile->id )) }}"><button>send friendship request</button></a>
 		</div>
 	</div>
@@ -73,15 +82,14 @@
 				@endforeach--}}
 				
 			</ul>
+			<h2>spicyness</h2>
+			<h2> {{ $profile->spicyness }} </h2>
 			<h3>smaken</h3>
 			<ul>
 				@foreach($profile->tastes as $taste)
-					<li>{{ $taste->name }}  <span class="clickable glypicon glyphicon-remove"></span></li>
+					<li>{{ $taste->tastes }}  </li>
 				@endforeach
-				<li>zoet <span class="remove clickable glyphicon glyphicon-remove" id="taste-zoet"></span></li>
-			</ul>
-			<p>leeftijd: 20</p>
-			<p>details details details...</p>
+				</ul>
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
 			{!! Form::close() !!}
 		</div>

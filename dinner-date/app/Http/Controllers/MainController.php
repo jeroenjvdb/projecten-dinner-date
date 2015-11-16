@@ -130,6 +130,13 @@ class MainController extends Controller
                         ->orderBy('id', 'desc')
                         ->take(5)
                         ->get();
+        
+        $time   = explode("-", $user->dateOfBirth);
+        $dt     = Carbon::createFromDate($time[0],$time[1],$time[2],'Europe/Brussels');
+        $now    = Carbon::today();
+        $age    = $now->diffInYears($dt); 
+        $profile->age =$age; 
+
         $data = ['profile' => $user, 'images' => $images];
         return View('profile')->with($data);
     }
