@@ -3,31 +3,42 @@
 @section('body')
 
 	<div class="row">
-		<div class="col-sm-3 profile-pics">
+		
+			<div class="col-sm-3 profile-pics">
+			
+			@if (count($images) === 0)
+				<div class="row">
+						<div class="col-sm-12">
+							<img src="/img/no-pic.jpg" />
+						</div>
+					</div>
+					<div class="row more-pics">
+						<div class="col-sm-3">
+							<img src="/img/no-pic.jpg" />
+						</div>	
+					</div>
+			@else
+				@foreach($images as $index => $image)
+				@if($index==0)
+					<div class="row">
+						<div class="col-sm-12">
+							<img src="{{ $image->picture_url}}" />
+						</div>
+					</div>
+					<div class="row more-pics">
+					@else
+						<div class="col-sm-3">
+							<img src="{{ $image->picture_url}}" />
+						</div>	
+					@endif
+				@endforeach
+				</div>
+			@endif
 			<div class="row">
-				<div class="col-sm-12">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-			</div>
-			<div class="row more-pics">
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				
-			</div>
-			<div class="row">
-				<div class="col-sm-offset-1"><a href="">meer..</a></div>
+				<div class="col-sm-offset-1"><a href="{{ route('Photo') }}">upload pic</a></div>
 			</div>	
 		</div>
+		
 		<div class="col-sm-8 col-sm-offset-1">
 			
 			<h1>

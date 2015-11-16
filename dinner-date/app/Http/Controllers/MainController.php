@@ -125,7 +125,12 @@ class MainController extends Controller
     public function getProfile($id)
     {
         $user = User::findOrFail($id);
-        $data = ['profile' => $user];
+        $images = Picture::where('user_id', '=', $id)
+                        ->where('isDish', '=', false)
+                        ->orderBy('id', 'desc')
+                        ->take(5)
+                        ->get();
+        $data = ['profile' => $user, 'images' => $images];
         return View('profile')->with($data);
     }
     public function addFriend($id)
