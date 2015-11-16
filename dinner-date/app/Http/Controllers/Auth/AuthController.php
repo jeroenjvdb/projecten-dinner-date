@@ -175,7 +175,7 @@ class AuthController extends Controller
                  $this->validate($request, [
                 'spicyness'             => 'required',
                 'favoriteDish'          => 'required',
-                'perfectDate'           => 'required|min:20',
+                'perfectDate'           => 'required|min:10',
                 
                  ]);
 

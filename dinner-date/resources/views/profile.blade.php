@@ -3,31 +3,42 @@
 @section('body')
 
 	<div class="row">
-		<div class="col-sm-3 profile-pics">
+		
+			<div class="col-sm-3 profile-pics">
+			
+			@if (count($images) === 0)
+				<div class="row">
+						<div class="col-sm-12">
+							<img src="/img/no-pic.jpg" />
+						</div>
+					</div>
+					<div class="row more-pics">
+						<div class="col-sm-3">
+							<img src="/img/no-pic.jpg" />
+						</div>	
+					</div>
+			@else
+				@foreach($images as $index => $image)
+				@if($index==0)
+					<div class="row">
+						<div class="col-sm-12">
+							<img src="{{ $image->picture_url}}" />
+						</div>
+					</div>
+					<div class="row more-pics">
+					@else
+						<div class="col-sm-3">
+							<img src="{{ $image->picture_url}}" />
+						</div>	
+					@endif
+				@endforeach
+				</div>
+			@endif
 			<div class="row">
-				<div class="col-sm-12">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-			</div>
-			<div class="row more-pics">
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				<div class="col-sm-3">
-					<img src="http://www.wehkamp.nl/personalimages/567DEF88DED745C0BC10F6BCB0BFB38D.jpg?1" />
-				</div>
-				
-			</div>
-			<div class="row">
-				<div class="col-sm-offset-1"><a href="">meer..</a></div>
+				<div class="col-sm-offset-1"><a href="{{ route('Photo') }}">upload pic</a></div>
 			</div>	
 		</div>
+		
 		<div class="col-sm-8 col-sm-offset-1">
 			
 			<h1>
@@ -35,7 +46,16 @@
 			</h1>
 
 			<h2>spicyness</h2>
-			<h2> {{ $profile->spicyness }} </h2>
+			<p>leeftijd: {!! $profile->age !!}</p>
+			<p> @if($profile->sex == 0)
+					man
+				@else
+					vrouw
+				@endif
+				</p>
+			<h3>residence</h3>
+			<h3 class="subheader">{{ $profile->country }} {{ $profile->city }}</h3>
+		
 			<a href="{{ route('addFriend', array( $profile->id )) }}"><button>send friendship request</button></a>
 		</div>
 	</div>
@@ -49,9 +69,9 @@
 			{!! Form::open() !!}
 			<h3>mijn perecte (dinner) date</h3>
 			<p id="perfectDate">@if($profile->perfectDate)
-{{ $profile->perfectDate }}
+	{{ $profile->perfectDate }}
 				@else
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum feugiat. Maecenas aliquam ligula arcu, tristique accumsan nisi rutrum sed. Nullam nec magna pharetra, fermentum orci vestibulum, ornare quam. Pellentesque consectetur urna eget purus efficitur, in elementum leo euismod. Proin elit libero, luctus at ultrices id, gravida vitae massa. Morbi placerat dui ac est convallis rhoncus. 
+				Kaas en wijn onder een sterrenhemel
 				@endif
 			</p>
 			<h3>my all time favourites</h3>
@@ -62,15 +82,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum
 				@endforeach--}}
 				
 			</ul>
+			<h2>spicyness</h2>
+			<h2> {{ $profile->spicyness }} </h2>
 			<h3>smaken</h3>
 			<ul>
 				@foreach($profile->tastes as $taste)
-					<li>{{ $taste->name }}  <span class="clickable glypicon glyphicon-remove"></span></li>
+					<li>{{ $taste->tastes }}  </li>
 				@endforeach
-				<li>zoet <span class="remove clickable glyphicon glyphicon-remove" id="taste-zoet"></span></li>
-			</ul>
-			<p>leeftijd: 20</p>
-			<p>details details details...</p>
+				</ul>
 			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
 			{!! Form::close() !!}
 		</div>

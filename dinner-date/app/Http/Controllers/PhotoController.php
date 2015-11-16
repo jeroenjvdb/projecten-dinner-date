@@ -33,7 +33,6 @@ class PhotoController extends Controller
     {
         $this->validate($request, [
             'description'       => 'required|max:255',
-            'isDish'            => 'required',
             'photo'             => 'required|mimes:jpeg,gif,png',    
          ]);
 
@@ -59,7 +58,7 @@ class PhotoController extends Controller
         $img                    = new Picture;
         $img->picture_url       = '/img/users/'.$rand.'-'.$filename;
         $img->description       = $inputData['description'];
-        $img->isDish            = $inputData['isDish'];
+        $img->isDish            = 0;
         $img->user_id           = Auth::user()->id;
 
         $img->save();

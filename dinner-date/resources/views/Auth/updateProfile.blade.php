@@ -59,7 +59,7 @@
 		{!! Form::hidden('type', 'profile') !!}
 		<div class="form-group">
 			<div class="col-xs-offset-5 col-xs-7">
-				{!! Form::submit('submit', array('class' => 'btn btn-default')) !!}
+				{!! Form::submit('gegevens toevoegen', array('class' => 'btn btn-default')) !!}
 			</div>
 		</div>
 	{!! Form::close() !!}

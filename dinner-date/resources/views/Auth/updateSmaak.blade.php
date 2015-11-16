@@ -19,7 +19,7 @@
 			</div>
 		</div>		
 		{!! Form::hidden('type', 'smaak') !!}
-		{!! Form::submit() !!}
+		{!! Form::submit('smaak toevoegen', ['class' => 'btn btn-default']) !!}
 	{!! Form::close() !!}
 </div>
 

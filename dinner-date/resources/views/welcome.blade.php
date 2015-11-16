@@ -45,7 +45,15 @@
             <div class="title">dinner date</div>
             <div id="description">
             	<p>
-            		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae pellentesque orci. Sed egestas turpis felis, eget scelerisque nulla pretium at. Curabitur ac est urna. Integer sollicitudin tortor leo, at blandit ligula bibendum sed. Duis mollis justo sed erat aliquet semper. Aenean laoreet aliquet turpis, sit amet tincidunt leo vulputate eget. Praesent finibus mauris vitae augue facilisis, sed cursus erat malesuada. Curabitur eu malesuada arcu, ac sagittis leo. Suspendisse luctus lectus felis, ut maximus lorem dictum a. Phasellus ut dui tortor. Aliquam tellus ipsum, venenatis eget hendrerit eget, aliquet at mauris. Sed vehicula tellus et scelerisque tempus. Nam nunc eros, cursus non vehicula ac, elementum in leo. Vestibulum a mauris non turpis commodo aliquam eget quis leo. Nulla egestas magna vel augue posuere, non finibus enim malesuada.
+                    Welkom bij Dinner Date, de dating site met smaak!
+                    <br \>Waar traditionele datingsites gaan kijken wie er het beste past bij jou vanwege je favoriete hobbys, interesses,...
+                    <br \>Gaan wij bij Dinner Date dit aan jullie overlaten om erachter te komen of jullie gemeenschappelijke interesses hebben.
+                    <br \>Wij helpen jullie mensen zoeken die dezelfde smaak hebben als jullie.
+                    <br \>Maak een profiel aan, vul je info in, vul je smaken in, maak een date gelegeheid aan en vind jou toekomstige over een maaltijd.
+                    <br \>
+                    <br \>Geen zin in een romatisch avond, maar eerder in een avond gezellig tafelen en nieuwe mensen leren kennen. Dit kan ook hier perfect.
+                    <br \>
+                    <br \>Meld je aan en eet smakelijk!
             	</p>
             </div>
             <div id="tipsAndTricks">

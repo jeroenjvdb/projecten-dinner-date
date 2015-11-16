@@ -118,6 +118,17 @@ class DateController extends Controller
             }
             $dates = $newDates;
         }
+        if($request->input('sex'))
+        {
+            $newDates = new \Illuminate\Database\Eloquent\Collection;
+            foreach ($dates as $date) {
+                if($date->host->sex == $request->input('sex'))
+                {
+                    $newDates->push($date);
+                }
+            }
+            $dates = $newDates;
+        }
 
 
 

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
   @yield('header')
-	<title>Document | @yield('title')</title>
+	<title>DinnerDate | @yield('title')</title>
 	<script src="/js/jquery.js"></script>
   <script src="/js/bootstrap.js"></script>
   @yield('scripts')
