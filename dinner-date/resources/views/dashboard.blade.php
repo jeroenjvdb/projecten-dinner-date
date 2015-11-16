@@ -32,7 +32,7 @@
 				@if($index==0)
 					<div class="row">
 						<div class="col-sm-12">
-							<img src="{{ $image->picture_url}}" />
+							<img src="{{ $image->picture_url}}"  />
 						</div>
 					</div>
 					<div class="row more-pics">
@@ -77,7 +77,7 @@
 			@endif 
 			</h2>
 			{!! Form::open() !!}
-			<h3>mijn perecte (dinner) date</h3>
+			<h3>mijn perfecte (dinner) date</h3>
 			<p id="perfectDate">
 				@if($profile->perfectDate)
 					{{ $profile->perfectDate }}

@@ -60,9 +60,9 @@
 			{!! Form::open() !!}
 			<h3>mijn perecte (dinner) date</h3>
 			<p id="perfectDate">@if($profile->perfectDate)
-{{ $profile->perfectDate }}
+	{{ $profile->perfectDate }}
 				@else
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec interdum interdum feugiat. Maecenas aliquam ligula arcu, tristique accumsan nisi rutrum sed. Nullam nec magna pharetra, fermentum orci vestibulum, ornare quam. Pellentesque consectetur urna eget purus efficitur, in elementum leo euismod. Proin elit libero, luctus at ultrices id, gravida vitae massa. Morbi placerat dui ac est convallis rhoncus. 
+				Kaas en wijn onder een sterrenhemel
 				@endif
 			</p>
 			<h3>my all time favourites</h3>
