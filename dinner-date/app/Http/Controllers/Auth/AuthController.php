@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Requests\LoginRequest;
 use App\User;
 use Auth;
 use Hash;
@@ -59,18 +60,10 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
     }
+
     public function login()
     {
         return view('Auth.login');
-    }
-
-    public function postLogin()
-    {
-        if(Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
-        {
-            return redirect()->route('dashboard');
-        }
-        return redirect()->back()->withInput();
     }
 
     public function logout()
@@ -82,6 +75,11 @@ class AuthController extends Controller
     public function register()
     {
         return View('Auth.register');
+    }
+
+    public function postLogin(LoginRequest $request)
+    {
+        return redirect()->route('dashboard');
     }
 
     public function postRegister(RegisterRequest $request)
