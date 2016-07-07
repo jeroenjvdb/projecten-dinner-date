@@ -34,7 +34,7 @@
         <span data-u="arrowright" class="jssora22r" style="top:123px;right:12px;width:40px;height:58px;" data-autocenter="2"></span>
  --}}        <a href="http://www.jssor.com" style="display:none">Jssor Slider</a>
     </div>
-@stop
+@endsection
 
 @section('body')
     <div class="container">
@@ -62,9 +62,8 @@
             </div>
         {{-- </div> --}}
     </div>
-@stop
+@endsection
 
 @section('scripts')
 	<script type="text/javascript" src="/js/jssor.slider-20.min.js"></script>
-   
-@stop
+@endsection
