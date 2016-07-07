@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
+        $before =  Carbon::today()->subYears(18)->subDay()->format('Y-m-d');
         $dishes = $this->dish->all()->take(4);
         $data = array('dishes' => $dishes, 'before' => $before);
         return View('welcome')->with($data);

@@ -13,6 +13,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Http\Requests\RegisterRequest;
 
 class AuthController extends Controller
 {
@@ -30,12 +31,17 @@ class AuthController extends Controller
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
     /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
+     * @var User
      */
-    public function __construct()
+    protected $user;
+
+    /**
+     * AuthController constructor.
+     * @param User $user
+     */
+    public function __construct(User $user)
     {
+        $this->user = $user;
 //        $this->middleware('guest', ['except' => array('logout', 'test')]);
 //        in route!!!
     }
@@ -53,22 +59,6 @@ class AuthController extends Controller
             'password' => 'required|confirmed|min:6',
         ]);
     }
-
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
-
     public function login()
     {
         return view('Auth.login');
@@ -94,36 +84,11 @@ class AuthController extends Controller
         return View('Auth.register');
     }
 
-    public function postRegister(Request $request)
+    public function postRegister(RegisterRequest $request)
     {
-        
-        
-        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
-        
-        $registerData   = $request->all();
-
-        $this->validate($request, [
-            'email'                 => 'required|unique:users,email',
-            'surname'               => 'required|max:255',
-            'password'              => 'required|confirmed|min:8',
-            'password_confirmation' => 'required|min:8',
-            'dateOfBirth'           => 'required|date|before:' . $before,
-            
-         ]);
-
-        $registerData   = $request->all();
-
-        $user           = new User;
-
-        $user->email                = $registerData['email'];
-        $user->password             = Hash::make($registerData['password']);
-        $user->name                 = $registerData['name'];
-        $user->surname              = $registerData['surname'];
-        $user->dateOfBirth          = $registerData['dateOfBirth'];
-        $user->sex                  = $registerData['sex'];
-
-        $user->save();
-
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+        $this->user->create($data);
         return redirect()->route('dashboard');
     }
 
