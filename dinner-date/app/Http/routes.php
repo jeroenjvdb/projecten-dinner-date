@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', array('as' => 'homepage', 'uses' => 'Auth\AuthController@home'));
+Route::get('/', ['as' => 'homepage', 'uses' => 'HomeController@home']);
 
 Route::get('/login', 		['as' => 'login', 		'uses' =>'Auth\AuthController@login']);
 Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
@@ -26,13 +26,15 @@ Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@
 Route::post('/registerP',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
 
 Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);		
-Route::post('/update',		['as' => 'update',			'uses' => 'Auth\AuthController@test']);	
+Route::post('/update', ['as' => 'update','uses' => 'Auth\AuthController@test']);
 Route::get('/update/password', ['as' => 'updatePassword', 'uses' => 'UserController@editPassword']);
 Route::post('/update/password', [						'uses' => 'UserController@postEditPassword']);			
 
 
 
 Route::get('/home',			['as' => 'dashboard', 	'uses' => 'MainController@index']);
+
+//Route::group(['as' => '/profile'], function(){});
 Route::get('/profile/{id}', ['as' => 'getProfile',	'uses' => 'MainController@getProfile']);
 Route::get('/profile/add/{id}', ['as' => 'addFriend', 'uses' => 'MainController@addFriend']);
 Route::get('/profile/accept/{id}',['as' => 'acceptFriend', 'uses' => 'MainController@acceptFriend']);

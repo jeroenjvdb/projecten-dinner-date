@@ -36,15 +36,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => array('logout', 'test')]);
-    }
-    
-    public function home()
-    {
-        $before =  Carbon::today()->subYears(18)->format('Y-m-d');
-        $dishes = Dish::all()->take(4);
-        $data = array('dishes' => $dishes, 'before' => $before);
-        return View('welcome')->with($data);
+//        $this->middleware('guest', ['except' => array('logout', 'test')]);
+//        in route!!!
     }
     /**
      * Get a validator for an incoming registration request.
@@ -287,7 +280,7 @@ class AuthController extends Controller
         //     'housenumber'           => 'required',
         //     'city'                  => 'required',
         //     'country'               => 'required',
-            
+
         //  ]);
 
          $registerData               = $request->all();
