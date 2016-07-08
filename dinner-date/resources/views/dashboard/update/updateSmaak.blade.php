@@ -15,7 +15,7 @@
 		<div class="form-group">
 			{!! Form::label('tastes', 'smaak toevoegen', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::select('tastes', $tasts) !!}</br>
+				{!! Form::select('tastes', $tastes) !!}</br>
 			</div>
 		</div>		
 		{!! Form::hidden('type', 'smaak') !!}

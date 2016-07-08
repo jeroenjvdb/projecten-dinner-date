@@ -88,9 +88,7 @@
 			<h3>my all time favourites</h3>
 			<input type="hidden" id="favDish" value="{{ $profile->favoriteDish }}" />
 			<ul id="favoriteDish">
-				@foreach($profile->favoriteDishArray as $dish)
-					<li>{{ $dish }}</li>
-				@endforeach
+				{{$profile->favoriteDish}}
 			</ul>
 			<h2>spicyness</h2>
 			<h2> {{ $profile->spicyness }} </h2>

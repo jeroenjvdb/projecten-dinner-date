@@ -58,21 +58,10 @@ class Friend extends Model
 	    return $this->friendsOfMine->merge($this->friendOf);
 	}
 
-	// // access all friends
-	// $user->friends; // collection of unique User model instances
-
-	// // access friends a user invited
-	// $user->friendsOfMine; // collection
-
-	// // access friends that a user was invited by
-	// $user->friendOf; // collection
-
-	// // and eager load all friends with 2 queries
-	// $usersWithFriends = User::with('friendsOfMine', 'friendOf')->get();
-
-	// // then
-	// $users->first()->friends; // collection
-
-	// // Check the accepted value:
-	// $user->friends->first()->pivot->accepted;
+	public function scopeGetRequests($query,$user_id)
+	{
+		return $query->where('friend_id', '=', $user_id)
+			->where('accepted', '=', false)
+			->get();
+	}
 }

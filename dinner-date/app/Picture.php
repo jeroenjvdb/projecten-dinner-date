@@ -31,4 +31,13 @@ class Picture extends Model
     {
     	return $this->belongsTo('App\User', 'user_id', 'id');
     }
+
+    public function scopeProfilePics($query,$user_id)
+    {
+        return $query->where('user_id', '=', $user_id)
+        ->where('isDish', '=', false)
+        ->orderBy('id', 'desc')
+        ->take(5)
+        ->get();
+    }
 }

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Carbon\Carbon;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -120,9 +121,28 @@ class User extends Model implements AuthenticatableContract,
     * helper functions
     */
 
+    /**
+     * @return string
+     */
     public function fullName()
     {
         return $this->surname . ' ' . $this->name;
-    }   
+    }
+    
+    
+    public function scopeAge($query,$user_id)
+    {
+        $user = $query->find($user_id);
+        $time = explode("-", $user->dateOfBirth);
+        $dt = Carbon::createFromDate($time[0],$time[1],$time[2],'Europe/Brussels');
+        $now = Carbon::today();
+        return $now->diffInYears($dt);
+    }
 
+    public function scopeSuggestPeople($query,$people)
+    {
+        return $query->whereIn('id',$people)
+            ->select('id', 'name','surname','country','city','dateOfBirth')
+            ->get() ;
+    }
 }
