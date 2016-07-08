@@ -61,182 +61,50 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function login()
     {
         return view('Auth.login');
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
         Auth::logout();
         return redirect()->route('homepage');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function register()
     {
         return View('Auth.register');
     }
 
+    /**
+     * @param LoginRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postLogin(LoginRequest $request)
     {
         return redirect()->route('dashboard');
     }
 
+    /**
+     * @param RegisterRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function postRegister(RegisterRequest $request)
     {
         $data = $request->all();
         $data['password'] = Hash::make($data['password']);
         $this->user->create($data);
-        return redirect()->route('dashboard');
-    }
-
-    public function test(Request $request)
-    {
-        $registerData               = $request->all();
-        $type                       = $registerData["type"];
-                
-        switch($type)
-        {
-            case "first":
-               $this->validate($request, [
-                'streetname'            => 'required',
-                'housenumber'           => 'required',
-                'city'                  => 'required',
-                'country'               => 'required',
-                'spicyness'             => 'required',
-                'favoriteDish'          => 'required',
-                'perfectDate'           => 'required|min:20',
-                
-                 ]);
-
-                $userid                     = Auth::user()->id;
-
-
-                $user                       = User::find($userid);
-
-                $user->streetname           = $registerData['streetname'];
-                $user->housenumber          = $registerData['housenumber'];
-                $user->city                 = $registerData['city'];
-                $user->country              = $registerData['country'];
-                $user->favoriteDish         = $registerData['favoriteDish'];
-                $user->specialAllergies     = $registerData['specialAllergies'];
-                $user->spicyness            = $registerData['spicyness'];
-                $user->perfectDate          = $registerData['perfectDate'];
-                
-                $user->save();
-            break;
-
-            case "food":
-
-                 $this->validate($request, [
-                'spicyness'             => 'required',
-                'favoriteDish'          => 'required',
-                'perfectDate'           => 'required|min:10',
-                
-                 ]);
-
-                $userid                     = Auth::user()->id;
-
-                $user                       = User::find($userid);
-
-                $user->favoriteDish         = $registerData['favoriteDish'];
-                $user->specialAllergies     = $registerData['specialAllergies'];
-                $user->spicyness            = $registerData['spicyness'];
-                $user->perfectDate          = $registerData['perfectDate'];
-                
-                $user->save();
-
-            break;
-
-            case "smaak":
-
-            $count = Auth::user()
-                        ->tastes()
-                        ->where('user_id',Auth::user()->id)
-                        ->count();
-
-            $first = Auth::user()
-                        ->tastes()
-                        ->where('user_id',Auth::user()->id)
-                        ->first();
-
-                        $delete= $first['pivot']['taste_id'];
-    
-        var_dump($count);
-           if($count == 4)
-           {
-                $count =Auth::user()
-                            ->tastes()
-                            //->get();
-                            ->detach($delete);
-               
-           }
-
-            $taste_id =$registerData['tastes'];
-                Auth::user()->tastes()->attach($taste_id);
-
-            break;
-        }         
-
-        return redirect()->route('dashboard');
-    }
-
-    public function test2(Request $request)
-    {
-        echo 'test';
-
-        //  $this->validate($request, [
-        //     'spicyness'             => 'required',
-        //     'favoriteDish'          => 'required',
-        //     'perfectDate'           => 'required|min:20',
-            
-        //  ]);
-
-        // $registerData               = $request->all();
-        // $userid                     = Auth::user()->id;
-
-        // $user                       = User::find($userid);
-
-        // $user->favoriteDish         = $registerData['favoriteDish'];
-        // $user->specialAllergies     = $registerData['specialAllergies'];
-        // $user->spicyness            = $registerData['spicyness'];
-        // $user->perfectDate          = $registerData['perfectDate'];
         
-        // $user->save();
-
-        // return redirect()->route('dashboard');
-    }
-
-    public function updateProfile(Request $request)
-    {
-
-        //  $this->validate($request, [
-        //     'name'                  => 'required',
-        //     'surname'               => 'required',
-        //     'streetname'            => 'required',
-        //     'housenumber'           => 'required',
-        //     'city'                  => 'required',
-        //     'country'               => 'required',
-
-        //  ]);
-
-         $registerData               = $request->all();
-         echo "<pre>";
-         var_dump($registerData);
-         echo "</pre>";
-        // $userid                     = Auth::user()->id;
-
-        // $user                       = User::find($userid);
-
-        // $user->surname              = $registerData['surname'];
-        // $user->name                 = $registerData['name' ;
-        // $user->streetname           = $registerData['streetname'];
-        // $user->housenumber          = $registerData['housenumber'];
-        // $user->city                 = $registerData['city'];
-        // $user->country              = $registerData['country'];
-        
-        // $user->save();
-
-        // return redirect()->route('dashboard');
+        return redirect()->route('dashboard');
     }
 }

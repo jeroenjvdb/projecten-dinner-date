@@ -12,32 +12,24 @@
 */
 
 Route::get('/', ['as' => 'homepage', 'uses' => 'HomeController@home']);
+Route::get('/home',			['as' => 'dashboard', 	'uses' => 'ProfileController@loadDashboard']);
+
 
 Route::get('/login', 		['as' => 'login', 		'uses' =>'Auth\AuthController@login']);
 Route::post('/login', 		[						'uses' => 'Auth\AuthController@postLogin']);
-
 Route::get('/logout', 		['as' => 'logout', 		'uses' => 'Auth\AuthController@logout']);
-
 Route::get('/register', 	['as' => 'register', 		'uses' => 'Auth\AuthController@register']);
-
 Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister' ]);		
-Route::post('/registerA',	['as' => 'postRegisterA',	'uses' => 'Auth\AuthController@postRegisterA']);		
-Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@updateFood']);		
-Route::post('/registerP',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
 
-Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);
+
 Route::group(['prefix' => 'update'], function () {
     Route::post('/profile', ['as' => 'updateProfile','uses' => 'ProfileController@updateProfile']);
-    Route::post('/', ['as' => 'update','uses' => 'Auth\AuthController@test']);
-    Route::get('/update/password', ['as' => 'updatePassword', 'uses' => 'UserController@editPassword']);
-    Route::post('/update/password', [						'uses' => 'UserController@postEditPassword']);
+    Route::post('/food', ['as' => 'updateFood','uses' => 'ProfileController@updateFood']);
+    Route::post('/taste', ['as' => 'updateTaste','uses' => 'ProfileController@updateTaste']);
+    Route::get('/password', ['as' => 'updatePassword', 'uses' => 'UserController@editPassword']);
+    Route::post('/password', ['uses' => 'UserController@postEditPassword']);
 });
 
-
-
-
-
-Route::get('/home',			['as' => 'dashboard', 	'uses' => 'MainController@index']);
 
 //Route::group(['as' => '/profile'], function(){});
 Route::get('/profile/{id}', ['as' => 'getProfile',	'uses' => 'MainController@getProfile']);

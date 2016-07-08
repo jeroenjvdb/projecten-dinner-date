@@ -6,9 +6,9 @@
 
 @section('body')
 
-@include('Auth/updateFood')
-@include('Auth/updateProfile')
-@include('Auth/updateSmaak')
+@include('dashboard.update.updatefood')
+@include('dashboard.update.updateProfile')
+@include('dashboard.update.updateSmaak')
 
 
 	<div class="row">

@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use App\Dish;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,9 +24,15 @@ class HomeController extends Controller
 
     public function home()
     {
-        $before =  Carbon::today()->subYears(18)->subDay()->format('Y-m-d');
-        $dishes = $this->dish->all()->take(4);
-        $data = array('dishes' => $dishes, 'before' => $before);
-        return View('welcome')->with($data);
+        if(Auth::check()){
+
+            return redirect()->route('dashboard');
+        }else{
+            $before =  Carbon::today()->subYears(18)->subDay()->format('Y-m-d');
+            $dishes = $this->dish->all()->take(4);
+            $data = array('dishes' => $dishes, 'before' => $before);
+            
+            return View('welcome')->with($data);
+        }
     }
 }
