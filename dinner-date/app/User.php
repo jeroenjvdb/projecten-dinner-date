@@ -123,6 +123,6 @@ class User extends Model implements AuthenticatableContract,
     public function fullName()
     {
         return $this->surname . ' ' . $this->name;
-    }
+    }   
 
 }

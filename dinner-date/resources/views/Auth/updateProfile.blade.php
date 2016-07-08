@@ -11,7 +11,7 @@
       <div class="modal-body">
 
       	<div class="form-horizontal">	
-		{!! Form::open(array('url' => route('update'), 'method' => 'post')) !!}
+		{!! Form::open(array('url' => route('updateProfile'), 'method' => 'post')) !!}
 		<div class="form-group">
 			{!! Form::label('surname', 'voornaam', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">

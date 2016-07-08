@@ -25,10 +25,15 @@ Route::post('/registerA',	['as' => 'postRegisterA',	'uses' => 'Auth\AuthControll
 Route::post('/register',	['as' => 'updateFood',		'uses' => 'Auth\AuthController@updateFood']);		
 Route::post('/registerP',	['as' => 'updateProfile',	'uses' => 'Auth\AuthController@updateProfile']);		
 
-Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);		
-Route::post('/update', ['as' => 'update','uses' => 'Auth\AuthController@test']);
-Route::get('/update/password', ['as' => 'updatePassword', 'uses' => 'UserController@editPassword']);
-Route::post('/update/password', [						'uses' => 'UserController@postEditPassword']);			
+Route::post('/register',	[ 							'uses' => 'Auth\AuthController@postRegister']);
+Route::group(['prefix' => 'update'], function () {
+    Route::post('/profile', ['as' => 'updateProfile','uses' => 'ProfileController@updateProfile']);
+    Route::post('/', ['as' => 'update','uses' => 'Auth\AuthController@test']);
+    Route::get('/update/password', ['as' => 'updatePassword', 'uses' => 'UserController@editPassword']);
+    Route::post('/update/password', [						'uses' => 'UserController@postEditPassword']);
+});
+
+
 
 
 

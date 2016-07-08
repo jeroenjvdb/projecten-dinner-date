@@ -148,32 +148,6 @@ class AuthController extends Controller
 
             break;
 
-            case "profile":
-
-                    $this->validate($request, [
-                    'name'                  => 'required',
-                    'surname'               => 'required',
-                    'streetname'            => 'required',
-                    'housenumber'           => 'required',
-                    'city'                  => 'required',
-                    'country'               => 'required',
-                    
-                 ]);
-
-                $userid                     = Auth::user()->id;
-
-                $user                       = User::find($userid);
-
-                $user->surname              = $registerData['surname'];
-                $user->name                 = $registerData['name'] ;
-                $user->streetname           = $registerData['streetname'];
-                $user->housenumber          = $registerData['housenumber'];
-                $user->city                 = $registerData['city'];
-                $user->country              = $registerData['country'];
-                
-                $user->save();
-            break;
-
             case "smaak":
 
             $count = Auth::user()
