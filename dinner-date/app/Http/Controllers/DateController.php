@@ -12,9 +12,25 @@ use Validator;
 use App\Date;
 use DB;
 use Auth;
+use App\Http\Requests\CreateDateRequest;
 
 class DateController extends Controller
 {
+    /**
+     * @var Date
+     */
+    protected $date;
+
+    /**
+     * DateController constructor.
+     * @param Date $date
+     */
+    public function __construct(Date $date)
+    {
+        $this->date = $date;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -23,36 +39,33 @@ class DateController extends Controller
     public function index()
     {
         $today  = Carbon::today();
-        $data   = array('today' => $today );
+        $data   = [
+            'today' => $today,
+        ];
 
         return view('createdate')->with($data);
     }
 
    //date aanmaken
-    public function create(Request $request)
+    public function create(CreateDateRequest $request)
     {
-        // controle op input nieuwe date
-        $this->validate($request, [
-            'dateOfDate'            => 'required|date|after:' . Carbon::today()->subDay(),
-            'area'                  => 'required|max:255',
-            'nameDish'              => 'required|max:255',
-            'description'           => 'required|min:20',
-            'preference'            => 'required|numeric',
-            'typeOfDate'            => 'required|numeric',
-         ]);
 
-        $inputData   = $request->all(); //data ophalen
-
-        // nieuze date toevoegen aan db
+        $data   = $request->all(); //data ophalen
+//        $data['host_id'] = Auth::id();
+//        $new = $data;
+//
+////        dd($new);
+////        dd(Auth::id())
+//       $this->date->create($new);
         $date           = new Date;
 
-        $date->date                = $inputData['dateOfDate'];
-        $date->area                = $inputData['area'];
-        $date->name_dish           = $inputData['nameDish'];
-        $date->description         = $inputData['description'];
-        $date->preference          = $inputData['preference'];
-        $date->typeOfDate          = $inputData['typeOfDate'];
-        $date->host_id             = Auth::id() ;        
+        $date->date                = $data['date'];
+        $date->area                = $data['area'];
+        $date->name_dish           = $data['name_dish'];
+        $date->description         = $data['description'];
+        $date->preference          = $data['preference'];
+        $date->typeOfDate          = $data['typeOfDate'];
+        $date->host_id             = Auth::id() ;
 
         $date->save();
         return redirect()->route('dashboard');

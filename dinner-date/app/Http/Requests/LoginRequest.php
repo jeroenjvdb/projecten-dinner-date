@@ -13,13 +13,7 @@ class LoginRequest extends Request
      */
     public function authorize()
     {
-        if(!Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
-        {
-            $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);
-            return redirect()->back()->withInput()->withErrors($errors);
-        }else{
-           return true;
-        }
+        
     }
 
     /**

@@ -63,7 +63,6 @@ class ProfileController extends Controller
         $images = $this->picture->ProfilePics(Auth::user()->id);
         $profile = $this->user->find(Auth::user()->id);
         $friends = $this->user->find(Auth::user()->id)
-            ->first()
             ->friends()
             ->get() ;
         $friendRequests = $this->friend->GetRequests(Auth::user()->id);

@@ -22,8 +22,8 @@ class CreateDateTable extends Migration
             $table->integer('typeOfDate');
            
             //foreign keys
-            $table->integer('host_id')->unsigned();
-            $table->foreign('host_id')->references('id')->on('users');
+//            $table->integer('host_id')->unsigned();
+//            $table->foreign('host_id')->references('id')->on('users');
 
             $table->rememberToken();
             $table->timestamps();

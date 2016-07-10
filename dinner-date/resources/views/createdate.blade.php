@@ -10,9 +10,9 @@
 	<div class="form-horizontal">	
 		{!! Form::open(array('url' => route('createDatePost'), 'method' => 'post')) !!}
 		<div class="form-group">
-			{!! Form::label('dateOfDate', 'datum voor date', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('date', 'datum voor date', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::date('dateOfDate',$min=$today, ['class' => 'form-control']) !!}
+				{!! Form::date('date',$min=$today, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -22,9 +22,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('nameDish', 'Welk gerecht ga je maken', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('name_dish', 'Welk gerecht ga je maken', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::text('nameDish', '', array('placeholder' => 'macaroni', 'class' => 'form-control')) !!}
+				{!! Form::text('name_dish', '', array('placeholder' => 'macaroni', 'class' => 'form-control')) !!}
 			</div>
 		</div>
 		<div class="form-group">

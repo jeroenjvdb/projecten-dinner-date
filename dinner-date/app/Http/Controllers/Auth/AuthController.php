@@ -15,6 +15,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Http\Requests\RegisterRequest;
+use Illuminate\Support\MessageBag;
+
 
 class AuthController extends Controller
 {
@@ -90,8 +92,13 @@ class AuthController extends Controller
      * @param LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function postLogin(LoginRequest $request)
+    public function postLogin(Request $request)
     {
+        if(!Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
+        {
+            $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);
+            return redirect()->back()->withInput()->withErrors($errors);
+        }
         return redirect()->route('dashboard');
     }
 
