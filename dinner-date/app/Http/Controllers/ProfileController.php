@@ -60,13 +60,15 @@ class ProfileController extends Controller
      */
     public function loadDashboard()
     {
-        $images = $this->picture->ProfilePics(Auth::user()->id);
-        $profile = $this->user->find(Auth::user()->id);
-        $friends = $this->user->find(Auth::user()->id)
+        $id = Auth::user()->id;
+        
+        $images = $this->picture->ProfilePics($id);
+        $profile = $this->user->find($id);
+        $friends = $this->user->find($id)
             ->friends()
             ->get() ;
-        $friendRequests = $this->friend->GetRequests(Auth::user()->id);
-        $profile->age =$this->user->Age(Auth::user()->id);
+        $friendRequests = $this->friend->GetRequests($id);
+        $profile->age =$this->user->Age($id);
         $people = $this->user->SuggestPeople($this->suggestPeople());
         foreach($people as $person) {
             $picture_url = Picture::where('user_id',$person->id)

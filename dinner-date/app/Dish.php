@@ -18,7 +18,18 @@ class Dish extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'sDescription', 'lDescripion', 'difficulty', 'ingredients', 'preparations', 'fittingDrinks', 'user_id', 'duration', 'photo_url'];
+    protected $fillable = [
+        'name',
+        'sDescription',
+        'lDescripion',
+        'difficulty',
+        'ingredients',
+        'preparations',
+        'fittingDrinks',
+        'user_id',
+        'duration',
+        'photo_url'
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.

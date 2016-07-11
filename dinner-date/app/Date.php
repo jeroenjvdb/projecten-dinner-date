@@ -18,7 +18,7 @@ class Date extends Model
      *
      * @var array
      */
-    protected $fillable = ['date','area','name_dish','description','preference','typeOfDate'];
+    protected $fillable = ['date','area','name_dish','description','preference','typeOfDate','host_id'];
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -34,5 +34,10 @@ class Date extends Model
     public function host()
     {
         return $this->belongsTo('App\User', 'host_id', 'id');
+    }
+
+    public function pictures()
+    {
+        return $this->belongsTo('App\Picture', 'host_id', 'user_id');
     }
 }

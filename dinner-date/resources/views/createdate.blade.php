@@ -44,8 +44,8 @@
 		<div class="form-group">
 			{!! Form::label('typeOfDate', 'wat voor date?', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::radio('typeOfDate', '1') !!} puur culinair</br>
-				{!! Form::radio('typeOfDate', '2') !!} romantisch diner
+				{!! Form::radio('typeOfDate', '2') !!} puur culinair</br>
+				{!! Form::radio('typeOfDate', '1') !!} romantisch diner
 			</br>
 			</div>
 		</div>

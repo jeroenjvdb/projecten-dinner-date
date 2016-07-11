@@ -109,9 +109,16 @@ class AuthController extends Controller
     public function postRegister(RegisterRequest $request)
     {
         $data = $request->all();
-        $data['password'] = Hash::make($data['password']);
+        $pass = $data['password'];
+        $data['password'] = Hash::make($pass);
         $this->user->create($data);
-        
+
+        if(!Auth::attempt(['email' => $data['email'], 'password' => $pass ]))
+        {
+            $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);
+            return redirect()->back()->withInput()->withErrors($errors);
+        }
+
         return redirect()->route('dashboard');
     }
 }
