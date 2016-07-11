@@ -154,7 +154,7 @@ class ProfileController extends Controller
 
     private function getTastes()
     {
-        $smaken = $this->taste->where('id', 'tastes')->get();
+        $smaken = $this->taste->select('id', 'tastes')->get();
         $tasts = [];
         foreach ($smaken as $smaak) {
             $tasts[$smaak->id]=$smaak->tastes;

@@ -16,16 +16,22 @@ class HomeController extends Controller
      * @var Dish
      */
     protected $dish;
-    
+
+    /**
+     * HomeController constructor.
+     * @param Dish $dish
+     */
     public function __construct(Dish $dish)
     {
         $this->dish = $dish;
     }
 
+    /**
+     * @return $this|\Illuminate\Http\RedirectResponse
+     */
     public function home()
     {
         if(Auth::check()){
-
             return redirect()->route('dashboard');
         }else{
             $before =  Carbon::today()->subYears(18)->subDay()->format('Y-m-d');

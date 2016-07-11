@@ -18,9 +18,9 @@ class CreateRatingsTable extends Migration
 
             //foreign keys
             $table->integer('rater_id')->unsigned();
-            $table->foreign('rater_id')->references('id')->on('users'); 
+//            $table->foreign('rater_id')->references('id')->on('users');
             $table->integer('dish_id')->unsigned();
-            $table->foreign('dish_id')->references('id')->on('dishes');
+//            $table->foreign('dish_id')->references('id')->on('dishes');
 
             $table->rememberToken();
             $table->timestamps();

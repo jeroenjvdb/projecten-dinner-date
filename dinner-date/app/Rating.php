@@ -36,4 +36,11 @@ class Rating extends Model
     {
     	return $this->belongsTo('App\User', 'rater_id', 'id');
     }
+    
+    public function scopeFindRating($query, $dishId, $id)
+    {
+        return $query->where('dish_id', '=', $dishId)
+            ->where('rater_id', '=',$id)
+            ->get();
+    }
 }

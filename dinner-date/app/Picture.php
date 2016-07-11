@@ -40,4 +40,12 @@ class Picture extends Model
         ->take(5)
         ->get();
     }
+
+    public function scopeRemoveLast($query,$id)
+    {
+        where('user_id','=',$id)
+            ->orderBy('created_at', 'asc')
+            ->take(1)
+            ->delete();
+    }
 }
