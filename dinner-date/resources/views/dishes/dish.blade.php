@@ -5,6 +5,7 @@
 @stop
 
 @section('body')
+	<h1> dees is dish.blade.php</h1>
 	<div class="row">
 		<div class="col-sm-6">
 			<img src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
@@ -22,11 +23,11 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
-			<h2>Ingrediënten</h2>
+			<h2>Ingredients</h2>
 			<p>{{ $dish->ingredients }}</p>
-			<h2>bereidingswijze</h2>
+			<h2>Preparation</h2>
 			<p>{{ $dish->preparations }}</p>
-			<h2>passende wijnen</h2>
+			<h2>Fitting wines</h2>
 			<p>{{ $dish->fittingDrinks}}</p>
 		</div>
 	</div>

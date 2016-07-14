@@ -46,11 +46,13 @@
 			</h1>
 
 			<h2>spicyness</h2>
-			<p>leeftijd: {!! $age !!}</p>
+			@if( $age<2000)
+				<p>age: {!! $age !!}</p>
+			@endif
 			<p> @if($profile->sex == 0)
 					man
 				@else
-					vrouw
+					female
 				@endif
 				</p>
 			<h3>residence</h3>
@@ -67,14 +69,14 @@
 			@endif 
 			</h2>
 			{!! Form::open() !!}
-			<h3>mijn perecte (dinner) date</h3>
+			<h3>My perfect diner date!</h3>
 			<p id="perfectDate">@if($profile->perfectDate)
 	{{ $profile->perfectDate }}
 				@else
 				Kaas en wijn onder een sterrenhemel
 				@endif
 			</p>
-			<h3>my all time favourites</h3>
+			<h3>My all time favourites</h3>
 			<input type="hidden" id="favDish" value="{{ $profile->favoriteDish }}" />
 			<ul id="favoriteDish">
 				{{--@foreach($profile->favoriteDishArray as $dish)

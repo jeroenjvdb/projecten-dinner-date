@@ -6,30 +6,26 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">enkel laatste 4 ingegeven worden onthouden</h4>
+        <h4 class="modal-title">Only the last 4 are remembered</h4>
       </div>
       <div class="modal-body">
-
       	<div class="form-horizontal">	
-		{!! Form::open(array('url' => route('updateTaste'), 'method' => 'post')) !!}
-		<div class="form-group">
-			{!! Form::label('tastes', 'smaak toevoegen', ['class' => 'col-xs-5 control-label']) !!}
-			<div class="col-xs-7">
-				{!! Form::select('tastes', $tastes) !!}</br>
-			</div>
-		</div>		
-		{!! Form::hidden('type', 'smaak') !!}
-		{!! Form::submit('smaak toevoegen', ['class' => 'btn btn-default']) !!}
-	{!! Form::close() !!}
-</div>
-
-
-
-
-</div>
+            {!! Form::open(array('url' => route('updateTaste'), 'method' => 'post')) !!}
+            <div class="form-group">
+                {!! Form::label('tastes', 'Choose a taste', ['class' => 'col-xs-5 control-label']) !!}
+                <div class="col-xs-7">
+                    {!! Form::select('tastes', $tastes) !!}</br>
+                </div>
+            </div>
+            {!! Form::submit('Add taste', ['class' => 'btn btn-default']) !!}
+            {!! Form::close() !!}
+        </div>
+      </div>
     </div>
 
   </div>
 </div>
         
-      
+
+
+{{--idee: bij smaak: keuken stijl (chinees, japans, ...)--}}

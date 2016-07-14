@@ -86,7 +86,7 @@ class ProfileController extends Controller
             'peoples' => $people,
         ];
 
-        return View('dashboard')->with($data);
+        return View('dashboard.dashboard')->with($data);
     }
     
     /**

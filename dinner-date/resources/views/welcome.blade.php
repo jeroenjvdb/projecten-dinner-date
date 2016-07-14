@@ -42,19 +42,30 @@
             <div class="inPictures col-md-4">
             @include('Auth.registerForm',array('before' => $before))
         	</div>
-            <div class="title">dinner date</div>
+            <div class="title text-capitalize">dinner date</div>
             <div id="description">
-            	<p>
-                    Welkom bij Dinner Date, de dating site met smaak!
-                    <br \>Waar traditionele datingsites gaan kijken wie er het beste past bij jou vanwege je favoriete hobbys, interesses,...
-                    <br \>Gaan wij bij Dinner Date dit aan jullie overlaten om erachter te komen of jullie gemeenschappelijke interesses hebben.
-                    <br \>Wij helpen jullie mensen zoeken die dezelfde smaak hebben als jullie.
-                    <br \>Maak een profiel aan, vul je info in, vul je smaken in, maak een date gelegeheid aan en vind jou toekomstige over een maaltijd.
-                    <br \>
-                    <br \>Geen zin in een romatisch avond, maar eerder in een avond gezellig tafelen en nieuwe mensen leren kennen. Dit kan ook hier perfect.
-                    <br \>
-                    <br \>Meld je aan en eet smakelijk!
-            	</p>
+                <p>Welcom at Dinner Date, the dating site with taste!
+                    <br>Traditional datingsites tries to match you based on your favorite shows, interest,...
+                    <br>But at Dinner Date we gonna let you find that out on your own,
+                    <br>we are gonna match you up with someone with the same taste in food!
+                    <br>Create a profile, fill in your info, fill in your tastes, create a date, and find a new love over dinner.
+                    <br>
+                    <br>Don't want a romantic evening? You just want a cozy evening dining and get to know someone new?
+                    <br>Even that is possible at Dinner Date!
+                    <br>
+                    <br>Register yourself and enjoy dining together!
+                </p>
+            	{{--<p>--}}
+                    {{--Welkom bij Dinner Date, de dating site met smaak!--}}
+                    {{--<br \>Waar traditionele datingsites gaan kijken wie er het beste past bij jou vanwege je favoriete hobbys, interesses,...--}}
+                    {{--<br \>Gaan wij bij Dinner Date dit aan jullie overlaten om erachter te komen of jullie gemeenschappelijke interesses hebben.--}}
+                    {{--<br \>Wij helpen jullie mensen zoeken die dezelfde smaak hebben als jullie.--}}
+                    {{--<br \>Maak een profiel aan, vul je info in, vul je smaken in, maak een date gelegeheid aan en vind jou toekomstige over een maaltijd.--}}
+                    {{--<br \>--}}
+                    {{--<br \>Geen zin in een romatisch avond, maar eerder in een avond gezellig tafelen en nieuwe mensen leren kennen. Dit kan ook hier perfect.--}}
+                    {{--<br \>--}}
+                    {{--<br \>Meld je aan en eet smakelijk!--}}
+            	{{--</p>--}}
             </div>
             <div id="tipsAndTricks">
             	<h2>Tips and Tricks</h2>

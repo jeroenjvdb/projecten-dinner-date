@@ -6,45 +6,45 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">extra info</h4>
+        <h3 class="modal-title">Personal info</h3>
       </div>
       <div class="modal-body">
 
-      	<div class="form-horizontal">	
+      	<div class="form-horizontal">
 		{!! Form::open(array('url' => route('updateProfile'), 'method' => 'post')) !!}
 		<div class="form-group">
-			{!! Form::label('surname', 'voornaam', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('surname', 'surname', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::text('surname', $profile->surname, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('name', 'naam', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('name', 'name', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::text('name', $profile->name, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('Sex', 'geslacht:', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('Sex', 'sex:', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::radio('Sex', '0',array('checked' => 'checked')) !!} man</ br>
-				{!! Form::radio('Sex', '1') !!} vrouw</ br>
+				{!! Form::radio('Sex', '0',array('checked' => 'checked')) !!} man <br>
+				{!! Form::radio('Sex', '1') !!} vrouw <br>
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('country', 'Land', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('country', 'country', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::text('country', $profile->country, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('city', 'Stad', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('city', 'city', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::text('city', $profile->city, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('streetname', 'Straat', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('streetname', 'street', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::text('streetname', $profile->streetname, ['class' => 'form-control']) !!}
 			</div>
@@ -59,7 +59,7 @@
 		{!! Form::hidden('type', 'profile') !!}
 		<div class="form-group">
 			<div class="col-xs-offset-5 col-xs-7">
-				{!! Form::submit('gegevens toevoegen', array('class' => 'btn btn-default')) !!}
+				{!! Form::submit('update profile', array('class' => 'btn btn-default')) !!}
 			</div>
 		</div>
 	{!! Form::close() !!}

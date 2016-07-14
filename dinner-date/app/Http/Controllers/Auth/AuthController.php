@@ -112,7 +112,6 @@ class AuthController extends Controller
         $pass = $data['password'];
         $data['password'] = Hash::make($pass);
         $this->user->create($data);
-
         if(!Auth::attempt(['email' => $data['email'], 'password' => $pass ]))
         {
             $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);

@@ -56,7 +56,7 @@ class MainController extends Controller
         $age    = $now->diffInYears($dt); 
         $data = ['profile' => $user, 'images' => $images, 'age' => $age];
         
-        return View('profile')->with($data);
+        return View('dashboard.profile')->with($data);
     }
 
     /**

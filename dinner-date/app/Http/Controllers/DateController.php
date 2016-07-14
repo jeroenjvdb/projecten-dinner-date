@@ -43,7 +43,7 @@ class DateController extends Controller
             'today' => $today,
         ];
 
-        return view('createdate')->with($data);
+        return view('dates.createdate')->with($data);
     }
 
     /**
@@ -56,7 +56,7 @@ class DateController extends Controller
         $data['host_id'] = Auth::id();
         $this->date->create($data);
 
-        return redirect()->route('dashboard');
+        return redirect()->route('dashboard.dashboard');
     }
 
     /**

@@ -232,3 +232,7 @@ textarea{
 .max-height-290{
     max-height: 290px;
 }
+
+.start-sentence:first-letter {
+    text-transform: capitalize;
+}

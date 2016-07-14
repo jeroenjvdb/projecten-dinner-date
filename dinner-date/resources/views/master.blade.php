@@ -24,33 +24,33 @@
         <span class="icon-bar"></span>
       </button>
       @if(Auth::guest())
-      <a class="navbar-brand" href="{{ route('homepage') }}">home</a>
+      <a class="navbar-brand text-capitalize" href="{{ route('homepage') }}">home</a>
       @else
-        <a class="navbar-brand" href="{{ route('dashboard') }}">home</a>
+        <a class="navbar-brand text-capitalize" href="{{ route('dashboard') }}">home</a>
       @endif
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav text-capitalize">
         <!-- <li class="active"><a href="#"> link<span class="sr-only">(current)</span></a></li>-->
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dishes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('dishIndex') }}">Alle dishes</a></li>
-            <li><a href="{{ route('dishCreate') }}">Dish aanmaken</a></li>
+            <li><a href="{{ route('dishIndex') }}">Dishes</a></li>
+            <li><a href="{{ route('dishCreate') }}">Create Dish</a></li>
             
-            <li role="separator" class="divider"></li>
+            {{--<li role="separator" class="divider"></li>--}}
             
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('createDate') }}">maak een date</a></li>
-            <li><a href="{{ route('findDates') }}">date zoeken</a></li>
+            <li><a href="{{ route('createDate') }}">create date</a></li>
+            <li><a href="{{ route('findDates') }}">search date</a></li>
             
-            <li role="separator" class="divider"></li>
+            {{--<li role="separator" class="divider"></li>--}}
             
           </ul>
         </li>
@@ -64,23 +64,13 @@
 				</a>
 			@else
 				<a href="{{ route('login') }}">
-					aanmelden
+					Login
 				</a>
 			@endif
 		</li>
 		@if(Auth::user())
-			<li><a href="{{ route('logout') }}">afmelden</a></li>
+			<li><a href="{{ route('logout') }}">Logout</a></li>
 		@endif
-        {{-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li> --}}
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -93,9 +83,6 @@
                   @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
                   @endforeach
-                 {{--  @if($success)
-                    <li>{{ $success }}</li>
-                  @endif --}}
                   
               </ul>
           </div>

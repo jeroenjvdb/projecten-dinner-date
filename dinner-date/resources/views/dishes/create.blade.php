@@ -3,19 +3,19 @@
 @section('body')
 	{!! Form::open(array('files' => 'true', 'class' => 'form-horizontal')) !!}
 		<div class="form-group">
-		{!! Form::label('name', 'naam', ['class' => 'control-label col-xs-5']) !!}
+		{!! Form::label('name', 'Name', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::text('name','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-		{!! Form::label('sDescription', 'beschrijving van het gerecht', ['class' => 'control-label col-xs-5']) !!}
+		{!! Form::label('sDescription', 'Description', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::textarea('sDescription','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('preparations', 'bereiding', ['class' => 'control-label col-xs-5']) !!}
+			{!! Form::label('preparations', 'Preparation', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::textarea('preparations','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('difficulty', 'moeilijkheid', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('difficulty', 'Difficulty', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
 				{!! Form::radio('difficulty', '1',array('checked' => 'checked')) !!} 1
 				{!! Form::radio('difficulty', '2') !!} 2
@@ -25,23 +25,23 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('duration', 'duur' , ['class' => 'control-label col-xs-5']) !!}
+			{!! Form::label('duration', 'Duration' , ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::text('duration','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('ingredients', 'ingredienten', ['class' => 'control-label col-xs-5']) !!}
+			{!! Form::label('ingredients', 'ingredients', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::textarea('ingredients','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('fittingDrinks','passende drank', ['class' => 'control-label col-xs-5']) !!}
+			{!! Form::label('fittingDrinks','Fitting wines', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::textarea('fittingDrinks', '', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('picture','foto', ['class' => 'control-label col-xs-5']) !!}
+			{!! Form::label('picture','Picture', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::file('picture', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			<div class="col-xs-offset-5 col-xs-7">{!! Form::submit('gerecht uploaden', ['class' => 'btn btn-default']) !!}</div>
+			<div class="col-xs-offset-5 col-xs-7">{!! Form::submit('Add Dish', ['class' => 'btn btn-default']) !!}</div>
 		</div>
 		
 

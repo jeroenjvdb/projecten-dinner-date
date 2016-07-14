@@ -1,5 +1,9 @@
 @extends('master')
 
+@section('title')
+	Search date
+@endsection
+
 @section('body')
 <div class="row">
 	<div class="col-sm-12" id="searchSettings">
@@ -7,17 +11,17 @@
 		<h2>search</h2>
 			<div class="row">
 				<div class="col-md-6">
-					<p>type:</p>
+					<p>Type:</p>
 					{!! Form::radio('type', '1', false , ['id' => 'date']) !!}
-					{!! Form::label('date', 'relatiezoekend') !!}</br>
+					{!! Form::label('date', 'Romantic diner') !!}</br>
 					{!! Form::radio('type', '2', false, ['id' => 'culinair']) !!}
-					{!! Form::label('culinair', 'puur culinair') !!}
+					{!! Form::label('culinair', 'Pure culinary') !!}
 					
 				</div>
 				<div class="col-md-6">
 					<div class="row form-group">
-						<div class="col-md-3 ">
-							{!! Form::label('datum') !!}
+						<div class="col-md-3 right">
+							{!! Form::label('Day') !!}
 						</div>
 						<div class="col-md-9">
 							{!! Form::date('datum', $tomorrow, array('class' => 'form-control', 'data-date-format' => 'MM-DD-YYYY')) !!}
@@ -25,18 +29,18 @@
 					</div>
 					<div class="row form-group">
 						<div class="col-md-3">
-							{!! Form::label('sex', 'geslacht') !!}
+							{!! Form::label('sex', 'Sex') !!}
 						</div>
 						<div class="col-md-9">
 							{!! Form::radio('sex', '1',null,['id' => '1']) !!}
 							{!! Form::label('1', 'man') !!}</br>
 							{!! Form::radio('sex', '2',null, ['id' => '2']) !!}
-							{!! Form::label('2', 'vrouw') !!}
+							{!! Form::label('2', 'female') !!}
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-3 col-xs-9">
-							{!! Form::submit('submit', array('class' => 'btn btn-default')) !!}
+							{!! Form::submit('Submit', array('class' => 'btn btn-default')) !!}
 						</div>
 					</div>
 				</div>

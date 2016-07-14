@@ -1,4 +1,4 @@
-<h2>gerechten</h2>
+<h2>gerechten test</h2>
 
 @foreach($profile->dishes as $dish)
 	<div class="row dish">
