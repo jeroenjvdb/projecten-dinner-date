@@ -28,7 +28,8 @@ class Dish extends Model
         'fittingDrinks',
         'user_id',
         'duration',
-        'photo_url'
+        'photo_url',
+        'url',
     ];
 
     /**

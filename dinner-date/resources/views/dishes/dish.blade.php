@@ -23,6 +23,8 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-12">
+			<iframe width="420" height="345" src="https://www.youtube.com/embed/XGSy3_Czz8k">
+			</iframe>
 			<h2>Ingredients</h2>
 			<p>{{ $dish->ingredients }}</p>
 			<h2>Preparation</h2>

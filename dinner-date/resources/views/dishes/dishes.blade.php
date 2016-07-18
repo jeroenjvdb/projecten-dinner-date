@@ -3,7 +3,7 @@
 @section('body')
 	<div class="row">
 		@foreach($dishes as $dish)
-			<a href="{{'/dish/show/' +  $dish->id}}">
+			<a href="{{'/dish/show/' .  $dish->id}}">
 				<div class="col-sm-4 dish" dish-id="{{ $dish->id }}">
 					<img src="{{ $dish->photo_url }}" class="img-responsive max-height-290" alt="{{ $dish->name }}">
 					<h2>{{ $dish->name }}</h2>

@@ -23,6 +23,12 @@
 				</div>
 			</div>
 			<div class="form-group">
+				{!! Form::label('remember', 'Remember me', ['class' => 'control-label col-xs-5']) !!}
+				<div class="col-xs-7">
+					{!! Form::checkbox('remember') !!}
+				</div>
+			</div>
+			<div class="form-group">
 				<div class="col-xs-offset-5 col-xs-7">
 					{!! Form::submit('Login', array('class' => 'btn btn-default'	)) !!}
 				</div>

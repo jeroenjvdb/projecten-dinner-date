@@ -1,20 +1,20 @@
-@font-face{
-    font-family: 'mesmerize header';
-    src: url('../fonts/mesmerize-sb.ttf');
-}
-@font-face{
-    font-family:'mesmerize text';
-    src: url('../fonts/mesmerize-sc-el.ttf');
-}
+/*@font-face{*/
+    /*font-family: 'mesmerize header';*/
+    /*src: url('../fonts/mesmerize-sb.ttf');*/
+/*}*/
+/*@font-face{*/
+    /*font-family:'mesmerize text';*/
+    /*src: url('../fonts/mesmerize-sc-el.ttf');*/
+/*}*/
 
 
-h1, h2, h3, li{
-    font-family: 'mesmerize header', sans-serif;
-}
+/*h1, h2, h3, li{*/
+    /*font-family: 'mesmerize header', sans-serif;*/
+/*}*/
 
-p, h6, h5, h4{
-    font-family:'mesmerize text';
-}
+/*p, h6, h5, h4{*/
+    /*font-family:'mesmerize text';*/
+/*}*/
 
 nav.navbar-default .navbar-nav li a, .navbar-header .navbar-brand{
     color: #DED8D0;
@@ -36,8 +36,7 @@ body {
     display: table;
     font-weight: 100;
     background-color: #DED8D0;
-
-    /*font-family: 'Lato';*/
+    font-family: 'Oswald', sans-serif;
 }
 
 .navbar{
@@ -234,5 +233,14 @@ textarea{
 }
 
 .start-sentence:first-letter {
-    text-transform: capitalize;
+     text-transform: capitalize;
+ }
+
+.padding-top-bottom-10{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.border-none{
+    border:none;
 }

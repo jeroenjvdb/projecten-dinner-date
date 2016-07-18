@@ -41,6 +41,10 @@
 			<div class="col-xs-7">{!! Form::file('picture', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
+			{!! Form::label('video', 'Video', ['class' => 'control-label col-xs-5']) !!}
+			<div class="col-xs-7">{!! Form::text('video','', ['class' => 'form-control']) !!}</div>
+		</div>
+		<div class="form-group">
 			<div class="col-xs-offset-5 col-xs-7">{!! Form::submit('Add Dish', ['class' => 'btn btn-default']) !!}</div>
 		</div>
 		

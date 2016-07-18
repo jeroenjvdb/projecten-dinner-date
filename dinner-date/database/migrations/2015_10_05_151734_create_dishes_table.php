@@ -24,6 +24,7 @@ class CreateDishesTable extends Migration
             $table->longText('ingredients');
             $table->longText('preparations');
             $table->string('fittingDrinks');
+            $table->string('url');
 
             //foreign keys
             $table->integer('user_id')->unsigned();

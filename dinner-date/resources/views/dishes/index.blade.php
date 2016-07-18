@@ -10,7 +10,7 @@
 	</h1>
 	<div class="row">
 		<div class="col-sm-6">
-			<img src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
+			<img class="img-responsive" src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
 		</div>
 		<div class="col-sm-6">
 			<div class="row">
@@ -26,17 +26,43 @@
 					</h3>
 				</div>
 			</div>
+			{!! $url = $dish->url !!}
+
+		@if($dish->url)
+			<iframe class="col-sm-12 padding-top-bottom-10 border-none" height="345" src="$url">
+				<script>
+					//data ophalen en inladen in src
+//				$.ajax({
+//					url: "ajax.php",
+//					type: "GET",
+//					data: "",
+//					cache: false,
+//					success: function(resp) {
+//						//
+//						console.dir(resp);
+//						var frame1 = $("#frame1").attr("src");
+//						console.dir(frame1);
+//						if (frame1 != resp) {
+//						$("#frame1").attr("src",resp);
+//						}
+//					}
+//				});
+				</script>
+			</iframe>
+		@endif
 			<p><strong>{{ $dish->lDescription }}</strong></p>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-sm-offset-1 col-sm-10">
+		<div class="col-sm-offset-1 col-sm-3">
 			<h2>Ingredients</h2>
 			<ul>
 				@foreach($dish->ingredientArray as $ingredient)
 					<li>{{ $ingredient }}</li>
 				@endforeach
 			</ul>
+		</div>
+		<div class="col-sm-8">
 			<h2>Preparation</h2>
 			<p>{{ $dish->preparations }}</p>
 
@@ -44,6 +70,7 @@
 				<h2>Fitting wines</h2>
 				<p>{{ $dish->fittingDrinks }}</p>
 			@endif
+
 		</div>
 	</div>
 @endsection

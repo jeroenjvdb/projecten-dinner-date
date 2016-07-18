@@ -94,7 +94,8 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
-        if(!Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password'] ]))
+
+        if(!Auth::attempt(['email' => $_POST['email'], 'password' => $_POST['password']],isset($_POST['remember'])))
         {
             $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);
             return redirect()->back()->withInput()->withErrors($errors);
@@ -112,7 +113,7 @@ class AuthController extends Controller
         $pass = $data['password'];
         $data['password'] = Hash::make($pass);
         $this->user->create($data);
-        if(!Auth::attempt(['email' => $data['email'], 'password' => $pass ]))
+        if(!Auth::attempt(['email' => $data['email'], 'password' => $pass ],True))
         {
             $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);
             return redirect()->back()->withInput()->withErrors($errors);
