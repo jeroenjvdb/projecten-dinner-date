@@ -255,6 +255,14 @@ textarea{
     background-color: #bababa;
 }
 
+.max-height-500{
+    max-height:500px;
+}
+
+.max-height-350{
+    max-height:350px;
+}
+
 .min-height-250{
     min-height:250px;
 }
@@ -270,4 +278,16 @@ textarea{
 
 .color-black{
     color:black;
+}
+
+.border-setting{
+    border:solid 1px black;
+}
+.hover-border:hover{
+    border:solid 1px #428bca;
+}
+
+.margin-top-bottom{
+    margin-top:10px;
+    margin-bottom:10px;
 }

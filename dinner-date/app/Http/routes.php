@@ -57,6 +57,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/createDate', ['as' => 'createDatePost', 'uses' => 'DateController@create']);
     });
 
+
+    Route::get('/compare', ['uses'=>'ProfileController@compare']);
+
     Route::get('/home/chat/{id}', ['uses' => 'ChatController@index']);
     Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
 

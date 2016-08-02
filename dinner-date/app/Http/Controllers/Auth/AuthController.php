@@ -6,14 +6,12 @@ use App\Http\Requests\LoginRequest;
 use App\User;
 use Auth;
 use Hash;
-use App\Taste;
-use App\Dish;
+use App\FoodProfile;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
 use App\Http\Requests\RegisterRequest;
 use Illuminate\Support\MessageBag;
 
@@ -39,12 +37,18 @@ class AuthController extends Controller
     protected $user;
 
     /**
+     * @var FoodProfile
+     */
+    protected $fProfile;
+
+    /**
      * AuthController constructor.
      * @param User $user
-     */
-    public function __construct(User $user)
+     */    public function __construct(User $user, FoodProfile $fProfile)
     {
         $this->user = $user;
+        $this->fProfile = $fProfile;
+
 //        $this->middleware('guest', ['except' => array('logout', 'test')]);
 //        in route!!!
     }
@@ -112,7 +116,12 @@ class AuthController extends Controller
         $data = $request->all();
         $pass = $data['password'];
         $data['password'] = Hash::make($pass);
-        $this->user->create($data);
+        $user = $this->user->create($data);
+
+        $foodprofile =  new FoodProfile;
+        $foodprofile->user_id = $user->id;
+        $foodprofile->save();
+
         if(!Auth::attempt(['email' => $data['email'], 'password' => $pass ],True))
         {
             $errors = new MessageBag(['login attempt' => ['Email and/or password invalid.']]);

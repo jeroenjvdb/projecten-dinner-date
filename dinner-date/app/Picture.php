@@ -48,4 +48,12 @@ class Picture extends Model
             ->take(1)
             ->delete();
     }
+
+    public function scopeProfile($query,$id)
+    {
+        $query->where('user_id','=',$id)
+            ->where('isDish','=',0)
+            ->select('picture_url')
+            ->first();
+    }
 }

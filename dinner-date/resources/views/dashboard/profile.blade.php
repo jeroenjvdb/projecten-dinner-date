@@ -1,115 +1,105 @@
 @extends('master')
 
-@section('body')
+@section('title')
+	profile2
+@stop
 
+@section('body')
 	<div class="row">
-		
-			<div class="col-sm-3 profile-pics">
-			
+		<div class="col-sm-3 profile-pics">
 			@if (count($images) === 0)
 				<div class="row">
-						<div class="col-sm-12">
-							<img src="/img/no-pic.jpg" />
-						</div>
+					<div class="col-sm-12">
+						<img src="/img/no-pic.jpg" />
 					</div>
-					<div class="row more-pics">
-						<div class="col-sm-3">
-							<img src="/img/no-pic.jpg" />
-						</div>	
+				</div>
+				<div class="row more-pics">
+					<div class="col-sm-3">
+						<img src="/img/no-pic.jpg" />
 					</div>
+				</div>
 			@else
 				@foreach($images as $index => $image)
-				@if($index==0)
-					<div class="row">
-						<div class="col-sm-12">
-							<img src="{{ $image->picture_url}}" />
+					@if($index==0)
+						<div class="row">
+							<div class="col-sm-12">
+								<img src="{{ $image->picture_url}}"  />
+							</div>
 						</div>
-					</div>
-					<div class="row more-pics">
-					@else
-						<div class="col-sm-3">
-							<img src="{{ $image->picture_url}}" />
-						</div>	
+						<div class="row more-pics">
+							@else
+								<div class="col-sm-3">
+									<img src="{{ $image->picture_url}}" />
+								</div>
+							@endif
+							@endforeach
+						</div>
 					@endif
-				@endforeach
-				</div>
-			@endif
-			<div class="row">
-				<div class="col-sm-offset-1"><a href="{{ route('Photo') }}">upload pic</a></div>
-			</div>	
 		</div>
-		
 		<div class="col-sm-8 col-sm-offset-1">
-			
-			<h1>
-				{{ $profile->surname . " " . $profile->name }}
-			</h1>
-
-			<h2>spicyness</h2>
-			@if( $age<2000)
-				<p>age: {!! $age !!}</p>
-			@endif
-			<p> @if($profile->sex == 0)
-					man
-				@else
-					female
+			<div class="row">
+				<h1>{{ $profile->surname . " " . $profile->name }}</h1>
+				<a href="{{ route('addFriend', array( $profile->id )) }}"><button>send friendship request</button></a>
+				@if( $profile->age < 2000)
+					<p>leeftijd: {!! $profile->age !!}</p>
 				@endif
+				<p> @if($profile->sex == 0)
+						man
+					@else
+						vrouw
+					@endif
 				</p>
-			<h3>residence</h3>
-			<h3 class="subheader">{{ $profile->country }} {{ $profile->city }}</h3>
-		
-			<a href="{{ route('addFriend', array( $profile->id )) }}"><button>send friendship request</button></a>
+
+
+				<h3>residence</h3>
+				<p class="subheader">{{ $profile->country }} {{ $profile->city }}</p>
+				<br>
+				<h3>About me</h3>
+				<p>
+					{!! $profile->about !!}
+				</p>
+			</div>
+			<div class="hDivider"></div>
+			<div class="row">
+				<h1>Date profile</h1>
+				<h3>My perfect date</h3>
+				<p id="perfectDate">
+					@if($profile->perfectDate)
+						{{ $profile->perfectDate }}
+					@else
+						Kaas en wijn onder een sterrenhemel
+					@endif
+				</p>
+				<h3>My favorite diner</h3>
+				<p id="favoriteDish">
+					{{$profile->favoriteDish}}
+				</p>
+
+				<h3>My favorite restaurant</h3>
+				<p>
+					{{$profile->favRestaurant}}
+				</p>
+			</div>
+			<div class="hDivider"></div>
+
+			<div class="row">
+				<h1>Food profile </h1>
+				@include('dashboard.foodprofile.tasteprofile')
+				@include('dashboard.foodprofile.kitchen')
+				@include('dashboard.foodprofile.allergies')
+			</div>
+		</div>
+		<div class="col-sm-3">
+			test
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-4">
-			<h2>profiel
-			@if(Auth::user()->id == $profile->id)
-				<span class="clickable glyphicon glyphicon-pencil" id="edit"></span>
-			@endif 
-			</h2>
-			{!! Form::open() !!}
-			<h3>My perfect diner date!</h3>
-			<p id="perfectDate">@if($profile->perfectDate)
-	{{ $profile->perfectDate }}
-				@else
-				Kaas en wijn onder een sterrenhemel
-				@endif
-			</p>
-			<h3>My all time favourites</h3>
-			<input type="hidden" id="favDish" value="{{ $profile->favoriteDish }}" />
-			<ul id="favoriteDish">
-				{{--@foreach($profile->favoriteDishArray as $dish)
-					<li>{{ $dish }}</li>
-				@endforeach--}}
-				
-			</ul>
-			<h2>spicyness</h2>
-			<h2> {{ $profile->spicyness }} </h2>
-			<h3>smaken</h3>
-			<ul>
-				@foreach($profile->tastes as $taste)
-					<li>{{ $taste->tastes }}  </li>
-				@endforeach
-				</ul>
-			{!! Form::submit('submit', array('class' => 'invisible', 'id' => 'invisibleSubmit')) !!}
-			{!! Form::close() !!}
-		</div>
-		
-		<div>
+@stop
 
-		<div class="col-sm-8">
-	  
+@section('header')
+	<meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
+@stop
 
-  
-    <div role="tabpanel" class="tab-pane" id="dishes">
-		@include('dashboard.dishes')
-    </div>
-    	</div>
-  </div>
-
-		
-	</div>
-	
-
+@section('scripts')
+	<script src="js/changeProfile.js"></script>
+	<script src="js/getChat.js"></script>
 @stop

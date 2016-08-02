@@ -100,7 +100,19 @@ class ProfileController extends Controller
             'foodprofile' => $foodprofile,
         ];
 
+        $suggestion = $this->suggetions();
+
         return View('dashboard.dashboard2')->with($data);
+    }
+
+    public function compare()
+    {
+        $people = $this->suggetions();
+        $data = [
+            'people' => $people,
+        ];
+
+        return View('compare')->with($data);
     }
     
     /**
@@ -189,5 +201,30 @@ class ProfileController extends Controller
         //give te first 10
         $pYML = array_slice($sortedArray, 0, 10);
         return $pYML;
+    }
+
+
+    public function suggetions()
+    {
+        $user = $this->fProfile->where('user_id',Auth::id())->first();
+        $others = $this->fProfile->where('user_id','<>',Auth::id())->get();
+        $results= [];
+        foreach($others as $key => $profile){
+            $count = 0;
+            foreach ($profile->toArray() as $key => $value) {
+                if($user[$key] == $value) {
+                    $count++;
+                }
+            }
+            $results[] = [
+                'user' => $this->user->find($profile->user_id),
+                'picture' => $this->picture->where('user_id','=',$profile->user_id)
+                    ->where('isDish','=',0)
+                    ->select('picture_url')
+                    ->first(),
+                'matching' => round($count/19*100),
+            ];
+        }
+        return $results;
     }
 }

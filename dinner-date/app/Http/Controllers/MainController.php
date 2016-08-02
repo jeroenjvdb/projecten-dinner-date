@@ -9,6 +9,7 @@ use App\Picture;
 use Carbon\Carbon;
 use DB;
 use Auth;
+use App\FoodProfile;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -30,16 +31,23 @@ class MainController extends Controller
     protected $friend;
 
     /**
+     * @var FoodProfile
+     */
+    protected $fProfile;
+
+    /**
      * MainController constructor.
      * @param User $user
      * @param Picture $picture
      * @param Friend $friend
+     * @param FoodProfile $fProfile
      */
-    public function __construct(User $user, Picture $picture,Friend $friend)
+    public function __construct(User $user, Picture $picture,Friend $friend,FoodProfile $fProfile)
     {
         $this->user = $user;
         $this->picture = $picture;
         $this->friend = $friend;
+        $this->fProfile = $fProfile;
     }
 
     /**
@@ -49,12 +57,20 @@ class MainController extends Controller
     public function getProfile($id)
     {
         $user = $this->user->findOrFail($id);
+        $user->age =$this->user->Age($id);
         $images = $this->picture->ProfilePics($id);
         $time   = explode("-", $user->dateOfBirth);
         $dt     = Carbon::createFromDate($time[0],$time[1],$time[2],'Europe/Brussels');
         $now    = Carbon::today();
-        $age    = $now->diffInYears($dt); 
-        $data = ['profile' => $user, 'images' => $images, 'age' => $age];
+        $age    = $now->diffInYears($dt);
+        $foodprofile = $this->fProfile->where('user_id',$id)->first();
+
+        $data = [
+            'profile' => $user,
+            'images' => $images,
+            'age' => $age,
+            'foodprofile' => $foodprofile,
+        ];
         
         return View('dashboard.profile')->with($data);
     }

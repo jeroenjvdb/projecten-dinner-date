@@ -25,6 +25,9 @@ class UserSeeder extends Seeder
         
 
         $user1->save();
+        $foodprofile =  new FoodProfile;
+        $foodprofile->user_id = $user1->id;
+        $foodprofile->save();
 
         $admin = new User;
 
@@ -35,6 +38,9 @@ class UserSeeder extends Seeder
         $admin->dateOfBirth = "1991-02-02";
 
         $admin->save();
+        $foodprofile =  new FoodProfile;
+        $foodprofile->user_id = $admin->id;
+        $foodprofile->save();
 
         $user1 = new User;
 
