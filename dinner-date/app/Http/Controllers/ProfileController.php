@@ -10,6 +10,7 @@ use App\User;
 use App\Picture;
 use App\Friend;
 use App\Taste;
+use App\FoodProfile;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateFoodRequest;
@@ -35,24 +36,33 @@ class ProfileController extends Controller
      * @var Taste
      */
     protected $taste;
+
+    /**
+     * @var FoodProfile
+     */
+    protected $fProfile;
+
     /**
      * ProfileController constructor.
      * @param User $user
      * @param Picture $picture
      * @param Friend $friend
      * @param Taste $taste
+     * @param FoodProfile $fProfile
      */
     public function __construct
     (
         User $user,
         Picture $picture,
         Friend $friend,
-        Taste $taste
+        Taste $taste,
+        FoodProfile $fProfile
     ){
         $this->user = $user;
         $this->picture = $picture;
         $this->friend = $friend;
         $this->taste = $taste;
+        $this->fProfile = $fProfile;
     }
 
     /**
@@ -71,12 +81,15 @@ class ProfileController extends Controller
         $profile->age =$this->user->Age($id);
         $people = $this->user->SuggestPeople($this->suggestPeople());
         foreach($people as $person) {
-            $picture_url = Picture::where('user_id',$person->id)
+            $picture_url = $this->picture->where('user_id',$person->id)
                 ->select('picture_url')
                 ->first();
             $person->picture_url = $picture_url['picture_url'];
         }
         $tastes = $this->getTastes();
+
+        $foodprofile = $this->fProfile->where('user_id',Auth::id())->first();
+//        dd($foodprofile);
         $data   = [
             'profile' => $profile,
             'friends' => $friends,
@@ -84,9 +97,10 @@ class ProfileController extends Controller
             'images' => $images,
             'tastes' => $tastes,
             'peoples' => $people,
+            'foodprofile' => $foodprofile,
         ];
 
-        return View('dashboard.dashboard')->with($data);
+        return View('dashboard.dashboard2')->with($data);
     }
     
     /**
@@ -95,6 +109,7 @@ class ProfileController extends Controller
      */
     public function updateProfile(UpdateProfileRequest $request)
     {
+//        dd($request->all());
         $this->update($request->all());
 
         return back();
@@ -118,27 +133,9 @@ class ProfileController extends Controller
     public function updateTaste(Request $request)
     {
         $data = $request->all();
-        $count = Auth::user()
-            ->tastes()
-            ->where('user_id',Auth::user()->id)
-            ->count();
-
-        $first = Auth::user()
-            ->tastes()
-            ->where('user_id',Auth::user()->id)
-            ->first();
-
-        $delete = $first['pivot']['taste_id'];
-
-        if($count == 4)
-        {
-            $count =$this->user->tastes()
-                ->detach($delete);
-        }
-
-        $taste_id =$data['tastes'];
-        Auth::user()->tastes()->attach($taste_id);
-
+        unset($data['_token']);
+     $this->fProfile->where('user_id',Auth::id())
+            ->update($data);
         return back();
     }
 
@@ -148,6 +145,7 @@ class ProfileController extends Controller
      */
     private function update($data)
     {
+//        dd($data);
         $this->user->find(Auth::user()->id)
             ->update($data);
     }

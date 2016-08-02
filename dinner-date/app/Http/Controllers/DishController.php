@@ -93,4 +93,10 @@ class DishController extends Controller
 
         return view('dishes.index')->with($data);
     }
+
+    public function getUrl($dish_id)
+    {
+        $dish = $this->dish->findorfail($dish_id);
+        return $dish->url;
+    }
 }

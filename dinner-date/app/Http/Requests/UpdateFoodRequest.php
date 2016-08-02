@@ -24,7 +24,6 @@ class UpdateFoodRequest extends Request
     public function rules()
     {
         return [
-            'spicyness'             => 'required',
             'favoriteDish'          => 'required',
             'perfectDate'           => 'required|min:10',
         ];

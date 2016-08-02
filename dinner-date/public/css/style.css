@@ -244,3 +244,13 @@ textarea{
 .border-none{
     border:none;
 }
+
+
+.hDivider{
+    height: 1px;
+    width: 90%;
+    display:block; /* for use on default inline elements like span */
+    margin: 9px 0;
+    overflow: hidden;
+    background-color: #bababa;
+}

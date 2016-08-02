@@ -21,8 +21,10 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('streetname');
             $table->string('housenumber');
+            $table->mediumText('about');
             $table->string('specialAllergies');
             $table->string('favoriteDish');
+            $table->string('favRestaurant');
             $table->integer('spicyness');
             $table->boolean('complete')->default(0);
             $table->string('email')->unique();

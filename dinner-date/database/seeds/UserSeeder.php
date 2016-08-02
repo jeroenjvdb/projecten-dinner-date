@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 
 
 use App\User;
+use App\FoodProfile;
 
 class UserSeeder extends Seeder
 {
@@ -44,5 +45,9 @@ class UserSeeder extends Seeder
         $admin->dateOfBirth = "1991-02-02";
 
         $user1->save();
+
+        $foodprofile =  new FoodProfile;
+        $foodprofile->user_id = $user1->id;
+        $foodprofile->save();
     }
 }

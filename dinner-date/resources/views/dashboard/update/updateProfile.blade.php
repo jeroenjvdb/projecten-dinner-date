@@ -25,10 +25,10 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('Sex', 'sex:', ['class' => 'col-xs-5 control-label']) !!}
+			{!! Form::label('sex', 'sex:', ['class' => 'col-xs-5 control-label']) !!}
 			<div class="col-xs-7">
-				{!! Form::radio('Sex', '0',array('checked' => 'checked')) !!} man <br>
-				{!! Form::radio('Sex', '1') !!} vrouw <br>
+				{!! Form::radio('sex', '0',array('checked' => 'checked')) !!} man <br>
+				{!! Form::radio('sex', '1') !!} vrouw <br>
 			</div>
 		</div>
 		<div class="form-group">
@@ -55,8 +55,13 @@
 				{!! Form::text('housenumber', $profile->housenumber, ['class' => 'form-control']) !!}
 			</div>
 		</div>
-		
-		{!! Form::hidden('type', 'profile') !!}
+		<div class="form-group">
+			{!! Form::label('about', 'about me', ['class' => 'col-xs-5 control-label']) !!}
+			<div class="col-xs-7">
+				{!! Form::textarea('about',$profile->about, ['class' => 'form-control']) !!}
+			</div>
+		</div>
+
 		<div class="form-group">
 			<div class="col-xs-offset-5 col-xs-7">
 				{!! Form::submit('update profile', array('class' => 'btn btn-default')) !!}

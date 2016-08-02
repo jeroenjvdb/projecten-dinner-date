@@ -132,7 +132,7 @@
 						<div class="col-md-12 person" data-link="{{ route('getProfile', $people->id) }}" >
 							<div class="row">
 								<div class="col-md-2" >
-									<img src="{{ $people->picture_url }}" alt="">
+									<img class="img-responsive" src="{{ $people->picture_url }}" alt="">
 
 								</div>
 								<div class="col-md-3">

@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/create', ['as' => 'dishCreate', 'uses' => 'DishController@getCreate']);
         Route::post('/create', ['uses' => 'DishController@postCreate']);
         Route::get('/show/{dishid}/rate/{rating}', ['as' => 'ratingCreate', 'uses' => 'RatingController@getCreate']);
+        Route::get('/url/{dish_id}', ['as' => 'geturl', 'uses' => 'DishController@getUrl']);
     });
 
     Route::group(['prefix' => 'dates'], function () {
