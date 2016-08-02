@@ -33,10 +33,18 @@ class DishController extends Controller
     public function index()
     {
         $data = ['dishes' => $this->dish->all()];
-
         return View('dishes.dishes')->with($data);
     }
 
+    /**
+     * @return $this
+     */
+    public function myDishes()
+    {
+        $dishes = $this->dish->where('user_id',Auth::id())->get();
+        $data = ['dishes' => $dishes];
+        return View('dishes.dishes')->with($data);
+    }
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -69,7 +77,7 @@ class DishController extends Controller
         $data['user_id'] = Auth::user()->id;
         $this->dish->create($data);
 
-        return redirect()->route('dishIndex')->withSuccess('succesfully added a dish');
+        return redirect()->route('myDishes')->withSuccess('succesfully added a dish');
     }
 
     /**

@@ -30,7 +30,10 @@
 		</div>
 		<div class="form-group">
 			{!! Form::label('ingredients', 'ingredients', ['class' => 'control-label col-xs-5']) !!}
-			<div class="col-xs-7">{!! Form::textarea('ingredients','', ['class' => 'form-control']) !!}</div>
+			<div class="col-xs-7">{!! Form::textarea('ingredients','',
+			['class' => 'form-control',
+			'placeholder'=>'After each ingredient put a ";" behind it. Like: cheese; bacon;'
+			]) !!}</div>
 		</div>
 		<div class="form-group">
 			{!! Form::label('fittingDrinks','Fitting wines', ['class' => 'control-label col-xs-5']) !!}
@@ -47,7 +50,5 @@
 		<div class="form-group">
 			<div class="col-xs-offset-5 col-xs-7">{!! Form::submit('Add Dish', ['class' => 'btn btn-default']) !!}</div>
 		</div>
-		
-
 	{!! Form::close() !!}
 @stop

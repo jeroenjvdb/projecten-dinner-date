@@ -254,3 +254,20 @@ textarea{
     overflow: hidden;
     background-color: #bababa;
 }
+
+.min-height-250{
+    min-height:250px;
+}
+
+
+.color-black:link{
+    color:black;
+}
+
+.color-black:hover{
+    color:#428bca;
+}
+
+.color-black{
+    color:black;
+}

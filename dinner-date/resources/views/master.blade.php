@@ -38,8 +38,9 @@
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dishes <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('dishIndex') }}">Dishes</a></li>
-            <li><a href="{{ route('dishCreate') }}">Create Dish</a></li>
+              <li><a href="{{ route('dishIndex') }}">Dishes</a></li>
+              <li><a href="{{ route('myDishes') }}">My dishes</a></li>
+              <li><a href="{{ route('dishCreate') }}">Create dish</a></li>
             
             {{--<li role="separator" class="divider"></li>--}}
             
@@ -95,7 +96,7 @@
           </ul>
         </div>
       @endif
-		@yield('body')
+    @yield('body')
 	</div>
 </div>
 

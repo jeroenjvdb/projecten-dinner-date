@@ -16,8 +16,8 @@ class DishSeeder extends Seeder
         $dish = new Dish;
 
         $dish->name = "panna cotta van kokos en ananassalade";
-        $dish->sDescription = "Een eenvoudige dessert dat snel klaar te maken is en doet denken aan pina colada";
-        $dish->lDescription = "Een eenvoudige dessert dat doet denken aan pina colada. Jeroen gebruikt kokosroom in plaats van gewone room en geef er ananas en munt bij. Op zich is dit dessert eenvoudig en snel klaar te maken, maar hou er wel rekening mee dat het nog een tijd moet opstijven in de koelkast.";
+//        $dish->sDescription = "Een eenvoudige dessert dat snel klaar te maken is en doet denken aan pina colada";
+        $dish->sDescription = "Een eenvoudige dessert dat doet denken aan pina colada. Jeroen gebruikt kokosroom in plaats van gewone room en geef er ananas en munt bij. Op zich is dit dessert eenvoudig en snel klaar te maken, maar hou er wel rekening mee dat het nog een tijd moet opstijven in de koelkast.";
         $dish->difficulty = 1;
         $dish->url="https://www.youtube.com/watch?v=bWvCC_LWv4g";
         $dish->ingredients = "De panna cotta;

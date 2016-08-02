@@ -30,7 +30,7 @@
 		@if($dish->url)
 				<div id="player"></div>
 		@endif
-			<p><strong>{{ $dish->lDescription }}</strong></p>
+			<p><strong>{{ $dish->sDescription }}</strong></p>
 		</div>
 	</div>
 	<div class="row">
