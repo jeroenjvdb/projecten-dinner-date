@@ -276,6 +276,10 @@ textarea{
     min-height:250px;
 }
 
+.height-200{
+    height:200px;
+}
+
 /**************************colors*******************************/
 
 .color-black:link{

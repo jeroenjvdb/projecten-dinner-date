@@ -8,19 +8,19 @@
     <h1>Friends and chat</h1>
     <div id="chatbox">
     {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
-    <div id="chatPersons" class="col-md-12">
+    <div id="chatPersons" class="col-md-3">
         @foreach($friends as $friend)
             <div class="row">
                 <div class="col-md-12 chatPerson" id="{{ $friend->id }}">
                     <div class="row">
-                        <div class="col-md-3">
-                            @if($friend->has('pictures'))
-                                <img src="{{ $friend->pictures->first()['picture_url'] }}" alt="">
-
+                        <div class="col-md-6 ">
+                            @if(count($friend->pictures))
+                                <img class="height-200" src="{{ $friend->pictures->first()['picture_url'] }}" alt="">
+                            @else
+                                <img src="/img/no-pic.jpg" alt="">
                             @endif
                         </div>
-                        <div class="col-md-9">
-
+                        <div class="col-md-6">
                             {{ $friend->surname }} {{ $friend->name }}
                         </div>
                     </div>
@@ -29,7 +29,7 @@
             </div>
         @endforeach
     </div>
-    <div id="chatForm">
+    <div id="chatForm" class="col-sm-9">
     </div>
     {{-- {!! Form::close() !!} --}}
 

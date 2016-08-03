@@ -67,11 +67,13 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
 
-    Route::get('/compare', ['uses'=>'ProfileController@compare']);
+    Route::get('/compare', ['as'=>'compare','uses'=>'ProfileController@compare']);
 
-    Route::get('/chat',['uses'=>'ChatController@getChat']);
-    Route::get('/home/chat/{id}', ['uses' => 'ChatController@index']);
-    Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
+Route::group(['prefix' => '/chat'], function () {
+    Route::get('/', ['as' => 'chat','uses' => 'ChatController@getChat']);
+    Route::get('/{id}', ['uses' => 'ChatController@index']);
+    Route::post('/post/{id}', ['uses' => 'ChatController@create']);
+});
 
     Route::get('/Photo', ['as' => 'Photo', 'uses' => 'PhotoController@index']);
     Route::post('/Photo', ['as' => 'PhotoPost', 'uses' => 'PhotoController@postPicture']);

@@ -25,7 +25,7 @@ $(document).ready(function(){
 		function loadChat(){
 			$.ajax({
 				type: 'get',
-				url: '/home/chat/' + friendid,
+				url: 'chat/' + friendid,
 				success: function(data, status){
 					// console.log(status);
 					// console.log(data);
@@ -58,7 +58,7 @@ $(document).ready(function(){
 			$.ajax({
 				type: 'post',
 				data: {input: input },
-				url: '/home/chat/post/' + friendid ,
+				url: 'chat/post/' + friendid ,
 				success: function(data, status){
 					// console.log(data);
 				},
@@ -73,8 +73,8 @@ $(document).ready(function(){
 		function makeChat(data, id){
 			// console.log($('#chatbox #' + id).text());
 			var chatbox = $('#chatbox #chatForm');
-			$('#chatPersons').removeClass('col-md-12').addClass('col-md-3');
-			$('#chatForm').addClass('col-md-9');
+			// $('#chatPersons').removeClass('col-md-12').addClass('col-md-3');
+			// $('#chatForm').addClass('col-md-9');
 			// console.log(id);
 			if($('#chatbox #chatForm .chat').text())
 			{

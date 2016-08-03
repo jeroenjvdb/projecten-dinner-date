@@ -57,6 +57,15 @@
             
           </ul>
         </li>
+          <li>
+              <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">chat</a>
+          </li>
+          <li>
+              <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Friends</a>
+          </li>
+          <li>
+              <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">compare</a>
+          </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
