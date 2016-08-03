@@ -11,6 +11,7 @@ use App\Picture;
 use App\Friend;
 use App\Taste;
 use App\FoodProfile;
+use App\Dish;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateFoodRequest;
@@ -43,12 +44,18 @@ class ProfileController extends Controller
     protected $fProfile;
 
     /**
+     * @var Dishes
+     */
+    protected $dishes;
+
+    /**
      * ProfileController constructor.
      * @param User $user
      * @param Picture $picture
      * @param Friend $friend
      * @param Taste $taste
      * @param FoodProfile $fProfile
+     * @param Dish $dishes
      */
     public function __construct
     (
@@ -56,13 +63,15 @@ class ProfileController extends Controller
         Picture $picture,
         Friend $friend,
         Taste $taste,
-        FoodProfile $fProfile
+        FoodProfile $fProfile,
+        Dish $dishes
     ){
         $this->user = $user;
         $this->picture = $picture;
         $this->friend = $friend;
         $this->taste = $taste;
         $this->fProfile = $fProfile;
+        $this->dishes = $dishes;
     }
 
     /**
@@ -89,7 +98,8 @@ class ProfileController extends Controller
         $tastes = $this->getTastes();
 
         $foodprofile = $this->fProfile->where('user_id',Auth::id())->first();
-//        dd($foodprofile);
+        $dishes = $this->dishes->where('user_id',$id)->take(4)->get();
+
         $data   = [
             'profile' => $profile,
             'friends' => $friends,
@@ -98,6 +108,7 @@ class ProfileController extends Controller
             'tastes' => $tastes,
             'peoples' => $people,
             'foodprofile' => $foodprofile,
+            'dishes' => $dishes,
         ];
 
         $suggestion = $this->suggetions();

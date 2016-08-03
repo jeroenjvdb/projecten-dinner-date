@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateDishRequest;
+use App\Http\Requests\EditDishRequest;
 
 class DishController extends Controller
 {
@@ -45,6 +46,17 @@ class DishController extends Controller
         $data = ['dishes' => $dishes];
         return View('dishes.dishes')->with($data);
     }
+
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function personDishes($id)
+    {
+        $dishes = $this->dish->where('user_id',$id)->get();
+        $data = ['dishes' => $dishes];
+        return View('dishes.dishes')->with($data);
+    }
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -53,9 +65,24 @@ class DishController extends Controller
         return View('dishes.create');
     }
 
+    public function edit($id)
+    {
+       $dish = $this->dish->where('id',$id)->first();
+
+        return view('dishes.edit')->with(['dish'=>$dish]);
+    }
+
+    public function postEdit(EditDishRequest $request)
+    {
+        $data = $request->all();
+        unset($data['_token']);
+        $this->dish->update($data);
+        return redirect()->route('myDishes')->withSuccess('succesfully edited dish');
+
+    }
     /**
-     * @param Request $request
-     * @return $this
+     * @param CreateDishRequest $request
+     * @return mixed
      */
     public function postCreate(CreateDishRequest $request)
     {

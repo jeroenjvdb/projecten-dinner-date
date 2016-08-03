@@ -255,18 +255,28 @@ textarea{
     background-color: #bababa;
 }
 
+/**************************heights*******************************/
 .max-height-500{
     max-height:500px;
+}
+
+.height-500{
+    height:500px;
 }
 
 .max-height-350{
     max-height:350px;
 }
 
+.height-350{
+    height:350px;
+}
+
 .min-height-250{
     min-height:250px;
 }
 
+/**************************colors*******************************/
 
 .color-black:link{
     color:black;
@@ -280,12 +290,16 @@ textarea{
     color:black;
 }
 
+/**************************borders*******************************/
+
 .border-setting{
     border:solid 1px black;
 }
 .hover-border:hover{
     border:solid 1px #428bca;
 }
+
+/**************************margin*******************************/
 
 .margin-top-bottom{
     margin-top:10px;

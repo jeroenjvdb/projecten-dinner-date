@@ -50,33 +50,36 @@
                 </div>
                 <div class="col-sm-8 col-sm-offset-1">
                     <div class="row">
-                        <h1>
-                            {{ $profile->surname . " " . $profile->name }}
-                            @if(Auth::user()->id == $profile->id)
-                                <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
-                            @endif
-                        </h1>
-                        @if( $profile->age<2000)
-                            <p>leeftijd: {!! $profile->age !!}</p>
-                        @endif
-                        <p> @if($profile->sex == 0)
-                                man
-                            @else
-                                vrouw
-                            @endif
-                        </p>
+                    <h1>
+                        {{ $profile->surname . " " . $profile->name }}
 
+                    </h1>
+                     <div class="col-sm-6">
+                         <h2>
+                             Info
+                             @if(Auth::user()->id == $profile->id)
+                                     <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
+                             @endif
+                         </h2>
+                         @if( $profile->age<2000)
+                             <p>leeftijd: {!! $profile->age !!}</p>
+                         @endif
+                         <p> @if($profile->sex == 0)
+                                 man
+                             @else
+                                 vrouw
+                             @endif
+                         </p>
 
-                        <h3>residence</h3>
-                        <p class="subheader">{{ $profile->country }} {{ $profile->city }}</p>
-                        <br>
-                        <h3>About me</h3>
-                        <p>
-                            {!! $profile->about !!}
-                        </p>
-                    </div>
-                    <div class="hDivider"></div>
-                    <div class="row">
+                         <h3>Residence</h3>
+                         <p class="subheader">{{ $profile->country }} {{ $profile->city }}</p>
+                         <h3>About me</h3>
+                         <p>
+                             {!! $profile->about !!}
+                         </p>
+                     </div>
+
+                    <div class="col-sm-6">
                         <h1>Date profile @if(Auth::user()->id == $profile->id)
                                 <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateDate"></span>
                             @endif</h1>
@@ -98,13 +101,25 @@
                             {{$profile->favRestaurant}}
                         </p>
                     </div>
-                    <div class="hDivider"></div>
 
+                    </div>
+                    <div class="hDivider"></div>
                     <div class="row">
                         <h1>Food profile </h1>
                         @include('dashboard.foodprofile.tasteprofile')
                         @include('dashboard.foodprofile.kitchen')
                         @include('dashboard.foodprofile.allergies')
+                    </div>
+                    <div class="hDivider"></div>
+                    <div class="row">
+                        <h2>
+                            Dishes
+                            <a href="{{ route('dishCreate') }}">
+                                <i class="fa fa-plus color-black" aria-hidden="true"></i>
+                            </a>
+                        </h2>
+                        @include('dishes.partialDish')
+                        <center><a class="color-black" href="{{ route('myDishes') }}">more...</a></center>
                     </div>
                 </div>
             </div>

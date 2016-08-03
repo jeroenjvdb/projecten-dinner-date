@@ -5,8 +5,16 @@
 @endsection
 
 @section('body')
-	<h1 class="start-sentence">{{ $dish->name }}</br>
-		<small class="start-sentence">{{$dish->user->fullName() }}</small>
+	<h1 class="start-sentence">{{ $dish->name }}
+		@if(Auth::id() == $dish->user_id)
+			<a class="color-black" href="{{ route('editDish', $dish->id ) }}">
+				<span class="clickable glyphicon glyphicon-pencil"></span>
+			</a>
+		@endif
+		</br>
+		<a class="color-black" href="{{ route('getProfile', $dish->user_id ) }}">
+			<small class="start-sentence">{{$dish->user->fullName() }}</small>
+		</a>
 	</h1>
 	<div class="row">
 		<div class="col-sm-6">

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-	profile2
+	profile
 @stop
 
 @section('body')
@@ -38,59 +38,66 @@
 		</div>
 		<div class="col-sm-8 col-sm-offset-1">
 			<div class="row">
-				<h1>{{ $profile->surname . " " . $profile->name }}</h1>
-				<a href="{{ route('addFriend', array( $profile->id )) }}"><button>send friendship request</button></a>
-				@if( $profile->age < 2000)
-					<p>leeftijd: {!! $profile->age !!}</p>
-				@endif
-				<p> @if($profile->sex == 0)
-						man
-					@else
-						vrouw
+				<h1>{{ $profile->surname . " " . $profile->name }}
+					<a href="{{ route('addFriend', array( $profile->id )) }}">
+						{{--<button>send friendship request</button>--}}
+						<i class="fa fa-user-plus" aria-hidden="true"></i>
+					</a>
+				</h1>
+				<div class="col-sm-6">
+					<h2>Info</h2>
+					@if( $profile->age < 2000)
+						<p>leeftijd: {!! $profile->age !!}</p>
 					@endif
-				</p>
+					<p> @if($profile->sex == 0)
+							man
+						@else
+							vrouw
+						@endif
+					</p>
+					<h3>Residence</h3>
+					<p class="subheader">{{ $profile->country }} {{ $profile->city }}</p>
+					<h3>About me</h3>
+					<p>
+						{!! $profile->about !!}
+					</p>
+				</div>
+				<div class="col-sm-6">
+						<h2>Date profile</h2>
+						<h3>My perfect date</h3>
+						<p id="perfectDate">
+							@if($profile->perfectDate)
+								{{ $profile->perfectDate }}
+							@else
+								Kaas en wijn onder een sterrenhemel
+							@endif
+						</p>
+						<h3>My favorite diner</h3>
+						<p id="favoriteDish">
+							{{$profile->favoriteDish}}
+						</p>
 
+						<h3>My favorite restaurant</h3>
+						<p>
+							{{$profile->favRestaurant}}
+						</p>
+				</div>
 
-				<h3>residence</h3>
-				<p class="subheader">{{ $profile->country }} {{ $profile->city }}</p>
-				<br>
-				<h3>About me</h3>
-				<p>
-					{!! $profile->about !!}
-				</p>
 			</div>
 			<div class="hDivider"></div>
-			<div class="row">
-				<h1>Date profile</h1>
-				<h3>My perfect date</h3>
-				<p id="perfectDate">
-					@if($profile->perfectDate)
-						{{ $profile->perfectDate }}
-					@else
-						Kaas en wijn onder een sterrenhemel
-					@endif
-				</p>
-				<h3>My favorite diner</h3>
-				<p id="favoriteDish">
-					{{$profile->favoriteDish}}
-				</p>
-
-				<h3>My favorite restaurant</h3>
-				<p>
-					{{$profile->favRestaurant}}
-				</p>
-			</div>
-			<div class="hDivider"></div>
-
 			<div class="row">
 				<h1>Food profile </h1>
 				@include('dashboard.foodprofile.tasteprofile')
 				@include('dashboard.foodprofile.kitchen')
 				@include('dashboard.foodprofile.allergies')
 			</div>
-		</div>
-		<div class="col-sm-3">
-			test
+			<div class="hDivider"></div>
+			<div class="row">
+				<h2>Dishes</h2>
+				@include('dishes.partialDish')
+				<center><a class="color-black" href="{{ route('personDishes', array( $profile->id )) }}">more...</a></center>
+
+			</div>
 		</div>
 	</div>
 @stop
@@ -101,5 +108,5 @@
 
 @section('scripts')
 	<script src="js/changeProfile.js"></script>
-	<script src="js/getChat.js"></script>
+	{{--<script src="js/getChat.js"></script>--}}
 @stop

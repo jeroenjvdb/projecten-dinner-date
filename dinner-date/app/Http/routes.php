@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'dish'], function () {
         Route::get('/', ['as' => 'dishIndex', 'uses' => 'DishController@index']);
         Route::get('/my', ['as' => 'myDishes', 'uses' => 'DishController@myDishes']);
+        Route::get('/edit/{id}', ['as' => 'editDish', 'uses' => 'DishController@edit']);
+        Route::post('/edit/', ['as' => 'postEdit', 'uses' => 'DishController@postEdit']);
+        Route::get('/{id}', ['as' => 'personDishes', 'uses' => 'DishController@personDishes']);
         Route::get('/show/{type}', ['as' => 'dishShow', 'uses' => 'DishController@show']);
         Route::get('/create', ['as' => 'dishCreate', 'uses' => 'DishController@getCreate']);
         Route::post('/create', ['uses' => 'DishController@postCreate']);
