@@ -20,4 +20,7 @@
 			</a>
 		@endforeach
 	</div>
+	<div class="row">
+		<center>{!! $dishes->render() !!}</center>
+	</div>
 @endsection

@@ -42,9 +42,16 @@ class DishController extends Controller
      */
     public function myDishes()
     {
-        $dishes = $this->dish->where('user_id',Auth::id())->get();
-        $data = ['dishes' => $dishes];
-        return View('dishes.dishes')->with($data);
+        $dishes = $this->dish->where('user_id',Auth::id())->paginate(6);
+        if(count($dishes)){
+            $data = ['dishes' => $dishes];
+
+            return View('dishes.dishes')->with($data);
+        }else{
+
+            return View('dishes.create');
+        }
+
     }
 
     /**
@@ -53,7 +60,7 @@ class DishController extends Controller
      */
     public function personDishes($id)
     {
-        $dishes = $this->dish->where('user_id',$id)->get();
+        $dishes = $this->dish->where('user_id',$id)->paginate(6);
         $data = ['dishes' => $dishes];
         return View('dishes.dishes')->with($data);
     }
@@ -129,6 +136,20 @@ class DishController extends Controller
         return view('dishes.index')->with($data);
     }
 
+    public function delete($id)
+    {
+        $dish = $this->dish->find($id);
+        if($dish->user_id == Auth::id())
+        {
+            $dish->delete();
+        }
+        return redirect()->route('myDishes');
+    }
+
+    /**
+     * @param $dish_id
+     * @return mixed
+     */
     public function getUrl($dish_id)
     {
         $dish = $this->dish->findorfail($dish_id);

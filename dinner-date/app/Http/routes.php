@@ -34,21 +34,27 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/{id}', ['as' => 'getProfile', 'uses' => 'MainController@getProfile']);
-        Route::get('/add/{id}', ['as' => 'addFriend', 'uses' => 'MainController@addFriend']);
-        Route::get('/accept/{id}', ['as' => 'acceptFriend', 'uses' => 'MainController@acceptFriend']);
-        Route::get('/delete-request/{id}', ['as' => 'deleteFriendRequest', 'uses' => 'MainController@deleteFriendRequest']);
-        Route::get('/delete/{id}', ['as' => 'deleteFriend', 'uses' => 'MainController@deleteFriend']);
     });
+
+    Route::group(['prefix' => 'friends'], function (){
+        Route::get('/requests', ['as' => 'getRequests', 'uses' => 'FriendController@getRequests']);
+        Route::get('/add/{id}', ['as' => 'addFriend', 'uses' => 'FriendController@addFriend']);
+        Route::get('/accept/{id}', ['as' => 'acceptFriend', 'uses' => 'FriendController@acceptFriend']);
+        Route::get('/delete-request/{id}', ['as' => 'deleteFriendRequest', 'uses' => 'FriendController@deleteFriendRequest']);
+        Route::get('/delete/{id}', ['as' => 'deleteFriend', 'uses' => 'FriendController@deleteFriend']);
+    });
+
 
     Route::group(['prefix' => 'dish'], function () {
         Route::get('/', ['as' => 'dishIndex', 'uses' => 'DishController@index']);
         Route::get('/my', ['as' => 'myDishes', 'uses' => 'DishController@myDishes']);
+        Route::get('/delete/{id}', ['as' => 'deleteDish', 'uses' => 'DishController@delete']);
         Route::get('/edit/{id}', ['as' => 'editDish', 'uses' => 'DishController@edit']);
         Route::post('/edit/', ['as' => 'postEdit', 'uses' => 'DishController@postEdit']);
-        Route::get('/{id}', ['as' => 'personDishes', 'uses' => 'DishController@personDishes']);
+        Route::get('/user/{id}', ['as' => 'personDishes', 'uses' => 'DishController@personDishes']);
         Route::get('/show/{type}', ['as' => 'dishShow', 'uses' => 'DishController@show']);
         Route::get('/create', ['as' => 'dishCreate', 'uses' => 'DishController@getCreate']);
-        Route::post('/create', ['uses' => 'DishController@postCreate']);
+        Route::post('/postCreate', ['as' => 'postCreate','uses' => 'DishController@postCreate']);
         Route::get('/show/{dishid}/rate/{rating}', ['as' => 'ratingCreate', 'uses' => 'RatingController@getCreate']);
         Route::get('/url/{dish_id}', ['as' => 'geturl', 'uses' => 'DishController@getUrl']);
     });
@@ -63,6 +69,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/compare', ['uses'=>'ProfileController@compare']);
 
+    Route::get('/chat',['uses'=>'ChatController@getChat']);
     Route::get('/home/chat/{id}', ['uses' => 'ChatController@index']);
     Route::post('/home/chat/post/{id}', ['uses' => 'ChatController@create']);
 

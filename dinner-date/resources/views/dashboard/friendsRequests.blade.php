@@ -13,4 +13,4 @@
             <a href="{{ route('deleteFriendRequest', [$friendRequest->user->id]) }}"><button>delete</button></a>
         </div>
     </div>
-    @endForeach
+@endForeach

@@ -10,6 +10,9 @@
 			<a class="color-black" href="{{ route('editDish', $dish->id ) }}">
 				<span class="clickable glyphicon glyphicon-pencil"></span>
 			</a>
+            <a class="color-black" href="{{ route('deleteDish', $dish->id ) }}">
+                <span class="clickable glyphicon glyphicon-remove"></span>
+            </a>
 		@endif
 		</br>
 		<a class="color-black" href="{{ route('getProfile', $dish->user_id ) }}">

@@ -1,7 +1,8 @@
 @extends('master')
 
 @section('body')
-	{!! Form::open(array('files' => 'true', 'class' => 'form-horizontal')) !!}
+	{!! Form::open(array('files' => 'true', 'class' => 'form-horizontal','url' => route('postCreate'),
+	'method' => 'POST')) !!}
 		<div class="form-group">
 		{!! Form::label('name', 'Name', ['class' => 'control-label col-xs-5']) !!}
 			<div class="col-xs-7">{!! Form::text('name','', ['class' => 'form-control']) !!}</div>

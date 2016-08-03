@@ -1,0 +1,51 @@
+@extends('master')
+
+@section('title')
+    Chat
+@stop
+
+@section('body')
+    <h1>Friends and chat</h1>
+    <div id="chatbox">
+    {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
+    <div id="chatPersons" class="col-md-12">
+        @foreach($friends as $friend)
+            <div class="row">
+                <div class="col-md-12 chatPerson" id="{{ $friend->id }}">
+                    <div class="row">
+                        <div class="col-md-3">
+                            @if($friend->has('pictures'))
+                                <img src="{{ $friend->pictures->first()['picture_url'] }}" alt="">
+
+                            @endif
+                        </div>
+                        <div class="col-md-9">
+
+                            {{ $friend->surname }} {{ $friend->name }}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <div id="chatForm">
+    </div>
+    {{-- {!! Form::close() !!} --}}
+
+    </div>
+    <script>
+        $(document).ready(function(){
+        });
+    </script>
+
+@stop
+
+@section('header')
+    <meta name="_token" content="{{ app('Illuminate\Encryption\Encrypter')->encrypt(csrf_token()) }}" />
+@stop
+
+@section('scripts')
+    <script src="js/changeProfile.js"></script>
+    <script src="js/getChat.js"></script>
+@stop
