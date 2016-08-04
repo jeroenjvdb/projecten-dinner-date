@@ -123,7 +123,7 @@ class ProfileController extends Controller
             'people' => $people,
         ];
 
-        return View('compare')->with($data);
+        return View('functions.compare')->with($data);
     }
     
     /**

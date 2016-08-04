@@ -6,11 +6,16 @@
 
 @section('body')
     <div class="row setup">
-
-        <h1 class="col-sm-offset-2">food profile</h1>
-        <div class="col-sm-offset-2 col-sm-8 progress">
-            <div class="progress-bar progress-bar-success progress-bar-striped"  style="width: 100%;">
-                <span class="">3/3</span>
+        <div class="col-sm-offset-2">
+        <h1 >food profile</h1>
+        <p>Final round of questions!</p>
+        <p>This info would be used to find people who match your Taste!</p>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8">
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped"  style="width: 100%;">
+                    <span class="">3/3</span>
+                </div>
             </div>
         </div>
         <hr>
@@ -22,7 +27,9 @@
             @include('Auth.setup.step3.allergies')
         </div>
 
-        {!! Form::submit('Update taste', ['class' => 'btn btn-default']) !!}
+        <div class="col-sm-offset-3 col-sm-9">
+            {!! Form::submit('Update food profile', ['class' => 'btn btn-default']) !!}
+        </div>
         {!! Form::close() !!}
     </div>
     </div>

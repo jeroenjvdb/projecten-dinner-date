@@ -26,8 +26,6 @@ class UpdateProfileRequest extends Request
         return [
             'name'                  => 'required',
             'surname'               => 'required',
-            'streetname'            => 'required',
-            'housenumber'           => 'required',
             'city'                  => 'required',
             'country'               => 'required',
         ];

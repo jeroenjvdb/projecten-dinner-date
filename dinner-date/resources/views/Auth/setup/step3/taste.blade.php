@@ -1,5 +1,5 @@
 <div class="col-sm-4">
-    <h3 class="col-sm-offset-2">taste profile</h3>
+    <h3 class="col-sm-offset-2">Taste profile</h3>
     <div class="row">
         {{--{{dd()}}--}}
         <div class="col-sm-offset-2 col-sm-2">

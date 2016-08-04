@@ -46,7 +46,7 @@ class ChatController extends Controller
             ->friends()
             ->get() ;
 
-        return view('chat')->with(['friends' =>$friends]);
+        return view('functions.chat')->with(['friends' =>$friends]);
     }
 
     /**

@@ -46,7 +46,7 @@ class FriendController extends Controller
             'friendRequests' => $friendRequests,
         ];
 
-        return view('friendrequest')->with($data);
+        return view('functions.friendrequest')->with($data);
     }
 
     /**
