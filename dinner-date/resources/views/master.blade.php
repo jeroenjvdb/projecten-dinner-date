@@ -89,23 +89,25 @@
 </nav>
   @yield('noContainer')
 	<div class="container">
-    @if(count($errors) > 0)
-          <div class="model error">
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-                  
-              </ul>
-          </div>
-      @endif
-      @if(Session::get('success'))
-        <div class="model success">
-          <ul>
-            <li>{{ Session::get('success') }}</li>
-          </ul>
-        </div>
-      @endif
+        @if(Auth::check())
+            @if(count($errors) > 0)
+                <div class="model error no-decoration">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+
+                    </ul>
+                </div>
+            @endif
+            @if(Session::get('success'))
+                <div class="model success">
+                    <ul>
+                        <li>{{ Session::get('success') }}</li>
+                    </ul>
+                </div>
+            @endif
+        @endif
     @yield('body')
 	</div>
 </div>

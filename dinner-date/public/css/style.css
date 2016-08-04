@@ -331,3 +331,9 @@ textarea{
 .padding-0{
     padding:0;
 }
+
+/**************************decoration*******************************/
+
+.no-decoration ul {
+    list-style-type: none;
+}
