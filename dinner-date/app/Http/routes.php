@@ -23,6 +23,13 @@ Route::post('/register', ['uses' => 'Auth\AuthController@postRegister' ]);
 
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::group(['prefix' => 'setup'], function () {
+        Route::get('/step1',['as' => 'step1', 'uses' => 'SetupController@step1']);
+        Route::post('/profile', ['as' => 'setupProfile', 'uses' => 'SetupController@updateProfile']);
+        Route::post('/food', ['as' => 'setupFood', 'uses' => 'SetupController@updateFood']);
+        Route::post('/taste', ['as' => 'setupTaste', 'uses' => 'SetupController@updateTaste']);
+    });
+
     Route::group(['prefix' => 'update'], function () {
         Route::post('/profile', ['as' => 'updateProfile', 'uses' => 'ProfileController@updateProfile']);
         Route::post('/food', ['as' => 'updateFood', 'uses' => 'ProfileController@updateFood']);

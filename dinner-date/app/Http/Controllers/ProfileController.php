@@ -132,7 +132,6 @@ class ProfileController extends Controller
      */
     public function updateProfile(UpdateProfileRequest $request)
     {
-//        dd($request->all());
         $this->update($request->all());
 
         return back();

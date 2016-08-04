@@ -128,6 +128,6 @@ class AuthController extends Controller
             return redirect()->back()->withInput()->withErrors($errors);
         }
 
-        return redirect()->route('dashboard');
+        return redirect()->route('step1');
     }
 }
