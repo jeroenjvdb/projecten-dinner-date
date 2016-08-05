@@ -59,9 +59,13 @@
 			<div class="col-sm-7">{!! Form::text('url','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			<div class="col-xs-offset-3 col-sm-7">
+			<div class="col-sm-offset-3 col-sm-1">
+				<div id="previous" class="btn btn-default"> Previous</div>
+			</div>
+			<div class="col-sm-1">
 				{!! Form::submit('Add Dish', ['class' => 'btn btn-default']) !!}
 			</div>
+
 		</div>
 	</div>
 	{!! Form::close() !!}
@@ -72,6 +76,11 @@
 		$( "#next" ).click(function() {
 			$("#info1").addClass( "hide" );
 			$("#info2").removeClass( "hide" );
+		});
+
+		$( "#previous" ).click(function() {
+			$("#info2").addClass( "hide" );
+			$("#info1").removeClass( "hide" );
 		});
 	</script>
 @stop

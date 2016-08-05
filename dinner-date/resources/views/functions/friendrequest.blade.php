@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-    <h1>People who are interested</h1>
+    <h1>People who want to date</h1>
     <div class="row">
         @foreach($friendRequests as $fQ)
             <a class="color-black" href="{{ route('getProfile', $fQ->user->id) }}">

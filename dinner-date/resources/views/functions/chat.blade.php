@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-    <h1>Friends and chat</h1>
+    <h1>Daters and chat</h1>
     <div id="chatbox">
     {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
     <div id="chatPersons" class="col-md-3">
@@ -22,6 +22,9 @@
                         </div>
                         <div class="col-md-6">
                             {{ $friend->surname }} {{ $friend->name }}
+                            <br><br>
+
+                            <a  class="btn btn-danger" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>
                         </div>
                     </div>
 

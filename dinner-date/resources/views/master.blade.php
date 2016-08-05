@@ -61,7 +61,7 @@
               <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">chat</a>
           </li>
           <li>
-              <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Friends</a>
+              <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Daters</a>
           </li>
           <li>
               <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">compare</a>

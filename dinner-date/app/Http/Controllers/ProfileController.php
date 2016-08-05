@@ -83,18 +83,7 @@ class ProfileController extends Controller
         
         $images = $this->picture->ProfilePics($id);
         $profile = $this->user->find($id);
-        $friends = $this->user->find($id)
-            ->friends()
-            ->get() ;
-        $friendRequests = $this->friend->GetRequests($id);
         $profile->age =$this->user->Age($id);
-        $people = $this->user->SuggestPeople($this->suggestPeople());
-        foreach($people as $person) {
-            $picture_url = $this->picture->where('user_id',$person->id)
-                ->select('picture_url')
-                ->first();
-            $person->picture_url = $picture_url['picture_url'];
-        }
         $tastes = $this->getTastes();
 
         $foodprofile = $this->fProfile->where('user_id',Auth::id())->first();
@@ -102,16 +91,11 @@ class ProfileController extends Controller
 
         $data   = [
             'profile' => $profile,
-            'friends' => $friends,
-            'friendRequests' => $friendRequests,
             'images' => $images,
             'tastes' => $tastes,
-            'peoples' => $people,
             'foodprofile' => $foodprofile,
             'dishes' => $dishes,
         ];
-
-        $suggestion = $this->suggetions();
 
         return View('dashboard.dashboard2')->with($data);
     }
@@ -172,6 +156,9 @@ class ProfileController extends Controller
             ->update($data);
     }
 
+    /**
+     * @return array
+     */
     private function getTastes()
     {
         $smaken = $this->taste->select('id', 'tastes')->get();
@@ -185,35 +172,6 @@ class ProfileController extends Controller
     /**
      * @return array
      */
-    private function suggestPeople()
-    {
-        $mayLike=[];
-        foreach($this->user->find(Auth::user()->id)->tastes as $taste)
-        {
-            $othersTaste = $taste->users()
-                ->where('user_id','<>', Auth::user()->id)
-                ->where('taste_id',$taste->id)
-                ->get();
-            foreach($othersTaste as $user)
-            {
-                $mayLike[] = $user->id;
-            }
-        }
-        //count how many times an id apears in array
-        $CountMayLikes = array_count_values($mayLike);
-        //sort from high to low
-        arsort($CountMayLikes);
-        $sortedArray = [];
-
-        foreach ($CountMayLikes as $id => $value) {
-            $sortedArray[]=$id;
-        }
-        //give te first 10
-        $pYML = array_slice($sortedArray, 0, 10);
-        return $pYML;
-    }
-
-
     public function suggetions()
     {
         $user = $this->fProfile->where('user_id',Auth::id())->first();
