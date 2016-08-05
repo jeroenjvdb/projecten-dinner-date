@@ -24,8 +24,8 @@ class PhotoRequest extends Request
     public function rules()
     {
         return [
-            'description'       => 'required|max:255',
-            'photo'             => 'required|mimes:jpeg,gif,png',
+//            'description'       => 'required|max:255',
+            'photo'             => 'required|mimes:jpeg',
         ];
     }
 }

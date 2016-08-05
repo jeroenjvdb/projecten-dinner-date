@@ -84,4 +84,10 @@ Route::group(['prefix' => '/chat'], function () {
 
     Route::get('/Photo', ['as' => 'Photo', 'uses' => 'PhotoController@index']);
     Route::post('/Photo', ['as' => 'PhotoPost', 'uses' => 'PhotoController@postPicture']);
+    Route::post('/crop', ['as' => 'postCrop', 'uses' => 'PhotoController@postCrop']);
+//    Route::get('/crop', ['as' => 'crop', 'uses' => 'PhotoController@getCrop']);
+    Route::get('/crop',['as' => 'crop', function()
+    {
+        return View('functions.crop')->with('image', 'img/users/'. Session::get('image'));
+    }]);
 });

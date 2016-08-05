@@ -15,6 +15,7 @@ use DB; //database connectie
 use App\Picture;
 use User;
 use Auth;
+use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use App\Http\Requests\PhotoRequest;
 
@@ -43,30 +44,83 @@ class PhotoController extends Controller
     }
 
     /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getCrop()
+    {
+        return view('functions.crop');
+    }
+    /**
      * @param PhotoRequest $request
      * @return mixed
      */
+//    public function postPicture(PhotoRequest $request)
+//    {
+//        $filename = Input::file('photo')->getClientOriginalName();
+//        $rand = rand(11111,99999);
+//        Image::make(Input::file('photo'))
+//            //->resize(300, 200)
+//            ->save('img/users/'.$rand.'-'.$filename);
+//        $count = $this->picture->where('user_id',Auth::user()->id)
+//                        ->count();
+//        if($count == 5) {
+//            $this->picture->RemoveLast(Auth::user()->id);
+//        }
+//        $new = [
+//            'picture_url' => '/img/users/'.$rand.'-'.$filename,
+////            'description' => $data['description'],
+//            'isDish' => 0,
+//            'user_id' => Auth::user()->id,
+//        ];
+//        $picture = $this->picture->create($new);
+//        $file = base64_encode(file_get_contents(Input::file('photo')->getRealPath()));
+////        return redirect()->route('dashboard')->withSuccess('succesfully added a picture');
+//        return view('functions.crop')->with(['picture' => $picture]);
+//    }
+
     public function postPicture(PhotoRequest $request)
     {
-        $filename = Input::file('photo')->getClientOriginalName();
+        $file = Input::file('photo');
         $rand = rand(11111,99999);
-        Image::make(Input::file('photo'))
-            //->resize(300, 200)
-            ->save('img/users/'.$rand.'-'.$filename);
+        $file_name = $rand.'-'.$file->getClientOriginalName();
+        if ($file->move('img/users/',$file_name))
+        {
+            return redirect()->route('crop')->with('image',$file_name);
+        }
+        else
+        {
+            return "Error uploading file";
+        }
+    }
+    public function postCrop(Request $request)
+    {
+        $data = $request->all();
+        $quality = 90;
+
+        $src  = $data['image'];
+        $img  = imagecreatefromjpeg($src);
+        $dest = ImageCreateTrueColor($data['w'], $data['h']);
+
+        imagecopyresampled($dest, $img, 0, 0, $data['x'],
+            $data['y'], $data['w'], $data['h'],
+            $data['w'], $data['h']);
+        imagejpeg($dest, $src, $quality);
+
+
         $count = $this->picture->where('user_id',Auth::user()->id)
                         ->count();
         if($count == 5) {
             $this->picture->RemoveLast(Auth::user()->id);
         }
-        $data = $request->all();
         $new = [
-            'picture_url' => '/img/users/'.$rand.'-'.$filename,
-            'description' => $data['description'],
+            'picture_url' => $src,
+//            'description' => $data['description'],
             'isDish' => 0,
             'user_id' => Auth::user()->id,
         ];
         $this->picture->create($new);
-
         return redirect()->route('dashboard')->withSuccess('succesfully added a picture');
+
+        return "<img src='" . $src . "'>";
     }
 }

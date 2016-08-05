@@ -5,27 +5,27 @@
 @stop
 
 @section('body')
-	<h1>foto toevoegen</h1>
-
-	
+	<div class="row">
+		<div class="col-sm-offset-3">
+			<h1>Add picture</h1>
+			<hr>
+		</div>
+	</div>
+	<div class="row">
 		{!! Form::open(array('url' => route('PhotoPost'), 'method' => 'post','enctype' =>'multipart/form-data', 'class' => 'form-horizontal')) !!}
 		<div class="form-group">
-			{!! Form::label('photo', 'upload picture', ['class' => 'col-xs-5 control-label']) !!}
-				<div class="col-xs-7">
-			{!! Form::file('photo', ['class' => 'form-control']) !!}
+			{!! Form::label('photo', 'upload picture', ['class' => 'col-sm-3 control-label']) !!}
+			<div class="col-sm-9">
+				{!! Form::file('photo', ['class' => 'form-control']) !!}
 			</div>
 		</div>
-		{{--<div class="form-group">--}}
-			{{--{!! Form::label('description', 'naamomschrijving', ['class' => 'col-xs-5 control-label']) !!}--}}
-			{{--<div class="col-xs-7">--}}
-				{{--{!! Form::text('description', '', ['class' => 'form-control', 'placeholder' => 'beschrijving']) !!}--}}
-			{{--</div>--}}
-		{{--</div>--}}
 		<div class="form-group">
-			<div class="col-xs-offset-5 col-xs-7">
-				{!! Form::submit('foto toevoegen', ['class' => 'btn btn-default']) !!}
+			<div class="col-sm-offset-3 col-sm-9">
+				{!! Form::submit('Add Picture', ['class' => 'btn btn-default']) !!}
 			</div>
 		</div>
-	{!! Form::close() !!}
+		{!! Form::close() !!}
+	</div>
+
 @stop
 

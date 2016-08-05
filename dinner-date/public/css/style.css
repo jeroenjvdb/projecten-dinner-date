@@ -280,6 +280,10 @@ textarea{
     height:200px;
 }
 
+.height-290{
+    height:290px;
+}
+
 .height-150{
     height:150px;
 }
@@ -316,7 +320,12 @@ textarea{
     border:solid 1px black;
 }
 .hover-border:hover{
-    border:solid 1px #428bca;
+    border:solid 2px #428bca;
+}
+
+
+.border-white{
+    border: solid 4px white;
 }
 
 /**************************margin*******************************/
@@ -330,6 +339,10 @@ textarea{
 
 .padding-0{
     padding:0;
+}
+
+.padding{
+    padding: 10px;
 }
 
 /**************************decoration*******************************/

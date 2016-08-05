@@ -61,7 +61,10 @@ class DishController extends Controller
     public function personDishes($id)
     {
         $dishes = $this->dish->where('user_id',$id)->paginate(6);
-        $data = ['dishes' => $dishes];
+
+        $data = [
+            'dishes' => $dishes,
+        ];
         return View('dishes.dishes')->with($data);
     }
     /**
@@ -129,9 +132,11 @@ class DishController extends Controller
                 unset($ingredientArray[$key]);
             }
         }
-
+        $video = '<iframe width="420" height="315"
+                    src="'. $dish->url .'">
+                    </iframe>';
         $dish->ingredientArray = $ingredientArray;
-        $data = ['dish' => $dish];
+        $data = ['dish' => $dish, 'video'=>$video];
 
         return view('dishes.index')->with($data);
     }

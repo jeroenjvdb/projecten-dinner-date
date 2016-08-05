@@ -9,7 +9,7 @@
     <div class="row">
         @foreach($people as $key => $item)
             <a class="color-black" href="{{ route('getProfile', $item['user']->id) }}">
-                <div class="col-sm-3 height-500  hover-border ">
+                <div class="col-sm-3 height-500 hover-border border-white padding">
                     <div class="margin-top-bottom">
                         <div class="height-350">
                         @if($item['picture']['picture_url'])

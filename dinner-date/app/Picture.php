@@ -43,10 +43,11 @@ class Picture extends Model
 
     public function scopeRemoveLast($query,$id)
     {
-        where('user_id','=',$id)
+        $pic = $query->where('user_id','=',$id)
             ->orderBy('created_at', 'asc')
-            ->take(1)
-            ->delete();
+            ->first();
+        unlink($pic->picture_url);
+        $pic->delete();
     }
 
     public function scopeProfile($query,$id)

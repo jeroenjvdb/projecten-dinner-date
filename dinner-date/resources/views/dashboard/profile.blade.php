@@ -5,8 +5,10 @@
 @stop
 
 @section('body')
+	@include('dashboard.picturesModal')
+
 	<div class="row">
-		<div class="col-sm-3 profile-pics">
+		<div class="col-sm-3 profile-pics" data-toggle="modal" data-target="#pictures">
 			@if (count($images) === 0)
 				<div class="row">
 					<div class="col-sm-12">
@@ -23,13 +25,13 @@
 					@if($index==0)
 						<div class="row">
 							<div class="col-sm-12">
-								<img src="{{ $image->picture_url}}"  />
+								<img src="/{{ $image->picture_url}}"  />
 							</div>
 						</div>
 						<div class="row more-pics">
 							@else
 								<div class="col-sm-3">
-									<img src="{{ $image->picture_url}}" />
+									<img src="/{{ $image->picture_url}}" />
 								</div>
 							@endif
 							@endforeach

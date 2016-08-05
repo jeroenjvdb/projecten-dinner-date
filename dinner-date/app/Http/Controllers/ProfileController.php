@@ -175,7 +175,7 @@ class ProfileController extends Controller
     public function suggetions()
     {
         $user = $this->fProfile->where('user_id',Auth::id())->first();
-        $others = $this->fProfile->where('user_id','<>',Auth::id())->get();
+        $others = $this->fProfile->where('user_id','<>',Auth::id())->orderByRaw("RAND()")->get();
         $results= [];
         foreach($others as $key => $profile){
             $count = 0;
