@@ -71,4 +71,11 @@ class Friend extends Model
 		->where('friend_id', '=', $id2)
 		->exists();
 	}
+
+	public function scopeDelete($query,$id)
+    {
+       return $query->where('user_id', '=', $id)
+        ->where('friend_id', '=', Auth::user()->id)
+        ->delete();
+    }
 }

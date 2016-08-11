@@ -113,12 +113,8 @@ class FriendController extends Controller
      */
     public function deleteFriend($id)
     {
-        $this->friend->where('user_id', '=', $id)
-            ->where('friend_id', '=', Auth::user()->id)
-            ->delete();
-        $this->friend->where('user_id', '=', Auth::user()->id)
-            ->where('friend_id', '=', $id)
-            ->delete();
+        $this->friend->Delete($id);
+        $this->friend->Delete(Auth::id());
 
         return redirect()->back();
     }
