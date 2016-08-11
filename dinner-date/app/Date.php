@@ -40,4 +40,9 @@ class Date extends Model
     {
         return $this->belongsTo('App\Picture', 'host_id', 'user_id');
     }
+
+    public function scopeMyDates($query,$id)
+    {
+       return $query->where('host_id',$id)->get();
+    }
 }

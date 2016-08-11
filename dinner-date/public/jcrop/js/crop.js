@@ -31,6 +31,7 @@ jQuery(function($){
 
     function updatePreview(c)
     {
+        $('#btn').removeClass('hide');
         if (parseInt(c.w) > 0)
         {
             var rx = xsize / c.w;
@@ -44,6 +45,5 @@ jQuery(function($){
             });
         }
     };
-
 });
 

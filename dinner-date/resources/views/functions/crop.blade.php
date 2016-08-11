@@ -38,7 +38,7 @@
 <?= Form::hidden('y', '', array('id' => 'y')) ?>
 <?= Form::hidden('w', '', array('id' => 'w')) ?>
 <?= Form::hidden('h', '', array('id' => 'h')) ?>
-    {!! Form::submit('crop', ['class' => 'btn btn-default']) !!}
+    {!! Form::submit('crop', ['class' => 'btn btn-default hide', 'id'=>'btn']) !!}
 <?= Form::close() ?>
 
 <script type="text/javascript">

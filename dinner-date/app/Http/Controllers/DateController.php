@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Dish;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -22,14 +23,19 @@ class DateController extends Controller
     protected $date;
 
     /**
+     * @var Dish
+     */
+    protected $dishes;
+    /**
      * DateController constructor.
      * @param Date $date
+     * @param Dish $dishes
      */
-    public function __construct(Date $date)
+    public function __construct(Date $date, Dish $dishes)
     {
         $this->date = $date;
+        $this->dishes = $dishes;
     }
-
 
     /**
      * Display a listing of the resource.
@@ -39,8 +45,14 @@ class DateController extends Controller
     public function index()
     {
         $today  = Carbon::today();
+        $getDishes = $this->dishes->where('user_id', Auth::id())->get();
+        $dishes = [];
+        foreach ($getDishes as $dish) {
+            $dishes[$dish->id]=$dish->name;
+        }
         $data   = [
             'today' => $today,
+            'dishes' => $dishes,
         ];
 
         return view('dates.createdate')->with($data);
@@ -64,11 +76,17 @@ class DateController extends Controller
      */
     public function getSearch()
     {
-        $dates = Date::all();
+        $dates = $this->date->all();
         $tomorrow = Carbon::tomorrow();
         $data = ['dates' => $dates, 'tomorrow' => $tomorrow];
 
         return view('dates.search')->with($data);
+    }
+
+    public function myDates()
+    {
+        $dates = $this->date->MyDates(Auth::id());
+        dd($dates);
     }
 
     /**
@@ -97,7 +115,6 @@ class DateController extends Controller
              ->where('isDish','<>','1')
              ->first();
         }
-
         return response()->json($dates);
     }
 }

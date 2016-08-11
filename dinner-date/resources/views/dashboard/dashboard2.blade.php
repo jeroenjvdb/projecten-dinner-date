@@ -24,7 +24,7 @@
                             </div>
                         </div>
                         <div class="row more-pics">
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 hidden-xs">
                                 <img src="/img/no-pic.jpg" />
                             </div>
                         </div>
@@ -36,9 +36,9 @@
                                         <img src="{{ $image->picture_url}}"  />
                                     </div>
                                 </div>
-                                <div class="row more-pics">
+                                <div class="row more-pics hidden-xs">
                                     @else
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3 ">
                                             <img src="{{ $image->picture_url}}" />
                                         </div>
                                     @endif
@@ -56,7 +56,7 @@
                         {{ $profile->surname . " " . $profile->name }}
 
                     </h1>
-                     <div class="col-sm-6">
+                     <div class="col-sm-6 col-xs-5">
                          <h2>
                              Info
                              @if(Auth::user()->id == $profile->id)
@@ -81,7 +81,7 @@
                          </p>
                      </div>
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-xs-5">
                         <h1>Date profile @if(Auth::user()->id == $profile->id)
                                 <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateDate"></span>
                             @endif</h1>

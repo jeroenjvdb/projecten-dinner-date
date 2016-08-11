@@ -67,6 +67,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'dates'], function () {
+        Route::get('/mine',['as' => 'mine', 'uses' => 'DateController@myDates']);
         Route::get('/find', ['as' => 'findDates', 'uses' => 'DateController@getSearch']);
         Route::post('/find', ['uses' => 'DateController@search']);
         Route::get('/create', ['as' => 'createDate', 'uses' => 'DateController@index']);
