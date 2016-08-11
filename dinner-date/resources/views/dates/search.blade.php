@@ -8,7 +8,7 @@
 <div class="row">
 	<div class="col-sm-12" id="searchSettings">
 		{!! Form::open([ 'method' => 'POST', 'id' => 'searchForm' ]) !!}
-		<h2>search</h2>
+		<h2>Search</h2>
 			<div class="row">
 				<div class="col-md-6">
 					<p>Type:</p>
@@ -32,10 +32,10 @@
 							{!! Form::label('sex', 'Sex') !!}
 						</div>
 						<div class="col-md-9">
-							{!! Form::radio('sex', '1',null,['id' => '1']) !!}
-							{!! Form::label('1', 'man') !!}</br>
-							{!! Form::radio('sex', '2',null, ['id' => '2']) !!}
-							{!! Form::label('2', 'female') !!}
+							{!! Form::radio('sex', '0',null,['id' => '0']) !!}
+							{!! Form::label('0', 'man') !!}</br>
+							{!! Form::radio('sex', '1',null, ['id' => '1']) !!}
+							{!! Form::label('1', 'female') !!}
 						</div>
 					</div>
 					<div class="form-group">

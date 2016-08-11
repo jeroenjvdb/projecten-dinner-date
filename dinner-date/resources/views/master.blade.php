@@ -10,7 +10,11 @@
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/font-awesome-4.6.3/css/font-awesome.min.css">
+    {{--fonts--}}
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     @yield('crop')
 </head>
@@ -33,6 +37,7 @@
       @endif
     </div>
 
+      @if(!Auth::guest())
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav text-capitalize">
@@ -68,6 +73,7 @@
               <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">compare</a>
           </li>
       </ul>
+        @endif
       
       <ul class="nav navbar-nav navbar-right">
         <li>

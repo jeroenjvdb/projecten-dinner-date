@@ -56,7 +56,7 @@ class DateController extends Controller
         $data['host_id'] = Auth::id();
         $this->date->create($data);
 
-        return redirect()->route('dashboard.dashboard');
+        return redirect()->route('dashboard')->with('success','You succesfully created a date.');
     }
 
     /**
@@ -77,20 +77,21 @@ class DateController extends Controller
      */
     public function search(Request $request)
     {
-        $dates = $this->date->join('users','users.id','=','dates.host_id')
-            ->where('date','<=',Carbon::today());
+        $dates = $this->date->join('users','users.id','=','dates.host_id');
         if ($request->type) {
             $dates->where('typeOfDate', '=', $request->type);
         }
         if ($request->date){
             $dates->where('date', '=', $request->date);
+        }else{
+            $dates->where('date','>=',Carbon::today());
         }
         if ($request->sex){
-            $dates->where('sex', '=', $request->sex);
+            $dates->where('users.sex', '=', $request->sex);
         }
         $dates = $dates->get();
-
-        //afbeeldingen ophalen van persoon ophalen
+//        dd($dates);
+//        afbeeldingen ophalen van persoon ophalen
         foreach ($dates as $date) {
          $date->pic = $date->pictures()
              ->where('isDish','<>','1')

@@ -44,10 +44,11 @@ $(document).ready(function(){
     }
 
     function makeSearch(data){
-        // console.log(data);
+        console.log('in');
         $('#results').text(' ');
         for(var i = 0; i<data.length; i++)
         {
+            console.log(data[i]);
 
             $('#results').append(searchBlock(data[i]));
         }
@@ -58,12 +59,18 @@ $(document).ready(function(){
     {
         var html = '<div class="col-md-6">';
         html += '<div class="row"><div class="col-md-4">';
-        if(data.host.pic ){
-            html += '<img src="' + data.host.pic['picture_url'] + '" alt="test" />';
+        var baseUrl = document.location.origin;
+
+        if(data.pic ){
+            var url = baseUrl +'/'+ data.pic["picture_url"];
+            html += '<img src= "'+url+'" alt="test" />';
+        }else{
+            var url = baseUrl +'/img/no-pic.jpg';
+            html += '<img src= "'+url+'" alt="test" />';
         }
         html += '</div>';
         html += '<div class="col-md-8">';
-        html += '<p>' + data.host.surname + ' ' + data.host.name + '</p>';
+        html += '<p>' + data.surname + ' ' + data.name + '</p>';
         html += '<p>' +data.date+'</p>';
         html += '</div></div>';
         return html;
