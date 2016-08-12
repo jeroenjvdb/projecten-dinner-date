@@ -46,7 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'friends'], function (){
         Route::get('/requests', ['as' => 'getRequests', 'uses' => 'FriendController@getRequests']);
         Route::get('/add/{id}', ['as' => 'addFriend', 'uses' => 'FriendController@addFriend']);
-        Route::get('/add/{id}/{date}', ['as' => 'addFriend', 'uses' => 'FriendController@addByDate']);
+        Route::get('/add/{id}/{date}', ['as' => 'addByDate', 'uses' => 'FriendController@addByDate']);
         Route::get('/accept/{id}', ['as' => 'acceptFriend', 'uses' => 'FriendController@acceptFriend']);
         Route::get('/delete-request/{id}', ['as' => 'deleteFriendRequest', 'uses' => 'FriendController@deleteFriendRequest']);
         Route::get('/delete/{id}', ['as' => 'deleteFriend', 'uses' => 'FriendController@deleteFriend']);

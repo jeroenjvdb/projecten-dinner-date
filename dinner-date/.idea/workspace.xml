@@ -2,61 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5c8778b-4a74-4c00-ada2-adf8775a0989" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dates/date.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dates/mydates.blade.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/functions/partials/friendsRequests.blade.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/31799-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/45395-teamValor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/50911-teamValor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/53125-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/63195-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/63556-beauthynr3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/63581-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/71877-schoonheid.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/73451-teamValor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/75753-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/81330-nr2.jpg" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/87366-schoonheid.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/92709-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/93805-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/94274-teamValor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/96037-nr2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/img/users/99835-teamValor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/resources/views/dashboard/friendsRequests.blade.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Chat.php" afterPath="$PROJECT_DIR$/app/Chat.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Date.php" afterPath="$PROJECT_DIR$/app/Date.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Friend.php" afterPath="$PROJECT_DIR$/app/Friend.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/ChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DateController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DateController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/DishController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/DishController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/FriendController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/FriendController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/CreateDateRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/CreateDateRequest.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_10_05_131942_create_date_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_10_05_131942_create_date_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2015_10_05_134929_create_friends_table.php" afterPath="$PROJECT_DIR$/database/migrations/2015_10_05_134929_create_friends_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/DishSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/DishSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/getChat.js" afterPath="$PROJECT_DIR$/public/js/getChat.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/site-func/search.js" afterPath="$PROJECT_DIR$/public/js/site-func/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Auth/setup/step1.blade.php" afterPath="$PROJECT_DIR$/resources/views/Auth/setup/step1.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Auth/setup/step2.blade.php" afterPath="$PROJECT_DIR$/resources/views/Auth/setup/step2.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/Auth/setup/step3/allergies.blade.php" afterPath="$PROJECT_DIR$/resources/views/Auth/setup/step3/allergies.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/dashboard.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/dashboard.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/dashboard2.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/dashboard2.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/foodprofile/allergies.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/foodprofile/allergies.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/foodprofile/kitchen.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/foodprofile/kitchen.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/foodprofile/tasteprofile.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/foodprofile/tasteprofile.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/profile.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/profile.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/update/updateDate.blade.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/update/updateDate.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dates/createdate.blade.php" afterPath="$PROJECT_DIR$/resources/views/dates/createdate.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dates/search.blade.php" afterPath="$PROJECT_DIR$/resources/views/dates/search.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dishes/dishes.blade.php" afterPath="$PROJECT_DIR$/resources/views/dishes/dishes.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dishes/partialDish.blade.php" afterPath="$PROJECT_DIR$/resources/views/dishes/partialDish.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/functions/chat.blade.php" afterPath="$PROJECT_DIR$/resources/views/functions/chat.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/functions/compare.blade.php" afterPath="$PROJECT_DIR$/resources/views/functions/compare.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/functions/friendrequest.blade.php" afterPath="$PROJECT_DIR$/resources/views/functions/friendrequest.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/master.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dates/date.blade.php" afterPath="$PROJECT_DIR$/resources/views/dates/date.blade.php" />
     </list>
     <ignored path="dinner-date.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,51 +28,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="dashboard2.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/dashboard2.blade.php">
+      <file leaf-file-name="DateController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DateController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="112" column="60" selection-start-line="112" selection-start-column="60" selection-end-line="112" selection-end-column="60" />
+            <state relative-caret-position="520">
+              <caret line="131" column="29" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allergies.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/foodprofile/allergies.blade.php">
+      <file leaf-file-name="FriendController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FriendController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="34" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="34" />
+            <state relative-caret-position="684">
+              <caret line="98" column="89" selection-start-line="98" selection-start-column="89" selection-end-line="98" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kitchen.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/foodprofile/kitchen.blade.php">
+      <file leaf-file-name="friendsRequests.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/functions/partials/friendsRequests.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+            <state relative-caret-position="565">
+              <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tasteprofile.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/foodprofile/tasteprofile.blade.php">
+      <file leaf-file-name="Date.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Date.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+            <state relative-caret-position="709">
+              <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <file leaf-file-name="date.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dates/date.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="372" column="17" selection-start-line="372" selection-start-column="1" selection-end-line="372" selection-end-column="17" />
+            <state relative-caret-position="252">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="533">
+              <caret line="48" column="58" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -164,11 +125,8 @@
         <option value="$PROJECT_DIR$/resources/views/Auth/setup/step1.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Auth/setup/step2.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/Auth/setup/step3/allergies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/dates/date.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/friendsRequests.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/functions/friendrequest.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FriendController.php" />
         <option value="$PROJECT_DIR$/resources/views/functions/partials/friendsRequests.blade.php" />
         <option value="$PROJECT_DIR$/app/Chat.php" />
         <option value="$PROJECT_DIR$/resources/views/dates/search.blade.php" />
@@ -178,7 +136,6 @@
         <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
         <option value="$PROJECT_DIR$/public/js/getChat.js" />
         <option value="$PROJECT_DIR$/resources/views/functions/chat.blade.php" />
-        <option value="$PROJECT_DIR$/app/Date.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DateController.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/dashboard2.blade.php" />
@@ -186,6 +143,10 @@
         <option value="$PROJECT_DIR$/resources/views/dashboard/foodprofile/allergies.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/foodprofile/kitchen.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/foodprofile/tasteprofile.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/app/Date.php" />
+        <option value="$PROJECT_DIR$/resources/views/dates/date.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FriendController.php" />
       </list>
     </option>
   </component>
@@ -351,12 +312,12 @@
       <workItem from="1470302545387" duration="33212000" />
       <workItem from="1470728372222" duration="283000" />
       <workItem from="1470909823077" duration="10520000" />
-      <workItem from="1470991280294" duration="21397000" />
+      <workItem from="1470991280294" duration="22400000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179957000" />
+    <option name="totallyTimeSpent" value="180960000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1056" extended-state="6" />
@@ -593,14 +554,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="533">
-          <caret line="48" column="98" selection-start-line="48" selection-start-column="98" selection-end-line="48" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2015_10_05_134929_create_friends_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
@@ -617,26 +570,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/functions/partials/friendsRequests.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
-          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/functions/friendrequest.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FriendController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="42" column="8" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -697,14 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dates/date.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="15" column="72" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -713,26 +642,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DateController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="664">
-          <caret line="129" column="23" selection-start-line="129" selection-start-column="23" selection-end-line="129" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="499">
           <caret line="81" column="49" selection-start-line="81" selection-start-column="49" selection-end-line="81" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Date.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="61" column="40" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -777,22 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="372" column="17" selection-start-line="372" selection-start-column="1" selection-end-line="372" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/foodprofile/allergies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="34" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/foodprofile/kitchen.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -805,6 +702,70 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="34" selection-start-line="0" selection-start-column="34" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/foodprofile/allergies.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="34" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="372" column="17" selection-start-line="372" selection-start-column="1" selection-end-line="372" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/functions/partials/friendsRequests.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="48" column="58" selection-start-line="48" selection-start-column="49" selection-end-line="48" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="67" column="18" selection-start-line="67" selection-start-column="18" selection-end-line="67" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dates/date.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DateController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="131" column="29" selection-start-line="131" selection-start-column="28" selection-end-line="131" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FriendController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="684">
+          <caret line="98" column="89" selection-start-line="98" selection-start-column="89" selection-end-line="98" selection-end-column="89" />
           <folding />
         </state>
       </provider>

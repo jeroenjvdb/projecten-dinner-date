@@ -68,7 +68,7 @@ class FriendController extends Controller
             return redirect()->back()->withSuccess('Your date request has been sent.');
         } else {
 
-            return redirect()->back()->withErrors(['something went wrong']);
+            return redirect()->back()->withErrors(['You already sended a date request, give the other person time to respond']);
         }
     }
 
@@ -93,7 +93,11 @@ class FriendController extends Controller
             return redirect()->back()->withSuccess('Your date request has been sent.');
         } else {
 
-            return redirect()->back()->withErrors(['something went wrong']);
+            return redirect()->back()->withErrors([
+                'You already sended a date request to this person.',
+                'Give the other person time to respond.',
+                'Check your chat, maybe this person started chatting to meet up with you.'
+            ]);
         }
     }
 

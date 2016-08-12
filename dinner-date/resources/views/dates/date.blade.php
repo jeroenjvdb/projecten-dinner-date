@@ -13,7 +13,7 @@
             <h3>{{$date->dish_name}}</h3>
             @if($date->user_id != Auth::id())
             <div class="col-sm-12">
-                <a href="{{ route('addFriend', ['id' => $date->user_id, $date->id]) }}">
+                <a href="{{ route('addByDate', ['id' => $date->user_id, 'date_id'=>$date->id]) }}">
                     <div class="green font-25">
                         <span class="fa fa-heart"></span>
                         I want to go on this date
