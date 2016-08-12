@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Chat;
 use App\Friend;
+use App\Picture;
 use App\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -28,16 +29,28 @@ class ChatController extends Controller
     protected $user;
 
     /**
+     * @var
+     */
+    protected $picture;
+
+    /**
      * ChatController constructor.
      * @param Chat $chat
      * @param Friend $friend
      * @param User $user
+     * @param Picture $picture
      */
-    public function __construct(Chat $chat, Friend $friend, User $user)
-    {
+    public function __construct
+    (
+        Chat $chat,
+        Friend $friend,
+        User $user,
+        Picture $picture
+    ){
         $this->chat = $chat;
         $this->friend = $friend;
         $this->user = $user;
+        $this->picture = $picture;
     }
 
     public function getChat()
@@ -59,8 +72,19 @@ class ChatController extends Controller
         foreach($messages as $message)
         {
             $message->sender = $message->sender()->first();
-        }
 
+            $pic = $this->picture->where('user_id','=',$message->sender_id)
+                ->where('isDish','=',0)
+                ->select('picture_url')
+                ->first();
+            $message->picture_sender = $pic;
+            $pic = $this->picture->where('user_id','=',$message->receiver_id)
+                ->where('isDish','=',0)
+                ->select('picture_url')
+                ->first();
+            $message->picture_receiver = $pic;
+
+        }
         return response()->json($messages);
     }
 

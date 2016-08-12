@@ -27,7 +27,7 @@ class CreateDateRequest extends Request
         return [
             'date' => 'required|date|after:' . Carbon::today()->subDay(),
             'area' => 'required|max:255',
-            'name_dish' => 'required|max:255',
+            'dish_id' => 'required',
             'description' => 'required|min:20',
             'preference' => 'required|numeric',
             'typeOfDate' => 'required|numeric',

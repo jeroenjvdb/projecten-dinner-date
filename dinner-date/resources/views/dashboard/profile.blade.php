@@ -41,9 +41,9 @@
 		<div class="col-sm-8 col-sm-offset-1">
 			<div class="row">
 				<h1>{{ $profile->surname . " " . $profile->name }}
-					<a href="{{ route('addFriend', array( $profile->id )) }}">
+					<a class="green" href="{{ route('addFriend', array( $profile->id )) }}">
 						{{--<button>send friendship request</button>--}}
-						<i class="fa fa-user-plus" aria-hidden="true"></i>
+						<i class="fa fa-heart" aria-hidden="true"></i>
 					</a>
 				</h1>
 				<div class="col-sm-6">
@@ -97,7 +97,7 @@
 			<div class="row">
 				<h2>Dishes</h2>
 				@include('dishes.partialDish')
-				<center><a class="color-black" href="{{ route('personDishes', array( $profile->id )) }}">more...</a></center>
+				<center><a class="color-black" href="{{ route('personDishes', array( $profile->id )) }}">show all...</a></center>
 
 			</div>
 		</div>

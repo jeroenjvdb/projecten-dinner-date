@@ -5,7 +5,7 @@
 @stop
 
 @section('body')
-    <h1>people you might be interested in.</h1>
+    <h1>People you might be interested in.</h1>
     <div class="row">
         @foreach($people as $key => $item)
             <a class="color-black" href="{{ route('getProfile', $item['user']->id) }}">
@@ -20,7 +20,7 @@
                         </div>
                             <div class="text-center">
                             <strong>
-                            {{$item['user']->name}}
+                            <p class="text-capitalize">{{$item['user']->surname}}</p>
                             <br>
                             {{$item['user']->city}}
                             <br>

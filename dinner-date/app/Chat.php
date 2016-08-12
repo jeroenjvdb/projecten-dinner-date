@@ -36,5 +36,10 @@ class Chat extends Model
 
     }
 
+    public function getMessageAttribute($val)
+    {
+        return htmlentities($val);
+    }
+
     
 }

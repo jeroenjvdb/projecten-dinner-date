@@ -84,7 +84,7 @@ $(document).ready(function(){
 				// console.log($('#chatbox #chatForm .chat').text());
 
 				chatbox.text('');
-				chatbox.append('<ul class="chat list-unstyled"></ul><div class="panel-footer"><div class="input-group"><input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /><span class="input-group-btn"><button class="btn btn-warning btn-sm" id="btn-chat">Send</button></span></div></div>');
+				chatbox.append('<ul class="chat list-unstyled"></ul><div class="panel-footer"><div class="input-group"><input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /><span class="input-group-btn"><button class="btn btn-default btn-sm" id="btn-chat">Send</button></span></div></div>');
 			}
 			var chatboxContent = $('#chatbox ul.chat')
 			for(var i = 0; i<data.length; i++)
@@ -99,37 +99,25 @@ $(document).ready(function(){
 		function makeChatMessage(data, id){
 			html = '';
 			if(data['receiver_id'] == id){
-				html += '<li class="right clearfix"><span class="chat-img pull-right"><img src="http://placehold.it/50/55C1E7/fff&text=me" alt="User Avatar" class="img-circle" />';
+				html += '<li class="right clearfix"><span class="chat-img pull-right height-20"><img src="'+data["picture_sender"]["picture_url"]+ '" alt="User Avatar" class="img-circle height-50 width-50" />';
 			} else
 			{
-				html += '<li class="left clearfix"><span class="chat-img pull-left"><img src="http://placehold.it/50/55C1E7/fff&text=u" alt="User Avatar" class="img-circle" />';
+				html += '<li class="right clearfix"><span class="chat-img pull-right"><img src="'+data["picture_sender"]["picture_url"]+ '" alt="User Avatar" class="img-circle height-50 width-50" />';
 			}
 			// html +=' clearfix"><span class="chat-img pull-left">';
         html += '';
-    html +='</span>';
-     html +=   '<div class="chat-body clearfix">';
-          html +=  '<div class="header">';
-              html+=  '<strong class="primary-font">' + data.sender.surname + ' ' + data.sender.name + '</strong> <small class="pull-right text-muted">';
-                   html += '<span class="glyphicon glyphicon-time"></span>' + data['created_at'] + '</small>';
-            html+='</div>';
-            html += '<p>' + data.message + '</p>'
+    	html +='</span>';
+     	html +=   '<div class="chat-body clearfix">';
+		html +=  '<div class="header">';
+	  	html +=  '<strong class="primary-font">' + data.sender.surname + ' ' + data.sender.name + '</strong> <small class="pull-right text-muted">';
+	   	html += '<span class="glyphicon glyphicon-time"></span>' + data['created_at'] + '</small>';
+		html +='</div>';
+		html += '<p>' + data.message + '</p>'
         html += '</div>';
-    html += '</li>';
-			return html;
+    	html += '</li>';
+
+				return html;
 		}
-		// <li class="left clearfix"><span class="chat-img pull-left">
-  //       <img src="http://placehold.it/50/55C1E7/fff&text=U" alt="User Avatar" class="img-circle" />
-  //   </span>
-  //       <div class="chat-body clearfix">
-  //           <div class="header">
-  //               <strong class="primary-font">Jack Sparrow</strong> <small class="pull-right text-muted">
-  //                   <span class="glyphicon glyphicon-time"></span>12 mins ago</small>
-  //           </div>
-  //           <p>
-  //               data.message
-  //           </p>
-  //       </div>
-  //   </li>
 	}
 
 });

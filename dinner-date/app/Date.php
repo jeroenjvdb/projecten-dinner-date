@@ -18,7 +18,10 @@ class Date extends Model
      *
      * @var array
      */
-    protected $fillable = ['date','area','name_dish','description','preference','typeOfDate','host_id'];
+    protected $fillable = [
+        'date','area','name_dish','description',
+        'preference','typeOfDate','host_id','dish_id',
+    ];
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -29,6 +32,11 @@ class Date extends Model
     public function users()
     {
     	return $this->belongsToMany('App\User', 'users_dates', 'date_id', 'user_id');
+    }
+
+    public function dish()
+    {
+        return $this->hasOne('App\Dish', 'id', 'dish_id');
     }
 
     public function host()
@@ -43,6 +51,20 @@ class Date extends Model
 
     public function scopeMyDates($query,$id)
     {
-       return $query->where('host_id',$id)->get();
+       return $query->where('host_id',$id);
+    }
+
+    public function scopeExtraInfo($query)
+    {
+        return $query->join('dishes', 'dishes.id', '=', 'dates.dish_id')
+            ->join('users','users.id','=','dates.host_id');
+    }
+    public function scopeExtraInfoSelect($query)
+    {
+        return $query->select(
+            'dates.id as id',
+            'users.surname as user_name', 'dishes.name as dish_name',
+            'photo_url','date', 'description','typeofdate','area'
+        );
     }
 }

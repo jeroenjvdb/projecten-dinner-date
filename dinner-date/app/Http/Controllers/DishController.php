@@ -33,7 +33,8 @@ class DishController extends Controller
      */
     public function index()
     {
-        $data = ['dishes' => $this->dish->all()];
+        $dishes = $this->dish->orderByRaw("RAND()")->paginate(6);
+        $data = ['dishes' => $dishes];
         return View('dishes.dishes')->with($data);
     }
 

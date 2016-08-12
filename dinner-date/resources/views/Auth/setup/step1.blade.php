@@ -14,13 +14,14 @@
                 A few for your profile. <br>
                 A few to help you find your dinner date.
             </p>
-            <button id="start">Get started</button>
+            <button class="btn btn-default" id="start">Get started</button>
         </div>
     </div>
 
     <div class="row setup hide">
         <div class="form-horizontal">
             <h1 class="col-sm-offset-2">Profile info</h1>
+
             <div class="col-sm-offset-2 col-sm-8">
                 <div class=" progress">
                     <div class="progress-bar progress-bar-success progress-bar-striped"  style="width: 33%;">

@@ -11,6 +11,12 @@
 	     	<div class="form-horizontal">	
 				{!! Form::open(array('url' => route('updateFood'), 'method' => 'post')) !!}
 				<div class="form-group">
+					{!! Form::label('perfectDate', 'Describe your perfect dinner date', ['class' => 'col-xs-5 control-label']) !!}
+					<div class="col-xs-7">
+						{!! Form::textarea('perfectDate', $profile->perfectDate, ['class' => 'form-control']) !!}</br>
+					</div>
+				</div>
+				<div class="form-group">
 					{!! Form::label('favoriteDish', 'Favorite diner', ['class' => 'col-xs-5 control-label']) !!}
 					<div class="col-xs-7">
 						{!! Form::text('favoriteDish',$profile->favoriteDish, ['class' => 'form-control']) !!}
@@ -22,12 +28,7 @@
 						{!! Form::text('favRestaurant',$profile->favRestaurant, ['class' => 'form-control']) !!}
 					</div>
 				</div>
-				<div class="form-group">
-					{!! Form::label('perfectDate', 'Describe your perfect dinner date', ['class' => 'col-xs-5 control-label']) !!}
-					<div class="col-xs-7">
-						{!! Form::textarea('perfectDate', $profile->perfectDate, ['class' => 'form-control']) !!}</br>
-					</div>
-				</div>
+
 				{{--{!! Form::hidden('type', 'food') !!}--}}
 				<div class="form-group">
 					<div class="col-xs-offset-5 col-xs-7">

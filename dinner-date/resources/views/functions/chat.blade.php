@@ -6,6 +6,7 @@
 
 @section('body')
     <h1>Daters and chat</h1>
+    <hr>
     <div id="chatbox">
     {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
     <div id="chatPersons" class="col-md-3">
@@ -13,15 +14,17 @@
             <div class="row">
                 <div class="col-md-12 chatPerson" id="{{ $friend->id }}">
                     <div class="row">
-                        <div class="col-md-6 ">
+                        <div class="col-md-6 hover-border border-white">
                             @if(count($friend->pictures))
-                                <img class="height-200" src="{{ $friend->pictures->first()['picture_url'] }}" alt="">
+                                <img src="{{ $friend->pictures->first()['picture_url'] }}" alt="">
                             @else
                                 <img src="/img/no-pic.jpg" alt="">
                             @endif
                         </div>
                         <div class="col-md-6">
+                            <a class="color-black" href="{{ route('getProfile', $friend->id) }}">
                             {{ $friend->surname }} {{ $friend->name }}
+                                </a>
                             <br><br>
 
                             <a  class="btn btn-danger" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>

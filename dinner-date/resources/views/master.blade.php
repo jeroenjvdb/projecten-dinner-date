@@ -56,8 +56,9 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ route('createDate') }}">create date</a></li>
-            <li><a href="{{ route('findDates') }}">search date</a></li>
+              <li><a href="{{ route('createDate') }}">create date</a></li>
+              <li><a href="{{ route('myDates') }}">my dates</a></li>
+              <li><a href="{{ route('findDates') }}">search date</a></li>
             
             {{--<li role="separator" class="divider"></li>--}}
             
@@ -78,7 +79,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
         	@if(Auth::user())
-        		<a href="#">
+        		<a href="{{ route('dashboard') }}">
 					{{ Auth::user()->email }}
 				</a>
 			@else

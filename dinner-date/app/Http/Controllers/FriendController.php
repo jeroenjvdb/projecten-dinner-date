@@ -40,7 +40,6 @@ class FriendController extends Controller
             ->friends()
             ->get() ;
         $friendRequests = $this->friend->GetRequests(Auth::id());
-
         $data =[
             'friends' => $friends,
             'friendRequests' => $friendRequests,
@@ -66,7 +65,32 @@ class FriendController extends Controller
             $friend->accepted = 0;
             $friend->save();
 
-            return redirect()->back()->withSuccess('friendrequest sent.');
+            return redirect()->back()->withSuccess('Your date request has been sent.');
+        } else {
+
+            return redirect()->back()->withErrors(['something went wrong']);
+        }
+    }
+
+    /**
+     * @param $id
+     * @return $this
+     */
+    public function addByDate($id, $date_id)
+    {
+        if(!($this->friend->where('user_id', '=',Auth::user()->id)
+                ->where('friend_id', '=',  $id)
+                ->exists() ||
+            $id == Auth::user()->id))
+        {
+            $friend = new Friend;
+            $friend->user_id = Auth::user()->id;
+            $friend->friend_id = $id;
+            $friend->date_id = $date_id;
+            $friend->accepted = 0;
+            $friend->save();
+
+            return redirect()->back()->withSuccess('Your date request has been sent.');
         } else {
 
             return redirect()->back()->withErrors(['something went wrong']);

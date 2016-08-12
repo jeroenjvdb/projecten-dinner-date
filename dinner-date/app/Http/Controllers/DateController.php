@@ -44,14 +44,14 @@ class DateController extends Controller
      */
     public function index()
     {
-        $today  = Carbon::today();
+        $tomorrow  = Carbon::tomorrow();
         $getDishes = $this->dishes->where('user_id', Auth::id())->get();
         $dishes = [];
         foreach ($getDishes as $dish) {
             $dishes[$dish->id]=$dish->name;
         }
         $data   = [
-            'today' => $today,
+            'tomorrow' => $tomorrow,
             'dishes' => $dishes,
         ];
 
@@ -64,11 +64,11 @@ class DateController extends Controller
      */
     public function create(CreateDateRequest $request)
     {
-        $data   = $request->all();
+        $data = $request->all();
         $data['host_id'] = Auth::id();
         $this->date->create($data);
 
-        return redirect()->route('dashboard')->with('success','You succesfully created a date.');
+        return redirect()->route('myDates')->with('success','You succesfully created a date.');
     }
 
     /**
@@ -85,8 +85,27 @@ class DateController extends Controller
 
     public function myDates()
     {
-        $dates = $this->date->MyDates(Auth::id());
-        dd($dates);
+        $dates = $this->date->MyDates(Auth::id())
+            ->where('date','>=',Carbon::tomorrow())
+            ->ExtraInfo()
+            ->ExtraInfoSelect()
+            ->get();
+
+        $data = [
+            'dates' => $dates,
+        ];
+
+        return view('dates.mydates')->with($data);
+    }
+
+    public function show($id)
+    {
+        $date = $this->date->where('dates.id',$id)
+            ->ExtraInfo()
+            ->ExtraInfoSelect()
+            ->first();
+
+        return view('dates.date')->with(['date' =>$date]);
     }
 
     /**
@@ -95,7 +114,8 @@ class DateController extends Controller
      */
     public function search(Request $request)
     {
-        $dates = $this->date->join('users','users.id','=','dates.host_id');
+        $dates = $this->date->join('users','users.id','=','dates.host_id')
+            ->join('dishes', 'dishes.id', '=', 'dates.dish_id');
         if ($request->type) {
             $dates->where('typeOfDate', '=', $request->type);
         }
@@ -107,14 +127,8 @@ class DateController extends Controller
         if ($request->sex){
             $dates->where('users.sex', '=', $request->sex);
         }
-        $dates = $dates->get();
-//        dd($dates);
-//        afbeeldingen ophalen van persoon ophalen
-        foreach ($dates as $date) {
-         $date->pic = $date->pictures()
-             ->where('isDish','<>','1')
-             ->first();
-        }
+        $dates = $dates->ExtraInfoSelect()
+            ->get();
         return response()->json($dates);
     }
 }

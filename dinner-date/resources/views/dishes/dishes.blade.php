@@ -5,6 +5,8 @@
 @endsection
 
 @section('body')
+	<h2>Dishes</h2>
+	<hr>
 	<div class="row">
 		@foreach($dishes as $dish)
 			<a class="color-black" href="{{'/dish/show/' .  $dish->id}}">

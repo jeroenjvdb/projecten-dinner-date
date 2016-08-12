@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'friends'], function (){
         Route::get('/requests', ['as' => 'getRequests', 'uses' => 'FriendController@getRequests']);
         Route::get('/add/{id}', ['as' => 'addFriend', 'uses' => 'FriendController@addFriend']);
+        Route::get('/add/{id}/{date}', ['as' => 'addFriend', 'uses' => 'FriendController@addByDate']);
         Route::get('/accept/{id}', ['as' => 'acceptFriend', 'uses' => 'FriendController@acceptFriend']);
         Route::get('/delete-request/{id}', ['as' => 'deleteFriendRequest', 'uses' => 'FriendController@deleteFriendRequest']);
         Route::get('/delete/{id}', ['as' => 'deleteFriend', 'uses' => 'FriendController@deleteFriend']);
@@ -67,11 +68,12 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::group(['prefix' => 'dates'], function () {
-        Route::get('/mine',['as' => 'mine', 'uses' => 'DateController@myDates']);
+        Route::get('/mydates',['as' => 'myDates', 'uses' => 'DateController@myDates']);
         Route::get('/find', ['as' => 'findDates', 'uses' => 'DateController@getSearch']);
         Route::post('/find', ['uses' => 'DateController@search']);
         Route::get('/create', ['as' => 'createDate', 'uses' => 'DateController@index']);
         Route::post('/createDate', ['as' => 'createDatePost', 'uses' => 'DateController@create']);
+        Route::get('/show/{id}', ['as'=>'showdate', 'uses' => 'DateController@show']);
     });
 
 

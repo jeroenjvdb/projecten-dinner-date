@@ -57,22 +57,25 @@ $(document).ready(function(){
 
     function searchBlock(data)
     {
-        var html = '<div class="col-md-6">';
-        html += '<div class="row"><div class="col-md-4">';
+        console.log(data);
         var baseUrl = document.location.origin;
+        var html = '<a class="color-black" href="/dates/show/' +  data["id"]+'">'
+        html += '<div class="col-sm-6">';
+        html +='<div class="col-sm-6">';
 
-        if(data.pic ){
-            var url = baseUrl +'/'+ data.pic["picture_url"];
-            html += '<img src= "'+url+'" alt="test" />';
+        if(data["photo_url"].indexOf('http')== -1)
+        {
+            var url = baseUrl +'/'+ data["photo_url"];
         }else{
-            var url = baseUrl +'/img/no-pic.jpg';
-            html += '<img src= "'+url+'" alt="test" />';
+            var url = data["photo_url"];
         }
-        html += '</div>';
-        html += '<div class="col-md-8">';
-        html += '<p>' + data.surname + ' ' + data.name + '</p>';
-        html += '<p>' +data.date+'</p>';
-        html += '</div></div>';
+        html += '<img src="' + url +'" class="img-responsive" alt="'+data["name"]+'">';
+        html += '</div> <div class="col-sm-6"> <div class="row"> <div class="col-sm-12">';
+        html += '<h4>'+ data["dish_name"] + '</h4>';
+        html += '<p>' + data["date"] + '-' + data["area"] + '</p>';
+        html += '<p>' + data["description"].substring(0,100) + '</p>';
+        html += '</div></div></div></div></a>';
+
         return html;
     }
 });

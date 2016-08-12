@@ -158,7 +158,7 @@
 					@include('dashboard.chatbox')
 				</div>
 				<div role="tabpanel" class="tab-pane" id="friendRequests">
-					@include('dashboard.friendsRequests')
+					@include('functions.partials.friendsRequests')
 				</div>
 		  </div>
 </div>

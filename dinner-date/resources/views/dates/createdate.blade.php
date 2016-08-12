@@ -13,7 +13,7 @@
 		<div class="form-group">
 			{!! Form::label('date', 'Day', ['class' => 'col-xs-3 control-label']) !!}
 			<div class="col-xs-9">
-				{!! Form::date('date',$min=$today, ['class' => 'form-control']) !!}
+				{!! Form::date('date',$min=$tomorrow, ['class' => 'form-control']) !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -23,9 +23,9 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('dish', 'Select a dish', ['class' => 'col-xs-3 control-label']) !!}
+			{!! Form::label('dish_id', 'Select a dish', ['class' => 'col-xs-3 control-label']) !!}
 			<div class="col-xs-9">
-				{!!  Form::select('dish', $dishes,'',['class' => 'form-control dropdown']) !!}
+				{!!  Form::select('dish_id', $dishes,'',['class' => 'form-control dropdown']) !!}
 			</div>
 		</div>
 		<div class="form-group">
@@ -37,8 +37,8 @@
 		<div class="form-group">
 			{!! Form::label('preference', 'Prefered company', ['class' => 'col-xs-3 control-label']) !!}
 			<div class="col-xs-9">
-				{!! Form::radio('preference', '1') !!} man</br>
-				{!! Form::radio('preference', '2') !!} female
+				{!! Form::radio('preference', '0') !!} man</br>
+				{!! Form::radio('preference', '1') !!} woman
 			</br>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    profile2
+    {{$profile->surname}} {{$profile->name}}
 @stop
 
 @section('body')
@@ -82,9 +82,9 @@
                      </div>
 
                     <div class="col-sm-6 col-xs-5">
-                        <h1>Date profile @if(Auth::user()->id == $profile->id)
+                        <h2>Date profile @if(Auth::user()->id == $profile->id)
                                 <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateDate"></span>
-                            @endif</h1>
+                            @endif</h2>
                         <h3>My perfect date</h3>
                         <p id="perfectDate">
                             @if($profile->perfectDate)
@@ -121,7 +121,7 @@
                             </a>
                         </h2>
                         @include('dishes.partialDish')
-                        <center><a class="color-black" href="{{ route('myDishes') }}">more...</a></center>
+                        <center><a class="color-black" href="{{ route('myDishes') }}">show all...</a></center>
                     </div>
                 </div>
             </div>
