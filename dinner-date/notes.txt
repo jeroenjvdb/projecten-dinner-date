@@ -1,0 +1,2 @@
+* dates => laten zien via welke date gevonden.
+* eigen dates => enkel vanaf vandaag laten zien
