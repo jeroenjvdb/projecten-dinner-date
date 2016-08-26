@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Dish;
+use App\User;
 use Auth;
 use Validator;
 
@@ -23,9 +24,10 @@ class DishController extends Controller
      * DishController constructor.
      * @param Dish $dish
      */
-    public function __construct(Dish $dish)
+    public function __construct(Dish $dish, User $user)
     {
         $this->dish = $dish;
+        $this->user = $user;
     }
 
     /**
@@ -65,9 +67,10 @@ class DishController extends Controller
     public function personDishes($id)
     {
         $dishes = $this->dish->where('user_id',$id)->paginate(6);
-
+        $user = $this->user->where('id',$id)->first();
         $data = [
             'dishes' => $dishes,
+            'name' => $user->surname,
         ];
         return View('dishes.dishes')->with($data);
     }

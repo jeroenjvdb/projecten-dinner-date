@@ -10,6 +10,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Events\ChatEvent;
 
 class ChatController extends Controller
 {
@@ -102,7 +103,9 @@ class ChatController extends Controller
         $message->sender_id = Auth::user()->id;
         $message->receiver_id = $id;
         $message->save();
-        
+
+        //Auth::user()->id,$id
+        event(new ChatEvent());
         return response()->json($message);
     }
 }

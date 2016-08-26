@@ -6,12 +6,10 @@
 
 @section('body')
 {{--	{{dd($errors)}}--}}
+<h1 class="font-size-50 white margin-top-0">Login</h1>
 	<div class="jumbotron row">
 	<div class="col-md-8 col-md-offset-2 text-capitalize">
-		<div class="col-sm-offset-3 col-sm-9">
-			<h2 class="font-size-40">Login</h2>
-			<hr>
-		</div>
+
 		{!! Form::open(array('url' => '/login', 'method' => 'post', 'class' => 'form-horizontal')) !!}
 
             <div class="form-group {{ $errors->has('login attempt') ? ' has-error' : '' }}">

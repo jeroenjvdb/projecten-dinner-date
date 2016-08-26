@@ -115,8 +115,9 @@
                             {!! Form::radio('soy', 0,!$foodprofile->soy) !!}
                         </div>
                     </div>
-
-                    {!! Form::submit('Update allergies', ['class' => 'btn btn-default']) !!}
+                    <div class="form-group padding-top-10">
+                        {!! Form::submit('Update allergies', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
+                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>

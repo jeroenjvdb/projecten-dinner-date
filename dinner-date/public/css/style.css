@@ -320,6 +320,10 @@ textarea{
      width:50px;
  }
 
+.width-320{
+    width:320px;
+}
+
 .height-50{
     height:50px;
 }
@@ -455,7 +459,11 @@ textarea{
 }
 
 .font-size-50{
-    font-size: 100px;
+    font-size: 50px;
+}
+
+.font-size-80{
+    font-size: 80px;
 }
 
 .font-size-26{
@@ -475,4 +483,8 @@ label{
 }
 .nav li{
     margin-left:15px;
+}
+
+.overflow-auto{
+    overflow:auto;
 }

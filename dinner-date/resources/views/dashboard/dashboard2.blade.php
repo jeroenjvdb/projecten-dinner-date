@@ -57,17 +57,20 @@
             <div class="col-sm-6 col-xs-5">
                 <h2>
                     Info
-                    @if(Auth::user()->id == $profile->id)
-                        <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateProfile"></span>
-                    @endif
                 </h2>
-                @if( $profile->age<2000)
-                    <p>leeftijd: {!! $profile->age !!}</p>
+                @if(Auth::user()->id == $profile->id)
+                    <a href="#" class="font-size-18" data-toggle="modal" data-target="#updateProfile">
+                       Edit
+                        <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
+                    </a>
                 @endif
-                <p> @if($profile->sex == 0)
-                        man
+                @if( $profile->age<2000)
+                    <p>leeftijd: {!! $profile->age !!}
+                @endif
+                @if($profile->sex == 0)
+                            <br>   man
                     @else
-                        vrouw
+                            <br> vrouw
                     @endif
                 </p>
 
@@ -80,9 +83,13 @@
             </div>
 
             <div class="col-sm-6 col-xs-5">
-                <h2>Date profile @if(Auth::user()->id == $profile->id)
-                        <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateDate"></span>
-                    @endif</h2>
+                <h2>Date profile </h2>
+                @if(Auth::user()->id == $profile->id)
+                    <a href="#" class="font-size-18" data-toggle="modal" data-target="#updateDate">
+                        Edit
+                        <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
+                    </a>
+                @endif
                 <h3>My perfect date</h3>
                 <p id="perfectDate">
                     @if($profile->perfectDate)
@@ -115,10 +122,13 @@
 <div class="jumbotron row">
     <h1>
         Dishes
-        <a href="{{ route('dishCreate') }}">
-            <i class="fa fa-plus color-black fa-x1" aria-hidden="true"></i>
-        </a>
     </h1>
+    @if(Auth::user()->id == $profile->id)
+        <a href="{{ route('dishCreate') }}" class="btn btn-default bg-blue white font-size-18">
+           Create a dish <i class="fa fa-plus fa-x1" aria-hidden="true"></i>
+        </a>
+    @endif
+
     @include('dishes.partialDish')
     <center><a class="color-black" href="{{ route('myDishes') }}">show all...</a></center>
 </div>

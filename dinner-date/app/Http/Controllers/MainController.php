@@ -71,6 +71,11 @@ class MainController extends Controller
     public function getProfile($id)
     {
         $user = $this->user->findOrFail($id);
+        if ($user->id == Auth::id())
+        {
+            return redirect()->route('dashboard');
+        }
+
         $user->age =$this->user->Age($id);
         $images = $this->picture->ProfilePics($id);
         $time   = explode("-", $user->dateOfBirth);

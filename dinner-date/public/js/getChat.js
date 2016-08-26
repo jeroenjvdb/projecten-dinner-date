@@ -33,6 +33,8 @@ $(document).ready(function(){
 
 				}
 			});
+
+
 		}
 
 		loadChat();
@@ -84,7 +86,7 @@ $(document).ready(function(){
 				// console.log($('#chatbox #chatForm .chat').text());
 
 				chatbox.text('');
-				chatbox.append('<ul class="chat list-unstyled"></ul><div class="panel-footer"><div class="input-group"><input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /><span class="input-group-btn"><button class="btn btn-default btn-sm" id="btn-chat">Send</button></span></div></div>');
+				chatbox.append('<div id="chatcontact" class="max-height-500 overflow-auto"><ul  class="chat list-unstyled "></ul></div><div class="panel-footer"><div class="input-group"><input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." /><span class="input-group-btn"><button class="btn btn-default btn-sm" id="btn-chat">Send</button></span></div></div>');
 			}
 			var chatboxContent = $('#chatbox ul.chat')
 			for(var i = 0; i<data.length; i++)
@@ -93,7 +95,8 @@ $(document).ready(function(){
 				chatboxContent.append(makeChatMessage(data[i], id));
 			}
 			// chatbox.append('');
-
+			var objDiv = document.getElementById("chatcontact");
+			objDiv.scrollTop = objDiv.scrollHeight;
 		}
 
 		function makeChatMessage(data, id){

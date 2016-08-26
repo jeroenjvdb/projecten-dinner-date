@@ -12,6 +12,7 @@ class VerifyCsrfToken extends BaseVerifier
      * @var array
      */
     protected $except = [
-        'dates/find'
+        'chat/post/',
+        'dates/find',
     ];
 }

@@ -34,7 +34,7 @@
 						</div>
 						<div class="col-md-9">
 							{!! Form::radio('sex', '0',null,['id' => '0']) !!}
-							{!! Form::label('0', 'man') !!}</br>
+							{!! Form::label('0', 'male') !!}</br>
 							{!! Form::radio('sex', '1',null, ['id' => '1']) !!}
 							{!! Form::label('1', 'female') !!}
 						</div>

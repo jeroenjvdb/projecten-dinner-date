@@ -5,8 +5,8 @@
     <ul class="font-size-18">
         @if(Auth::user()->id == $profile->id)
             <li>
-                <a href="#">
-                    Edit <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateKitchen"></span>
+                <a href="#" data-toggle="modal" data-target="#updateKitchen">
+                    Edit <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
                 </a>
             </li>
         @endif

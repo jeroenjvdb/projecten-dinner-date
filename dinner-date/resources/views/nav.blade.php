@@ -21,7 +21,7 @@
                 <ul class="nav navbar-nav text-capitalize">
                     <!-- <li class="active"><a href="#"> link<span class="sr-only">(current)</span></a></li>-->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dishes <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dishes <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('dishIndex') }}">Dishes</a></li>
                             <li><a href="{{ route('myDishes') }}">My dishes</a></li>
@@ -32,11 +32,11 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('createDate') }}">create date</a></li>
-                            <li><a href="{{ route('myDates') }}">my dates</a></li>
                             <li><a href="{{ route('findDates') }}">search date</a></li>
+                            <li><a href="{{ route('myDates') }}">my dates</a></li>
+                            <li><a href="{{ route('createDate') }}">create date</a></li>
 
                             {{--<li role="separator" class="divider"></li>--}}
 
@@ -46,10 +46,10 @@
                         <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">chat</a>
                     </li>
                     <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Daters</a>
+                        <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Date requests</a>
                     </li>
                     <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">compare</a>
+                        <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">Find me a date</a>
                     </li>
                 </ul>
                 @endif

@@ -9,7 +9,7 @@
     <div class="jumbotron">
     <div class="row" id="chatbox">
     {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
-    <div id="chatPersons" class="col-md-3">
+    <div id="chatPersons" class="col-md-3 overflow-auto max-height-500">
         @foreach($friends as $friend)
             <div class="row">
                 <div class="col-md-12 chatPerson" id="{{ $friend->id }}">
@@ -55,4 +55,5 @@
 @section('scripts')
     <script src="js/changeProfile.js"></script>
     <script src="js/getChat.js"></script>
+    <script src="/js/chat.js"></script>
 @stop

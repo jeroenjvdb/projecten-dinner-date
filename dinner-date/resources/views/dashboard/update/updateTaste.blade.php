@@ -93,8 +93,9 @@
                     {!! Form::radio('spicy', 0,!$foodprofile->spicy) !!}
                 </div>
             </div>
-
-            {!! Form::submit('Update taste', ['class' => 'btn btn-default']) !!}
+            <div class="form-group">
+                {!! Form::submit('Update taste', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
+            </div>
             {!! Form::close() !!}
         </div>
       </div>

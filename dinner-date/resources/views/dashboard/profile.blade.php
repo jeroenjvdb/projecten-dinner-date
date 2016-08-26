@@ -50,12 +50,12 @@
 					<div class="col-sm-6">
 						<h2>Info</h2>
 						@if( $profile->age < 2000)
-							<p>leeftijd: {!! $profile->age !!}</p>
+							<p>leeftijd: {!! $profile->age !!}
 						@endif
-						<p> @if($profile->sex == 0)
-								man
+							@if($profile->sex == 0)
+									<br>man
 							@else
-								vrouw
+									<br>vrouw
 							@endif
 						</p>
 						<h3>Residence</h3>

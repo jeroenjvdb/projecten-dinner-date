@@ -82,7 +82,9 @@
                             {!! Form::radio('italian', 0, !$foodprofile->italian) !!}
                         </div>
                     </div>
-                    {!! Form::submit('Update kitchen', ['class' => 'btn btn-default']) !!}
+                    <div class="form-group">
+                        {!! Form::submit('Update kitchen', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
+                    </div>
                     {!! Form::close() !!}
                 </div>
             </div>
