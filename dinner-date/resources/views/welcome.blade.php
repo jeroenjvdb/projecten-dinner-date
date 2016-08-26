@@ -37,31 +37,44 @@
 @endsection
 
 @section('body')
-    {{--<div class="container">--}}
-        {{-- <div class="content"> --}}
-            <div class="inPictures col-md-4">
             @include('Auth.registerForm',array('before' => $before))
-        	</div>
-            <div class="title text-capitalize">dinner date</div>
-            <div id="description">
-                <p>Welcom at Dinner Date, the dating site with taste!
-                    <br>Traditional datingsites tries to match you based on your favorite shows, interest,...
-                    <br>But at Dinner Date we gonna let you find that out on your own,
-                    <br>we are gonna match you up with someone with the same taste in food!
-                    <br>Create a profile, fill in your info, fill in your tastes, create a date, and find a new love over dinner.
-                    <br>
-                    <br>Don't want a romantic evening? You just want a cozy evening dining and get to know someone new?
-                    <br>Even that is possible at Dinner Date!
-                    <br>
-                    <br>Register yourself and enjoy dining together!
-                </p>
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2 text-center ">
+                        <i class="fa fa-heart fa-5x red " aria-hidden="true"></i>
+                    </div>
+                    <div class="col-sm-10 col-md-10">
+                        <h2 class="text-capitalize">For the romantics</h2>
+                        <div id="description">
+                            <p class="font-size-18">Welcom at Dinner Date, the dating site with taste!
+                                Traditional datingsites tries to match you based on your favorite shows, interest,...
+                                But at Dinner Date we gonna let you find that out on your own,
+                                we are gonna match you up with someone with the same taste in food!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div id="tipsAndTricks">
-            	<h2>Inspirational dishes</h2>
-            	@include('dishes.partialDish')
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-sm-2 col-md-2">
+                       <img class="img-responsive img-circle" src="http://daisybrand.com/assets/images/recipes/recipe-images/PANNA%20COTTA%20W%20STRAWBERRY%20SAUCE%20770x628_5314.jpg" alt="">
+                    </div>
+                    <div class="col-sm-10 col-md-10">
+                        <h2 class="text-capitalize">For the food lovers</h2>
+                        <p>
+                            Don't want a romantic evening? You just want a cozy evening dining and get to know someone new?
+                            Learn about new dishes? Even that is possible at Dinner Date!
+                        </p>
+                    </div>
+                </div>
             </div>
-        {{-- </div> --}}
-    {{--</div>--}}
+
+            {{--<div class="jumbotron" id="tipsAndTricks">--}}
+            	<h2 class="white margin-top-bottom-10">Inspirational dishes</h2>
+            	@include('dishes.welcomeDishes')
+            {{--</div>--}}
 @endsection
 
 @section('scripts')

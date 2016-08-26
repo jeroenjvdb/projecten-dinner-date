@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    foto's
+pictures
 @stop
 
 @section('crop')

@@ -5,9 +5,9 @@
 @stop
 
 @section('body')
-    <h1>Daters and chat</h1>
-    <hr>
-    <div id="chatbox">
+    <h1 class="margin-top-0 white font-size-50">Daters and chat</h1>
+    <div class="jumbotron">
+    <div class="row" id="chatbox">
     {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
     <div id="chatPersons" class="col-md-3">
         @foreach($friends as $friend)
@@ -39,6 +39,7 @@
     </div>
     {{-- {!! Form::close() !!} --}}
 
+    </div>
     </div>
     <script>
         $(document).ready(function(){

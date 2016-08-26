@@ -5,9 +5,9 @@
 @endsection
 
 @section('body')
-	<h1>Create Date</h1>
+	<h1 class="font-size-50 white margin-top-0">Create Date</h1>
 {{--	{{dd($dishes)}}--}}
-
+<div class="jumbotron">
 	<div class="form-horizontal">	
 		{!! Form::open(array('url' => route('createDatePost'), 'method' => 'post')) !!}
 		<div class="form-group">
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			{!! Form::label('typeOfDate', 'what kind of date?', ['class' => 'col-xs-3 control-label']) !!}
+			{!! Form::label('typeOfDate', 'What kind of date?', ['class' => 'col-xs-3 control-label']) !!}
 			<div class="col-xs-9">
 				{!! Form::radio('typeOfDate', '2') !!} Pure culinary</br>
 				{!! Form::radio('typeOfDate', '1') !!} Romantic diner
@@ -51,10 +51,11 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<div class="col-xs-offset-5 col-xs-9">
-				{!! Form::submit('Create a date', ['class' => 'btn btn-default']) !!}
+			<div class="col-xs-offset-3 col-xs-9">
+				{!! Form::submit('Create a date', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
 			</div>
 		</div>
 	</div>
 	{!! Form::close() !!}
+</div>
 @endsection

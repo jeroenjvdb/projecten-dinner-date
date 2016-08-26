@@ -5,33 +5,40 @@
 @stop
 
 @section('body')
+    <h1 class="white font-size-50 text-center margin-bottom-40">Dinner Date</h1>
+    <div class="bg-white border-radius-6">
+    <div class="jumbotron bg-white">
 
     <div class="row info">
-        <div class="col-sm-offset-4">
-            <h1>Setup</h1>
+        <div class="col-sm-offset-3 col-sm-6">
+            <h2>Setup</h2>
             <p> Before you can go find your perfect Dinner Date, we ask you to fill in a few questions.
-                <br>
                 A few for your profile. <br>
-                A few to help you find your dinner date.
+                And a few to help you find your dinner date.
             </p>
-            <button class="btn btn-default" id="start">Get started</button>
+            <button class="btn btn-default form-control bg-blue white font-size-18" id="start">Get started</button>
         </div>
     </div>
 
-    <div class="row setup hide">
+    <div class="row setup hide bg-white">
         <div class="form-horizontal">
-            <h1 class="col-sm-offset-2">Profile info</h1>
+            <div class="row">
+                <h2 class="col-sm-offset-3">Profile info</h2>
+            </div>
 
-            <div class="col-sm-offset-2 col-sm-8">
-                <div class=" progress">
-                    <div class="progress-bar progress-bar-success progress-bar-striped"  style="width: 33%;">
-                        <span class="">1/3</span>
-                    </div>
-                    <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: 67%">
-                        <span class="sr-only"></span>
+            <div class="row">
+                <div class="col-sm-offset-1 col-sm-11">
+                    <div class=" progress">
+                        <div class="progress-bar bg-green progress-bar"  style="width: 33%;">
+                            <span class="">1/3</span>
+                        </div>
+                        <div class="progress-bar bg-red progress-bar" style="width: 67%">
+                            <span class="sr-only"></span>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <hr>
 
             {!! Form::open(array('url' => route('setupProfile'), 'method' => 'post')) !!}
@@ -86,15 +93,16 @@
             </div>
 
             <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
-                    {!! Form::submit('Update profile', array('class' => 'btn btn-default')) !!}
+                <div class="col-sm-offset-1 col-sm-11">
+                    {!! Form::submit('Update profile', array('class' => 'btn btn-default form-control bg-blue white font-size-18')) !!}
                     <p> * =  required</p>
                 </div>
             </div>
             {!! Form::close() !!}
         </div>
     </div>
-
+</div>
+</div>
 @stop
 
 @section('scripts')

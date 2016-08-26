@@ -6,7 +6,12 @@
 
 @section('body')
 
+<h1 class="white font-size-50 margin-top-0">My dates</h1>
+<div class="jumbotron">
     <div class="row">
+        @if(count($dates)==0)
+        <h2>You don't have any dates created.</h2>
+        @endif
         @foreach($dates as $date)
             <a class="color-black" href="{{'/dates/show/' .  $date->id}}">
                 <div class="col-sm-6 dish">
@@ -34,6 +39,7 @@
             </a>
         @endforeach
     </div>
+</div>
     {{--@if(count($dishes)==6)--}}
         {{--<div class="row">--}}
             {{--<center>{!! $dishes->render() !!}</center>--}}

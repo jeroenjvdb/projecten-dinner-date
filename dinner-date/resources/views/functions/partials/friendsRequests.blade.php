@@ -1,4 +1,4 @@
-<div class="col-sm-3 height-500  hover-border border-white padding">
+<div class="col-sm-3 height-500  hover-border border-white padding bg-red">
     <div class="margin-top-bottom">
         <a class="color-black" href="{{ route('getProfile', $fQ->user->id) }}">
             <div class="height-350">
@@ -26,7 +26,7 @@
                 </a>
             </div>
             <div class="col-sm-12">
-                <a class="red" href="{{ route('deleteFriendRequest', [$fQ->user->id]) }}">
+                <a class="blue" href="{{ route('deleteFriendRequest', [$fQ->user->id]) }}">
                     <div class="text-center font-25">
                         <span class="fa fa-close"></span>
                         Decline

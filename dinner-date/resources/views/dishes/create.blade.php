@@ -1,8 +1,8 @@
 @extends('master')
 
 @section('body')
-	<h1>Create a Dish</h1>
-	<hr>
+	<h1 class="white font-size-50 margin-top-0">Create a Dish</h1>
+	<div class="jumbotron">
 	{!! Form::open(array('files' => 'true', 'class' => 'form-horizontal','url' => route('postCreate'),
 	'method' => 'POST')) !!}
 	<div id="info1">
@@ -32,7 +32,7 @@
 			<div class="col-sm-7">{!! Form::file('picture', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="col-xs-offset-3 col-sm-7">
-			<div id="next" class="btn btn-default"> add extra info</div>
+			<div id="next" class="btn btn-default form-control bg-blue white font-size-18"> add extra info</div>
 		</div>
 	</div>
 	<div id="info2" class="hide">
@@ -59,16 +59,18 @@
 			<div class="col-sm-7">{!! Form::text('url','', ['class' => 'form-control']) !!}</div>
 		</div>
 		<div class="form-group">
-			<div class="col-sm-offset-3 col-sm-1">
-				<div id="previous" class="btn btn-default"> Previous</div>
+			<div class="col-sm-offset-3 col-sm-3">
+				<div id="previous" class="btn btn-default btn btn-default form-control bg-blue white font-size-18"> Previous</div>
 			</div>
-			<div class="col-sm-1">
-				{!! Form::submit('Add Dish', ['class' => 'btn btn-default']) !!}
+			<div class="col-sm-1"></div>
+			<div class="col-sm-3">
+				{!! Form::submit('Add Dish', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
 			</div>
 
 		</div>
 	</div>
 	{!! Form::close() !!}
+	</div>
 @stop
 
 @section('scripts')

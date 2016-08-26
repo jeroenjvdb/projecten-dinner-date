@@ -16,6 +16,17 @@
     /*font-family:'mesmerize text';*/
 /*}*/
 
+
+/*h2{*/
+    /*font-size:26px;*/
+/*}*/
+
+p, .jumbotron p{
+    font-size:14px;
+}
+
+
+
 nav.navbar-default .navbar-nav li a, .navbar-header .navbar-brand{
     color: #DED8D0;
 }
@@ -35,29 +46,35 @@ body {
     width: 100%;
     display: table;
     font-weight: 100;
-    background-color: #DED8D0;
+    background-color:#B70016;
+    /*background-color: #DED8D0;/*/
     /*font-family: 'Oswald', sans-serif;*/
-    font-family: 'Lato', sans-serif;
+    /*font-family: 'Lato', sans-serif;*/
+    font-family: "Open Sans",Arial,Helvetica,sans-serif;
 }
-h1,h2,h3,h4,h5,h6,h7,h8{
-    font-family: 'Montserrat', sans-serif;
-}
-p{
+/*h1,h2,h3,h4,h5,h6,h7,h8{*/
+    /*font-family: 'Montserrat', sans-serif;*/
+/*} */
+/*p{*/
 
-    font-size: 18px;
-}
+    /*font-size: 18px;*/
+/*}*/
 
 .navbar{
     margin-bottom: 0;
+    border:none;
+    border-radius:0;
 }
 
- .container {
-    background-color: #F0F0F0;
+.container {
+    /*background-color: #F0F0F0;*/
     padding: 20px;
     margin-top: 20px;
     margin-bottom: 80px;
-    border-radius: 2px; 
-    
+    /*border-radius: 2px; */
+}
+.container-fluid{
+    border-radius:0;
 }
 
 .footer{
@@ -147,7 +164,6 @@ textarea{
     position: absolute;
     left: 50;
     top: 150px;
-    background-color: rgba(200,200,200,.9);
 }
 
 .partialDish{
@@ -244,7 +260,7 @@ textarea{
      text-transform: capitalize;
  }
 
-.padding-top-bottom-10{
+.margin-top-bottom-10{
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -322,7 +338,7 @@ textarea{
 }
 
 .bg-green{
-    background-color: #99e229;
+    background-color: #82ae00;
 }
 
 .bg-red{
@@ -330,11 +346,31 @@ textarea{
 }
 
 .green{
-    color: #99e229;
+    color: #82ae00;
 }
 
 .red{
     color: #df0700;
+}
+
+.bg-white{
+    background-color: rgba(248,248,248,.9);
+}
+
+.white{
+    color:#F8F8F8;
+}
+
+.darker-white{
+    color:#F7E5E7;
+}
+
+.blue{
+    color:#2878D1;
+}
+
+.bg-blue{
+    background-color:#2878D1;
 }
 
 /**************************borders*******************************/
@@ -351,6 +387,18 @@ textarea{
     border: solid 4px white;
 }
 
+.border-radius-top-6{
+    border-radius: 6px 6px 0 0;
+}
+
+
+.border-radius-bottom-6{
+    border-radius: 0 0 6px 6px;
+}
+
+.border-radius-6{
+    border-radius: 6px;
+}
 /**************************margin*******************************/
 
 .margin-top-bottom{
@@ -358,7 +406,21 @@ textarea{
     margin-bottom:10px;
 }
 
-/**************************margin*******************************/
+
+.margin-top-botton-10{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.margin-bottom-40{
+    margin-bottom:40px;
+}
+
+.margin-top-0{
+    margin-top:0;
+}
+
+/**************************padding*******************************/
 
 .padding-0{
     padding:0;
@@ -366,6 +428,15 @@ textarea{
 
 .padding{
     padding: 10px;
+}
+
+.padding-top-botton-10{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.padding-top-10{
+    padding-top: 10px;
 }
 
 /**************************decoration*******************************/
@@ -379,7 +450,29 @@ textarea{
     font-size: 25px;
 }
 
+.font-size-18{
+    font-size: 18px;
+}
 
+.font-size-50{
+    font-size: 100px;
+}
+
+.font-size-26{
+    font-size:26px;
+}
+
+.font-size-36{
+    font-size:36px;
+}
+
+.font-size-40{
+    font-size:40px;
+}
+
+label{
+    font-size: 20px;
+}
 .nav li{
     margin-left:15px;
 }

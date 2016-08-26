@@ -90,6 +90,10 @@ class DateController extends Controller
             ->ExtraInfo()
             ->ExtraInfoSelect()
             ->get();
+        if(count($dates)==0)
+        {
+            return redirect()->route('createDate');
+        }
 
         $data = [
             'dates' => $dates,

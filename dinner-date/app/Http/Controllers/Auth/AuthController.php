@@ -44,7 +44,9 @@ class AuthController extends Controller
     /**
      * AuthController constructor.
      * @param User $user
-     */    public function __construct(User $user, FoodProfile $fProfile)
+     * @param FoodProfile $fProfile
+     */
+    public function __construct(User $user, FoodProfile $fProfile)
     {
         $this->user = $user;
         $this->fProfile = $fProfile;
@@ -93,8 +95,8 @@ class AuthController extends Controller
     }
 
     /**
-     * @param LoginRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Request $request
+     * @return $this|\Illuminate\Http\RedirectResponse
      */
     public function postLogin(Request $request)
     {

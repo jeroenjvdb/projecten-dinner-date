@@ -1,10 +1,15 @@
 <div class="col-sm-4 no-decoration">
-    <h3>Kitchen
+    <h2>Kitchen
+       
+    </h2>
+    <ul class="font-size-18">
         @if(Auth::user()->id == $profile->id)
-            <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateKitchen"></span>
+            <li>
+                <a href="#">
+                    Edit <span class="clickable glyphicon glyphicon-pencil" id="edit" data-toggle="modal" data-target="#updateKitchen"></span>
+                </a>
+            </li>
         @endif
-    </h3>
-    <ul>
         <li><i class="{{ ($foodprofile->chinese ? 'green fa fa-check' : 'red fa fa-times') }}" aria-hidden="true"></i> Chinese</li>
         <li><i class="{{ ($foodprofile->japanese ? 'green fa fa-check' : 'red fa fa-times') }}" aria-hidden="true"></i>  Japanese</li>
         <li><i class="{{ ($foodprofile->french ? 'green fa fa-check' : 'red fa fa-times') }}" aria-hidden="true"></i>  French</li>

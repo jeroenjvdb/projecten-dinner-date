@@ -50,33 +50,6 @@ class PhotoController extends Controller
     {
         return view('functions.crop');
     }
-    /**
-     * @param PhotoRequest $request
-     * @return mixed
-     */
-//    public function postPicture(PhotoRequest $request)
-//    {
-//        $filename = Input::file('photo')->getClientOriginalName();
-//        $rand = rand(11111,99999);
-//        Image::make(Input::file('photo'))
-//            //->resize(300, 200)
-//            ->save('img/users/'.$rand.'-'.$filename);
-//        $count = $this->picture->where('user_id',Auth::user()->id)
-//                        ->count();
-//        if($count == 5) {
-//            $this->picture->RemoveLast(Auth::user()->id);
-//        }
-//        $new = [
-//            'picture_url' => '/img/users/'.$rand.'-'.$filename,
-////            'description' => $data['description'],
-//            'isDish' => 0,
-//            'user_id' => Auth::user()->id,
-//        ];
-//        $picture = $this->picture->create($new);
-//        $file = base64_encode(file_get_contents(Input::file('photo')->getRealPath()));
-////        return redirect()->route('dashboard')->withSuccess('succesfully added a picture');
-//        return view('functions.crop')->with(['picture' => $picture]);
-//    }
 
     public function postPicture(PhotoRequest $request)
     {

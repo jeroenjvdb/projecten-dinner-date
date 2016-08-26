@@ -45,7 +45,10 @@ class DishController extends Controller
     {
         $dishes = $this->dish->where('user_id',Auth::id())->paginate(6);
         if(count($dishes)){
-            $data = ['dishes' => $dishes];
+            $data = [
+                'dishes' => $dishes,
+                'my' => true,
+            ];
 
             return View('dishes.dishes')->with($data);
         }else{

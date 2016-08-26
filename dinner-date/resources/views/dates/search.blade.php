@@ -5,13 +5,14 @@
 @endsection
 
 @section('body')
+	<h1 class="font-size-50 white margin-top-0">Search</h1>
+<div class="jumbotron">
 <div class="row">
 	<div class="col-sm-12" id="searchSettings">
 		{!! Form::open([ 'method' => 'POST', 'id' => 'searchForm' ]) !!}
-		<h2>Search</h2>
 			<div class="row">
 				<div class="col-md-6">
-					<p>Type:</p>
+					<label>Type:</label> <br>
 					{!! Form::radio('type', '1', false , ['id' => 'date']) !!}
 					{!! Form::label('date', 'Romantic diner') !!}</br>
 					{!! Form::radio('type', '2', false, ['id' => 'culinair']) !!}
@@ -51,6 +52,7 @@
 	</div>
 	<div class="row" id="results">
 		
+	</div>
 	</div>
 @endsection
 

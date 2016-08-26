@@ -26,6 +26,7 @@ class FriendController extends Controller
 
     /**
      * FriendController constructor.
+     * @param User $user
      * @param Friend $friend
      */
     public function __construct(User $user,Friend $friend)
