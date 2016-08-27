@@ -69,7 +69,8 @@ class ChatController extends Controller
      */
     public function index($id)
     {
-        $messages = Chat::where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->get();
+        $messages = $this->chat->where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->orderby('id','DESC')->take(10)->get();
+        $messages = $messages->reverse();
         foreach($messages as $message)
         {
             $message->sender = $message->sender()->first();
@@ -96,7 +97,6 @@ class ChatController extends Controller
      */
     public function create($id, Request $request)
     {
-        // return 'jej';
         $message = new Chat;
 
         $message->message = $request->input('input');
@@ -104,8 +104,7 @@ class ChatController extends Controller
         $message->receiver_id = $id;
         $message->save();
 
-        //Auth::user()->id,$id
-        event(new ChatEvent());
+        event(new ChatEvent(Auth::user()->id,$id));
         return response()->json($message);
     }
 }

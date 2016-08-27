@@ -27,8 +27,10 @@ class ChatEvent extends Event implements ShouldBroadcast
      */
     public function __construct($id1, $id2)
     {
-//        $this->id1 = $id1;
-//        $this->id2 = $id2;
+//        dd('test- event');
+
+        $this->id1 = $id1;
+        $this->id2 = $id2;
     }
 
     /**
@@ -38,6 +40,6 @@ class ChatEvent extends Event implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return ['chat-channel'];
+          return ['chat-channel'];
     }
 }

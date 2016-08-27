@@ -79,11 +79,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/compare', ['as'=>'compare','uses'=>'ProfileController@compare']);
 
-Route::group(['prefix' => '/chat'], function () {
-    Route::get('/', ['as' => 'chat','uses' => 'ChatController@getChat']);
-    Route::get('/{id}', ['uses' => 'ChatController@index']);
-    Route::post('/post/{id}', ['uses' => 'ChatController@create']);
-});
 
     Route::get('/Photo', ['as' => 'Photo', 'uses' => 'PhotoController@index']);
     Route::post('/Photo', ['as' => 'PhotoPost', 'uses' => 'PhotoController@postPicture']);
@@ -93,4 +88,12 @@ Route::group(['prefix' => '/chat'], function () {
     {
         return View('functions.crop')->with('image', 'img/users/'. Session::get('image'));
     }]);
+
+
+
+    Route::group(['prefix' => '/chat'], function () {
+        Route::get('/', ['as' => 'chat','uses' => 'ChatController@getChat']);
+        Route::get('/{id}', ['uses' => 'ChatController@index']);
+        Route::post('/post/{id}', ['uses' => 'ChatController@create']);
+    });
 });
