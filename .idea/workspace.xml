@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="effb1b08-408d-43ed-abc7-c753d286131c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/app/Events/ChatEvent.php" afterPath="$PROJECT_DIR$/dinner-date/app/Events/ChatEvent.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/app/Http/Controllers/ChatController.php" afterPath="$PROJECT_DIR$/dinner-date/app/Http/Controllers/ChatController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/app/Http/Middleware/VerifyCsrfToken.php" afterPath="$PROJECT_DIR$/dinner-date/app/Http/Middleware/VerifyCsrfToken.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/app/Http/routes.php" afterPath="$PROJECT_DIR$/dinner-date/app/Http/routes.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/composer.json" afterPath="$PROJECT_DIR$/dinner-date/composer.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/composer.lock" afterPath="$PROJECT_DIR$/dinner-date/composer.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/public/js/chat.js" afterPath="$PROJECT_DIR$/dinner-date/public/js/chat.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/public/css/style.css" afterPath="$PROJECT_DIR$/dinner-date/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/public/js/socket.js" afterPath="$PROJECT_DIR$/dinner-date/public/js/socket.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/resources/views/Auth/login.blade.php" afterPath="$PROJECT_DIR$/dinner-date/resources/views/Auth/login.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/resources/views/Auth/registerForm.blade.php" afterPath="$PROJECT_DIR$/dinner-date/resources/views/Auth/registerForm.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dinner-date/resources/views/master.blade.php" afterPath="$PROJECT_DIR$/dinner-date/resources/views/master.blade.php" />
     </list>
     <ignored path="projecten-dinner-date.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +44,6 @@
         <option value="$PROJECT_DIR$/dinner-date/resources/views/Auth/setup/step3.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/nav.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/Controllers/Auth/AuthController.php" />
-        <option value="$PROJECT_DIR$/dinner-date/resources/views/Auth/registerForm.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/functions/partials/friendsRequests.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/functions/friendrequest.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/Controllers/FriendController.php" />
@@ -53,7 +51,6 @@
         <option value="$PROJECT_DIR$/dinner-date/resources/views/functions/compare.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dates/mydates.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/Controllers/DateController.php" />
-        <option value="$PROJECT_DIR$/dinner-date/resources/views/Auth/login.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dashboard/profile.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dashboard/update/updateTaste.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dashboard/update/updatekitchen.blade.php" />
@@ -70,18 +67,21 @@
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dates/createdate.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dashboard/dashboard2.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dishes/dishes.blade.php" />
-        <option value="$PROJECT_DIR$/dinner-date/public/css/style.css" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/dishes/index.blade.php" />
-        <option value="$PROJECT_DIR$/dinner-date/resources/views/master.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/config/broadcasting.php" />
         <option value="$PROJECT_DIR$/dinner-date/resources/views/functions/chat.blade.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/Middleware/VerifyCsrfToken.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/dinner-date/app/Events/ChatEvent.php" />
         <option value="$PROJECT_DIR$/dinner-date/app/Http/Controllers/ChatController.php" />
         <option value="$PROJECT_DIR$/dinner-date/public/js/chat.js" />
+        <option value="$PROJECT_DIR$/dinner-date/composer.json" />
+        <option value="$PROJECT_DIR$/dinner-date/app/Events/ChatEvent.php" />
         <option value="$PROJECT_DIR$/dinner-date/public/js/socket.js" />
+        <option value="$PROJECT_DIR$/dinner-date/resources/views/master.blade.php" />
+        <option value="$PROJECT_DIR$/dinner-date/public/css/style.css" />
+        <option value="$PROJECT_DIR$/dinner-date/resources/views/Auth/login.blade.php" />
+        <option value="$PROJECT_DIR$/dinner-date/resources/views/Auth/registerForm.blade.php" />
       </list>
     </option>
   </component>
@@ -99,10 +99,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1942" />
-    <option name="height" value="1056" />
+    <option name="x" value="-10" />
+    <option name="y" value="2" />
+    <option name="width" value="1938" />
+    <option name="height" value="1042" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -132,56 +132,7 @@
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dinner-date" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projecten-dinner-date" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dinner-date" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
     </panes>
   </component>
@@ -271,18 +222,18 @@
       <workItem from="1472141383481" duration="11737000" />
       <workItem from="1472205815229" duration="23000" />
       <workItem from="1472205989752" duration="14936000" />
-      <workItem from="1472300122820" duration="5640000" />
+      <workItem from="1472300122820" duration="12807000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43448000" />
+    <option name="totallyTimeSpent" value="50615000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1056" extended-state="0" />
+    <frame x="-10" y="2" width="1938" height="1042" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25104168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25156575" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -317,13 +268,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/Auth/setup/step3.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/Auth/setup/step2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -338,13 +282,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dinner-date/.env.example">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -356,13 +293,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
           <caret line="4220" column="9" selection-start-line="4220" selection-start-column="3" selection-end-line="4220" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/Auth/registerForm.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="51" column="134" selection-start-line="51" selection-start-column="79" selection-end-line="51" selection-end-column="134" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -496,6 +427,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -527,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="48" column="111" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/dishes/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -552,28 +477,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-108">
           <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/dashboard/dashboard2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="129" column="10" selection-start-line="125" selection-start-column="4" selection-end-line="129" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="322" column="10" selection-start-line="322" selection-start-column="10" selection-end-line="322" selection-end-column="10" />
-          <caret line="323" column="13" selection-start-line="323" selection-start-column="13" selection-end-line="323" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/Auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="41" column="119" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="119" />
         </state>
       </provider>
     </entry>
@@ -600,17 +503,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-          <folding>
-            <marker date="1472218589147" expanded="false" signature="2264:2271" ph="..." />
-            <marker date="1472218589147" expanded="false" signature="2305:2310" ph="&amp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dinner-date/app/Http/Middleware/VerifyCsrfToken.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -623,14 +515,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/public/js/socket.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -656,7 +540,7 @@
         <state relative-caret-position="136">
           <caret line="72" column="41" selection-start-line="72" selection-start-column="41" selection-end-line="72" selection-end-column="41" />
           <folding>
-            <element signature="e#40#53#0#PHP" expanded="true" />
+            <element signature="e#40#53#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -666,16 +550,6 @@
         <state relative-caret-position="770">
           <caret line="97" column="7" selection-start-line="97" selection-start-column="7" selection-end-line="97" selection-end-column="7" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dinner-date/app/Events/ChatEvent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="42" column="2" selection-start-line="42" selection-start-column="2" selection-end-line="42" selection-end-column="2" />
-          <folding>
-            <element signature="e#30#51#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,6 +565,90 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/public/js/socket.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/app/Events/ChatEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/bootstrap/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/Auth/registerForm.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="593">
+          <caret line="55" column="36" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/Auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="63" column="10" selection-start-line="63" selection-start-column="10" selection-end-line="63" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="48" column="111" selection-start-line="48" selection-start-column="111" selection-end-line="48" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-819">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <marker date="1472317788742" expanded="false" signature="2335:2342" ph="..." />
+            <marker date="1472317788742" expanded="false" signature="2376:2381" ph="&amp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="466" column="17" selection-start-line="466" selection-start-column="17" selection-end-line="466" selection-end-column="17" />
+          <caret line="467" column="21" selection-start-line="467" selection-start-column="21" selection-end-line="467" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dinner-date/resources/views/dashboard/dashboard2.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="20" column="49" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="49" />
           <folding />
         </state>
       </provider>

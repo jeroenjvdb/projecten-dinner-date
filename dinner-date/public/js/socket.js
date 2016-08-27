@@ -8,9 +8,9 @@ var redis = new Redis();
 redis.subscribe('chat-channel');
 
 redis.on('message', function(channel, message){
-    console.log(channel);
+    console.log(message);
     message = JSON.parse(message);
-    io.emit('emit to: ' + channel + ':' + message.event, message.data);
+    io.emit(message);
 });
 
 server.listen(3000);
