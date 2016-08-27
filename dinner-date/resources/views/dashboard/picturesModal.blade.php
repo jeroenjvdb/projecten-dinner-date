@@ -26,7 +26,7 @@
                                 </div>
                             @endif
                             @foreach($images as $index => $image)
-                                <div class="item {!! ($index==0?'active':'') !!}">
+                                <div class="item{!! ($index == 0 ? 'active':'') !!}">
                                     <img src="/{{$image->picture_url}}" alt="">
                                 </div>
                             @endforeach

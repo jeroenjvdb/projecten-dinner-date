@@ -14,7 +14,8 @@
         "mdanter/ecc": "^0.3.1",
         "spomky-labs/base64url": "^1.0",
         "spomky-labs/php-aes-gcm": "^1.0",
-        "davibennun/laravel-push-notification": "dev-laravel5"
+        "davibennun/laravel-push-notification": "dev-laravel5",
+        "pragmarx/tracker": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

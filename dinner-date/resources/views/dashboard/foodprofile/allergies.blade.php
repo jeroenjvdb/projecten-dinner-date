@@ -3,7 +3,7 @@
     <ul class="font-size-18">
         @if(Auth::user()->id == $profile->id)
             <li>
-                <a href="#" data-toggle="modal" data-target="#updateAllergies">
+                <a href="#" data-toggle="modal" data-target="#updateAllergies" class="blue" >
                     Edit
                     <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
                 </a>

@@ -13,104 +13,55 @@
     @include('dashboard.picturesModal')
 <h1 class="white font-size-50 margin-top-0">Profile</h1>
 <div class="jumbotron row">
-    <div class="col-sm-3 profile-pics" >
-        <div data-toggle="modal" data-target="#pictures">
-            @if (count($images) === 0)
-                <div class="row">
-                    <div class="col-sm-12">
-                        <img src="/img/no-pic.jpg" />
+    <center><h2>Welcom {{$profile->surname }}</h2></center>
+    @include('dashboard.partials.pictures')
+    <div class="row padding-top-20">
+        <div class="col-md-offset-2 col-md-8">
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="round bg-blue height-100 width-100 white">
+                        <center>
+                            <i class="fa fa-users fa-2x padding-top-10" aria-hidden="true"></i>
+                        </center>
+                        <center>
+                            {{$visitorsToday}}
+                        </center>
                     </div>
                 </div>
-                <div class="row more-pics">
-                    <div class="col-sm-3 hidden-xs">
-                        <img src="/img/no-pic.jpg" />
+                <div class="col-md-4">
+                    <div class="round bg-blue height-100 width-100 white">
+                        <center>
+                            <i class="fa fa-heart fa-2x padding-top-10" aria-hidden="true"></i>
+                        </center>
+                        <center>
+                            {{$daterequests}}
+                        </center>
                     </div>
                 </div>
-            @else
-                @foreach($images as $index => $image)
-                    @if($index==0)
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <img src="{{ $image->picture_url}}"  />
-                            </div>
-                        </div>
-                        <div class="row more-pics hidden-xs">
-                            @else
-                                <div class="col-sm-3 ">
-                                    <img src="{{ $image->picture_url}}" />
-                                </div>
-                            @endif
-                            @endforeach
-                        </div>
-                    @endif
-        </div>
-        <div class="row">
-            <div class="padding-top-10"><a class="btn btn-default form-control bg-blue white font-size-18" href="{{ route('Photo') }}">upload pic</a></div>
-        </div>
-    </div>
-    <div class="col-sm-8 col-sm-offset-1">
-        <div class="row">
-            <h1>
-                {{ $profile->surname . " " . $profile->name }}
-
-            </h1>
-            <div class="col-sm-6 col-xs-5">
-                <h2>
-                    Info
-                </h2>
-                @if(Auth::user()->id == $profile->id)
-                    <a href="#" class="font-size-18" data-toggle="modal" data-target="#updateProfile">
-                       Edit
-                        <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
-                    </a>
-                @endif
-                @if( $profile->age<2000)
-                    <p>leeftijd: {!! $profile->age !!}
-                @endif
-                @if($profile->sex == 0)
-                            <br>   man
-                    @else
-                            <br> vrouw
-                    @endif
-                </p>
-
-                <h3>Residence</h3>
-                <p class="subheader">{{ $profile->country }} {{ $profile->city }}</p>
-                <h3>About me</h3>
-                <p>
-                    {!! $profile->about !!}
-                </p>
-            </div>
-
-            <div class="col-sm-6 col-xs-5">
-                <h2>Date profile </h2>
-                @if(Auth::user()->id == $profile->id)
-                    <a href="#" class="font-size-18" data-toggle="modal" data-target="#updateDate">
-                        Edit
-                        <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
-                    </a>
-                @endif
-                <h3>My perfect date</h3>
-                <p id="perfectDate">
-                    @if($profile->perfectDate)
-                        {{ $profile->perfectDate }}
-                    @else
-                        Kaas en wijn onder een sterrenhemel
-                    @endif
-                </p>
-                <h3>My favorite diner</h3>
-                <p id="favoriteDish">
-                    {{$profile->favoriteDish}}
-                </p>
-
-                <h3>My favorite restaurant</h3>
-                <p>
-                    {{$profile->favRestaurant}}
-                </p>
+                <div class="col-md-4">
+                    <div class="round bg-blue height-100 width-100 white">
+                        <center>
+                            <i class="fa fa-users fa-2x padding-top-10" aria-hidden="true"></i>
+                        </center>
+                        <center>
+                            {{$visitorsToday}}
+                        </center>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+
 </div>
+    <div class="jumbotron row">
+        <h1>{{ $profile->surname . " " . $profile->name }}</h1>
+    <div class="col-sm-offset-1 col-sm-11">
+        @include('dashboard.partials.info')
+    </div>
+    </div>
+
+
 <div class="jumbotron row">
     <h1>Food profile </h1>
     <div class="col-sm-offset-1 col-sm-11">

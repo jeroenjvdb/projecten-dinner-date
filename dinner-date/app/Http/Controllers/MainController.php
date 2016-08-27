@@ -11,9 +11,11 @@ use App\Dish;
 use DB;
 use Auth;
 use App\FoodProfile;
+use App\visitors;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use PragmaRX\Tracker\Vendor\Laravel\Facade as Tracker;
 class MainController extends Controller
 {
     /**
@@ -42,19 +44,26 @@ class MainController extends Controller
     protected $dishes;
 
     /**
+     * @var Visitors
+     */
+    protected $visitors;
+
+    /**
      * MainController constructor.
      * @param User $user
      * @param Picture $picture
      * @param Friend $friend
      * @param FoodProfile $fProfile
      * @param Dish $dishes
+     * @param Visitors $visitors
      */
     public function __construct(
         User $user,
         Picture $picture,
         Friend $friend,
         FoodProfile $fProfile,
-        Dish $dishes
+        Dish $dishes,
+        Visitors $visitors
     )
     {
         $this->user = $user;
@@ -62,6 +71,7 @@ class MainController extends Controller
         $this->friend = $friend;
         $this->fProfile = $fProfile;
         $this->dishes = $dishes;
+        $this->visitors = $visitors;
     }
 
     /**
@@ -75,6 +85,9 @@ class MainController extends Controller
         {
             return redirect()->route('dashboard');
         }
+
+        dd($this->addVisitors($id));
+
 
         $user->age =$this->user->Age($id);
         $images = $this->picture->ProfilePics($id);
@@ -94,5 +107,20 @@ class MainController extends Controller
         ];
         
         return View('dashboard.profile')->with($data);
+    }
+
+
+    public function addVisitors($id)
+    {
+        $data = [
+            'visitor' => Auth::id(),
+            'visited' => $id,
+        ];
+
+        $visitors = $this->visitors->firstOrCreate($data);
+        $visitors->count = $visitors->count+1;
+        $visitors->save();
+
+        return $visitors;
     }
 }

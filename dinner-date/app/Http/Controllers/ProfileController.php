@@ -12,6 +12,7 @@ use App\Friend;
 use App\Taste;
 use App\FoodProfile;
 use App\Dish;
+use App\visitors;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Http\Requests\UpdateFoodRequest;
@@ -56,6 +57,7 @@ class ProfileController extends Controller
      * @param Taste $taste
      * @param FoodProfile $fProfile
      * @param Dish $dishes
+     * @param Visitors $visitors
      */
     public function __construct
     (
@@ -64,7 +66,8 @@ class ProfileController extends Controller
         Friend $friend,
         Taste $taste,
         FoodProfile $fProfile,
-        Dish $dishes
+        Dish $dishes,
+        Visitors $visitors
     ){
         $this->user = $user;
         $this->picture = $picture;
@@ -72,6 +75,7 @@ class ProfileController extends Controller
         $this->taste = $taste;
         $this->fProfile = $fProfile;
         $this->dishes = $dishes;
+        $this->visitors = $visitors;
     }
 
     /**
@@ -79,11 +83,12 @@ class ProfileController extends Controller
      */
     public function loadDashboard()
     {
-        $id = Auth::user()->id;
-        
+        $id = Auth::id();
+        $visitorsToday = $this->visitors->checkToday($id);
+        $daterequests = $this->friend->GetRequests($id);
         $images = $this->picture->ProfilePics($id);
         $profile = $this->user->find($id);
-        $profile->age =$this->user->Age($id);
+        $profile->age = $this->user->Age($id);
         $tastes = $this->getTastes();
 
         $foodprofile = $this->fProfile->where('user_id',Auth::id())->first();
@@ -95,6 +100,8 @@ class ProfileController extends Controller
             'tastes' => $tastes,
             'foodprofile' => $foodprofile,
             'dishes' => $dishes,
+            'visitorsToday' => $visitorsToday,
+            'daterequests' => count($daterequests),
         ];
 
         return View('dashboard.dashboard2')->with($data);

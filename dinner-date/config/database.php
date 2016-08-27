@@ -2,6 +2,8 @@
 
 return [
 
+
+
     /*
     |--------------------------------------------------------------------------
     | PDO Fetch Style
@@ -14,6 +16,7 @@ return [
     */
 
     'fetch' => PDO::FETCH_CLASS,
+
 
     /*
     |--------------------------------------------------------------------------
@@ -45,6 +48,18 @@ return [
     */
 
     'connections' => [
+
+        'tracker' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_HOST', 'localhost'),
+            'database'  => env('DB_DATABASE', 'dinnerdate'),
+            'username'  => env('DB_USERNAME', 'jonasvr'),
+            'password'  => env('DB_PASSWORD', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
 
         'sqlite' => [
             'driver'   => 'sqlite',

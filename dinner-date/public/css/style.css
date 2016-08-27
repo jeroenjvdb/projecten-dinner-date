@@ -415,6 +415,10 @@ textarea{
 .border-radius-6{
     border-radius: 6px;
 }
+
+.round{
+    border-radius: 50%;
+}
 /**************************margin*******************************/
 
 .margin-top-bottom{
@@ -458,6 +462,10 @@ textarea{
 
 .padding-top-10{
     padding-top: 10px;
+}
+
+.padding-top-20{
+    padding-top: 20px;
 }
 
 .padding-bottom-10{

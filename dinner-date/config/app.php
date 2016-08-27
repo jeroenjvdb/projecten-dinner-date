@@ -137,6 +137,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Application Service Providers...
          */
@@ -152,7 +153,7 @@ return [
 
         // jonas
         Intervention\Image\ImageServiceProvider::class,
-
+        PragmaRX\Tracker\Vendor\Laravel\ServiceProvider::class,
     ],
 
     /*
@@ -207,10 +208,8 @@ return [
         */
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
-
-        //jonas
-
-        'Image'       => Intervention\Image\Facades\Image::class
+        'Image'     => Intervention\Image\Facades\Image::class,
+        'Tracker'   => PragmaRX\Tracker\Vendor\Laravel\Facade::class,
 
     ],
 

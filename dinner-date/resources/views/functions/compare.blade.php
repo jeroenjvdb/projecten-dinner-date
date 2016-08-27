@@ -19,9 +19,9 @@
                     <div class="margin-top-bottom">
                         <div class="height-350">
                         @if($item['picture']['picture_url'])
-                            <img class="max-height-350 img-responsive" src={{$item['picture']['picture_url']}} alt="">
+                            <img class="max-height-350 img-responsive img-circle" src={{$item['picture']['picture_url']}} alt="">
                         @else
-                            <img class="max-height-350 img-responsive" src="/img/no-pic.jpg" alt="">
+                            <img class="max-height-350 img-responsive img-circle" src="/img/no-pic.jpg" alt="">
                         @endif
                         </div>
                             <div class="text-center">
