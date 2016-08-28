@@ -5,7 +5,13 @@
 @endsection
 
 @section('body')
-    <div class="row">
+    <h1 class="white font-size-50 margin-top-0">Date
+        <br>
+        <a class="color-black" href="{{ URL::previous() }}">
+            <small class="start-sentence">Back</small>
+        </a>
+    </h1>
+    <div class=" jumbotron row">
         <div class="col-sm-5">
             <img src="{{$date->photo_url}}" alt="photo dish">
         </div>

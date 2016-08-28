@@ -43,7 +43,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">chat</a>
+                        <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">Dates</a>
                     </li>
                     <li>
                         <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Date requests</a>

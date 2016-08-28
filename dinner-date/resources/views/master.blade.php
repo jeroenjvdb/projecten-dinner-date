@@ -30,6 +30,7 @@
     @include('nav')
   @yield('noContainer')
 	<div class="container">
+        <div class="col-md-offset-1 col-md-10">
         @if(Auth::check())
             {{--@if(count($errors) > 0)--}}
                 {{--<div class="model error no-decoration">--}}
@@ -42,14 +43,16 @@
                 {{--</div>--}}
             {{--@endif--}}
             @if(Session::get('success'))
-                <div class="model success">
+                <div class="model success round">
                     <ul>
                         <li>{{ Session::get('success') }}</li>
                     </ul>
                 </div>
             @endif
         @endif
-    @yield('body')
+            @yield('body')
+
+        </div>
 	</div>
 </div>
 

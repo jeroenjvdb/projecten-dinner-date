@@ -27,11 +27,11 @@
 			</div>
 		</div>
 		<div class="row bg-white border-radius-bottom-6">
-			<div class="col-md-12 margin-top-bottom-10">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-bottom-10">
 				{!! Form::open(array('url' => route('register'), 'method' => 'post', 'class' => 'form-horizontal')) !!}
 					<div class="form-group">
 {{--						{!! Form::label('email', 'Email', ['class' => 'col-xs-3 control-label']) !!}--}}
-						<div class="col-lg-offset-1 col-lg-10 input-group">
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 							<span class="input-group-addon" id="basic-addon1"> <span class="glyphicon glyphicon-envelope"></span></span>
 
 							{!! Form::text('email', '', array('placeholder' => 'example@test.be', 'class' => 'form-control', "aria-describedby"=>"basic-addon1")) !!}
@@ -39,21 +39,21 @@
 					</div>
 					<div class="form-group">
 {{--						{!! Form::label('dateOfBirth', 'birthday', ['class' => 'col-xs-3 control-label']) !!}--}}
-						<div class="col-lg-offset-1 col-lg-10 input-group">
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 							<span class="input-group-addon" id="basic-addon3"> <span class="glyphicon glyphicon-calendar"></span></span>
 							{!! Form::date('dateOfBirth',$min=$before, ['class' => 'form-control',"aria-describedby"=>"basic-addon3"]) !!}
 						</div>
 					</div>
 					<div class="form-group">
 {{--						{!! Form::label('password', 'password', ['class' => 'col-xs-3 control-label']) !!}--}}
-						<div class="col-lg-offset-1 col-lg-10 input-group">
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 							<span class="input-group-addon" id="basic-addon2"> <span class="glyphicon glyphicon-lock"></span></span>
 							{!! Form::password('password',  ['class' => 'form-control',"aria-describedby"=>"basic-addon2 basic-addon4",'id'=>'password']) !!}
 							<span id="showPassword" class="input-group-addon" id="basic-addon4"><i class="fa fa-eye" aria-hidden="true"></i></span>
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-lg-offset-1 col-lg-10">
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
 							{!! Form::submit('Register for free', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
 						</div>
 					</div>

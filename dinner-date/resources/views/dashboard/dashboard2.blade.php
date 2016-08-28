@@ -15,44 +15,43 @@
 <div class="jumbotron row">
     <center><h2>Welcom {{$profile->surname }}</h2></center>
     @include('dashboard.partials.pictures')
+
     <div class="row padding-top-20">
-        <div class="col-md-offset-2 col-md-8">
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <div class="round bg-blue height-100 width-100 white">
-                        <center>
-                            <i class="fa fa-users fa-2x padding-top-10" aria-hidden="true"></i>
-                        </center>
-                        <center>
-                            {{$visitorsToday}}
-                        </center>
+        <div class="col-xs-4 col-md-4">
+            <a href="{{ route('visitors') }}">
+                <div class="col-md-offset-4">
+                    <div class="round bg-blue height-100 width-100 white text-center">
+                        <i class="fa fa-users fa-2x padding-top-10" aria-hidden="true"></i>
+                        <p>{{$visitorsToday}}</p>
+                        {{--<p>Visitors</p>--}}
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="round bg-blue height-100 width-100 white">
-                        <center>
+                <p class="col-md-offset-5">Visitors</p>
+            </a>
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <a href="{{ route('getRequests') }}">
+                <div class="col-md-offset-4 ">
+                    <div class="round bg-blue height-100 width-100 white text-center">
+                            <i class="fa fa-user-plus fa-2x padding-top-10" aria-hidden="true"></i>
+                           <p>{{$daterequests}}</p>
+                    </div>
+                </div>
+                <p class="col-md-offset-4"> Date requests</p>
+            </a>
+        </div>
+        <div class="col-xs-4 col-md-4">
+            <a href="{{ route('chat') }}">
+                <div class="col-md-offset-4 ">
+                    <div class="round bg-blue height-100 width-100 white text-center">
                             <i class="fa fa-heart fa-2x padding-top-10" aria-hidden="true"></i>
-                        </center>
-                        <center>
-                            {{$daterequests}}
-                        </center>
+                           <p>{{$daters}}</p>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="round bg-blue height-100 width-100 white">
-                        <center>
-                            <i class="fa fa-users fa-2x padding-top-10" aria-hidden="true"></i>
-                        </center>
-                        <center>
-                            {{$visitorsToday}}
-                        </center>
-                    </div>
-                </div>
-            </div>
+                <p class="col-md-offset-5"> Daters </p>
+            </a>
         </div>
     </div>
-
-
 </div>
     <div class="jumbotron row">
         <h1>{{ $profile->surname . " " . $profile->name }}</h1>

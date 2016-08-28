@@ -1,14 +1,14 @@
-<div class="col-sm-3 height-500  hover-border border-white padding bg-red">
+<div class="col-sm-3 height-350  hover-border border-white padding bg-red">
     <div class="margin-top-bottom">
         <a class="color-black" href="{{ route('getProfile', $fQ->user->id) }}">
-            <div class="height-350">
+            <div class="">
                 @if($fQ->user->picture_url)
                     <img class="max-height-350 img-responsive" src={{$fQ->user->picture_url}} alt="">
                 @else
                     <img class="max-height-350 img-responsive" src="/img/no-pic.jpg" alt="">
                 @endif
             </div>
-            <div class="text-center">
+            <div class="text-center padding-top-10">
                 <strong>
                     {{$fQ->user->name}}
                     <br>

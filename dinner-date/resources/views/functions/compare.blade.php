@@ -14,24 +14,25 @@
         </div>
     <div class="row">
         @foreach($people as $key => $item)
+{{--            {{dd($item)}}--}}
             <a class="color-black" href="{{ route('getProfile', $item['user']->id) }}">
-                <div class="col-sm-3 height-500 hover-border border-white padding">
+                <div class="col-sm-3 height-350 hover-border border-white padding">
                     <div class="margin-top-bottom">
-                        <div class="height-350">
+                        <div class="">
                         @if($item['picture']['picture_url'])
                             <img class="max-height-350 img-responsive img-circle" src={{$item['picture']['picture_url']}} alt="">
                         @else
                             <img class="max-height-350 img-responsive img-circle" src="/img/no-pic.jpg" alt="">
                         @endif
                         </div>
-                            <div class="text-center">
-                            <strong>
-                            <p class="text-capitalize">{{$item['user']->surname}}</p>
-                            <br>
-                            {{$item['user']->city}}
-                            <br>
-                            {{$item['matching']}}% matching
-                            </strong>
+                        <div class="text-center padding-top-10">
+                        <strong>
+                        <p class="text-capitalize">{{$item['user']->surname}}</p>
+                        <br>
+                        {{$item['user']->city}}
+                        <br>
+                        {{$item['matching']}}% matching
+                        </strong>
                         </div>
                     </div>
                 </div>

@@ -36,25 +36,19 @@
                         </span>
                     </div>
                 @endif
-				<div class="col-lg-12 input-group">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 					<span class="input-group-addon" id="basic-addon1"> <span class="glyphicon glyphicon-envelope"></span></span>
-					{!! Form::text('email', '', array('placeholder' => 'Email', 'class' => 'form-control',"aria-describedby"=>"basic-addon1")) !!}
+					{!! Form::text('email', '', array('autofocus'=>'autofocus','placeholder' => 'Email', 'class' => 'form-control',"aria-describedby"=>"basic-addon1")) !!}
                 </div>
 			</div>
 			<div class="form-group {{ $errors->has('login attempt') ? ' has-error' : '' }}">
-				<div class="col-lg-12 input-group">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 					<span class="input-group-addon" id="basic-addon2"> <span class="glyphicon glyphicon-lock"></span></span>
 					{!! Form::password('password', ['placeholder' => 'Password','class' => 'form-control',"aria-describedby"=>"basic-addon2"]) !!}
 				</div>
 			</div>
-			{{--<div class="form-group">--}}
-				{{--{!! Form::label('remember', 'Remember me', ['class' => 'control-label col-lg-3']) !!}--}}
-				{{--<div class="col-lg-9">--}}
-					{{--{!! Form::checkbox('remember') !!}--}}
-				{{--</div>--}}
-			{{--</div>--}}
 			<div class="form-group ">
-				<div class="">
+				<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10">
 					{!! Form::submit('Login', array('class' => 'btn btn-default form-control bg-blue white font-size-18')) !!}
 				</div>
 			</div>

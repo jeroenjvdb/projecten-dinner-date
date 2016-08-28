@@ -85,7 +85,9 @@ class ProfileController extends Controller
     {
         $id = Auth::id();
         $visitorsToday = $this->visitors->checkToday($id);
+        $visitorsToday = count($visitorsToday);
         $daterequests = $this->friend->GetRequests($id);
+        $daters = $this->friend->GetFriends($id);
         $images = $this->picture->ProfilePics($id);
         $profile = $this->user->find($id);
         $profile->age = $this->user->Age($id);
@@ -93,6 +95,7 @@ class ProfileController extends Controller
 
         $foodprofile = $this->fProfile->where('user_id',Auth::id())->first();
         $dishes = $this->dishes->where('user_id',$id)->take(4)->get();
+
 
         $data   = [
             'profile' => $profile,
@@ -102,6 +105,7 @@ class ProfileController extends Controller
             'dishes' => $dishes,
             'visitorsToday' => $visitorsToday,
             'daterequests' => count($daterequests),
+            'daters' => count($daterequests),
         ];
 
         return View('dashboard.dashboard2')->with($data);
@@ -181,18 +185,25 @@ class ProfileController extends Controller
      */
     public function suggetions()
     {
-        $user = $this->fProfile->where('user_id',Auth::id())->first();
-        $others = $this->fProfile->where('user_id','<>',Auth::id())->orderByRaw("RAND()")->take(8)->get();
-        $results= [];
+        $others = $this->user->Get8()
+            ->get();
         foreach($others as $key => $profile){
+            $fProfile = $this->fProfile
+                ->where('user_id','=',$profile->id)
+                ->first();
+            $userProfile = $this->fProfile
+                ->where('user_id','=',Auth::id())
+                ->first();
             $count = 0;
-            foreach ($profile->toArray() as $key => $value) {
-                if($user[$key] == $value) {
-                    $count++;
+            foreach ($fProfile->toArray() as $key => $value) {
+                if($key!='id' || $key!='user_id' || $key!='updated_at' || $key!='created_at' ) {
+                    if ($userProfile[$key] == $value) {
+                        $count++;
+                    }
                 }
             }
             $results[] = [
-                'user' => $this->user->find($profile->user_id),
+                'user' => $profile,
                 'picture' => $this->picture->where('user_id','=',$profile->user_id)
                     ->where('isDish','=',0)
                     ->select('picture_url')
@@ -201,5 +212,26 @@ class ProfileController extends Controller
             ];
         }
         return $results;
+    }
+
+
+    public function visitors()
+    {
+//        dd('test');
+        $visitors = $this->visitors->GetUsers(Auth::id())->get();
+
+        foreach ($visitors as $key => $item) {
+            $item->picture = $this->picture->where('user_id','=',$item->visitor)
+                ->where('isDish','=',0)
+                ->select('picture_url')
+                ->first();
+        }
+
+//        dd($visitors);
+        $data = [
+            'visitors' => $visitors,
+        ];
+
+        return view('functions.visitors')->with($data);
     }
 }

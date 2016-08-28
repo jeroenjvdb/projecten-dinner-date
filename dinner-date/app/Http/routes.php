@@ -38,6 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/password', ['uses' => 'UserController@postEditPassword']);
     });
 
+    Route::get('/profile/visitors',['as'=>'visitors','uses'=>'ProfileController@visitors']);
 
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/{id}', ['as' => 'getProfile', 'uses' => 'MainController@getProfile']);

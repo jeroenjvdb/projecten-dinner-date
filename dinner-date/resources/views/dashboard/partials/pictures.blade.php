@@ -17,7 +17,7 @@
                     @if($index==0)
                         <div class="row">
                             <div class="col-md-12" data-toggle="modal" data-target="#pictures">
-                                <img src="{{ $image->picture_url}}" class="img-circle" />
+                                <img src="{{ $image->picture_url}}" class="img-circle"  autofocus/>
                             </div>
                         </div>
                         <div class="row more-pics hidden-xs padding-top-10">

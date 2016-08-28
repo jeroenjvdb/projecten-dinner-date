@@ -42,53 +42,75 @@
             <hr>
 
             {!! Form::open(array('url' => route('setupProfile'), 'method' => 'post')) !!}
-            <div class="form-group">
+
+            <div class="form-group {{ $errors->has('surname') ? ' has-error' : '' }}">
                 {!! Form::label('surname', 'surname *', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::text('surname', '', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'surname'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
                 {!! Form::label('name', 'name *', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::text('name', '', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'name'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('sex') ? ' has-error' : '' }}">
                 {!! Form::label('sex', 'sex *', ['class' => 'col-sm-3 control-label']) !!}
-                <div class="col-sm-9">
-                    {!! Form::radio('sex', '0', ['checked' => 'checked']) !!} man
-                    {!! Form::radio('sex', '1') !!} vrouw
+                <div class="col-sm-2">
+                    {!! Form::radio('sex', '0', false,['checked' => 'checked','id'=>'man']) !!}
+                    {!! Form::label('man', 'male') !!}</br>
+                    {!! Form::radio('sex', '1',false,['id'=>'female']) !!}
+                    {!! Form::label('female', 'female') !!}</br>
+                    @include('functions.error',['err' => 'sex'])
+                </div>
+                {!! Form::label('searchFor', 'I search', ['class' => 'col-sm-3 control-label']) !!}
+                <div class="col-sm-3">
+                    {!! Form::radio('searchFor', '0', false,['checked' => 'checked','id'=>'man']) !!}
+                    {!! Form::label('man', 'male') !!}</br>
+                    {!! Form::radio('searchFor', '1',false,['id'=>'female']) !!}
+                    {!! Form::label('female', 'female') !!}</br>
+                    @include('functions.error',['err' => 'searchFor'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('sex') ? ' has-error' : '' }}">
+
+            </div>
+            <div class="form-group {{ $errors->has('country') ? ' has-error' : '' }}">
                 {!! Form::label('country', 'country *', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::text('country', '', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'country'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('city') ? ' has-error' : '' }}">
                 {!! Form::label('city', 'city *', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::text('city', '', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'city'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('streetname') ? ' has-error' : '' }}">
                 {!! Form::label('streetname', 'street', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::text('streetname', '', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'streetname'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('housenumber') ? ' has-error' : '' }}">
                 {!! Form::label('housenumber', 'nr', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::text('housenumber', '', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'housenumber'])
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('about') ? ' has-error' : '' }}">
                 {!! Form::label('about', 'about me *', ['class' => 'col-sm-3 control-label']) !!}
                 <div class="col-sm-9">
                     {!! Form::textarea('about','', ['class' => 'form-control']) !!}
+                    @include('functions.error',['err' => 'about'])
                 </div>
             </div>
 

@@ -85,6 +85,13 @@ class Friend extends Model
 			->get();
 	}
 
+    public function scopeGetFriends($query,$user_id)
+    {
+        return $query->where('friend_id', '=', $user_id)
+            ->where('accepted', '=', true)
+            ->get();
+    }
+
 	public function scopeCheckFriendshipExist($query, $id1, $id2)
 	{
 		return $query->where('user_id', '=', $id1)

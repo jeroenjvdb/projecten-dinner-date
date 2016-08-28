@@ -312,6 +312,10 @@ textarea{
     height:290px;
 }
 
+.height-70{
+    height:70px;
+}
+
 .height-150{
     height:150px;
 }
@@ -524,4 +528,10 @@ label{
 
 .overflow-auto{
     overflow:auto;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

@@ -10,6 +10,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Carbon\Carbon;
+use Auth;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -149,5 +150,13 @@ class User extends Model implements AuthenticatableContract,
         return $query->whereIn('id',$people)
             ->select('id', 'name','surname','country','city','dateOfBirth')
             ->get() ;
+    }
+
+    public function scopeGet8($query)
+    {
+       $query->where('id','<>',Auth::id())
+        ->where('sex','=',Auth::user()->searchFor)
+        ->orderByRaw("RAND()")
+        ->take(8);
     }
 }

@@ -21,17 +21,37 @@ class visitors extends Model
      */
     protected $fillable = ['visited','visitor'];
 
+    /**
+     * @param $query
+     * @param $id
+     * @return mixed
+     */
     public function scopecheckToday($query,$id)
     {
         return $query->where('visited',$id)
             ->where('updated_at','<',Carbon::tomorrow())
             ->where('updated_at','>',Carbon::yesterday())
-            ->count();
+            ->get();
     }
 
+    /**
+     * @param $query
+     * @param $id
+     * @return mixed
+     */
     public function scopeallVisitors($query,$id)
     {
         return $query->where('visited',$id)
             ->count();
+    }
+
+    /**
+     * @param $query
+     * @param $id
+     */
+    public function scopeGetUsers($query,$id)
+    {
+        return $query->where('visitors.visited',$id)
+            ->join('users','users.id','=','visitors.visited');
     }
 }
