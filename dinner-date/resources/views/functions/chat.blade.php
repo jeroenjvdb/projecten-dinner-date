@@ -8,14 +8,16 @@
     <h1 class="margin-top-0 white font-size-50">Daters and chat</h1>
     <div class="jumbotron">
     <div class="row" id="chatbox">
-    {{-- {!! Form::open(['url' => '/home/chat/post/1']) !!} --}}
+        @if(count($friends) == 0)
+            <h2>You haven't found any daters yet.</h2>
+        @endif
     <div id="chatPersons" class="col-md-4 overflow-auto max-height-500">
         @foreach($friends as $friend)
             {{--@for($i = 0; $i<5;$i++)--}}
-                <div class="row chatPerson" id="{{ $friend->id }}">
+                <div class="row">
                     <div class="col-md-7 padding-bottom-10">
                         @if(count($friend->pictures))
-                            <img src="{{ $friend->pictures->first()['picture_url'] }}" class=" hover-border" alt="">
+                            <img src="{{ $friend->pictures->first()['picture_url'] }}" class=" " alt="">
                         @else
                             <img src="/img/no-pic.jpg" alt="">
                         @endif
@@ -32,7 +34,10 @@
                         </div>
                         @endif
                         <div class="row padding-top-10">
-                        <a  class="btn btn-danger" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>
+                            <a  class="btn btn-default bg-blue white chatPerson" id="{{ $friend->id }}">chat</a>
+                        </div>
+                        <div class="row padding-top-10">
+                            <a  class="btn btn-danger" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>
                         </div>
                     </div>
                 </div>

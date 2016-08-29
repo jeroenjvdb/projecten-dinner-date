@@ -67,9 +67,10 @@
     @if(Auth::check())
 
         <script>
+//            var location = window.location.href;
             $.ajax({
                 type: 'get',
-                url: 'unseen/',
+                url: location+'unseen/',
                 success: function(data){
                     if(data > 0){
                         $('#message').removeClass('hide')
@@ -79,7 +80,7 @@
             setInterval(function() {
                 $.ajax({
                     type: 'get',
-                    url: 'unseen/',
+                    url: location+'/unseen/',
                     success: function(data){
                         if(data > 0){
                             $('#message').removeClass('hide')

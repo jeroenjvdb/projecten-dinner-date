@@ -63,7 +63,7 @@
         </div>
     </div>
 </div>
-    <div class="jumbotron row">
+    <div class="jumbotron margin-bottom-40 row">
         <h1>{{ $profile->surname . " " . $profile->name }}</h1>
     <div class="col-sm-offset-1 col-sm-11">
         @include('dashboard.partials.info')
@@ -71,7 +71,7 @@
     </div>
 
 
-<div class="jumbotron row">
+<div class="jumbotron margin-bottom-40 row">
     <h1>Food profile </h1>
     <div class="col-sm-offset-1 col-sm-11">
             @include('dashboard.foodprofile.tasteprofile')
@@ -79,7 +79,7 @@
             @include('dashboard.foodprofile.allergies')
     </div>
 </div>
-<div class="jumbotron row">
+<div class="jumbotron margin-bottom-40 row">
     <h1>
         Dishes
     </h1>

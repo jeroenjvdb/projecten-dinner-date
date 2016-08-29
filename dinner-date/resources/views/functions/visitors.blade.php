@@ -5,12 +5,7 @@
 @stop
 
 @section('body')
-    <h1 class="font-size-50 white margin-top-0">Today's visitors
-        <br>
-        <a class="color-black" href="{{ URL::previous() }}">
-            <small class="start-sentence">Back</small>
-        </a>
-    </h1>
+    <h1 class="font-size-50 white margin-top-0">Today's visitors </h1>
     <div class="jumbotron">
         <div class="row">
             @foreach($visitors as $key => $item)
@@ -39,6 +34,11 @@
 
         </div>
     </div>
+    <h1>
+        <a class="color-black" href="{{ URL::previous() }}">
+            <small class="start-sentence">Back</small>
+        </a>
+    </h1>
 
 @stop
 

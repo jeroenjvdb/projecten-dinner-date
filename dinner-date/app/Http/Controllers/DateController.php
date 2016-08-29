@@ -46,6 +46,11 @@ class DateController extends Controller
     {
         $tomorrow  = Carbon::tomorrow();
         $getDishes = $this->dishes->where('user_id', Auth::id())->get();
+
+        if (count($getDishes) == 0 ){
+            return redirect()->route('dishCreate')->withErrors(['no dish'=> 'First create a dish before creating a date.']);
+        }
+
         $dishes = [];
         foreach ($getDishes as $dish) {
             $dishes[$dish->id]=$dish->name;
@@ -134,5 +139,26 @@ class DateController extends Controller
         $dates = $dates->ExtraInfoSelect()
             ->get();
         return response()->json($dates);
+    }
+
+
+    public function randomDate()
+    {
+        $dates = $this->date->where('date','>=',Carbon::tomorrow())
+            ->ExtraInfo()
+            ->ExtraInfoSelect()
+            ->where('users.sex','=',Auth::user()->searchFor)
+            ->where('users.id','<>',Auth::id())
+            ->orderByRaw("RAND()")
+            ->take(4)
+            ->get();
+
+//        dd($dates);
+        $data = [
+            'dates' => $dates,
+            'random' => true,
+        ];
+
+        return view('dates.mydates')->with($data);
     }
 }

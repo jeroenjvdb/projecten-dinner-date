@@ -13,10 +13,6 @@
 		@else
 			Dishes
 		@endif
-			<br>
-			<a class="color-black" href="{{ URL::previous() }}">
-				<small class="start-sentence">Back</small>
-			</a>
 	</h1>
 	<div class="jumbotron">
 		<div class="row">
@@ -31,7 +27,7 @@
 			@foreach($dishes as $dish)
 				<a class="color-black" href="{{'/dish/show/' .  $dish->id}}">
 					<div class="col-sm-4 dish" dish-id="{{ $dish->id }}">
-						<img src="{{ $dish->photo_url }}" class="img-responsive height-290" alt="{{ $dish->name }}">
+						<img src="{{ $dish->photo_url }}" class="img-responsive max-height-200" alt="{{ $dish->name }}">
 						<h2>{{ $dish->name }}</h2>
 						@for($i = 1; $i<6; $i++)
 							{{--@if($dish->rating() == $i )--}}
@@ -46,6 +42,13 @@
 		<div class="row blue">
 			<center>{!! $dishes->render() !!}</center>
 		</div>
-	</div>
 	@endif
+	</div>
+
+	<h1>
+		<a class="color-black" href="{{ URL::previous() }}">
+			<small class="start-sentence">Back</small>
+		</a>
+	</h1>
+
 @endsection

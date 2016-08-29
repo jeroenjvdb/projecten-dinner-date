@@ -1,16 +1,27 @@
 @extends('master')
 
 @section('title')
-    My Dates
+    Dates
 @endsection
 
 @section('body')
 
-<h1 class="white font-size-50 margin-top-0">My dates</h1>
+    @if(isset($random))
+        <h1 class="white font-size-50 margin-top-0">Random dates</h1>
+    @else
+        <h1 class="white font-size-50 margin-top-0">My dates</h1>
+    @endif
 <div class="jumbotron">
     <div class="row">
         @if(count($dates)==0)
         <h2>You don't have any dates created.</h2>
+        @endif
+        @if(isset($random))
+            <div class="row">
+                <div class="col-sm-3 padding-top-botton-10 margin-top-0">
+                    <a class="btn btn-default bg-blue white font-size-18" href="{{ route('compare') }}">Randomize</a>
+                </div>
+            </div>
         @endif
         @foreach($dates as $date)
             <a class="color-black" href="{{'/dates/show/' .  $date->id}}">
@@ -18,14 +29,14 @@
                     {{--{{dd($date)}}--}}
                     <div class="row">
                         <div class="col-sm-6">
-                            <img src="{{ $date->photo_url }}" class="img-responsive" alt="{{ $date->name }}">
+                            <img src="{{ $date->photo_url }}" class="img-responsive max-height-290" alt="{{ $date->name }}">
                         </div>
                         <div class="col-sm-6">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <h4>{{$date->dish_name}}</h4>
                                     <p>
-                                        {{$date->date}} -
+                                        {{$date->date}} <br>
                                         {{$date->area}}
                                     </p>
                                     <p>

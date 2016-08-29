@@ -9,12 +9,14 @@
                 <span class="icon-bar"></span>
             </button>
             @if(Auth::guest())
-                <a class="navbar-brand text-capitalize" href="{{ route('homepage') }}">home</a>
+                <a class="navbar-brand text-capitalize" href="{{ route('homepage') }}">
+                    <img src="/img/logo.png" class="max-height-40 max-width-40" alt="">
+                </a>
             @else
                 <a class="navbar-brand text-capitalize" href="{{ route('dashboard') }}">
-                    <span class="{{(Request::is('home') ? 'nav-active' : '')}}">
-                        home
-                    </span>
+{{--                    <span class="{{(Request::is('home') ? 'nav-active' : '')}}">--}}
+                        <img src="/img/logo.png" class="max-height-40 max-width-40" alt="">
+                    {{--</span>--}}
                 </a>
             @endif
         </div>
@@ -69,13 +71,21 @@
                     </li>
                     <li>
                         <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">
-                            <span class="{{(Request::is('getRequests') ? 'nav-active' : '')}}"> Date requests</span>
+                            <span class="{{(Request::is('daters/requests') ? 'nav-active' : '')}}"> Date requests</span>
                         </a>
                     </li>
-                    <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">
-                            <span class="{{(Request::is('getRequests') ? 'nav-active' : '')}}"> Find me a date </span>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="{{(Request::is('compare') || Request::is('random') ? 'nav-active' : '')}}">
+                                Find me a
+                                <span class="caret"></span>
+                            </span>
                         </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ route('random') }}">date</a></li>
+                            <li><a href="{{ route('compare') }}">dater</a></li>
+                        </ul>
                     </li>
                 </ul>
                 @endif
