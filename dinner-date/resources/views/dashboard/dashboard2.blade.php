@@ -5,6 +5,13 @@
 @stop
 
 @section('body')
+    @if(count($errors) > 0)
+        <div class="model error no-decoration">
+            <ul class="round">
+                <li>An error has occured during updating, please open last edit screen</li>
+            </ul>
+        </div>
+    @endif
     @include('dashboard.update.updateTaste')
     @include('dashboard.update.updateKitchen')
     @include('dashboard.update.updateAllergies')
@@ -13,42 +20,45 @@
     @include('dashboard.picturesModal')
 <h1 class="white font-size-50 margin-top-0">Profile</h1>
 <div class="jumbotron row">
+
     <center><h2>Welcom {{$profile->surname }}</h2></center>
     @include('dashboard.partials.pictures')
 
-    <div class="row padding-top-20">
-        <div class="col-xs-4 col-md-4">
+    <div class="row padding-top-40">
+        <div class="col-xs-4 col-md-4 padding-0">
             <a href="{{ route('visitors') }}">
-                <div class="col-md-offset-4">
+                <center>
+                {{--<div class="col-md-offset-4">--}}
                     <div class="round bg-blue height-100 width-100 white text-center">
-                        <i class="fa fa-users fa-2x padding-top-10" aria-hidden="true"></i>
-                        <p>{{$visitorsToday}}</p>
+                        <i class="fa fa-users fa-3x padding-top-10" aria-hidden="true"></i>
+                        <p class=""> <span class="font-size-18">{{$visitorsToday}}</span></p>
                         {{--<p>Visitors</p>--}}
                     </div>
-                </div>
-                <p class="col-md-offset-5">Visitors</p>
+                {{--</div>--}}
+                </center>
+                <p class="col-md-offset-0"><center>Visitors</center> </p>
             </a>
         </div>
-        <div class="col-xs-4 col-md-4">
+        <div class="col-xs-4 col-md-4 padding-0">
             <a href="{{ route('getRequests') }}">
-                <div class="col-md-offset-4 ">
+                <center>
                     <div class="round bg-blue height-100 width-100 white text-center">
-                            <i class="fa fa-user-plus fa-2x padding-top-10" aria-hidden="true"></i>
-                           <p>{{$daterequests}}</p>
+                            <i class="fa fa-user-plus fa-3x padding-top-10" aria-hidden="true"></i>
+                           <p><span class="font-size-18">{{$daterequests}}</span></p>
                     </div>
-                </div>
-                <p class="col-md-offset-4"> Date requests</p>
+                </center>
+                <p class="col-md-offset-0"><center>Date requests</center> </p>
             </a>
         </div>
-        <div class="col-xs-4 col-md-4">
+        <div class="col-xs-4 col-md-4 padding-0">
             <a href="{{ route('chat') }}">
-                <div class="col-md-offset-4 ">
+                <center>
                     <div class="round bg-blue height-100 width-100 white text-center">
-                            <i class="fa fa-heart fa-2x padding-top-10" aria-hidden="true"></i>
-                           <p>{{$daters}}</p>
+                            <i class="fa fa-heart fa-3x padding-top-10" aria-hidden="true"></i>
+                           <p><span class="font-size-18">{{$daters}}</span></p>
                     </div>
-                </div>
-                <p class="col-md-offset-5"> Daters </p>
+                </center>
+                <p class="col-md-offset-0"><center>Daters</center> </p>
             </a>
         </div>
     </div>

@@ -25,8 +25,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'setup'], function () {
         Route::get('/step1',['as' => 'step1', 'uses' => 'SetupController@step1']);
-        Route::post('/profile', ['as' => 'setupProfile', 'uses' => 'SetupController@updateProfile']);
-        Route::post('/food', ['as' => 'setupFood', 'uses' => 'SetupController@updateFood']);
+        Route::post('/step1/post', ['as' => 'step1.post', 'uses' => 'SetupController@updateProfile']);
+        Route::get('/step2', ['as' => 'step2', 'uses' => 'SetupController@step2']);
+        Route::post('/step2/post', ['as' => 'step2.post', 'uses' => 'SetupController@updateFood']);
+//        Route::post('/food', ['as' => 'setupFood', 'uses' => function(){
+//            dd('test');
+//        }]);
         Route::post('/taste', ['as' => 'setupTaste', 'uses' => 'SetupController@updateTaste']);
     });
 
@@ -55,7 +59,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
     Route::group(['prefix' => 'dish'], function () {
-        Route::get('/', ['as' => 'dishIndex', 'uses' => 'DishController@index']);
+        Route::get('/all', ['as' => 'dishIndex', 'uses' => 'DishController@index']);
         Route::get('/my', ['as' => 'myDishes', 'uses' => 'DishController@myDishes']);
         Route::get('/delete/{id}', ['as' => 'deleteDish', 'uses' => 'DishController@delete']);
         Route::get('/edit/{id}', ['as' => 'editDish', 'uses' => 'DishController@edit']);
@@ -96,5 +100,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', ['as' => 'chat','uses' => 'ChatController@getChat']);
         Route::get('/{id}', ['uses' => 'ChatController@index']);
         Route::post('/post/{id}', ['uses' => 'ChatController@create']);
+        Route::get('/unseen', ['uses' => 'ChatController@unseen']);
     });
+    Route::get('/unseen', ['uses' => 'ChatController@unseen']);
+
 });

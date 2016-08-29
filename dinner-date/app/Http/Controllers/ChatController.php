@@ -59,6 +59,18 @@ class ChatController extends Controller
         $friends = $this->user->find(Auth::id())
             ->friends()
             ->get() ;
+        foreach ($friends as $key => $friend)
+        {
+            $unseen = $this->chat->where('receiver_id',Auth::id())
+                ->where('sender_id','=',$friend->id)
+                ->where('seen',0)
+                ->get();
+            $friend->seen = 1;
+            if(count($unseen)>0)
+            {
+                $friend->seen = 0;
+            }
+        }
 
         return view('functions.chat')->with(['friends' =>$friends]);
     }
@@ -69,7 +81,15 @@ class ChatController extends Controller
      */
     public function index($id)
     {
-        $messages = $this->chat->where('sender_id', '=', $id)->orwhere('receiver_id', '=', $id)->orderby('id','DESC')->take(10)->get();
+        $this->chat->where('receiver_id',Auth::id())
+            ->where('sender_id',$id)
+            ->update(['seen' => 1]);
+
+        $messages = $this->chat->GetMessages($id)
+            ->orderby('id','DESC')
+            ->take(10)
+            ->get();
+
         $messages = $messages->reverse();
         foreach($messages as $message)
         {
@@ -106,5 +126,16 @@ class ChatController extends Controller
 
         event(new ChatEvent(Auth::user()->id,$id));
         return response()->json($message);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function unseen()
+    {
+        $unseen = $this->chat->where('receiver_id',Auth::id())
+            ->where('seen',0)
+            ->get();
+        return count($unseen);
     }
 }

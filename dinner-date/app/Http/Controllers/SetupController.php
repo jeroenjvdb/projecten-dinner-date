@@ -42,23 +42,30 @@ class SetupController extends Controller
     {
         return view('Auth.setup.step1');
     }
+    public function step2()
+    {
+        return view('Auth.setup.step2');
+    }
+    public function step3()
+    {
+        return view('Auth.setup.step3');
+    }
 
-    //////////////////HELPER///////////////////
 
     /**
      * @param UpdateProfileRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function updateProfile(UpdateProfileRequest $request)
     {
         $this->update($request->all());
 
-        return view('Auth.setup.step2');
+        return redirect()->route('step2');
     }
 
     /**
      * @param UpdateFoodRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function updateFood(UpdateFoodRequest $request)
     {

@@ -42,20 +42,33 @@
 			<div class="col-sm-8 col-sm-offset-1">
 				<div class="row">
 					<h1>{{ $profile->surname . " " . $profile->name }}
-						<a class="green" href="{{ route('addFriend', array( $profile->id )) }}">
-							{{--<button>send friendship request</button>--}}
-							<i class="fa fa-heart" aria-hidden="true"></i>
-						</a>
+						@if($friend)
+							<i class="fa fa-heart red" aria-hidden="true"></i>
+						@else
+							<a class="green-heart" href="{{ route('addFriend', array( $profile->id )) }}">
+								{{--<button>send friendship request</button>--}}
+								<i class="fa fa-heart" aria-hidden="true"></i>
+							</a>
+						@endif
 					</h1>
 					<div class="col-sm-6">
 						<h2>Info</h2>
-						@if( $profile->age < 2000)
-							<p>leeftijd: {!! $profile->age !!}
-						@endif
+						<p>
+							@if( $profile->age<2000)
+								Age: {!! $profile->age !!}y
+							@endif
+							<br> Sex:
 							@if($profile->sex == 0)
-									<br>man
+								Man
 							@else
-									<br>vrouw
+								Female
+							@endif
+							<br>
+							Looks for:
+							@if($profile->searchFor == 0)
+								Male
+							@else
+								Female
 							@endif
 						</p>
 						<h3>Residence</h3>

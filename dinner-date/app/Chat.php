@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Chat extends Model
@@ -18,7 +19,7 @@ class Chat extends Model
      *
      * @var array
      */
-    protected $fillable = ['messages', 'created_at'];
+    protected $fillable = ['messages', 'created_at','seen','receiver_id','sender_id'];
 
     public function sender(){
     	return $this->belongsTo('App\User', 'sender_id', 'id');
@@ -39,6 +40,18 @@ class Chat extends Model
     public function getMessageAttribute($val)
     {
         return htmlentities($val);
+    }
+
+    public function scopeGetMessages($query,$id)
+    {
+       return $query ->where(function ($query) use($id){
+                $query->where('sender_id', '=', $id)
+                    ->where('receiver_id', '=', Auth::id());
+            })
+            ->orWhere(function ($query) use($id) {
+                $query->where('receiver_id', '=', $id)
+                    ->where('sender_id', '=', Auth::id());
+            });
     }
 
     

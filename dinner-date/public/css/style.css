@@ -94,7 +94,7 @@ body {
 .content {
     text-align: center;
     display: inline-block;
-    
+
 }
 
 .title {
@@ -139,9 +139,9 @@ h3{
     /*height: 70px;*/
 }
 
-span{
-    font-size:1.2em;
-}
+/*span{*/
+    /*font-size:1.2em;*/
+/*}*/
 
 .clickable{
     cursor: pointer;
@@ -324,6 +324,13 @@ textarea{
     height:100px;
 }
 
+.height-25{
+    height:25px;
+}
+
+.height-auto{
+    height: auto;
+}
 .width-50{
      width:50px;
  }
@@ -342,6 +349,10 @@ textarea{
 
 .width-150{
     width:150px;
+}
+
+.width-87{
+    width:87px;
 }
 /**************************colors*******************************/
 
@@ -365,8 +376,12 @@ textarea{
     background-color: #df0700;
 }
 
-.green{
+.green, .green-heart{
     color: #82ae00;
+}
+
+.green-heart:hover{
+    color:#df0700;
 }
 
 .red{
@@ -444,6 +459,14 @@ textarea{
     margin-top:0;
 }
 
+.margin-top-5{
+    margin-top:5px;
+}
+
+.margin-top-10{
+    margin-top:10px;
+}
+
 /**************************padding*******************************/
 
 .padding-0{
@@ -468,8 +491,20 @@ textarea{
     padding-top: 10px;
 }
 
+.padding-left-10{
+    padding-left: 10px;
+}
+
 .padding-top-20{
     padding-top: 20px;
+}
+
+.padding-top-30{
+    padding-top: 30px;
+}
+
+.padding-top-40{
+    padding-top: 40px;
 }
 
 .padding-bottom-10{
@@ -480,6 +515,9 @@ textarea{
     padding-bottom: 20px;
 }
 
+.margin-left-15{
+    margin-left: 15px;
+}
 /**************************decoration*******************************/
 
 .no-decoration ul{
@@ -534,4 +572,8 @@ label{
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+.nav-active{
+    font-weight: bold;
 }

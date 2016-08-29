@@ -44,18 +44,20 @@
 						</select></h3></div>
 				<div class="col-sm-6"><h3>Rate:
 						<select id="example">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
+							<option value="1" {{($rating == 1 ? 'selected' :'' )}}>1</option>
+							<option value="2" {{($rating == 2 ? 'selected' :'' )}}>2</option>
+							<option value="3" {{($rating == 3 ? 'selected' :'' )}}>3</option>
+							<option value="4" {{($rating == 4 ? 'selected' :'' )}}>4</option>
+							<option value="5" {{($rating == 5 ? 'selected' :'' )}}>5</option>
 						</select>
 					</h3>
 				</div>
-				<div class="col-sm-12"><h3>Description:</h3>
-
-					<p><strong>{{ $dish->sDescription }}</strong></p>
-				</div>
+				{{--<div class="row">--}}
+					<div class="col-sm-6"><h3>Description:</h3></div>
+					<div class="col-sm-6"><a href="https://www.facebook.com/sharer/sharer.php?u=YourPageLink.com&display=popup">
+							<img src="/img/fb_button.png" class="height-25 width-87" alt=""> </a></div>
+					<div class="col-sm-12"><strong>{{ $dish->sDescription }}</strong></div>
+				{{--</div>--}}
 			</div>
 
 		</div>
@@ -63,7 +65,7 @@
 	</div>
 
 	<div class=" jumbotron row">
-		<div class="col-sm-offset-1 col-sm-3">
+		<div class="col-sm-offset-0 col-sm-3">
 			<h2>Ingredients</h2>
 			<ul>
 				@foreach($dish->ingredientArray as $ingredient)
@@ -71,7 +73,7 @@
 				@endforeach
 			</ul>
 		</div>
-		<div class="col-sm-8">
+		<div class="col-sm-offset-1 col-sm-8">
 			<h2>Preparation</h2>
 			<p>{{ $dish->preparations }}</p>
 

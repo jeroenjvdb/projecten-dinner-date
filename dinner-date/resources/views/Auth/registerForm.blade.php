@@ -1,24 +1,24 @@
-<div class="inPictures col-md-4 ">
+<div class="inPictures col-md-4 col-lg-3 ">
 
 	<div class="row register text-capitalize ">
 		<div class="row">
-			@if(count($errors) > 0)
-				<div class="col-sm-offset-2 col-sm-8 error no-decoration">
-					<ul>
-						@foreach ($errors->all() as $error)
-							<li>{{ $error }}</li>
-						@endforeach
+			{{--@if(count($errors) > 0)--}}
+				{{--<div class="col-sm-offset-2 col-sm-8 error no-decoration">--}}
+					{{--<ul>--}}
+						{{--@foreach ($errors->all() as $error)--}}
+							{{--<li>{{ $error }}</li>--}}
+						{{--@endforeach--}}
 
-					</ul>
-				</div>
-			@endif
-			@if(Session::get('success'))
-				<div class="model success">
-					<ul>
-						<li>{{ Session::get('success') }}</li>
-					</ul>
-				</div>
-			@endif
+					{{--</ul>--}}
+				{{--</div>--}}
+			{{--@endif--}}
+			{{--@if(Session::get('success'))--}}
+				{{--<div class="model success">--}}
+					{{--<ul>--}}
+						{{--<li>{{ Session::get('success') }}</li>--}}
+					{{--</ul>--}}
+				{{--</div>--}}
+			{{--@endif--}}
 		</div>
 		<div class="row bg-red border-radius-top-6 white">
 			<div class="text-center">
@@ -29,27 +29,33 @@
 		<div class="row bg-white border-radius-bottom-6">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-bottom-10">
 				{!! Form::open(array('url' => route('register'), 'method' => 'post', 'class' => 'form-horizontal')) !!}
-					<div class="form-group">
+					<div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
 {{--						{!! Form::label('email', 'Email', ['class' => 'col-xs-3 control-label']) !!}--}}
 						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 							<span class="input-group-addon" id="basic-addon1"> <span class="glyphicon glyphicon-envelope"></span></span>
-
 							{!! Form::text('email', '', array('placeholder' => 'example@test.be', 'class' => 'form-control', "aria-describedby"=>"basic-addon1")) !!}
 						</div>
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
+							@include('functions.error',['err' => 'email'])
+						</div>
 					</div>
-					<div class="form-group">
-{{--						{!! Form::label('dateOfBirth', 'birthday', ['class' => 'col-xs-3 control-label']) !!}--}}
+					<div class="form-group {{ $errors->has('dateOfBirth') ? ' has-error' : '' }}">
 						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 							<span class="input-group-addon" id="basic-addon3"> <span class="glyphicon glyphicon-calendar"></span></span>
 							{!! Form::date('dateOfBirth',$min=$before, ['class' => 'form-control',"aria-describedby"=>"basic-addon3"]) !!}
 						</div>
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
+							@include('functions.error',['err' => 'dateOfBirth'])
+						</div>
 					</div>
-					<div class="form-group">
-{{--						{!! Form::label('password', 'password', ['class' => 'col-xs-3 control-label']) !!}--}}
+					<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
 							<span class="input-group-addon" id="basic-addon2"> <span class="glyphicon glyphicon-lock"></span></span>
 							{!! Form::password('password',  ['class' => 'form-control',"aria-describedby"=>"basic-addon2 basic-addon4",'id'=>'password']) !!}
 							<span id="showPassword" class="input-group-addon" id="basic-addon4"><i class="fa fa-eye" aria-hidden="true"></i></span>
+						</div>
+						<div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10 col-lg-offset-1 col-lg-10 input-group">
+							@include('functions.error',['err' => 'password'])
 						</div>
 					</div>
 					<div class="form-group">

@@ -18,6 +18,7 @@ use Auth;
 use Illuminate\Support\Facades\Redirect;
 use Carbon\Carbon;
 use App\Http\Requests\PhotoRequest;
+use Illuminate\Support\MessageBag;
 
 class PhotoController extends Controller
 {
@@ -82,7 +83,7 @@ class PhotoController extends Controller
 
         $count = $this->picture->where('user_id',Auth::user()->id)
                         ->count();
-        if($count == 5) {
+        if($count == 4) {
             $this->picture->RemoveLast(Auth::user()->id);
         }
         $new = [
@@ -92,6 +93,8 @@ class PhotoController extends Controller
             'user_id' => Auth::user()->id,
         ];
         $this->picture->create($new);
+//        $success = new MessageBag(['image' => ['succesfully added a picture']]);
+
         return redirect()->route('dashboard')->withSuccess('succesfully added a picture');
 
         return "<img src='" . $src . "'>";

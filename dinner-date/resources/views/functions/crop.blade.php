@@ -15,7 +15,8 @@ pictures
 
 @section('body')
 
-    <div class="row">
+    <h1 class="white paddin-top-0 font-size-50"> Crop</h1>
+    <div class="jumbotron row">
         <div class="span12">
             <div class="jc-demo-box">
                 <div class="col-sm-8">
@@ -27,19 +28,19 @@ pictures
                     </div>
                 </div>
                 <div class="clearfix"></div>
-
+                {!! Form::open(array('url' => route('postCrop'), 'method' => 'post','enctype' =>'multipart/form-data')) !!}
+                <?= Form::hidden('image', $image) ?>
+                <?= Form::hidden('x', '', array('id' => 'x')) ?>
+                <?= Form::hidden('y', '', array('id' => 'y')) ?>
+                <?= Form::hidden('w', '', array('id' => 'w')) ?>
+                <?= Form::hidden('h', '', array('id' => 'h')) ?>
+                {!! Form::submit('crop', ['class' => 'btn btn-default bg-blue white hide margin-left-15', 'id'=>'btn']) !!}
+                <?= Form::close() ?>
             </div>
         </div>
     </div>
 
-{!! Form::open(array('url' => route('postCrop'), 'method' => 'post','enctype' =>'multipart/form-data')) !!}
-<?= Form::hidden('image', $image) ?>
-<?= Form::hidden('x', '', array('id' => 'x')) ?>
-<?= Form::hidden('y', '', array('id' => 'y')) ?>
-<?= Form::hidden('w', '', array('id' => 'w')) ?>
-<?= Form::hidden('h', '', array('id' => 'h')) ?>
-    {!! Form::submit('crop', ['class' => 'btn btn-default hide', 'id'=>'btn']) !!}
-<?= Form::close() ?>
+
 
 <script type="text/javascript">
     $(function() {

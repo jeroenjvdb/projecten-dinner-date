@@ -86,7 +86,7 @@ class MainController extends Controller
             return redirect()->route('dashboard');
         }
 
-        dd($this->addVisitors($id));
+        $this->addVisitors($id);
 
 
         $user->age =$this->user->Age($id);
@@ -98,12 +98,22 @@ class MainController extends Controller
         $foodprofile = $this->fProfile->where('user_id',$id)->first();
         $dishes = $this->dishes->where('user_id',$id)->take(4)->get();
 
+        $checkFriend = $this->friend->where('user_id',Auth::id())
+            ->where('friend_id',$id)
+            ->first();
+
+        $friend = 0;
+        if(count($checkFriend)>0){
+            $friend = 1;
+        }
+
         $data = [
             'profile' => $user,
             'images' => $images,
             'age' => $age,
             'foodprofile' => $foodprofile,
             'dishes' => $dishes,
+            'friend' => $friend,
         ];
         
         return View('dashboard.profile')->with($data);

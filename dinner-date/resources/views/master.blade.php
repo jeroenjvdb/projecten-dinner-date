@@ -22,7 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
+    @yield('link')
     @yield('crop')
 </head>
 <body>
@@ -43,7 +43,7 @@
                 {{--</div>--}}
             {{--@endif--}}
             @if(Session::get('success'))
-                <div class="model success round">
+                <div class="model success no-decoration">
                     <ul>
                         <li>{{ Session::get('success') }}</li>
                     </ul>
@@ -64,6 +64,31 @@
 
 
     @yield('scripts')
+    @if(Auth::check())
 
+        <script>
+            $.ajax({
+                type: 'get',
+                url: 'unseen/',
+                success: function(data){
+                    if(data > 0){
+                        $('#message').removeClass('hide')
+                    }
+                }
+            });
+            setInterval(function() {
+                $.ajax({
+                    type: 'get',
+                    url: 'unseen/',
+                    success: function(data){
+                        if(data > 0){
+                            $('#message').removeClass('hide')
+                        }
+                    }
+                });
+            }, 5* 60000); //5 seconds
+
+        </script>
+    @endif
 </body>
 </html>

@@ -5,11 +5,11 @@
         <div class="col-sm-offset-2 col-sm-2">
 
         </div>
-        <div class="col-sm-offset-1 col-sm-1">
-            yes
+        <div class="col-sm-offset-1 col-sm-1 bold green">
+            <p class="">yes</p>
         </div>
-        <div class="col-sm-offset-1 col-sm-1">
-            no
+        <div class="col-sm-offset-1 col-sm-1 bold red">
+            <p  class="">no</p>
         </div>
     </div>
     <div class="row">

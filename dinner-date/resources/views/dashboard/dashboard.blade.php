@@ -10,7 +10,8 @@
     @include('dashboard.update.updateAllergies')
     @include('dashboard.update.updateProfile')
     @include('dashboard.update.updateDate')
-    @include('dashboard.picturesModal')
+    @include('dashboard.pictur
+    esModal')
 <h1 class="white font-size-50 margin-top-0">Profile 1</h1>
 <div class="jumbotron row">
     <div class="col-sm-3 profile-pics" >

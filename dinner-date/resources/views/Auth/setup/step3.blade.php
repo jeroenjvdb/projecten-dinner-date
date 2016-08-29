@@ -7,10 +7,10 @@
 @section('body')
     <div class="jumbotron">
         <div class="row setup">
-            <div class="col-sm-offset-2">
-                <h1>Food profile</h1>
-                <p>Final round of questions!</p>
-                <p>This info would be used to find people who match your Taste!</p>
+            <div class="col-sm-offset-1">
+                <h2>Food profile</h2>
+                <p>Final round of questions!
+                    <br>This info would be used to find people who match your Taste!</p>
             </div>
             <div class="col-sm-12">
                 <div class="progress">

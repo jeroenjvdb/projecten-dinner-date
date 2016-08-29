@@ -22,7 +22,7 @@
 				</div>
 				@if ($errors->has('photo'))
 					{{-- col-xs-8 col-sm-8 col-md-12 col-lg-12--}}
-					<div class="col-lg-offset-3 col-lg-9">
+					<div class="col-lg-9">
                         <span class="help-block">
                             <p>{{ $errors->first('photo') }}</p>
                         </span>

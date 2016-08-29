@@ -21,12 +21,19 @@
                         @endif
                     </div>
                     <div class="col-md-5">
+                        <div class="row padding-bottom-10">
                         <a class="color-black" href="{{ route('getProfile', $friend->id) }}">
                         {{ $friend->surname }} {{ $friend->name }}
                             </a>
-                        <br><br>
-
+                        </div>
+                        @if($friend->seen == 0)
+                        <div class="row">
+                            <i class="fa fa-envelope" id="message" aria-hidden="true"></i>
+                        </div>
+                        @endif
+                        <div class="row padding-top-10">
                         <a  class="btn btn-danger" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>
+                        </div>
                     </div>
                 </div>
             {{--@endfor--}}
@@ -52,5 +59,5 @@
 @section('scripts')
     <script src="js/changeProfile.js"></script>
     <script src="js/getChat.js"></script>
-    <script src="/js/chat.js"></script>
+    {{--<script src="/js/chat.js"></script>--}}
 @stop

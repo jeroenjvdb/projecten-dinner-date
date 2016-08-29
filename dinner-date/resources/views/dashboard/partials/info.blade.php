@@ -9,13 +9,22 @@
                     <span class="clickable glyphicon glyphicon-pencil" id="edit" ></span>
                 </a>
             @endif
+            <p>
             @if( $profile->age<2000)
-                <p>leeftijd: {!! $profile->age !!}
-                    @endif
+               Age: {!! $profile->age !!}y
+            @endif
+                    <br> Sex:
                     @if($profile->sex == 0)
-                        <br>   man
+                        Man
                     @else
-                        <br> vrouw
+                        Female
+                    @endif
+                    <br>
+                    Looks for:
+                    @if($profile->searchFor == 0)
+                        Male
+                    @else
+                        Female
                     @endif
                 </p>
 

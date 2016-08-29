@@ -46,7 +46,7 @@ class Picture extends Model
         $pic = $query->where('user_id','=',$id)
             ->orderBy('created_at', 'asc')
             ->first();
-        unlink($pic->picture_url);
+//        unlink('/'.$pic->picture_url);
         $pic->delete();
     }
 

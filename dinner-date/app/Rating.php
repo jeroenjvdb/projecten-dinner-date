@@ -41,6 +41,6 @@ class Rating extends Model
     {
         return $query->where('dish_id', '=', $dishId)
             ->where('rater_id', '=',$id)
-            ->get();
+            ->first();
     }
 }

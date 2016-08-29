@@ -128,7 +128,6 @@ class ProfileController extends Controller
     public function updateProfile(UpdateProfileRequest $request)
     {
         $this->update($request->all());
-
         return back();
     }
 
@@ -202,16 +201,13 @@ class ProfileController extends Controller
                     }
                 }
             }
-            $results[] = [
-                'user' => $profile,
-                'picture' => $this->picture->where('user_id','=',$profile->user_id)
-                    ->where('isDish','=',0)
-                    ->select('picture_url')
-                    ->first(),
-                'matching' => round($count/19*100),
-            ];
+            $profile->compare = round($count/19*100);
+            $profile->picture = $this->picture->where('user_id','=',$profile->id)
+                ->where('isDish','=',0)
+                ->select('picture_url')
+                ->first();
         }
-        return $results;
+        return $others;
     }
 
 

@@ -26,6 +26,7 @@ class UpdateFoodRequest extends Request
         return [
             'favoriteDish'          => 'required',
             'perfectDate'           => 'required|min:10',
+            'favRestaurant'         => 'required',
         ];
     }
 }

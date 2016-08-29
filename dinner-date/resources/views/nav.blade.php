@@ -11,7 +11,11 @@
             @if(Auth::guest())
                 <a class="navbar-brand text-capitalize" href="{{ route('homepage') }}">home</a>
             @else
-                <a class="navbar-brand text-capitalize" href="{{ route('dashboard') }}">home</a>
+                <a class="navbar-brand text-capitalize" href="{{ route('dashboard') }}">
+                    <span class="{{(Request::is('home') ? 'nav-active' : '')}}">
+                        home
+                    </span>
+                </a>
             @endif
         </div>
 
@@ -21,7 +25,12 @@
                 <ul class="nav navbar-nav text-capitalize">
                     <!-- <li class="active"><a href="#"> link<span class="sr-only">(current)</span></a></li>-->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dishes <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="{{(Request::is('dish/*') ? 'nav-active' : '')}}">
+                                Dishes
+                                <span class="caret"></span>
+                            </span>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('dishIndex') }}">Dishes</a></li>
                             <li><a href="{{ route('myDishes') }}">My dishes</a></li>
@@ -32,7 +41,13 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">date <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle font-size-18" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="{{(Request::is('dates/*') ? 'nav-active' : '')}}">
+                                date
+                                <span class="caret"></span>
+                            </span>
+                        </a>
+
                         <ul class="dropdown-menu">
                             <li><a href="{{ route('findDates') }}">search date</a></li>
                             <li><a href="{{ route('myDates') }}">my dates</a></li>
@@ -43,13 +58,24 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">Dates</a>
+                        <a class="navbar-brand text-capitalize" href="{{ route('chat') }}">
+                           <span class="{{(Request::is('chat') ? 'nav-active' : '')}}">
+                               Daters
+                               @if(!Request::is('chat'))
+                                <i class="fa fa-envelope-o hide" id="message" aria-hidden="true"></i>
+                               @endif
+                           </span>
+                        </a>
                     </li>
                     <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">Date requests</a>
+                        <a class="navbar-brand text-capitalize" href="{{ route('getRequests') }}">
+                            <span class="{{(Request::is('getRequests') ? 'nav-active' : '')}}"> Date requests</span>
+                        </a>
                     </li>
                     <li>
-                        <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">Find me a date</a>
+                        <a class="navbar-brand text-capitalize" href="{{ route('compare') }}">
+                            <span class="{{(Request::is('getRequests') ? 'nav-active' : '')}}"> Find me a date </span>
+                        </a>
                     </li>
                 </ul>
                 @endif

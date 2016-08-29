@@ -6,6 +6,7 @@ use App\Dish;
 use App\User;
 use Auth;
 use Validator;
+use App\Rating;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -21,13 +22,25 @@ class DishController extends Controller
     protected $dish;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
+     * @var Rating
+     */
+    protected $rating;
+    /**
      * DishController constructor.
      * @param Dish $dish
+     * @param User $user
+     * @param Rating $rating
      */
-    public function __construct(Dish $dish, User $user)
+    public function __construct(Dish $dish, User $user, Rating $rating)
     {
         $this->dish = $dish;
         $this->user = $user;
+        $this->rating = $rating;
     }
 
     /**
@@ -130,6 +143,9 @@ class DishController extends Controller
      */
     public function show($id)
     {
+        $rating = $this->rating->where('rater_id', Auth::id())
+            ->where('dish_id',$id)
+            ->first();
         $dish = $this->dish->findorfail($id);
         $ingredientArray = explode(';', $dish->ingredients);
         foreach ($ingredientArray as $key => $value) {
@@ -139,11 +155,14 @@ class DishController extends Controller
                 unset($ingredientArray[$key]);
             }
         }
-        $video = '<iframe width="420" height="315"
-                    src="'. $dish->url .'">
-                    </iframe>';
-        $dish->ingredientArray = $ingredientArray;
-        $data = ['dish' => $dish, 'video'=>$video];
+       $dish->ingredientArray = $ingredientArray;
+        if(count($rating)){
+            $rating = $rating->rating;
+        }
+        $data = [
+            'dish' => $dish,
+            'rating' => $rating,
+        ];
 
         return view('dishes.index')->with($data);
     }
