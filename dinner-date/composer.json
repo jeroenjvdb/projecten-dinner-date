@@ -10,12 +10,7 @@
         "laravelcollective/html": "5.1.*",
         "intervention/image": "^2.3",
         "predis/predis": "^1.1",
-        "kriswallsmith/buzz": "^0.15.0",
-        "mdanter/ecc": "^0.3.1",
-        "spomky-labs/base64url": "^1.0",
-        "spomky-labs/php-aes-gcm": "^1.0",
-        "davibennun/laravel-push-notification": "dev-laravel5",
-        "pragmarx/tracker": "^3.0"
+        "kriswallsmith/buzz": "^0.15.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
