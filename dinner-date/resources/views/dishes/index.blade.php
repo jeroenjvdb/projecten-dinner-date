@@ -6,28 +6,27 @@
 
 @section('body')
 	<h1 class="start-sentence font-size-50 white margin-top-0">{{ $dish->name }}
-		@if(Auth::id() == $dish->user_id)
-		<a class="color-black" href="{{ route('editDish', $dish->id ) }}">
-		<span class="clickable glyphicon glyphicon-pencil"></span>
-		</a>
-		<a class="color-black" href="{{ route('deleteDish', $dish->id ) }}">
-		<span class="clickable glyphicon glyphicon-remove"></span>
-		</a>
-		@endif
 		</br>
 		<a class="color-black" href="{{ route('getProfile', $dish->user_id ) }}">
 			<small class="start-sentence">{{$dish->user->fullName() }}</small>
-		</a> -
-		<a class="color-black" href="{{ URL::previous() }}">
-			<small class="start-sentence">Back</small>
 		</a>
+		@if(Auth::id() == $dish->user_id)
+			-
+			<a class="color-black" href="{{ route('editDish', $dish->id ) }}">
+				<small><span class="clickable glyphicon glyphicon-pencil"></span></small>
+			</a>
+		-
+			<a class="color-black" href="{{ route('deleteDish', $dish->id ) }}">
+				<small><span class="clickable glyphicon glyphicon-remove"></span></small>
+			</a>
+		@endif
 	</h1>
 	<div class="jumbotron margin-bottom-30 row">
 	<div class="row">
 		<div class="row">
 		</div>
 		<div class="col-sm-4 height-290">
-			<img class="height-290 width-320 img-responsive" src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
+			<img class="max-height-290 width-320 img-responsive" src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
 		</div>
 		<div class="col-sm-8">
 			<div class="row">
@@ -64,7 +63,7 @@
 	</div>
 
 	<div class=" jumbotron row">
-		<div class="col-sm-offset-0 col-sm-3">
+		<div class="col-sm-offset-0 col-sm-4">
 			<h2>Ingredients</h2>
 			<ul>
 				@foreach($dish->ingredientArray as $ingredient)
@@ -72,7 +71,7 @@
 				@endforeach
 			</ul>
 		</div>
-		<div class="col-sm-offset-1 col-sm-8">
+		<div class="col-sm-offset-0 col-sm-8">
 			<h2>Preparation</h2>
 			<p>{{ $dish->preparations }}</p>
 
@@ -83,6 +82,10 @@
 
 		</div>
 	</div>
+	<h1><a class="color-black" href="{{ URL::previous() }}">
+			<small class="start-sentence">Back</small>
+		</a></h1>
+
 @endsection
 @section('scripts')
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

@@ -29,7 +29,7 @@ class CreateDateRequest extends Request
             'area' => 'required|max:255',
             'dish_id' => 'required',
             'description' => 'required|min:20',
-            'preference' => 'required|numeric',
+//            'preference' => 'required|numeric',
             'typeOfDate' => 'required|numeric',
         ];
     }

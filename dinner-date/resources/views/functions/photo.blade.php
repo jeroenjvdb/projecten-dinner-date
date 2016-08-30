@@ -31,7 +31,7 @@
 			</div>
 			<div class="form-group">
 				<div class="">
-					{!! Form::submit('Add Picture', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
+					{!! Form::submit('Add picture', ['class' => 'btn btn-default width-100pc bg-blue white font-size-18']) !!}
 				</div>
 			</div>
 			{!! Form::close() !!}

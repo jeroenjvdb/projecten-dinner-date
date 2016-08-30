@@ -63,7 +63,7 @@ class Date extends Model
     {
         return $query->select(
             'dates.id as id',
-            'users.surname as user_name', 'dishes.name as dish_name',
+            'users.surname as user_name', 'users.name as name', 'dishes.name as dish_name',
             'photo_url','date', 'description','typeofdate','area',
             'users.id as user_id','users.sex'
         );

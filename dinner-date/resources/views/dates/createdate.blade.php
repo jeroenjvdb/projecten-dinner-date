@@ -7,10 +7,7 @@
 @section('body')
 {{--	{{dd($errors)}}--}}
 	<h1 class="font-size-50 white margin-top-0">Create Date
-		<br>
-		<a class="color-black" href="{{ URL::previous() }}">
-			<small class="start-sentence">Back</small>
-		</a>
+
 	</h1>
 {{--	{{dd($dishes)}}--}}
 <div class="jumbotron">
@@ -69,23 +66,23 @@
 				@endif
 			</div>
 		</div>
-		<div class="form-group {{ $errors->has('preference') ? ' has-error' : '' }}">
-			{!! Form::label('preference', 'Prefered company', ['class' => 'col-xs-3 control-label']) !!}
-			<div class="col-xs-9">
-				{!! Form::radio('preference', '0',true,['id'=>'man']) !!}
-				{!! Form::label('man', 'Male') !!}</br>
+		{{--<div class="form-group {{ $errors->has('preference') ? ' has-error' : '' }}">--}}
+			{{--{!! Form::label('preference', 'Prefered company', ['class' => 'col-xs-3 control-label']) !!}--}}
+			{{--<div class="col-xs-9">--}}
+				{{--{!! Form::radio('preference', '0',true,['id'=>'man']) !!}--}}
+				{{--{!! Form::label('man', 'Male') !!}</br>--}}
 
-				{!! Form::radio('preference', '1',false,['id'=>'female']) !!}
-				{!! Form::label('female', 'Female') !!}
-				@if ($errors->has('preference'))
-					<div class="">
-                        <span class="help-block">
-                            <p>{{ $errors->first('preference') }}</p>
-						</span>
-					</div>
-				@endif
-			</div>
-		</div>
+				{{--{!! Form::radio('preference', '1',false,['id'=>'female']) !!}--}}
+				{{--{!! Form::label('female', 'Female') !!}--}}
+				{{--@if ($errors->has('preference'))--}}
+					{{--<div class="">--}}
+                        {{--<span class="help-block">--}}
+                            {{--<p>{{ $errors->first('preference') }}</p>--}}
+						{{--</span>--}}
+					{{--</div>--}}
+				{{--@endif--}}
+			{{--</div>--}}
+		{{--</div>--}}
 		<div class="form-group {{ $errors->has('typeOfDate') ? ' has-error' : '' }}">
 			{!! Form::label('typeOfDate', 'What kind of date?', ['class' => 'col-xs-3 control-label']) !!}
 			<div class="col-xs-9">
@@ -105,10 +102,14 @@
 		</div>
 		<div class="form-group">
 			<div class="col-xs-offset-3 col-xs-9">
-				{!! Form::submit('Create a date', ['class' => 'btn btn-default form-control bg-blue white font-size-18']) !!}
+				{!! Form::submit('Create a date', ['class' => 'btn btn-default width-100pc bg-blue white font-size-18']) !!}
 			</div>
 		</div>
 	</div>
 	{!! Form::close() !!}
 </div>
+<h1>
+<a class="color-black" href="{{ URL::previous() }}">
+	<small class="start-sentence">Back</small>
+</a></h1>
 @endsection

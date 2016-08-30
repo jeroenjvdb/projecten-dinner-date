@@ -5,7 +5,10 @@
 @endsection
 
 @section('body')
-    <h1 class="white font-size-50 margin-top-0">Date
+    <h1 class="white font-size-50 margin-top-0">Date with
+        <a class="color-black white" href="{{ route('getProfile', $date->user_id ) }}">
+            {{$date->user_name}} {{$date->name}}
+        </a>
     </h1>
     <div class=" jumbotron row">
         <div class="col-sm-5">
@@ -45,7 +48,7 @@
                     pure culinary
                 @endif
             </p>
-            <h3>The date</h3>
+            <h3>The date:</h3>
             <p>
                 {{ $date->description,0,100 }}
             </p>
@@ -53,11 +56,6 @@
                 {{$date->date}} <br>
                 {{$date->area}}
             </p>
-
-            <h3>With:</h3>
-            <a class="" href="{{ route('getProfile', $date->user_id) }}">
-                <p>{{$date->user_name}}</p>
-            </a>
         </div>
     </div>
     <h1>
