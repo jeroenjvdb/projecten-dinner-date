@@ -67,10 +67,10 @@
     @if(Auth::check())
 
         <script>
-//            var location = window.location.href;
+            var baseUrl = document.location.origin;
             $.ajax({
                 type: 'get',
-                url: location+'unseen/',
+                url: baseUrl+'/unseen/',
                 success: function(data){
                     if(data > 0){
                         $('#message').removeClass('hide')

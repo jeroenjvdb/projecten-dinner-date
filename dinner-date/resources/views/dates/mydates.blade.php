@@ -17,6 +17,7 @@
         <h2>You don't have any dates created.</h2>
         @endif
         @if(isset($random))
+                <h2 class="blue">Here you find four random dates. <br> Click randomize for four new random dates.</h2>
             <div class="row">
                 <div class="col-sm-3 padding-top-botton-10 margin-top-0">
                     <a class="btn btn-default bg-blue white font-size-18" href="{{ route('compare') }}">Randomize</a>

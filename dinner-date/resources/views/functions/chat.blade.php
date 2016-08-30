@@ -7,10 +7,12 @@
 @section('body')
     <h1 class="margin-top-0 white font-size-50">Daters and chat</h1>
     <div class="jumbotron">
-    <div class="row" id="chatbox">
         @if(count($friends) == 0)
-            <h2>You haven't found any daters yet.</h2>
+            <div class="row"><h3 class="blue">You haven't found any daters yet.</h3></div>
+        @else
+            <div class="row blue"> <h3>Start chatting! Make this date happen!</h3><br></div>
         @endif
+    <div class="row" id="chatbox">
     <div id="chatPersons" class="col-md-4 overflow-auto max-height-500">
         @foreach($friends as $friend)
             {{--@for($i = 0; $i<5;$i++)--}}
@@ -27,6 +29,9 @@
                         <a class="color-black" href="{{ route('getProfile', $friend->id) }}">
                         {{ $friend->surname }} {{ $friend->name }}
                             </a>
+                            @if($friend->seen == 0)
+                                <i class="fa fa-envelope" id="message" aria-hidden="true"></i>
+                            @endif
                         </div>
                         @if($friend->seen == 0)
                         <div class="row">
@@ -34,10 +39,10 @@
                         </div>
                         @endif
                         <div class="row padding-top-10">
-                            <a  class="btn btn-default bg-blue white chatPerson" id="{{ $friend->id }}">chat</a>
+                            <a  class="btn btn-default bg-blue white chatPerson width-100pc" id="{{ $friend->id }}">chat</a>
                         </div>
                         <div class="row padding-top-10">
-                            <a  class="btn btn-danger" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>
+                            <a  class="btn btn-danger width-100pc" href="{{ route('deleteFriend',['id'=>$friend->id]) }}">delete</a>
                         </div>
                     </div>
                 </div>

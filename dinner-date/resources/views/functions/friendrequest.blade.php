@@ -8,8 +8,10 @@
     <h1 class="white font-size-50 padding-top-0">Possible daters</h1>
     <div class="jumbotron">
         @if(count($friendRequests) == 0)
-            <h2>You don't have any date requests.</h2>
+            <h3 class="blue">You don't have any date requests.</h3>
         @else
+            <h3 class="blue">See here who want's to date you. <br> They are sorted by who found one of your date interresting.
+                <br> Or who found your profile interesting.</h3>
         <h2>By date</h2>
         <div class="row">
             @foreach($friendRequests as $fQ)

@@ -12,17 +12,25 @@
             <img src="{{$date->photo_url}}" class="max-height-290 img-responsive " alt="photo dish">
         </div>
         <div class="col-sm-6">
-            <h1>{{$date->dish_name}}</h1>
             @if($date->user_id != Auth::id())
             <div class="col-sm-12">
-                <a href="{{ route('addByDate', ['id' => $date->user_id, 'date_id'=>$date->id]) }}">
-                    <div class="green font-25">
+                @if(count($request)==0)
+                    <a href="{{ route('addByDate', ['id' => $date->user_id, 'date_id'=>$date->id]) }}">
+                        <div class="green font-25">
+                            <span class="fa fa-heart"></span>
+                            I want to go on this date
+                        </div>
+                    </a>
+                @else
+                    <div class="red font-25">
                         <span class="fa fa-heart"></span>
-                        I want to go on this date
+                        Date has been proposed.
                     </div>
-                </a>
+                @endif
             </div>
             @endif
+            <h2>{{$date->dish_name}}</h2>
+
             <h3>Preference:</h3>
             <p>
                 @if($date->preference == 0 )

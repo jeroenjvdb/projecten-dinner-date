@@ -46,7 +46,7 @@
                     <img data-u="image" src="img/cook.jpg" />
                 </div>
                 <div style="display: none;">
-                    <img data-u="image" src="img/dinner.jpg" />
+                    <img data-u="image" src="img/dinner4.jpg" />
                 </div>
                 <div style="display: none;">
                     <img data-u="image" src="img/dish.jpg" />

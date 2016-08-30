@@ -13,6 +13,7 @@ use Validator;
 use App\Date;
 use DB;
 use Auth;
+use App\Friend;
 use App\Http\Requests\CreateDateRequest;
 
 class DateController extends Controller
@@ -26,15 +27,23 @@ class DateController extends Controller
      * @var Dish
      */
     protected $dishes;
+
+    /**
+     * @var Friend
+     */
+    protected $friend;
+
     /**
      * DateController constructor.
      * @param Date $date
      * @param Dish $dishes
+     * @param Friend $friend
      */
-    public function __construct(Date $date, Dish $dishes)
+    public function __construct(Date $date, Dish $dishes, Friend $friend)
     {
         $this->date = $date;
         $this->dishes = $dishes;
+        $this->friend = $friend;
     }
 
     /**
@@ -114,7 +123,17 @@ class DateController extends Controller
             ->ExtraInfoSelect()
             ->first();
 
-        return view('dates.date')->with(['date' =>$date]);
+        $request = $this->friend->where('accepted',0)
+            ->where('date_id',$id)
+            ->where('user_id',Auth::id())
+            ->first();
+
+        $data = [
+            'request' => $request,
+            'date' =>$date,
+        ];
+
+        return view('dates.date')->with($data);
     }
 
     /**
@@ -124,16 +143,14 @@ class DateController extends Controller
     public function search(Request $request)
     {
         $dates = $this->date->join('users','users.id','=','dates.host_id')
-            ->join('dishes', 'dishes.id', '=', 'dates.dish_id');
-        if ($request->type) {
+            ->join('dishes', 'dishes.id', '=', 'dates.dish_id')
+            ->where('users.id','<>',Auth::id())
+            ->where('date','>=',Carbon::today());
+        if ($request->type == 0 || $request->type == 1) {
             $dates->where('typeOfDate', '=', $request->type);
         }
-        if ($request->date){
-            $dates->where('date', '=', $request->date);
-        }else{
-            $dates->where('date','>=',Carbon::today());
-        }
-        if ($request->sex){
+
+        if ($request->sex == 0 || $request->sex == 1){
             $dates->where('users.sex', '=', $request->sex);
         }
         $dates = $dates->ExtraInfoSelect()

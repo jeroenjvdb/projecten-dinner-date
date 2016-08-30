@@ -19,7 +19,7 @@
     @include('dashboard.update.updateDate')
     @include('dashboard.picturesModal')
 <h1 class="white font-size-50 margin-top-0">Profile</h1>
-<div class="jumbotron row">
+<div class="jumbotron margin-bottom-40 row">
 
     <center><h2>Welcom {{$profile->surname }}</h2></center>
     @include('dashboard.partials.pictures')

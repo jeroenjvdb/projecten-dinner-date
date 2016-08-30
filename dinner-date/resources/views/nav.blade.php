@@ -34,7 +34,7 @@
                             </span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{ route('dishIndex') }}">Dishes</a></li>
+                            <li><a href="{{ route('dishIndex') }}">All dishes</a></li>
                             <li><a href="{{ route('myDishes') }}">My dishes</a></li>
                             <li><a href="{{ route('dishCreate') }}">Create dish</a></li>
 

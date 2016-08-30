@@ -7,12 +7,12 @@
 @section('body')
 	<h1 class="start-sentence font-size-50 white margin-top-0">{{ $dish->name }}
 		@if(Auth::id() == $dish->user_id)
-		{{--<a class="color-black" href="{{ route('editDish', $dish->id ) }}">--}}
-		{{--<span class="clickable glyphicon glyphicon-pencil"></span>--}}
-		{{--</a>--}}
-		{{--<a class="color-black" href="{{ route('deleteDish', $dish->id ) }}">--}}
-		{{--<span class="clickable glyphicon glyphicon-remove"></span>--}}
-		{{--</a>--}}
+		<a class="color-black" href="{{ route('editDish', $dish->id ) }}">
+		<span class="clickable glyphicon glyphicon-pencil"></span>
+		</a>
+		<a class="color-black" href="{{ route('deleteDish', $dish->id ) }}">
+		<span class="clickable glyphicon glyphicon-remove"></span>
+		</a>
 		@endif
 		</br>
 		<a class="color-black" href="{{ route('getProfile', $dish->user_id ) }}">
@@ -22,10 +22,9 @@
 			<small class="start-sentence">Back</small>
 		</a>
 	</h1>
-	<div class="jumbotron row">
+	<div class="jumbotron margin-bottom-30 row">
 	<div class="row">
 		<div class="row">
-			{{--<a class="btn btn-default bg-blue white font-size-18" href="{{ URL::previous() }}">Back</a>--}}
 		</div>
 		<div class="col-sm-4 height-290">
 			<img class="height-290 width-320 img-responsive" src="{{ $dish->photo_url }}" alt="{{ $dish->name }}">
