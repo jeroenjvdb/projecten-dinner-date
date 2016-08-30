@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/{id}', ['as' => 'getProfile', 'uses' => 'MainController@getProfile']);
     });
 
-    Route::group(['prefix' => 'friends'], function (){
+    Route::group(['prefix' => 'daters'], function (){
         Route::get('/requests', ['as' => 'getRequests', 'uses' => 'FriendController@getRequests']);
         Route::get('/add/{id}', ['as' => 'addFriend', 'uses' => 'FriendController@addFriend']);
         Route::get('/add/{id}/{date}', ['as' => 'addByDate', 'uses' => 'FriendController@addByDate']);
@@ -79,6 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/create', ['as' => 'createDate', 'uses' => 'DateController@index']);
         Route::post('/createDate', ['as' => 'createDatePost', 'uses' => 'DateController@create']);
         Route::get('/show/{id}', ['as'=>'showdate', 'uses' => 'DateController@show']);
+        Route::get('/random', ['as'=>'random', 'uses' => 'DateController@randomDate']);
+
     });
 
 

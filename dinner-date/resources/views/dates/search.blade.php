@@ -7,6 +7,7 @@
 @section('body')
 	<h1 class="font-size-50 white margin-top-0">Search</h1>
 <div class="jumbotron">
+	<div class="blue"> <h3>Find a date! <br>Choose the kind of date you want and with who.</h3></div>
 <div class="row">
 	<div class="col-sm-12" id="searchSettings">
 		{!! Form::open([ 'method' => 'POST', 'id' => 'searchForm' ]) !!}
@@ -20,28 +21,26 @@
 					
 				</div>
 				<div class="col-md-6">
+					{{--<div class="row form-group">--}}
+						{{--<div class="col-md-3 right">--}}
+							{{--{!! Form::label('Day') !!}--}}
+						{{--</div>--}}
+						{{--<div class="col-md-9">--}}
+							{{--{!! Form::date('datum', $tomorrow, array('class' => 'form-control', 'data-date-format' => 'MM-DD-YYYY')) !!}--}}
+						{{--</div>--}}
+					{{--</div>--}}
 					<div class="row form-group">
-						<div class="col-md-3 right">
-							{!! Form::label('Day') !!}
-						</div>
-						<div class="col-md-9">
-							{!! Form::date('datum', $tomorrow, array('class' => 'form-control', 'data-date-format' => 'MM-DD-YYYY')) !!}
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-3">
-							{!! Form::label('sex', 'Sex') !!}
-						</div>
-						<div class="col-md-9">
-							{!! Form::radio('sex', '0',null,['id' => '0']) !!}
-							{!! Form::label('0', 'male') !!}</br>
-							{!! Form::radio('sex', '1',null, ['id' => '1']) !!}
-							{!! Form::label('1', 'female') !!}
+						<div class="col-md-6">
+						{!! Form::label('sex', 'Sex:') !!}<br>
+						{!! Form::radio('sex', 0,null,['id' => '0']) !!}
+						{!! Form::label('0', 'Male') !!}<br>
+						{!! Form::radio('sex', 1,null, ['id' => '1']) !!}
+						{!! Form::label('1', 'Female') !!}
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-xs-offset-3 col-xs-9">
-							{!! Form::submit('Submit', array('class' => 'btn btn-default')) !!}
+						<div class="col-xs-9">
+							{!! Form::submit('Submit', array('class' => 'btn btn-default bg-blue white font-size-18')) !!}
 						</div>
 					</div>
 				</div>
@@ -50,7 +49,7 @@
 		{!! Form::close()!!}
 	</div>
 	</div>
-	<div class="row" id="results">
+	<div class="row padding-top-30" id="results">
 		
 	</div>
 	</div>

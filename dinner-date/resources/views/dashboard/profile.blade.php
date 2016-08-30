@@ -7,7 +7,7 @@
 @section('body')
 @include('dashboard.picturesModal')
 <h1 class="white font-size-50 margin-top-0">Profile</h1>
-	<div class="jumbotron">
+	<div class="jumbotron margin-bottom-40">
 		<div class="row">
 			<div class="col-sm-3 profile-pics" data-toggle="modal" data-target="#pictures">
 				@if (count($images) === 0)
@@ -102,7 +102,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="jumbotron">
+	<div class="jumbotron margin-bottom-40">
 		<div class="row">
 			<h1>Food profile </h1>
 			<div class="col-sm-offset-1 col-sm-11">
@@ -112,7 +112,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="jumbotron">
+	<div class="jumbotron margin-bottom-40">
 		<div class="row">
 			<h1>Dishes</h1>
 			@include('dishes.partialDish')

@@ -26,12 +26,9 @@ class visitors extends Model
      * @param $id
      * @return mixed
      */
-    public function scopecheckToday($query,$id)
+    public function scopecheckToday($query)
     {
-        return $query->where('visited',$id)
-            ->where('updated_at','<',Carbon::tomorrow())
-            ->where('updated_at','>',Carbon::yesterday())
-            ->get();
+        return $query->where('visitors.updated_at','=',Carbon::today());
     }
 
     /**

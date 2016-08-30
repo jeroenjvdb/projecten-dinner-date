@@ -46,7 +46,7 @@
                     <img data-u="image" src="img/cook.jpg" />
                 </div>
                 <div style="display: none;">
-                    <img data-u="image" src="img/dinner.jpg" />
+                    <img data-u="image" src="img/dinner4.jpg" />
                 </div>
                 <div style="display: none;">
                     <img data-u="image" src="img/dish.jpg" />
@@ -85,7 +85,7 @@
             @endif
             @yield('body')
         @include('Auth.registerForm',array('before' => $before))
-        <div class="jumbotron">
+        <div class="jumbotron margin-bottom-40">
             <div class="row">
                 <div class="col-sm-2 col-md-2 text-center ">
                     <i class="fa fa-heart fa-5x red " aria-hidden="true"></i>
@@ -103,7 +103,7 @@
             </div>
 
         </div>
-        <div class="jumbotron">
+        <div class="jumbotron margin-bottom-40">
             <div class="row">
                 <div class="col-sm-2 col-md-2 col-xs-2 col-md-2">
                     <img class="img-responsive img-circle" src="http://daisybrand.com/assets/images/recipes/recipe-images/PANNA%20COTTA%20W%20STRAWBERRY%20SAUCE%20770x628_5314.jpg" alt="">

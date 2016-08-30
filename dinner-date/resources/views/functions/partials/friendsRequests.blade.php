@@ -26,10 +26,17 @@
                 </a>
             </div>
             <div class="col-sm-12">
-                <a class="blue" href="{{ route('deleteFriendRequest', [$fQ->user->id]) }}">
+                <a class="blue-cross" href="{{ route('deleteFriendRequest', [$fQ->user->id]) }}">
                     <div class="text-center font-25">
                         <span class="fa fa-close"></span>
                         Decline
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-12">
+                <a class="blue" href="{{ route('showdate', [$fQ->date_id]) }}">
+                    <div class="text-center font-18">
+                        Your date
                     </div>
                 </a>
             </div>

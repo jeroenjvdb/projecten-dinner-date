@@ -2,15 +2,19 @@
 
 @section('body')
 	<h1 class="white font-size-50 margin-top-0">Create a Dish
-        <br>
-        <a class="color-black" href="{{ URL::previous() }}">
-            <small class="start-sentence">Back</small>
-        </a>
-    </h1>
+        </h1>
 
 	<div class="jumbotron">
-	{!! Form::open(array('files' => 'true', 'class' => 'form-horizontal','url' => route('postCreate'),
-	'method' => 'POST')) !!}
+		@if ($errors->has('no dish'))
+		<div class="form-group {{ $errors->has('no dish') ? ' has-error' : '' }}">
+				<div class="col-md-12">
+                        <span class="help-block">
+                            <p>{{ $errors->first('no dish') }}</p>
+                        </span>
+				</div>
+		</div>
+		@endif
+		{!! Form::open(array('files' => 'true', 'class' => 'form-horizontal','url' => route('postCreate'),'method' => 'POST')) !!}
 	<div id="info1">
 		<div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
 		{!! Form::label('name', 'Name', ['class' => 'control-label col-sm-3']) !!}
@@ -82,7 +86,7 @@
             </div>
 		</div>
 		<div class="col-xs-offset-3 col-sm-7">
-			<div id="next" class="btn btn-default form-control bg-blue white font-size-18"> add extra info</div>
+			<div id="next" class="btn btn-default form-control bg-blue white font-size-18"> Add extra info</div>
 		</div>
 	</div>
 	<div id="info2" class="hide">
@@ -135,6 +139,9 @@
 	</div>
 	{!! Form::close() !!}
 	</div>
+	<h1><a class="color-black" href="{{ URL::previous() }}">
+		<small class="start-sentence">Back</small>
+	</a></h1>
 @stop
 
 @section('scripts')

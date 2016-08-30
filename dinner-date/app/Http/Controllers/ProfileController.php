@@ -84,7 +84,7 @@ class ProfileController extends Controller
     public function loadDashboard()
     {
         $id = Auth::id();
-        $visitorsToday = $this->visitors->checkToday($id);
+        $visitorsToday = $this->visitors->getUsers($id)->checkToday()->get();
         $visitorsToday = count($visitorsToday);
         $daterequests = $this->friend->GetRequests($id);
         $daters = $this->friend->GetFriends($id);
@@ -214,7 +214,9 @@ class ProfileController extends Controller
     public function visitors()
     {
 //        dd('test');
-        $visitors = $this->visitors->GetUsers(Auth::id())->get();
+        $visitors = $this->visitors->GetUsers(Auth::id())
+            ->checkToday()
+            ->get();
 
         foreach ($visitors as $key => $item) {
             $item->picture = $this->picture->where('user_id','=',$item->visitor)

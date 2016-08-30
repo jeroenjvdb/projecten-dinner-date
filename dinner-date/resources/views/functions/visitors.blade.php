@@ -5,13 +5,13 @@
 @stop
 
 @section('body')
-    <h1 class="font-size-50 white margin-top-0">Today's visitors
-        <br>
-        <a class="color-black" href="{{ URL::previous() }}">
-            <small class="start-sentence">Back</small>
-        </a>
-    </h1>
+    <h1 class="font-size-50 white margin-top-0">Today's visitors </h1>
     <div class="jumbotron">
+        @if(count($visitors) ==0 )
+            <div class="blue"><h3>You didn't have any visitors on your profile yet.</h3></div>
+        @else
+            <div class="blue"><h3>Check who has visited your profile today.</h3></div>
+        @endif
         <div class="row">
             @foreach($visitors as $key => $item)
                 {{--{{dd($item)}}--}}
@@ -39,6 +39,11 @@
 
         </div>
     </div>
+    <h1>
+        <a class="color-black" href="{{ URL::previous() }}">
+            <small class="start-sentence">Back</small>
+        </a>
+    </h1>
 
 @stop
 

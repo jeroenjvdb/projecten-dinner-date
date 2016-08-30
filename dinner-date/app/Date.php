@@ -65,7 +65,7 @@ class Date extends Model
             'dates.id as id',
             'users.surname as user_name', 'dishes.name as dish_name',
             'photo_url','date', 'description','typeofdate','area',
-            'users.id as user_id'
+            'users.id as user_id','users.sex'
         );
     }
 }

@@ -1,12 +1,13 @@
 $(document).ready(function(){
     $('#searchForm').on('submit', findDates);
     console.log('ready');
-    $('#searchForm input').on('change', findDates);
+    // $('#searchForm input').on('change', findDates);
 
 
     function findDates(e){
         e.preventDefault();
         // console.log(e);
+        $('#results').html('');
 
         var sex = $('#searchForm input[name="sex"]:checked').val();
         console.log('gender: ' + sex);
@@ -21,10 +22,10 @@ $(document).ready(function(){
             data: {sex: sex, type:type, date:date},
             success: function(data, status){
                 console.log(data);
-                makeSearch(data);
-                for(var i = 0; i<data.length; i++)
-                {
-                    console.log('test');
+                if(data.length>0){
+                    makeSearch(data);
+                }else{
+                    $('#results').html('<h2>There are no search results.</h2>');
                 }
             },
             error: function(data, status){
@@ -45,7 +46,6 @@ $(document).ready(function(){
 
     function makeSearch(data){
         console.log('in');
-        $('#results').text(' ');
         for(var i = 0; i<data.length; i++)
         {
             console.log(data[i]);
@@ -69,10 +69,10 @@ $(document).ready(function(){
         }else{
             var url = data["photo_url"];
         }
-        html += '<img src="' + url +'" class="img-responsive" alt="'+data["name"]+'">';
+        html += '<img src="' + url +'" class="img-responsive max-height-290" alt="'+data["name"]+'">';
         html += '</div> <div class="col-sm-6"> <div class="row"> <div class="col-sm-12">';
         html += '<h4>'+ data["dish_name"] + '</h4>';
-        html += '<p>' + data["date"] + '-' + data["area"] + '</p>';
+        html += '<p>' + data["date"] + '<br>' + data["area"] + '</p>';
         html += '<p>' + data["description"].substring(0,100) + '</p>';
         html += '</div></div></div></div></a>';
 
