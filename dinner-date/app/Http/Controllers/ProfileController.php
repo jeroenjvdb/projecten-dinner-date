@@ -105,7 +105,7 @@ class ProfileController extends Controller
             'dishes' => $dishes,
             'visitorsToday' => $visitorsToday,
             'daterequests' => count($daterequests),
-            'daters' => count($daterequests),
+            'daters' => count($daters),
         ];
 
         return View('dashboard.dashboard2')->with($data);

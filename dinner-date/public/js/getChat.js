@@ -36,7 +36,7 @@ $(document).ready(function(){
 		}
 
 		loadChat();
-		timerId = setInterval(loadChat, 2500);
+		timerId = setInterval(loadChat, 5000);
 
 		$(document).on('click', '#btn-chat', postMessage);
 

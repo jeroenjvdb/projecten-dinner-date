@@ -70,7 +70,7 @@
             var baseUrl = document.location.origin;
             $.ajax({
                 type: 'get',
-                url: baseUrl+'/unseen/',
+                url: 'http://dinner-date-jonasvr.c9users.io:80/unseen',
                 success: function(data){
                     if(data > 0){
                         $('#message').removeClass('hide')

@@ -10,7 +10,7 @@
             </div>
             <div class="text-center padding-top-10">
                 <strong>
-                    {{$fQ->user->name}}
+                    {{$fQ->user->surname}}
                     <br>
                     {{$fQ->user->city}}
                 </strong>
@@ -33,6 +33,7 @@
                     </div>
                 </a>
             </div>
+            @if($fQ->date_id>0)
             <div class="col-sm-12">
                 <a class="blue" href="{{ route('showdate', [$fQ->date_id]) }}">
                     <div class="text-center font-18">
@@ -40,6 +41,7 @@
                     </div>
                 </a>
             </div>
+            @endif
         </div>
     </div>
 </div>

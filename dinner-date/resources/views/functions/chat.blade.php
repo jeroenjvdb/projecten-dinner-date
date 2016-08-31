@@ -33,11 +33,6 @@
                                 <i class="fa fa-envelope" id="message" aria-hidden="true"></i>
                             @endif
                         </div>
-                        @if($friend->seen == 0)
-                        <div class="row">
-                            <i class="fa fa-envelope" id="message" aria-hidden="true"></i>
-                        </div>
-                        @endif
                         <div class="row padding-top-10">
                             <a  class="btn btn-default bg-blue white chatPerson width-100pc" id="{{ $friend->id }}">chat</a>
                         </div>
